@@ -27,6 +27,7 @@
     "breadcrumb": "Fil d’Ariane",
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu",
+    "closeModal": "Fermer la fenêtre",
     "languageGroup": "Choisir la langue",
     "switchTo": "Afficher le site en {language}",
     "appViews": "Vues de l’application"

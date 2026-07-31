@@ -4,7 +4,8 @@ import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { useTranslation } from '@/i18n';
 import { SITE } from '@/lib/data/site';
-import { Button, ButtonExternal } from '@/components/ui/Button';
+import { ButtonExternal } from '@/components/ui/Button';
+import { RequestDemoButton } from '@/components/ui/RequestDemoButton';
 import { Reveal } from '@/components/animations/Reveal';
 
 type Props = {
@@ -50,9 +51,7 @@ export function CtaBand({ eyebrow, title, text, actions, showContacts = false }:
               <ButtonExternal href={SITE.appRegisterUrl} variant="lime" size="lg">
                 {t('actions.createAccount')}
               </ButtonExternal>
-              <Button href="/contact" variant="outline-light" size="lg">
-                {t('actions.requestDemo')}
-              </Button>
+              <RequestDemoButton variant="outline-light" size="lg" />
             </>
           )}
         </div>

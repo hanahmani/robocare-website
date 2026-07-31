@@ -4,7 +4,8 @@ import { useTranslation } from '@/i18n';
 import { PageHero } from '@/components/layout/PageHero';
 import { Section } from '@/components/ui/Section';
 import { Card, IconChip } from '@/components/ui/Card';
-import { Button, ButtonExternal } from '@/components/ui/Button';
+import { ButtonExternal } from '@/components/ui/Button';
+import { RequestDemoButton } from '@/components/ui/RequestDemoButton';
 import { Arrow } from '@/components/ui/Arrow';
 import { Reveal } from '@/components/animations/Reveal';
 import { Stagger, StaggerItem } from '@/components/animations/Stagger';
@@ -37,9 +38,7 @@ export function PlatformView() {
               {t('actions.accessPlatform')}
               <Arrow />
             </ButtonExternal>
-            <Button href="/contact" variant="outline-light" size="lg">
-              {t('actions.requestDemo')}
-            </Button>
+            <RequestDemoButton variant="outline-light" size="lg" />
           </>
         }
       />

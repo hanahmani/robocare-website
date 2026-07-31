@@ -7,7 +7,8 @@ import { Section } from '@/components/ui/Section';
 import { AboutApproach } from '@/sections/about/AboutApproach';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Card } from '@/components/ui/Card';
-import { Button, ButtonExternal } from '@/components/ui/Button';
+import { ButtonExternal } from '@/components/ui/Button';
+import { RequestDemoButton } from '@/components/ui/RequestDemoButton';
 import { StatCounter } from '@/components/ui/StatCounter';
 import { Reveal } from '@/components/animations/Reveal';
 import { Stagger, StaggerItem } from '@/components/animations/Stagger';
@@ -49,9 +50,7 @@ export function AboutView() {
         crumbs={[{ labelKey: 'nav.about' }]}
         actions={
           <>
-            <Button href="/contact" variant="lime" size="lg">
-              {t('actions.requestDemo')}
-            </Button>
+            <RequestDemoButton variant="lime" size="lg" />
             <ButtonExternal href={SITE.appUrl} variant="outline-light" size="lg">
               {t('actions.thePlatform')}
             </ButtonExternal>
@@ -388,9 +387,7 @@ export function AboutView() {
             {t('about.contactCta.text')}
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3.5">
-            <Button href="/contact" variant="primary" size="lg">
-              {t('actions.requestDemo')}
-            </Button>
+            <RequestDemoButton variant="primary" size="lg" />
             <a
               href={`mailto:${SITE.email}`}
               className="inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-full border border-forest-800/20 px-7 py-4 text-[15.5px] font-bold text-forest-800 transition-all duration-300 ease-premium hover:-translate-y-0.5 hover:border-forest-800/50 hover:bg-forest-800/[0.04] hover:text-forest-800"

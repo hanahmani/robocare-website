@@ -8,6 +8,7 @@ import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { CheckRow, Pill } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { RequestDemoButton } from '@/components/ui/RequestDemoButton';
 import { Reveal } from '@/components/animations/Reveal';
 import { CtaBand } from '@/sections/shared/CtaBand';
 import { FarmingConcepts } from '@/sections/solutions/FarmingConcepts';
@@ -30,9 +31,7 @@ export function SolutionsView() {
         crumbs={[{ labelKey: 'nav.solutions' }]}
         actions={
           <>
-            <Button href="/contact" variant="primary" size="lg">
-              {t('actions.requestDemo')}
-            </Button>
+            <RequestDemoButton variant="primary" size="lg" />
             <Button href="/plateforme" variant="outline-light" size="lg">
               {t('actions.seePlatform')}
             </Button>

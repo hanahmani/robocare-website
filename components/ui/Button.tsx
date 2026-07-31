@@ -2,8 +2,8 @@ import Link from 'next/link';
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 
-type Variant = 'primary' | 'lime' | 'dark' | 'outline' | 'outline-light';
-type Size = 'md' | 'lg';
+export type Variant = 'primary' | 'lime' | 'dark' | 'outline' | 'outline-light';
+export type Size = 'md' | 'lg';
 
 const BASE =
   'inline-flex items-center justify-center gap-2.5 rounded-full font-bold tracking-[-0.01em] transition-all duration-300 ease-premium will-change-transform disabled:pointer-events-none disabled:opacity-60';

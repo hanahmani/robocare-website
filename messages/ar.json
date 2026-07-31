@@ -27,6 +27,7 @@
     "breadcrumb": "مسار التصفّح",
     "openMenu": "فتح القائمة",
     "closeMenu": "إغلاق القائمة",
+    "closeModal": "إغلاق النافذة",
     "languageGroup": "اختيار اللغة",
     "switchTo": "عرض الموقع بـ{language}",
     "appViews": "واجهات التطبيق"

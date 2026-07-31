@@ -6,6 +6,7 @@ import { BellRing, Check } from 'lucide-react';
 import { useTranslation } from '@/i18n';
 import { HERO_MOISTURE_BARS, HERO_NDVI_VALUE } from '@/lib/data/home';
 import { Button } from '@/components/ui/Button';
+import { RequestDemoButton } from '@/components/ui/RequestDemoButton';
 import { Arrow } from '@/components/ui/Arrow';
 import { EASE } from '@/lib/motion';
 
@@ -86,9 +87,7 @@ export function Hero() {
               {t('actions.seeSolutions')}
               <Arrow size={17} />
             </Button>
-            <Button href="/contact" variant="outline-light" size="lg">
-              {t('actions.requestDemo')}
-            </Button>
+            <RequestDemoButton variant="outline-light" size="lg" />
           </motion.div>
 
           <motion.p

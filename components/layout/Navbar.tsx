@@ -10,7 +10,8 @@ import { useTranslation } from '@/i18n';
 import { NAV_ITEMS, SITE } from '@/lib/data/site';
 import { cn } from '@/lib/utils';
 import { EASE } from '@/lib/motion';
-import { Button, ButtonExternal } from '@/components/ui/Button';
+import { ButtonExternal } from '@/components/ui/Button';
+import { RequestDemoButton } from '@/components/ui/RequestDemoButton';
 import { ScrollProgress } from '@/components/animations/ScrollProgress';
 import { LanguageSwitcher, LanguageSwitcherMobile } from '@/components/layout/LanguageSwitcher';
 
@@ -132,9 +133,12 @@ export function Navbar() {
 
               <LanguageSwitcherMobile />
 
-              <Button href="/contact" variant="primary" size="lg" className="mt-3 w-full">
-                {t('actions.requestDemo')}
-              </Button>
+              <RequestDemoButton
+                variant="primary"
+                size="lg"
+                className="mt-3 w-full"
+                onClick={() => setOpen(false)}
+              />
             </div>
           </motion.nav>
         ) : null}

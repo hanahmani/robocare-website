@@ -7,6 +7,7 @@ import { getTranslation } from '@/i18n/getDictionary';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { ChatWidget } from '@/components/chat/ChatWidget';
+import { DemoModalProvider } from '@/components/demo/DemoModalProvider';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { graph, organizationSchema, websiteSchema } from '@/lib/seo/schema';
 import { SITE } from '@/lib/data/site';
@@ -106,18 +107,20 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     >
       <body>
         <I18nProvider initialLocale={locale}>
-          {/* Lien d'évitement pour la navigation clavier */}
-          <a
-            href="#contenu"
-            className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:m-3 focus:rounded-full focus:bg-forest-900 focus:px-5 focus:py-3 focus:text-white"
-          >
-            {t('a11y.skipToContent')}
-          </a>
-          <Navbar />
-          <main id="contenu">{children}</main>
-          <Footer />
-          {/* Assistant flottant, présent sur toutes les pages */}
-          <ChatWidget />
+          <DemoModalProvider>
+            {/* Lien d'évitement pour la navigation clavier */}
+            <a
+              href="#contenu"
+              className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:m-3 focus:rounded-full focus:bg-forest-900 focus:px-5 focus:py-3 focus:text-white"
+            >
+              {t('a11y.skipToContent')}
+            </a>
+            <Navbar />
+            <main id="contenu">{children}</main>
+            <Footer />
+            {/* Assistant flottant, présent sur toutes les pages */}
+            <ChatWidget />
+          </DemoModalProvider>
         </I18nProvider>
 
         {/* Identité de l'organisation et du site, communes à toutes les pages */}

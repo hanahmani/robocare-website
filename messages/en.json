@@ -27,6 +27,7 @@
     "breadcrumb": "Breadcrumb",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
+    "closeModal": "Close window",
     "languageGroup": "Choose a language",
     "switchTo": "View the site in {language}",
     "appViews": "Application views"

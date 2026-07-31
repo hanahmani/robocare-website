@@ -9,6 +9,7 @@ import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Card, IconChip } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { RequestDemoButton } from '@/components/ui/RequestDemoButton';
 import { Arrow } from '@/components/ui/Arrow';
 import { Reveal } from '@/components/animations/Reveal';
 import { Stagger, StaggerItem } from '@/components/animations/Stagger';
@@ -48,9 +49,7 @@ export function ImpactView() {
         crumbs={[{ labelKey: 'nav.impact' }]}
         actions={
           <>
-            <Button href="/contact" variant="lime" size="lg">
-              {t('actions.requestDemo')}
-            </Button>
+            <RequestDemoButton variant="lime" size="lg" />
             <Button href="#etudes" variant="outline-light" size="lg">
               {t('actions.readCaseStudies')}
             </Button>
