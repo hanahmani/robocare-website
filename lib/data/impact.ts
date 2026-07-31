@@ -1,4 +1,14 @@
-import { BarChart3, Cpu, Droplets, FileText, Leaf, Satellite, ShieldCheck } from 'lucide-react';
+import {
+  BarChart3,
+  Cpu,
+  Droplets,
+  FileText,
+  Leaf,
+  Satellite,
+  ShieldCheck,
+  Sprout,
+  Sun,
+} from 'lucide-react';
 import type { CropResult, FeatureItem, StatDatum, Step, Story } from '@/types';
 
 /** Méthodologie — textes dans `impact.method.steps.<id>`. */
@@ -75,3 +85,23 @@ export const IMPACT_STORIES = [
   { slug: 'cereal-cooperative-beja' },
   { slug: 'citrus-orchard-nabeul' },
 ] as const satisfies readonly Story[];
+
+/**
+ * Réductions moyennes constatées — libellés dans `impact.environment.bars.<id>`.
+ * `value` est le pourcentage affiché ET la largeur de la barre.
+ */
+export const IMPACT_ENV_BARS = [
+  { id: 'water', value: 28, featured: true },
+  { id: 'nitrogen', value: 19 },
+  { id: 'treatments', value: 24 },
+  { id: 'fuel', value: 15 },
+  { id: 'emissions', value: 21 },
+] as const;
+
+/** Cartes environnementales — textes dans `impact.environment.cards.<id>`. */
+export const IMPACT_ENV_CARDS = [
+  { id: 'aquifers', icon: Droplets },
+  { id: 'soil', icon: Sprout },
+  { id: 'climate', icon: Sun, tone: 'ocre' },
+  { id: 'certification', icon: ShieldCheck, tone: 'ocre' },
+] as const satisfies readonly FeatureItem[];

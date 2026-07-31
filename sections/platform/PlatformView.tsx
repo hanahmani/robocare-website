@@ -9,6 +9,8 @@ import { Arrow } from '@/components/ui/Arrow';
 import { Reveal } from '@/components/animations/Reveal';
 import { Stagger, StaggerItem } from '@/components/animations/Stagger';
 import { PlatformShowcase } from '@/sections/platform/PlatformShowcase';
+import { PlatformCapabilities } from '@/sections/platform/PlatformCapabilities';
+import { PlatformArchitecture } from '@/sections/platform/PlatformArchitecture';
 import { CtaBand } from '@/sections/shared/CtaBand';
 import { PLATFORM_MODULES, PLATFORM_STEPS } from '@/lib/data/platform';
 import { SITE } from '@/lib/data/site';
@@ -90,6 +92,9 @@ export function PlatformView() {
         </Stagger>
       </Section>
 
+      {/* Usages avancés */}
+      <PlatformCapabilities />
+
       {/* Démarrage en quatre étapes */}
       <Section tone="sage">
         <Reveal className="max-w-[42rem]">
@@ -119,6 +124,9 @@ export function PlatformView() {
           ))}
         </Stagger>
       </Section>
+
+      {/* Architecture technique, cloud et sécurité */}
+      <PlatformArchitecture />
 
       <Section>
         <CtaBand />

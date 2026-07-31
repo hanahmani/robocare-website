@@ -9,6 +9,8 @@ import { Button } from '@/components/ui/Button';
 import { Reveal } from '@/components/animations/Reveal';
 import { Stagger, StaggerItem } from '@/components/animations/Stagger';
 import { CtaBand } from '@/sections/shared/CtaBand';
+import { VegetationIndices } from '@/sections/technology/VegetationIndices';
+import { TechStack } from '@/sections/technology/TechStack';
 import { TECH_BLOCKS, TECH_METRICS, TECH_PIPELINE } from '@/lib/data/technology';
 import { cn, pad2 } from '@/lib/utils';
 
@@ -108,6 +110,12 @@ export function TechnologyView() {
           })}
         </div>
       </Section>
+
+      {/* Les quatre indices de végétation */}
+      <VegetationIndices />
+
+      {/* Détail des briques techniques */}
+      <TechStack />
 
       {/* Chaîne de traitement */}
       <Section>

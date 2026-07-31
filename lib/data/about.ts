@@ -1,4 +1,5 @@
-import type { MediaItem, Member, Milestone, Partner } from '@/types';
+import { Compass, GraduationCap, Lightbulb, ListChecks } from 'lucide-react';
+import type { FeatureItem, MediaItem, Member, Milestone, Partner } from '@/types';
 
 /** Frise « Notre histoire » — textes dans `about.milestones.<id>`. */
 export const MILESTONES = [
@@ -73,4 +74,32 @@ export const RESOURCES = [
 ] as const;
 
 /** FAQ de la page Contact — textes dans `contact.faq.items.<id>`. */
-export const CONTACT_FAQ = ['hardware', 'delay', 'languages', 'coverage'] as const;
+export const CONTACT_FAQ = [
+  'hardware',
+  'pricing',
+  'delay',
+  'integration',
+  'security',
+  'languages',
+  'coverage',
+] as const;
+
+/** Approche et méthodologie — textes dans `about.approach.items.<id>`. */
+export const ABOUT_APPROACH = [
+  { id: 'approach', icon: Compass },
+  { id: 'method', icon: ListChecks },
+  { id: 'expertise', icon: GraduationCap, tone: 'ocre' },
+  { id: 'innovation', icon: Lightbulb, tone: 'ocre' },
+] as const satisfies readonly FeatureItem[];
+
+/** Arguments « pourquoi nous » — textes dans `about.approach.whyUs.items.<id>`. */
+export const ABOUT_WHY_US = [
+  'local',
+  'agronomy',
+  'languages',
+  'noLockIn',
+  'measurable',
+] as const;
+
+/** Étapes d'une démonstration — textes dans `contact.demo.steps.<id>`. */
+export const CONTACT_DEMO_STEPS = ['request', 'prep', 'demo', 'trial'] as const;

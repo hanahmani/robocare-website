@@ -69,6 +69,34 @@
     @apply border border-white/15 bg-white/[0.07] backdrop-blur-xl;
   }
 
+  /* Barre de défilement de l'assistant : discrète, déclinée clair / sombre.
+     Portée strictement limitée au panneau du chat. */
+  .scrollbar-chat-light,
+  .scrollbar-chat-dark {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-chat-light {
+    scrollbar-color: rgba(8, 23, 15, 0.16) transparent;
+  }
+
+  .scrollbar-chat-dark {
+    scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+  }
+
+  .scrollbar-chat-light::-webkit-scrollbar,
+  .scrollbar-chat-dark::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-chat-light::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-forest-950/[0.16];
+  }
+
+  .scrollbar-chat-dark::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-white/20;
+  }
+
   .grid-overlay {
     background-image:
       linear-gradient(rgba(158, 216, 75, 0.09) 1px, transparent 1px),

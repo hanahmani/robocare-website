@@ -10,6 +10,7 @@ import { CheckRow, Pill } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Reveal } from '@/components/animations/Reveal';
 import { CtaBand } from '@/sections/shared/CtaBand';
+import { FarmingConcepts } from '@/sections/solutions/FarmingConcepts';
 import { SOLUTIONS } from '@/lib/data/solutions';
 import { cn } from '@/lib/utils';
 
@@ -191,7 +192,10 @@ export function SolutionsView() {
         </p>
       </Section>
 
-      <Section flushTop>
+      {/* Bloc pédagogique : ce sur quoi reposent les quatre solutions */}
+      <FarmingConcepts />
+
+      <Section>
         <CtaBand
           eyebrow={t('solutions.cta.eyebrow')}
           title={t('solutions.cta.title')}

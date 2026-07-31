@@ -3,8 +3,11 @@
 import { useTranslation } from '@/i18n';
 import { Hero } from '@/sections/home/Hero';
 import { About } from '@/sections/home/About';
+import { WhyRoboCare } from '@/sections/home/WhyRoboCare';
 import { SolutionsPreview } from '@/sections/home/SolutionsPreview';
 import { PlatformPreview } from '@/sections/home/PlatformPreview';
+import { SocialProof } from '@/sections/home/SocialProof';
+import { HomeFaq } from '@/sections/home/HomeFaq';
 import { Statistics } from '@/sections/shared/Statistics';
 import { CtaBand } from '@/sections/shared/CtaBand';
 import { Section, IndexScale } from '@/components/ui/Section';
@@ -28,9 +31,13 @@ export function HomeView() {
         <IndexScale className="absolute inset-x-0 bottom-0" />
       </section>
 
+      {/* Alternance des fonds conservée : blanc → crème → sauge → sombre → blanc → sauge */}
       <About />
+      <WhyRoboCare />
       <SolutionsPreview />
       <PlatformPreview />
+      <SocialProof />
+      <HomeFaq />
 
       <Section>
         <CtaBand showContacts />

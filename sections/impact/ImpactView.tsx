@@ -14,6 +14,7 @@ import { Reveal } from '@/components/animations/Reveal';
 import { Stagger, StaggerItem } from '@/components/animations/Stagger';
 import { Statistics } from '@/sections/shared/Statistics';
 import { CtaBand } from '@/sections/shared/CtaBand';
+import { ImpactEnvironment } from '@/sections/impact/ImpactEnvironment';
 import {
   IMPACT_BENEFITS,
   IMPACT_CROPS,
@@ -177,6 +178,9 @@ export function ImpactView() {
       </Section>
 
       {/* Études de cas */}
+      {/* Empreinte environnementale */}
+      <ImpactEnvironment />
+
       <Section id="etudes" tone="sage" className="scroll-mt-24">
         <SectionHeading eyebrow={t('impact.stories.eyebrow')} title={t('impact.stories.title')} />
         <div className="mt-10 flex flex-col gap-6">

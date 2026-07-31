@@ -4,6 +4,7 @@ import { Mail } from 'lucide-react';
 import { useTranslation } from '@/i18n';
 import { PageHero } from '@/components/layout/PageHero';
 import { Section } from '@/components/ui/Section';
+import { AboutApproach } from '@/sections/about/AboutApproach';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Card } from '@/components/ui/Card';
 import { Button, ButtonExternal } from '@/components/ui/Button';
@@ -146,6 +147,9 @@ export function AboutView() {
       </Section>
 
       {/* Valeurs */}
+      {/* Approche, méthodologie et engagement */}
+      <AboutApproach />
+
       <Section id="valeurs">
         <SectionHeading eyebrow={t('about.values.eyebrow')} title={t('about.values.title')} />
         <Stagger className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

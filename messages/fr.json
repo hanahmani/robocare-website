@@ -91,8 +91,13 @@
       "subtitle": "Imagerie satellite, drones multispectraux et intelligence artificielle : RoboCare transforme chaque parcelle en décisions agronomiques précises — eau, fertilisation, traitement.",
       "note": "Sans matériel. Ajoutez une parcelle, première analyse en 24 h.",
       "cards": {
-        "ndvi": { "label": "NDVI moyen", "delta": "+6 %" },
-        "moisture": { "label": "Humidité du sol · zone Nord" },
+        "ndvi": {
+          "label": "NDVI moyen",
+          "delta": "+6 %"
+        },
+        "moisture": {
+          "label": "Humidité du sol · zone Nord"
+        },
         "alert": {
           "label": "Alerte détectée",
           "title": "Stress hydrique · parcelle 12",
@@ -145,16 +150,112 @@
         "Séries NDVI / NDRE et comparaison entre deux dates",
         "Alertes multicanal et rapport hebdomadaire exportable"
       ]
+    },
+    "why": {
+      "eyebrow": "Pourquoi RoboCare",
+      "title": "Six raisons de piloter vos parcelles autrement",
+      "lead": "Ce que change concrètement un suivi satellite régulier, du premier hectare ajouté jusqu’à la clôture de la campagne.",
+      "items": {
+        "leadTime": {
+          "title": "Une avance réelle sur le symptôme",
+          "text": "Un déficit hydrique modifie la réflectance du couvert bien avant que la feuille ne change de couleur. Nos modèles repèrent cet écart dès qu’il dépasse le bruit propre à la parcelle et vous laissent intervenir pendant que la perte est encore réversible."
+        },
+        "noHardware": {
+          "title": "Aucun investissement pour démarrer",
+          "text": "Le satellite couvre déjà votre exploitation : rien à installer, rien à louer. Vous dessinez un contour, la première analyse arrive en 24 h. Les capteurs et le drone ne viennent qu’ensuite, si la parcelle le justifie."
+        },
+        "mediterranean": {
+          "title": "Calibré pour la Méditerranée",
+          "text": "Un modèle entraîné sur des céréales d’Europe du Nord se trompe de seuil sous 300 mm de pluie annuelle. Les nôtres apprennent sur des séries tunisiennes : sols carbonatés, olivier conduit en sec, salinité de nappe, épisodes de sirocco."
+        },
+        "decision": {
+          "title": "Une consigne, pas un tableau de plus",
+          "text": "Chaque analyse se termine par une phrase actionnable : quelle zone, quelle dose, quel créneau. L’indice reste consultable, mais il n’est jamais le livrable final."
+        },
+        "traceability": {
+          "title": "Une traçabilité exportable",
+          "text": "Chaque mesure et chaque recommandation restent horodatées dans l’historique de la parcelle. Le rapport s’exporte en PDF pour la coopérative, l’organisme certificateur ou un dossier de financement."
+        },
+        "reach": {
+          "title": "Trois langues, trois canaux",
+          "text": "Plateforme, rapports et alertes existent en français, en anglais et en arabe, et partent par e-mail, SMS ou WhatsApp — parce qu’une consigne non lue ne sert à rien."
+        }
+      }
+    },
+    "testimonials": {
+      "eyebrow": "Retours d’exploitation",
+      "title": "Ce qu’en disent les exploitations suivies",
+      "note": "Retours recueillis auprès d’exploitations partenaires suivies depuis au moins deux campagnes.",
+      "items": {
+        "olive": {
+          "quote": "La première année, j’ai vérifié chaque alerte à pied. Les deux zones signalées en avril sont exactement celles qui ont décroché en juin sur les parcelles voisines non suivies. Depuis, j’irrigue en lisant la carte.",
+          "role": "Responsable d’exploitation",
+          "context": "Oliveraie de 220 ha · Sfax"
+        },
+        "cereal": {
+          "quote": "Avant, l’azote partait à dose unique sur 1 400 hectares. Les cartes de modulation ont montré que le tiers nord n’en avait pas besoin. À rendement égal, nous avons économisé un cinquième de la facture.",
+          "role": "Directeur technique",
+          "context": "Coopérative céréalière · Béja"
+        },
+        "citrus": {
+          "quote": "Ce qui a changé, c’est le rythme : un point chaque lundi matin, avec le secteur à surveiller et la raison. Mes chefs d’équipe savent quoi faire avant de monter dans le tracteur.",
+          "role": "Chef de culture",
+          "context": "Verger d’agrumes de 85 ha · Nabeul"
+        }
+      }
+    },
+    "partners": {
+      "eyebrow": "Ils travaillent avec nous",
+      "title": "Un écosystème agricole, technologique et scientifique",
+      "subtitle": "Coopératives, opérateurs de données et instituts de recherche qui accompagnent le déploiement de RoboCare sur le terrain."
+    },
+    "faq": {
+      "eyebrow": "Questions fréquentes",
+      "title": "Les réponses en trois lignes",
+      "intro": "Les questions qui reviennent le plus souvent avant une première analyse.",
+      "items": {
+        "start": {
+          "question": "Combien de temps avant ma première analyse ?",
+          "answer": "Vingt-quatre heures après avoir dessiné le contour d’une parcelle. L’historique remonte en général sur trois à cinq ans d’archives satellite : vous comparez la campagne en cours aux précédentes dès le premier jour."
+        },
+        "accuracy": {
+          "question": "Quelle est la précision d’une analyse satellite ?",
+          "answer": "Sentinel-2 fournit un pixel de 10 mètres de côté, soit un point de mesure tous les 100 m². C’est suffisant pour zoner une parcelle et localiser un foyer, pas pour diagnostiquer un arbre isolé — c’est le rôle du drone, en complément."
+        },
+        "clouds": {
+          "question": "Que se passe-t-il quand il y a des nuages ?",
+          "answer": "Les pixels couverts sont masqués automatiquement et exclus du calcul. Le taux de nuages de chaque passage est affiché ; en Méditerranée, la couverture utile dépasse 80 % des passages sur la saison sèche."
+        },
+        "size": {
+          "question": "Y a-t-il une surface minimale ?",
+          "answer": "Non, le suivi fonctionne dès un hectare. En dessous, le nombre de pixels devient trop faible pour un zonage fiable, mais la courbe de vigueur reste exploitable."
+        },
+        "data": {
+          "question": "À qui appartiennent mes données ?",
+          "answer": "À vous. Contours, relevés et historiques restent votre propriété : ils ne sont ni revendus ni transmis à un tiers, et vous pouvez les exporter ou en demander la suppression à tout moment."
+        }
+      }
     }
   },
   "appWindow": {
     "title": "Domaine El Hancha · 42 parcelles",
     "kpis": {
-      "area": { "label": "Surface", "value": "318 ha" },
-      "alerts": { "label": "Alertes", "value": "3 ouvertes" },
-      "lastPass": { "label": "Dernier passage", "value": "il y a 2 j" }
+      "area": {
+        "label": "Surface",
+        "value": "318 ha"
+      },
+      "alerts": {
+        "label": "Alertes",
+        "value": "3 ouvertes"
+      },
+      "lastPass": {
+        "label": "Dernier passage",
+        "value": "il y a 2 j"
+      }
     },
-    "chart": { "label": "NDVI · 12 semaines" }
+    "chart": {
+      "label": "NDVI · 12 semaines"
+    }
   },
   "solutions": {
     "meta": {
@@ -258,6 +359,73 @@
         ],
         "metric": "−24 % de traitements"
       }
+    },
+    "concepts": {
+      "eyebrow": "Les fondamentaux",
+      "title": "Ce qui se passe entre le satellite et votre parcelle",
+      "lead": "Avant de choisir une solution, il est utile de comprendre sur quoi elle repose. Voici les six briques agronomiques et techniques qui produisent une recommandation RoboCare.",
+      "items": {
+        "precision": {
+          "title": "Agriculture de précision",
+          "text": "L’agriculture de précision part d’un constat simple : une parcelle n’est jamais homogène. La profondeur de sol change, la réserve utile varie de plusieurs dizaines de millimètres d’un bout à l’autre, et une dose unique appliquée partout est forcément excessive quelque part et insuffisante ailleurs.",
+          "text2": "Piloter à la précision, c’est découper la parcelle en zones cohérentes et traiter chacune selon son besoin réel. La télédétection rend ce découpage possible sans sonder le sol tous les vingt mètres : la réponse spectrale du couvert intègre déjà l’effet conjugué du sol, de l’eau et de la nutrition.",
+          "points": [
+            "Zonage intra-parcellaire issu de la réponse spectrale",
+            "Doses modulées plutôt qu’uniformes",
+            "Comparaison d’une campagne à l’autre sur la même grille"
+          ]
+        },
+        "satellite": {
+          "title": "Imagerie satellite et télédétection",
+          "text": "Les satellites Sentinel-2 du programme Copernicus survolent la Tunisie tous les cinq jours et mesurent la lumière renvoyée par le couvert dans treize bandes spectrales, du bleu à l’infrarouge à ondes courtes. Une plante en bonne santé absorbe le rouge pour la photosynthèse et renvoie massivement le proche infrarouge ; une plante contrainte fait l’inverse, progressivement.",
+          "text2": "Ce déséquilibre devient mesurable bien avant de se traduire par un jaunissement visible. C’est toute la valeur de la télédétection : elle donne accès à un signal physiologique, pas à une simple photographie de la parcelle.",
+          "points": [
+            "Révisite de cinq jours, archives disponibles depuis 2015",
+            "Treize bandes spectrales dont trois dans le red-edge",
+            "Correction atmosphérique et masquage des nuages automatisés"
+          ]
+        },
+        "iot": {
+          "title": "Capteurs IoT au sol",
+          "text": "Le satellite observe le couvert ; il ne voit pas ce qui se joue à quarante centimètres de profondeur. Les stations IoT comblent cet angle mort : sondes d’humidité étagées, température de sol, conductivité électrique, et selon les sites pluviomètre et anémomètre, relevés toutes les quinze minutes.",
+          "text2": "Transmises en LoRaWAN — plusieurs kilomètres de portée pour une consommation qui autorise des années d’autonomie sur batterie et panneau solaire — ces mesures servent à caler les seuils du modèle satellite sur la réalité pédologique de l’exploitation.",
+          "points": [
+            "Humidité mesurée à plusieurs profondeurs racinaires",
+            "LoRaWAN ou 4G selon la couverture du site",
+            "Alimentation solaire, maintenance annuelle"
+          ]
+        },
+        "drone": {
+          "title": "Drones multispectraux",
+          "text": "Quand la question descend à l’échelle de l’arbre ou du rang, dix mètres de résolution ne suffisent plus. Le drone embarque une caméra multispectrale et une caméra thermique et vole à quelques dizaines de mètres : chaque pixel couvre alors deux à cinq centimètres de terrain.",
+          "text2": "À cette résolution, on compte les arbres un par un, on repère un goutteur bouché à sa signature thermique et on délimite un foyer de maladie au mètre près. Le vol est programmé à l’avance et le rapport est généré automatiquement après traitement.",
+          "points": [
+            "Résolution centimétrique, santé arbre par arbre",
+            "Thermique pour contrôler l’homogénéité de l’irrigation",
+            "Missions planifiées, orthomosaïque et rapport automatiques"
+          ]
+        },
+        "ai": {
+          "title": "Intelligence artificielle appliquée",
+          "text": "Un indice de végétation brut est bruité : angle solaire, humidité de surface, stade phénologique et type de sol le font varier sans qu’aucun problème agronomique ne soit en cause. Le travail des modèles consiste précisément à séparer ce bruit du signal utile.",
+          "text2": "Nous combinons des réseaux de segmentation pour délimiter les zones anormales, des modèles de séries temporelles pour détecter une rupture de tendance, et des classifieurs entraînés sur des photos de terrain pour proposer une hypothèse de maladie. Chaque prédiction est confrontée aux observations de l’agronome, et les modèles sont ré-entraînés en fin de saison.",
+          "points": [
+            "Segmentation d’image pour isoler les zones de stress",
+            "Détection de rupture sur la série temporelle de la parcelle",
+            "Boucle de retour terrain et ré-entraînement saisonnier"
+          ]
+        },
+        "irrigation": {
+          "title": "Irrigation intelligente",
+          "text": "Piloter l’irrigation ne consiste pas à arroser davantage, mais à savoir quel secteur a réellement épuisé sa réserve. Le bilan hydrique croise l’évapotranspiration de référence, le coefficient cultural du stade en cours, la pluie effective et l’humidité relevée par les sondes.",
+          "text2": "Le résultat est un volume par secteur et par tour d’eau, révisé à chaque passage satellite. Sur olivier, il permet de conduire une irrigation déficitaire maîtrisée : réduire volontairement les apports pendant les phases peu sensibles, sans compromettre la nouaison.",
+          "points": [
+            "Bilan hydrique par secteur, révisé à chaque passage",
+            "Détection d’hétérogénéité du réseau goutte-à-goutte",
+            "Irrigation déficitaire pilotée sur cultures pérennes"
+          ]
+        }
+      }
     }
   },
   "platform": {
@@ -347,6 +515,99 @@
         "title": "Recevez vos décisions",
         "text": "Alertes et recommandations par e-mail, SMS ou WhatsApp, en français ou en arabe."
       }
+    },
+    "capabilities": {
+      "eyebrow": "Aller plus loin",
+      "title": "Ce que vous faites réellement dans la plateforme",
+      "lead": "Au-delà des six modules, quatre usages structurent le quotidien des exploitations suivies.",
+      "items": {
+        "mapping": {
+          "title": "Cartographie et gestion des parcelles",
+          "text": "Chaque parcelle est un objet géographique : contour, surface calculée, culture, variété, date de semis ou de plantation, secteur d’irrigation. Les contours se dessinent à la main sur fond satellite ou s’importent depuis un KML, un GeoJSON ou un Shapefile déjà utilisé par la coopérative.",
+          "points": [
+            "Import KML, GeoJSON et Shapefile, reprojection automatique",
+            "Découpage en secteurs d’irrigation et en zones de gestion",
+            "Calques superposables : indices, sol, altimétrie, historique"
+          ]
+        },
+        "analytics": {
+          "title": "Analyse, statistiques et historique",
+          "text": "Toute mesure est conservée. Vous suivez la courbe d’un indice sur la saison, vous la superposez à celle de l’année précédente, et vous comparez deux passages satellite côte à côte pour voir ce qui a changé entre deux dates.",
+          "points": [
+            "Séries temporelles par parcelle, par zone et par culture",
+            "Comparaison entre deux dates et entre deux campagnes",
+            "Statistiques agrégées à l’échelle de l’exploitation"
+          ]
+        },
+        "alerts": {
+          "title": "Alertes intelligentes et escalade",
+          "text": "Une alerte n’est déclenchée que lorsqu’un écart dépasse le seuil calibré pour la culture et le stade en cours — pas à chaque variation d’indice. Elle porte une zone, une cause probable, un niveau de gravité et une action recommandée.",
+          "points": [
+            "Seuils par culture et par stade phénologique",
+            "E-mail, SMS et WhatsApp, avec escalade si l’alerte reste non lue",
+            "Historique des alertes et suivi de leur résolution"
+          ]
+        },
+        "farm": {
+          "title": "Gestion de l’exploitation",
+          "text": "Plusieurs utilisateurs partagent le même compte avec des droits distincts : le chef de culture consulte et commente, le responsable technique valide les interventions, la coopérative accède à une vue consolidée de ses adhérents.",
+          "points": [
+            "Comptes multi-utilisateurs et rôles différenciés",
+            "Vue consolidée pour les coopératives et les groupements",
+            "Journal des interventions saisies et des recommandations suivies"
+          ]
+        }
+      }
+    },
+    "architecture": {
+      "eyebrow": "Sous le capot",
+      "title": "Comment la plateforme est construite",
+      "lead": "Cinq couches, du téléchargement d’une image brute jusqu’à la notification reçue sur un téléphone.",
+      "layers": {
+        "ingestion": {
+          "title": "Ingestion",
+          "text": "Récupération programmée des scènes Sentinel-2 et Landsat, collecte des trames capteurs via la passerelle LoRaWAN et le réseau 4G, import des vols drone et des données météo locales."
+        },
+        "processing": {
+          "title": "Traitement",
+          "text": "Correction atmosphérique, masquage des nuages et de leurs ombres, découpe par parcelle, calcul des indices et exécution des modèles d’inférence sur des travaux parallélisés."
+        },
+        "storage": {
+          "title": "Stockage",
+          "text": "Rasters conservés en format cloud-optimisé pour ne lire que la zone demandée, géométries et séries temporelles en base spatiale, archives froides pour l’historique pluriannuel."
+        },
+        "api": {
+          "title": "Couche API",
+          "text": "Une API REST documentée expose parcelles, indices, alertes et rapports. Elle sert l’interface web, l’application mobile et les intégrations tierces avec la même authentification."
+        },
+        "delivery": {
+          "title": "Restitution",
+          "text": "Cartes vectorielles rendues côté navigateur, rapports PDF générés à la demande, notifications routées vers e-mail, SMS ou WhatsApp selon la préférence de chaque utilisateur."
+        }
+      }
+    },
+    "security": {
+      "eyebrow": "Confiance",
+      "title": "Cloud, sécurité et synchronisation",
+      "lead": "Vos contours de parcelles et vos historiques de rendement sont des données sensibles. Voici comment ils sont traités.",
+      "items": {
+        "hosting": {
+          "title": "Hébergement cloud",
+          "text": "Infrastructure hébergée dans des centres de données européens certifiés ISO 27001, avec sauvegardes chiffrées quotidiennes et restauration testée périodiquement."
+        },
+        "encryption": {
+          "title": "Chiffrement",
+          "text": "Trafic chiffré en TLS 1.3 de bout en bout, données au repos chiffrées, authentification par jeton avec expiration et double authentification disponible sur les comptes d’administration."
+        },
+        "ownership": {
+          "title": "Propriété des données",
+          "text": "Vos données restent les vôtres. Elles ne sont ni revendues ni partagées avec des tiers, et l’export complet comme la suppression définitive s’obtiennent sur simple demande."
+        },
+        "availability": {
+          "title": "Disponibilité et synchronisation",
+          "text": "99 % de disponibilité mesurée sur douze mois. La consultation reste possible hors connexion sur les dernières données chargées, et la synchronisation reprend automatiquement au retour du réseau."
+        }
+      }
     }
   },
   "technology": {
@@ -361,10 +622,22 @@
       "imageAlt": "Drone multispectral RoboCare en vol au-dessus d’une parcelle"
     },
     "metrics": {
-      "revisit": { "label": "Révisite satellite", "value": "5 jours" },
-      "sensors": { "label": "Relevé capteurs", "value": "15 min" },
-      "drone": { "label": "Résolution drone", "value": "Centimétrique" },
-      "lead": { "label": "Avance sur le stress", "value": "14 jours" }
+      "revisit": {
+        "label": "Révisite satellite",
+        "value": "5 jours"
+      },
+      "sensors": {
+        "label": "Relevé capteurs",
+        "value": "15 min"
+      },
+      "drone": {
+        "label": "Résolution drone",
+        "value": "Centimétrique"
+      },
+      "lead": {
+        "label": "Avance sur le stress",
+        "value": "14 jours"
+      }
     },
     "blocks": {
       "ai": {
@@ -428,6 +701,85 @@
         "delivery": {
           "title": "Diffusion",
           "text": "Consigne datée et chiffrée, envoyée par e-mail, SMS ou WhatsApp en FR, EN ou AR."
+        }
+      }
+    },
+    "indices": {
+      "eyebrow": "Indices de végétation",
+      "title": "Quatre indices, quatre questions différentes",
+      "lead": "Un indice n’est pas une note de santé : c’est un rapport entre deux bandes spectrales, sensible à un phénomène précis. Utiliser le bon au bon stade évite la plupart des contresens d’interprétation.",
+      "columns": {
+        "index": "Indice",
+        "bands": "Bandes",
+        "measures": "Ce qu’il mesure",
+        "useFor": "Quand l’utiliser"
+      },
+      "items": {
+        "ndvi": {
+          "name": "NDVI",
+          "full": "Normalized Difference Vegetation Index",
+          "bands": "Proche infrarouge / Rouge",
+          "measures": "Densité et vigueur générale du couvert végétal.",
+          "useFor": "Suivi de saison, zonage global, détection d’un décrochage. Sature quand le couvert est très dense."
+        },
+        "ndre": {
+          "name": "NDRE",
+          "full": "Normalized Difference Red Edge",
+          "bands": "Proche infrarouge / Red-edge",
+          "measures": "Teneur en chlorophylle, donc statut azoté du couvert.",
+          "useFor": "Modulation azotée sur céréales et suivi des couverts denses, là où le NDVI ne discrimine plus."
+        },
+        "ndwi": {
+          "name": "NDWI",
+          "full": "Normalized Difference Water Index",
+          "bands": "Proche infrarouge / Infrarouge court",
+          "measures": "Teneur en eau des feuilles et du couvert.",
+          "useFor": "Détection précoce du stress hydrique, avant que la vigueur ne baisse visiblement."
+        },
+        "savi": {
+          "name": "SAVI",
+          "full": "Soil Adjusted Vegetation Index",
+          "bands": "Proche infrarouge / Rouge, corrigé du sol",
+          "measures": "Vigueur corrigée de l’influence du sol nu.",
+          "useFor": "Cultures pérennes en rangs et débuts de cycle, quand le sol occupe une large part du pixel."
+        }
+      },
+      "note": "Les quatre indices sont calculés à chaque passage et conservés dans l’historique de la parcelle."
+    },
+    "stack": {
+      "eyebrow": "Briques techniques",
+      "title": "La chaîne technique, brique par brique",
+      "lead": "Ce que recouvrent concrètement les mots « IA », « big data » et « SIG » dans la plateforme RoboCare.",
+      "items": {
+        "vision": {
+          "tag": "Vision par ordinateur",
+          "title": "Détection des maladies et comptage d’arbres",
+          "text": "Des réseaux convolutifs segmentent l’orthomosaïque du drone pour isoler chaque houppier, puis classent son état. Sur oliveraie, ce traitement compte les arbres, identifie les emplacements libres et signale les couronnes dont la signature évoque l’œil de paon. Une hypothèse de maladie est toujours proposée avec un niveau de confiance, jamais comme un diagnostic fermé."
+        },
+        "ml": {
+          "tag": "Machine learning",
+          "title": "Modèles de prévision et de rupture",
+          "text": "Des modèles de séries temporelles apprennent la trajectoire normale d’une parcelle pour un couple culture-climat donné, et signalent l’écart qui sort de l’intervalle attendu. Les modèles de rendement, entraînés sur les historiques déclarés par les exploitations partenaires, produisent une estimation par zone plusieurs semaines avant la récolte."
+        },
+        "bigdata": {
+          "tag": "Big data",
+          "title": "Traiter un million d’images",
+          "text": "Une scène Sentinel-2 pèse plusieurs centaines de mégaoctets et couvre 110 km de côté. Les traitements sont découpés en tâches parallèles, les rasters stockés en format cloud-optimisé pour ne lire que la fenêtre utile, et les indices pré-calculés pour que l’ouverture d’une parcelle reste instantanée."
+        },
+        "api": {
+          "tag": "API & intégrations",
+          "title": "Une API REST documentée",
+          "text": "Parcelles, indices, alertes et rapports sont accessibles par API REST authentifiée, avec pagination et webhooks. Les coopératives l’utilisent pour alimenter leur propre système de gestion ; les constructeurs de matériel, pour récupérer une carte de modulation exploitable par une console d’épandage."
+        },
+        "gis": {
+          "tag": "GPS & SIG",
+          "title": "Géomatique et systèmes de coordonnées",
+          "text": "Les contours importés sont reprojetés automatiquement vers un système de référence commun, avec gestion des projections locales et validation topologique. Les cartes de modulation sont exportées dans les formats attendus par les consoles embarquées et les récepteurs GPS RTK."
+        },
+        "protocols": {
+          "tag": "Protocoles",
+          "title": "Communication de terrain",
+          "text": "LoRaWAN pour les capteurs éloignés — portée de plusieurs kilomètres et consommation minimale —, 4G quand la couverture le permet et que le débit est nécessaire, MQTT pour la remontée des trames vers la passerelle d’ingestion, et stockage local sur la station en cas de coupure réseau."
         }
       }
     }
@@ -513,16 +865,46 @@
         "agronomy": "Experts agronomes"
       },
       "members": {
-        "ceo": { "name": "Nom Prénom", "role": "Cofondateur & CEO" },
-        "cto": { "name": "Nom Prénom", "role": "Cofondatrice & CTO" },
-        "po": { "name": "Karim Hbiri", "role": "Product Owner & Scrum Master" },
-        "backend": { "name": "Nom Prénom", "role": "Ingénieur backend (Spring Boot)" },
-        "frontend": { "name": "Nom Prénom", "role": "Ingénieure frontend (React)" },
-        "data": { "name": "Nom Prénom", "role": "Data scientist — imagerie satellite" },
-        "iot": { "name": "Nom Prénom", "role": "Ingénieur IoT & embarqué" },
-        "olive": { "name": "Nom Prénom", "role": "Agronome — oléiculture" },
-        "cereal": { "name": "Nom Prénom", "role": "Agronome — grandes cultures" },
-        "field": { "name": "Nom Prénom", "role": "Conseiller terrain — région de Sfax" }
+        "ceo": {
+          "name": "Nom Prénom",
+          "role": "Cofondateur & CEO"
+        },
+        "cto": {
+          "name": "Nom Prénom",
+          "role": "Cofondatrice & CTO"
+        },
+        "po": {
+          "name": "Karim Hbiri",
+          "role": "Product Owner & Scrum Master"
+        },
+        "backend": {
+          "name": "Nom Prénom",
+          "role": "Ingénieur backend (Spring Boot)"
+        },
+        "frontend": {
+          "name": "Nom Prénom",
+          "role": "Ingénieure frontend (React)"
+        },
+        "data": {
+          "name": "Nom Prénom",
+          "role": "Data scientist — imagerie satellite"
+        },
+        "iot": {
+          "name": "Nom Prénom",
+          "role": "Ingénieur IoT & embarqué"
+        },
+        "olive": {
+          "name": "Nom Prénom",
+          "role": "Agronome — oléiculture"
+        },
+        "cereal": {
+          "name": "Nom Prénom",
+          "role": "Agronome — grandes cultures"
+        },
+        "field": {
+          "name": "Nom Prénom",
+          "role": "Conseiller terrain — région de Sfax"
+        }
       }
     },
     "partners": {
@@ -535,18 +917,54 @@
         "research": "Partenaires recherche"
       },
       "items": {
-        "olive-coop": { "name": "Coopérative oléicole", "note": "Sfax" },
-        "cereal-group": { "name": "Groupement céréalier", "note": "Béja" },
-        "farm-estates": { "name": "Domaines agricoles", "note": "Kairouan" },
-        "citrus-union": { "name": "Union agrumicole", "note": "Nabeul" },
-        "cloud": { "name": "Fournisseur cloud", "note": "Infrastructure" },
-        "satellite-data": { "name": "Données satellite", "note": "Imagerie" },
-        "iot-networks": { "name": "Réseaux IoT", "note": "LoRaWAN" },
-        "telecom": { "name": "Opérateur télécom", "note": "SMS & data" },
-        "inrat": { "name": "INRAT", "note": "Agronomie" },
-        "inat": { "name": "INAT", "note": "Recherche appliquée" },
-        "crda": { "name": "CRDA Sfax", "note": "Terrain" },
-        "iit": { "name": "IIT Sfax", "note": "Ingénierie" }
+        "olive-coop": {
+          "name": "Coopérative oléicole",
+          "note": "Sfax"
+        },
+        "cereal-group": {
+          "name": "Groupement céréalier",
+          "note": "Béja"
+        },
+        "farm-estates": {
+          "name": "Domaines agricoles",
+          "note": "Kairouan"
+        },
+        "citrus-union": {
+          "name": "Union agrumicole",
+          "note": "Nabeul"
+        },
+        "cloud": {
+          "name": "Fournisseur cloud",
+          "note": "Infrastructure"
+        },
+        "satellite-data": {
+          "name": "Données satellite",
+          "note": "Imagerie"
+        },
+        "iot-networks": {
+          "name": "Réseaux IoT",
+          "note": "LoRaWAN"
+        },
+        "telecom": {
+          "name": "Opérateur télécom",
+          "note": "SMS & data"
+        },
+        "inrat": {
+          "name": "INRAT",
+          "note": "Agronomie"
+        },
+        "inat": {
+          "name": "INAT",
+          "note": "Recherche appliquée"
+        },
+        "crda": {
+          "name": "CRDA Sfax",
+          "note": "Terrain"
+        },
+        "iit": {
+          "name": "IIT Sfax",
+          "note": "Ingénierie"
+        }
       }
     },
     "awards": {
@@ -676,6 +1094,58 @@
       "eyebrow": "Travaillons ensemble",
       "title": "Une question, un projet, un partenariat ?",
       "text": "Exploitation, coopérative, institution ou laboratoire : écrivez-nous, nous répondons sous 48 h."
+    },
+    "approach": {
+      "eyebrow": "Notre approche",
+      "title": "Comment nous travaillons",
+      "lead": "Une méthode stable depuis 2021 : partir d’une question agronomique, la valider au champ, et n’industrialiser que ce qui a tenu deux saisons.",
+      "items": {
+        "approach": {
+          "title": "Notre approche",
+          "text": "Nous ne partons jamais d’une technologie disponible pour lui chercher un usage. Nous partons d’une décision que l’exploitant doit prendre cette semaine — irriguer ou attendre, fractionner ou non — et nous remontons jusqu’à la donnée capable d’y répondre. Beaucoup d’idées séduisantes ne survivent pas à ce filtre."
+        },
+        "method": {
+          "title": "Notre méthodologie",
+          "text": "Quatre temps : cadrage agronomique avec l’exploitant, prototype sur un échantillon de parcelles, confrontation aux relevés de terrain sur une saison complète, puis mise en production avec un seuil calibré. Un modèle qui n’a pas été confronté au champ ne sort pas du laboratoire."
+        },
+        "expertise": {
+          "title": "Notre expertise",
+          "text": "Télédétection et traitement d’images multispectrales, apprentissage automatique sur séries temporelles, électronique embarquée basse consommation, et agronomie méditerranéenne — oléiculture, grandes cultures en sec, agrumes irrigués sous contrainte saline."
+        },
+        "innovation": {
+          "title": "Notre innovation",
+          "text": "Notre contribution propre porte moins sur les algorithmes génériques que sur leur calibration locale : seuils de stress adaptés aux sols carbonatés, indices corrigés pour les couverts en rangs, et modèles ré-entraînés chaque saison avec les observations des agronomes partenaires."
+        }
+      },
+      "whyUs": {
+        "title": "Pourquoi choisir RoboCare",
+        "items": {
+          "local": {
+            "title": "Une équipe sur place",
+            "text": "Basée à Sfax, au milieu des exploitations qu’elle suit — pas à quatre heures d’avion du premier olivier."
+          },
+          "agronomy": {
+            "title": "L’agronomie décide",
+            "text": "Chaque seuil de la plateforme a été discuté avec un agronome avant d’être codé, et corrigé après confrontation au terrain."
+          },
+          "languages": {
+            "title": "Dans votre langue",
+            "text": "Interface, rapports et alertes en français, en anglais et en arabe, sans version dégradée pour l’une des trois."
+          },
+          "noLockIn": {
+            "title": "Sans dépendance matérielle",
+            "text": "Le satellite suffit pour démarrer. Vous n’achetez des capteurs que si vos parcelles en tirent un bénéfice démontré."
+          },
+          "measurable": {
+            "title": "Des résultats vérifiables",
+            "text": "Chaque chiffre publié provient d’une exploitation identifiée, comparée à sa propre référence avant suivi."
+          }
+        }
+      },
+      "commitment": {
+        "title": "Notre engagement",
+        "text": "Nous nous engageons sur trois points, et nous acceptons d’être jugés dessus : une réponse à toute demande sous 48 heures ouvrées ; aucune revente ni aucun partage de vos données à un tiers, quelles que soient les circonstances ; et l’honnêteté sur les limites de nos modèles. Quand une prédiction est incertaine, la plateforme l’indique. Une alerte annoncée comme sûre qui se révèle fausse coûte plus cher, en confiance, que dix incertitudes assumées."
+      }
     }
   },
   "impact": {
@@ -721,14 +1191,38 @@
       "title": "Ce que les exploitations suivies ont mesuré"
     },
     "stats": {
-      "hectares": { "label": "Hectares suivis", "note": "Tunisie et région MENA" },
-      "farms": { "label": "Exploitations actives", "note": "Du domaine familial à la coopérative" },
-      "water": { "label": "Eau d’irrigation économisée", "note": "Oliveraie de 220 ha, Sfax" },
-      "yield": { "label": "Rendement sur zones suivies", "note": "À intrants constants" },
-      "nitrogen": { "label": "Azote appliqué", "note": "Coopérative céréalière, Béja" },
-      "lead": { "label": "Jours d’avance sur le stress", "note": "Avant que le symptôme soit visible" },
-      "images": { "label": "Images satellite traitées", "note": "Depuis 2021" },
-      "uptime": { "label": "Disponibilité plateforme", "note": "Mesurée sur 12 mois" }
+      "hectares": {
+        "label": "Hectares suivis",
+        "note": "Tunisie et région MENA"
+      },
+      "farms": {
+        "label": "Exploitations actives",
+        "note": "Du domaine familial à la coopérative"
+      },
+      "water": {
+        "label": "Eau d’irrigation économisée",
+        "note": "Oliveraie de 220 ha, Sfax"
+      },
+      "yield": {
+        "label": "Rendement sur zones suivies",
+        "note": "À intrants constants"
+      },
+      "nitrogen": {
+        "label": "Azote appliqué",
+        "note": "Coopérative céréalière, Béja"
+      },
+      "lead": {
+        "label": "Jours d’avance sur le stress",
+        "note": "Avant que le symptôme soit visible"
+      },
+      "images": {
+        "label": "Images satellite traitées",
+        "note": "Depuis 2021"
+      },
+      "uptime": {
+        "label": "Disponibilité plateforme",
+        "note": "Mesurée sur 12 mois"
+      }
     },
     "crops": {
       "eyebrow": "Par culture",
@@ -738,49 +1232,88 @@
           "name": "Oliviers",
           "description": "Vigueur arbre par arbre, stress hydrique repéré avant la nouaison et alternance de production atténuée par une irrigation déficitaire pilotée.",
           "indicators": [
-            { "label": "Eau", "value": "−28 %" },
-            { "label": "Rendement", "value": "+12 %" },
-            { "label": "Surface", "value": "220 ha" }
+            {
+              "label": "Eau",
+              "value": "−28 %"
+            },
+            {
+              "label": "Rendement",
+              "value": "+12 %"
+            },
+            {
+              "label": "Surface",
+              "value": "220 ha"
+            }
           ]
         },
         "agrumes": {
           "name": "Agrumes",
           "description": "Suivi de la salinité et du stress thermique sur vergers irrigués, avec alerte sur les secteurs où la conductivité du sol dérive.",
           "indicators": [
-            { "label": "Salinité", "value": "Suivie" },
-            { "label": "Eau", "value": "−21 %" }
+            {
+              "label": "Salinité",
+              "value": "Suivie"
+            },
+            {
+              "label": "Eau",
+              "value": "−21 %"
+            }
           ]
         },
         "tomates": {
           "name": "Tomates",
           "description": "Cultures de plein champ et sous abri : pilotage climatique, détection précoce du mildiou et fenêtres de traitement calées sur la météo locale.",
           "indicators": [
-            { "label": "Traitements", "value": "−24 %" },
-            { "label": "Alerte", "value": "11 j" }
+            {
+              "label": "Traitements",
+              "value": "−24 %"
+            },
+            {
+              "label": "Alerte",
+              "value": "11 j"
+            }
           ]
         },
         "pommes-de-terre": {
           "name": "Pommes de terre",
           "description": "Homogénéité de la levée, besoins en eau par zone et estimation de tonnage avant récolte pour planifier le stockage et la vente.",
           "indicators": [
-            { "label": "Tonnage", "value": "Estimé" },
-            { "label": "Eau", "value": "−17 %" }
+            {
+              "label": "Tonnage",
+              "value": "Estimé"
+            },
+            {
+              "label": "Eau",
+              "value": "−17 %"
+            }
           ]
         },
         "vignes": {
           "name": "Vignes",
           "description": "Vigueur par rang, contrainte hydrique maîtrisée avant vendange et zonage parcellaire pour récolter chaque secteur à maturité.",
           "indicators": [
-            { "label": "Zonage", "value": "Par rang" },
-            { "label": "Passages", "value": "−18 %" }
+            {
+              "label": "Zonage",
+              "value": "Par rang"
+            },
+            {
+              "label": "Passages",
+              "value": "−18 %"
+            }
           ]
         },
         "cereales": {
           "name": "Céréales",
           "description": "Cartes de modulation azotée issues du NDRE au tallage, contrôle de levée et estimation de rendement un mois avant la moisson.",
           "indicators": [
-            { "label": "Azote", "value": "−19 %" },
-            { "label": "Surface", "value": "1 400 ha" }
+            {
+              "label": "Azote",
+              "value": "−19 %"
+            },
+            {
+              "label": "Surface",
+              "value": "1 400 ha"
+            }
           ]
         }
       }
@@ -849,6 +1382,53 @@
           ]
         }
       }
+    },
+    "environment": {
+      "eyebrow": "Empreinte environnementale",
+      "title": "Ce que l’exploitation rend à son milieu",
+      "lead": "En Méditerranée, la ressource limitante n’est pas la surface, c’est l’eau. Chaque mètre cube économisé sur une parcelle est un mètre cube laissé à la nappe, et chaque passage de pulvérisateur évité représente du carburant, du temps et une pression chimique en moins.",
+      "lead2": "Les valeurs ci-dessous sont des moyennes relevées sur les exploitations suivies depuis au moins deux campagnes, comparées à leur propre situation de référence avant suivi.",
+      "barsLabel": "Réductions moyennes constatées",
+      "bars": {
+        "water": {
+          "label": "Eau d’irrigation",
+          "note": "Cultures pérennes irriguées"
+        },
+        "nitrogen": {
+          "label": "Azote appliqué",
+          "note": "Céréales, à rendement constant"
+        },
+        "treatments": {
+          "label": "Traitements phytosanitaires",
+          "note": "Passages ciblés au lieu de généralisés"
+        },
+        "fuel": {
+          "label": "Carburant et passages d’engins",
+          "note": "Interventions regroupées et localisées"
+        },
+        "emissions": {
+          "label": "Émissions liées aux intrants",
+          "note": "Estimation à partir des doses évitées"
+        }
+      },
+      "cards": {
+        "aquifers": {
+          "title": "Préserver les nappes",
+          "text": "Les nappes côtières tunisiennes se salinisent quand le prélèvement dépasse la recharge. Réduire les volumes pompés sans perdre de rendement est la seule voie soutenable, et c’est mesurable compteur en main."
+        },
+        "soil": {
+          "title": "Ménager le sol",
+          "text": "Moins de passages d’engins, c’est moins de tassement, donc une meilleure infiltration l’hiver suivant. Une fertilisation ajustée limite aussi l’excès de nitrates qui descend sous la zone racinaire."
+        },
+        "climate": {
+          "title": "S’adapter au climat",
+          "text": "Les fenêtres d’intervention se déplacent d’une année sur l’autre. L’historique pluriannuel de la parcelle donne une base objective pour ajuster les dates plutôt que de reconduire le calendrier de l’an dernier."
+        },
+        "certification": {
+          "title": "Documenter la durabilité",
+          "text": "Chaque dose recommandée et chaque intervention saisie restent horodatées. Les acheteurs et les organismes certificateurs demandent cette traçabilité : elle s’exporte depuis la plateforme sans ressaisie."
+        }
+      }
     }
   },
   "contact": {
@@ -861,22 +1441,43 @@
       "title": "Parlons de vos parcelles",
       "intro": "Décrivez votre exploitation : un agronome RoboCare vous répond sous 48 h, en français, en anglais ou en arabe.",
       "imageAlt": "Verger d’agrumes de la région de Nabeul suivi par RoboCare",
-      "badges": ["Réponse sous 48 h", "Sans engagement", "FR · EN · AR"]
+      "badges": [
+        "Réponse sous 48 h",
+        "Sans engagement",
+        "FR · EN · AR"
+      ]
     },
     "form": {
       "title": "Écrivez-nous",
       "intro": "Les champs marqués d’un astérisque sont nécessaires pour vous répondre utilement.",
       "fields": {
-        "name": { "label": "Nom et prénom *", "placeholder": "Ex. Mohamed Trabelsi" },
+        "name": {
+          "label": "Nom et prénom *",
+          "placeholder": "Ex. Mohamed Trabelsi"
+        },
         "org": {
           "label": "Exploitation / organisation",
           "placeholder": "Ex. Coopérative oléicole de Sfax"
         },
-        "email": { "label": "E-mail *", "placeholder": "vous@exemple.tn" },
-        "phone": { "label": "Téléphone", "placeholder": "+216 …" },
-        "crop": { "label": "Culture principale", "other": "Autre" },
-        "area": { "label": "Surface (hectares)", "placeholder": "Ex. 45" },
-        "subject": { "label": "Objet de votre demande" },
+        "email": {
+          "label": "E-mail *",
+          "placeholder": "vous@exemple.tn"
+        },
+        "phone": {
+          "label": "Téléphone",
+          "placeholder": "+216 …"
+        },
+        "crop": {
+          "label": "Culture principale",
+          "other": "Autre"
+        },
+        "area": {
+          "label": "Surface (hectares)",
+          "placeholder": "Ex. 45"
+        },
+        "subject": {
+          "label": "Objet de votre demande"
+        },
         "message": {
           "label": "Votre message *",
           "placeholder": "Vos parcelles, vos cultures, ce que vous cherchez à suivre…"
@@ -933,7 +1534,54 @@
         "coverage": {
           "question": "Travaillez-vous hors de Tunisie ?",
           "answer": "Oui : la plateforme est ouverte à la région MENA depuis 2025. Le suivi satellite fonctionne partout ; les capteurs et les vols drone dépendent de la couverture locale."
+        },
+        "pricing": {
+          "question": "Comment est calculé le tarif ?",
+          "answer": "À la surface suivie, avec un palier dégressif au-delà de cent hectares et un tarif spécifique pour les coopératives qui regroupent plusieurs adhérents. Le suivi satellite est inclus ; les capteurs et les vols drone sont facturés séparément, seulement si vous en installez."
+        },
+        "integration": {
+          "question": "Peut-on connecter RoboCare à nos outils existants ?",
+          "answer": "Oui. Une API REST documentée expose parcelles, indices, alertes et rapports, et les cartes de modulation s’exportent dans les formats attendus par la plupart des consoles d’épandage. Décrivez votre système actuel, nous vous dirons ce qui est déjà pris en charge."
+        },
+        "security": {
+          "question": "Où sont hébergées nos données ?",
+          "answer": "Dans des centres de données européens certifiés ISO 27001, avec chiffrement en transit et au repos et sauvegardes quotidiennes. Vos données ne sont ni revendues ni partagées, et l’export complet comme la suppression s’obtiennent sur simple demande."
         }
+      }
+    },
+    "demo": {
+      "eyebrow": "Demander une démonstration",
+      "title": "Comment se déroule une démonstration",
+      "lead": "Trente minutes en visio ou sur place, avec vos parcelles à l’écran — pas un diaporama générique.",
+      "steps": {
+        "request": {
+          "title": "Vous décrivez vos parcelles",
+          "text": "Cultures, surface approximative, région et ce que vous cherchez à suivre en priorité. Trois lignes suffisent pour préparer un échange utile.",
+          "duration": "5 minutes"
+        },
+        "prep": {
+          "title": "Nous préparons une première lecture",
+          "text": "Un agronome récupère les archives satellite de votre zone et prépare une lecture rapide de la dernière campagne avant l’appel.",
+          "duration": "Sous 48 h"
+        },
+        "demo": {
+          "title": "Démonstration sur vos données",
+          "text": "Visio ou visite sur place : nous parcourons la plateforme avec vos parcelles affichées, indices, historique et exemple d’alerte à l’appui.",
+          "duration": "30 minutes"
+        },
+        "trial": {
+          "title": "Vous testez sur une parcelle",
+          "text": "Vous ajoutez une parcelle test à votre compte. La première analyse satellite arrive dans les 24 heures, sans engagement de votre part.",
+          "duration": "24 heures"
+        }
+      },
+      "reassurance": {
+        "title": "Ce à quoi vous ne vous engagez pas",
+        "items": [
+          "Aucun achat de matériel n’est nécessaire pour la démonstration ni pour la parcelle test.",
+          "Vos contours et vos historiques restent votre propriété et peuvent être supprimés sur demande.",
+          "Aucune relance commerciale automatisée : si vous ne donnez pas suite, nous n’insistons pas."
+        ]
       }
     }
   },
@@ -941,5 +1589,27 @@
     "eyebrow": "Erreur 404",
     "title": "Cette page n’existe pas",
     "text": "Le lien est peut-être obsolète. Revenez à l’accueil ou consultez nos solutions par culture."
+  },
+  "chat": {
+    "launcherOpen": "Ouvrir l’assistant RoboCare",
+    "launcherClose": "Fermer l’assistant",
+    "title": "Assistant RoboCare",
+    "status": "Répond en quelques secondes",
+    "greeting": "Bonjour 👋 Je suis l’assistant RoboCare. Je réponds aux questions sur nos solutions, la plateforme et les technologies que nous utilisons — en français, en anglais ou en arabe.",
+    "hint": "Choisissez une question ou écrivez la vôtre.",
+    "typing": "L’assistant écrit…",
+    "inputLabel": "Votre question",
+    "inputPlaceholder": "Posez votre question…",
+    "send": "Envoyer",
+    "quickRepliesLabel": "Questions fréquentes",
+    "suggestionsLabel": "Vous vouliez peut-être demander",
+    "reset": "Nouvelle conversation",
+    "resetDone": "Conversation réinitialisée.",
+    "toDark": "Passer en mode sombre",
+    "toLight": "Passer en mode clair",
+    "disclaimer": "Réponses automatiques. Pour un échange avec un agronome, écrivez-nous.",
+    "contactCta": "Parler à un agronome",
+    "fallback": "Je n’ai pas de réponse fiable à cette question. Un agronome RoboCare peut vous répondre sous 48 h — décrivez votre besoin depuis la page Contact.",
+    "historyLabel": "Historique de la conversation"
   }
 }

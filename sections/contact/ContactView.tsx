@@ -9,6 +9,7 @@ import { ButtonExternal } from '@/components/ui/Button';
 import { FaqList } from '@/components/ui/FaqList';
 import { Reveal } from '@/components/animations/Reveal';
 import { ContactForm } from '@/sections/contact/ContactForm';
+import { ContactDemo } from '@/sections/contact/ContactDemo';
 import { CONTACT_FAQ } from '@/lib/data/about';
 import { SITE } from '@/lib/data/site';
 import { pad2 } from '@/lib/utils';
@@ -119,6 +120,9 @@ export function ContactView() {
           </Reveal>
         </div>
       </Section>
+
+      {/* Déroulé d'une démonstration */}
+      <ContactDemo />
 
       <Section>
         <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-16">

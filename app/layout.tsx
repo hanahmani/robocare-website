@@ -6,6 +6,9 @@ import { I18nProvider } from '@/i18n/provider';
 import { getTranslation } from '@/i18n/getDictionary';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { ChatWidget } from '@/components/chat/ChatWidget';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { graph, organizationSchema, websiteSchema } from '@/lib/seo/schema';
 import { SITE } from '@/lib/data/site';
 
 // Polices auto-hébergées par Next (préchargées, sans requête tierce).
@@ -55,6 +58,12 @@ export async function generateMetadata(): Promise<Metadata> {
     title: { default: d.meta.defaultTitle, template: d.meta.titleTemplate },
     description: d.meta.description,
     keywords: d.meta.keywords,
+    authors: [{ name: SITE.name, url: SITE.url }],
+    creator: SITE.name,
+    publisher: SITE.name,
+    applicationName: SITE.name,
+    category: 'Agriculture technology',
+    formatDetection: { telephone: false, address: false, email: false },
     openGraph: {
       type: 'website',
       locale: LOCALE_META[locale].ogLocale,
@@ -62,14 +71,31 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: d.meta.siteName,
       title: d.meta.defaultTitle,
       description: d.meta.description,
+      images: [
+        {
+          url: '/og/og-default.jpg',
+          width: 1200,
+          height: 630,
+          alt: d.meta.defaultTitle,
+        },
+      ],
     },
-    twitter: { card: 'summary_large_image' },
-    robots: { index: true, follow: true },
+    twitter: {
+      card: 'summary_large_image',
+      title: d.meta.defaultTitle,
+      description: d.meta.description,
+      images: ['/og/og-default.jpg'],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
+    },
   };
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const { locale, t } = await getTranslation();
+  const { locale, d, t } = await getTranslation();
 
   return (
     <html
@@ -90,7 +116,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <Navbar />
           <main id="contenu">{children}</main>
           <Footer />
+          {/* Assistant flottant, présent sur toutes les pages */}
+          <ChatWidget />
         </I18nProvider>
+
+        {/* Identité de l'organisation et du site, communes à toutes les pages */}
+        <JsonLd data={graph(organizationSchema(d, locale), websiteSchema(d, locale))} />
       </body>
     </html>
   );

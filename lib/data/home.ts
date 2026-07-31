@@ -1,4 +1,15 @@
-import { BarChart3, Cpu, FileText, Satellite } from 'lucide-react';
+import {
+  BarChart3,
+  Cpu,
+  FileCheck2,
+  FileText,
+  Languages,
+  Rocket,
+  Satellite,
+  Sun,
+  Target,
+  Timer,
+} from 'lucide-react';
 import type { FeatureItem, StatDatum } from '@/types';
 
 /** Chiffres clés sous le hero d'accueil — libellés dans `home.stats.*`. */
@@ -31,3 +42,19 @@ export const HERO_MOISTURE_BARS = [
 
 /** Valeur affichée sur la carte NDVI du hero (chiffre, non traduit). */
 export const HERO_NDVI_VALUE = '0,74';
+
+/** Bénéfices « Pourquoi RoboCare » — textes dans `home.why.items.*`. */
+export const HOME_BENEFITS = [
+  { id: 'leadTime', icon: Timer },
+  { id: 'noHardware', icon: Rocket },
+  { id: 'mediterranean', icon: Sun, tone: 'ocre' },
+  { id: 'decision', icon: Target },
+  { id: 'traceability', icon: FileCheck2, tone: 'ocre' },
+  { id: 'reach', icon: Languages },
+] as const satisfies readonly FeatureItem[];
+
+/** Témoignages d'exploitations — textes dans `home.testimonials.items.*`. */
+export const HOME_TESTIMONIALS = ['olive', 'cereal', 'citrus'] as const;
+
+/** Mini-FAQ de l'accueil — textes dans `home.faq.items.*`. */
+export const HOME_FAQ = ['start', 'accuracy', 'clouds', 'size', 'data'] as const;
