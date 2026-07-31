@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white font-sans text-ink-900 antialiased;
+    text-wrap: pretty;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-semibold tracking-headline text-ink-900;
+  }
+
+  a {
+    @apply text-leaf-600 no-underline transition-colors;
+  }
+
+  a:hover {
+    @apply text-leaf-500;
+  }
+
+  ::selection {
+    @apply bg-forest-900 text-lime-100;
+  }
+
+  /* Anneau de focus unifié pour l'accessibilité clavier. */
+  :focus-visible {
+    outline: 2px solid #4d9e2f;
+    outline-offset: 3px;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+@layer components {
+  /* Conteneur de page : mêmes marges que la maquette (20px → 40px). */
+  .container-page {
+    @apply mx-auto w-full max-w-[1240px] px-5 sm:px-8 lg:px-10;
+  }
+
+  /* Étiquette monospace au-dessus des titres de section. */
+  .eyebrow {
+    @apply flex items-center gap-2.5 font-mono text-[11.5px] font-semibold uppercase tracking-[0.16em];
+  }
+
+  .eyebrow::before {
+    content: '';
+    @apply h-px w-6 bg-current;
+  }
+
+  /* Verre dépoli léger, utilisé sur les fonds sombres. */
+  .glass {
+    @apply border border-white/15 bg-white/[0.07] backdrop-blur-xl;
+  }
+
+  .grid-overlay {
+    background-image:
+      linear-gradient(rgba(158, 216, 75, 0.09) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(158, 216, 75, 0.09) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(120% 80% at 60% 40%, #000 20%, transparent 78%);
+    mask-image: radial-gradient(120% 80% at 60% 40%, #000 20%, transparent 78%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Support RTL et typographie arabe                                    */
+/* ------------------------------------------------------------------ */
+
+/*
+ * L'inversion du layout est assurée par `dir="rtl"` sur <html> combiné aux
+ * propriétés logiques de Tailwind (ms-/me-, ps-/pe-, start-/end-, border-s…).
+ * Le navigateur inverse déjà les flex rows, les grilles et l'ordre du texte :
+ * rien à retourner manuellement. Ne restent ici que les cas que CSS logique
+ * ne couvre pas — les dégradés directionnels et la typographie arabe.
+ */
+
+@layer base {
+  /* L'écriture arabe est cursive : l'interlettrage négatif des titres
+     latins la dégrade. On le neutralise et on aère légèrement les lignes. */
+  html[lang='ar'] body,
+  html[lang='ar'] h1,
+  html[lang='ar'] h2,
+  html[lang='ar'] h3,
+  html[lang='ar'] h4,
+  html[lang='ar'] .eyebrow,
+  html[lang='ar'] .font-mono,
+  html[lang='ar'] [class*='tracking-'] {
+    letter-spacing: normal;
+  }
+
+  html[lang='ar'] h1,
+  html[lang='ar'] h2,
+  html[lang='ar'] h3 {
+    line-height: 1.28;
+  }
+
+  /* Les majuscules n'existent pas en arabe : `uppercase` n'a aucun effet
+     visuel mais fausse la lecture des lecteurs d'écran sur certains moteurs. */
+  html[lang='ar'] .uppercase {
+    text-transform: none;
+  }
+}
+
+@layer utilities {
+  /* Dégradé d'indices NDVI : il doit se lire du rouge au vert dans le sens
+     de lecture, donc s'inverser en arabe. */
+  [dir='rtl'] .bg-index-scale {
+    background-image: linear-gradient(
+      270deg,
+      #8c3b12 0%,
+      #c88a2e 22%,
+      #d9c657 40%,
+      #7fa98b 62%,
+      #1f8049 80%,
+      #9ed84b 100%
+    );
+  }
+}

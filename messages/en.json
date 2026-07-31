@@ -1,0 +1,945 @@
+{
+  "meta": {
+    "siteName": "RoboCare",
+    "defaultTitle": "RoboCare — Satellite-driven precision agriculture",
+    "titleTemplate": "%s · RoboCare",
+    "description": "Satellite imagery, IoT sensors and artificial intelligence built for Mediterranean farms.",
+    "keywords": [
+      "precision agriculture",
+      "satellite imagery",
+      "NDVI",
+      "irrigation scheduling",
+      "AgriTech Tunisia"
+    ]
+  },
+  "common": {
+    "tagline": "Satellite imagery, IoT sensors and artificial intelligence built for Mediterranean farms.",
+    "city": "Sfax",
+    "country": "Tunisia",
+    "logoAlt": "RoboCare",
+    "thousandsSeparator": ","
+  },
+  "a11y": {
+    "skipToContent": "Skip to content",
+    "homeLink": "RoboCare — home",
+    "mainNav": "Main navigation",
+    "mobileNav": "Mobile navigation",
+    "breadcrumb": "Breadcrumb",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "languageGroup": "Choose a language",
+    "switchTo": "View the site in {language}",
+    "appViews": "Application views"
+  },
+  "languages": {
+    "fr": "Français",
+    "en": "English",
+    "ar": "العربية"
+  },
+  "nav": {
+    "home": "Home",
+    "solutions": "Solutions",
+    "platform": "Platform",
+    "technology": "Technology",
+    "about": "About",
+    "impact": "Impact",
+    "contact": "Contact"
+  },
+  "actions": {
+    "createAccount": "Create an account",
+    "requestDemo": "Request a demo",
+    "seeSolutions": "See our solutions",
+    "allSolutions": "All solutions",
+    "seeSolution": "See the solution",
+    "discoverPlatform": "Explore the platform",
+    "seePlatform": "See the platform",
+    "thePlatform": "The platform",
+    "accessPlatform": "Open the RoboCare platform",
+    "openApp": "Open the app",
+    "login": "Sign in",
+    "ourStory": "Our story",
+    "ourTechnology": "Our technology",
+    "talkToAgronomist": "Talk to an agronomist",
+    "talkToEngineer": "Talk to an engineer",
+    "seeResults": "See the results",
+    "readCaseStudies": "Read the case studies",
+    "backHome": "Back to home"
+  },
+  "footer": {
+    "explore": "Explore",
+    "company": "Company",
+    "contact": "Contact",
+    "team": "Team",
+    "partners": "Partners",
+    "media": "Press",
+    "rights": "© {year} RoboCare. All rights reserved."
+  },
+  "cta": {
+    "eyebrow": "Let's talk about your fields",
+    "title": "Ready to see your fields differently?",
+    "body": "Create a free account or book a walkthrough with a RoboCare agronomist. We reply within 48 hours."
+  },
+  "home": {
+    "meta": {
+      "title": "RoboCare — Satellite-driven precision agriculture",
+      "description": "Satellite imagery, multispectral drones and artificial intelligence: RoboCare turns every field into precise agronomic decisions."
+    },
+    "hero": {
+      "badge": "Agriculture 4.0 · Tunisia & MENA",
+      "titleLead": "See crop stress",
+      "titleAccent": "before it becomes visible.",
+      "subtitle": "Satellite imagery, multispectral drones and artificial intelligence: RoboCare turns every field into precise agronomic decisions — water, fertilisation, crop protection.",
+      "note": "No hardware required. Add a field and get your first analysis within 24 hours.",
+      "cards": {
+        "ndvi": { "label": "Average NDVI", "delta": "+6%" },
+        "moisture": { "label": "Soil moisture · North zone" },
+        "alert": {
+          "label": "Alert detected",
+          "title": "Water stress · field 12",
+          "text": "Visible to the naked eye in ~11 days. Irrigation recommended within 48 hours."
+        }
+      }
+    },
+    "stats": {
+      "users": "Active users",
+      "hectares": "Hectares monitored",
+      "partners": "Partners",
+      "alerts": "Smart alerts",
+      "images": "Satellite images processed",
+      "uptime": "Platform uptime"
+    },
+    "about": {
+      "eyebrow": "Who we are",
+      "title": "Agronomy first, technology in service of the decision",
+      "lead": "Founded in Sfax in 2021, RoboCare puts satellite imagery, sensors and artificial intelligence within reach of a ten-hectare grower and a thousand-hectare estate alike — in their own language, on their own phone.",
+      "body": "Across the Mediterranean, margin comes down to water, climate and input costs. Our models, trained on local time series, spot stress before it becomes visible and turn it into a dated, quantified instruction.",
+      "pillars": {
+        "satellite": {
+          "title": "Satellite every 5 days",
+          "text": "Sentinel-2 and Landsat, with NDVI, NDRE, NDWI and SAVI indices per zone."
+        },
+        "sensors": {
+          "title": "Ground sensors",
+          "text": "Moisture, temperature and conductivity recorded every 15 minutes."
+        },
+        "ai": {
+          "title": "Retrained AI",
+          "text": "Models benchmarked against field readings and recalibrated every season."
+        },
+        "guidance": {
+          "title": "Actionable guidance",
+          "text": "Rate, zone and time window — by email, SMS or WhatsApp, in FR, EN or AR."
+        }
+      }
+    },
+    "solutionsPreview": {
+      "eyebrow": "Solutions",
+      "title": "A response calibrated crop by crop"
+    },
+    "platformPreview": {
+      "eyebrow": "The platform",
+      "title": "Everything runs from a single screen",
+      "text": "Mapping, vegetation indices, weather, alerts and reports: the RoboCare platform brings all your fields together in one place.",
+      "points": [
+        "Dashboard, mapping and per-field history",
+        "NDVI / NDRE time series and side-by-side date comparison",
+        "Multichannel alerts and an exportable weekly report"
+      ]
+    }
+  },
+  "appWindow": {
+    "title": "El Hancha Estate · 42 fields",
+    "kpis": {
+      "area": { "label": "Area", "value": "318 ha" },
+      "alerts": { "label": "Alerts", "value": "3 open" },
+      "lastPass": { "label": "Last pass", "value": "2 days ago" }
+    },
+    "chart": { "label": "NDVI · 12 weeks" }
+  },
+  "solutions": {
+    "meta": {
+      "title": "Solutions by crop",
+      "description": "Olive groves, durum wheat and barley, citrus, greenhouse crops: models calibrated crop by crop on Mediterranean field data."
+    },
+    "hero": {
+      "eyebrow": "Solutions",
+      "title": "One response per crop",
+      "intro": "Every crop has its critical stages. RoboCare models are calibrated crop by crop, on Mediterranean field data.",
+      "imageAlt": "Olive grove monitored by RoboCare in the Sfax region"
+    },
+    "labels": {
+      "whatYouTrack": "What you track",
+      "expectedOutcomes": "Expected outcomes"
+    },
+    "comparison": {
+      "eyebrow": "At a glance",
+      "title": "What each solution measures first",
+      "note": "Indicators recorded on partner farms — full detail in the case studies"
+    },
+    "cta": {
+      "eyebrow": "Let's talk about your fields",
+      "title": "Which crop do you want to monitor first?",
+      "text": "Describe your fields and a RoboCare agronomist will reply within 48 hours with the solution calibrated for your crop."
+    },
+    "items": {
+      "olive-care": {
+        "brand": "Olive Care",
+        "name": "Olive groves",
+        "short": "Rainfed or irrigated olive groves: water stress and alternate bearing under control.",
+        "description": "Olive trees tolerate drought but pay for it the following year. Olive Care tracks the vigour of every tree through satellite and drone imagery, flags water-deficit zones before fruit set, and secures the deficit irrigation schedule.",
+        "imageAlt": "Olive grove monitored by satellite imagery",
+        "points": [
+          "Tree-by-tree vigour index and detection of missing trees",
+          "Water stress monitoring ahead of flowering and fruit set",
+          "Early detection of peacock spot disease",
+          "Harvest forecasting by grove zone"
+        ],
+        "outcomes": [
+          "Reduced alternate bearing",
+          "Deficit irrigation under control",
+          "Targeted rather than blanket treatments"
+        ],
+        "metric": "−28% water"
+      },
+      "cereal-care": {
+        "brand": "Cereal Care",
+        "name": "Durum wheat & barley",
+        "short": "Durum wheat and barley: nitrogen management and yield forecasting.",
+        "description": "In cereals, everything is decided between tillering and heading. Cereal Care turns the NDRE index into a variable-rate nitrogen map, monitors emergence, and delivers a zone-level yield estimate weeks before harvest.",
+        "imageAlt": "Cereal field monitored with NDRE",
+        "points": [
+          "Variable-rate nitrogen map derived from NDRE",
+          "Emergence and plant density checks after sowing",
+          "Detection of lodging and water-stress zones",
+          "Yield estimation by homogeneous zone"
+        ],
+        "outcomes": [
+          "Nitrogen applied where it pays",
+          "Re-sowing decided in time",
+          "Harvest logistics planned ahead"
+        ],
+        "metric": "−19% nitrogen"
+      },
+      "citrus-care": {
+        "brand": "Citrus Care",
+        "name": "Citrus",
+        "short": "Citrus: salinity, drip irrigation and fruit size.",
+        "description": "Citrus reacts quickly to excess salt and uneven irrigation. Citrus Care combines soil sensors, conductivity readings and imagery to fine-tune watering cycles, sector by sector, all the way to the target fruit size at harvest.",
+        "imageAlt": "Drip-irrigated citrus orchard",
+        "points": [
+          "Soil salinity and conductivity monitoring",
+          "Drip irrigation uniformity checks",
+          "Stress alerts ahead of physiological fruit drop",
+          "Vigour tracking by irrigation sector"
+        ],
+        "outcomes": [
+          "More consistent fruit size",
+          "Fewer fruits lost",
+          "Irrigation network under control"
+        ],
+        "metric": "−21% water"
+      },
+      "greenhouse-care": {
+        "brand": "Greenhouse Care",
+        "name": "Greenhouse crops",
+        "short": "Greenhouses: climate, fertigation and continuous pest pressure monitoring.",
+        "description": "Under cover, a temperature or humidity drift costs a week of production. Greenhouse Care aggregates the sensors of every bay, monitors VPD and raises the alert before the crop falls behind.",
+        "imageAlt": "Greenhouse crops fitted with sensors",
+        "points": [
+          "Temperature, humidity and VPD per bay",
+          "Fertigation and conductivity monitoring",
+          "Pest and disease pressure alerts",
+          "Climate history compared across cycles"
+        ],
+        "outcomes": [
+          "More consistent cycles",
+          "Fewer curative treatments",
+          "Energy consumption under control"
+        ],
+        "metric": "−24% treatments"
+      }
+    }
+  },
+  "platform": {
+    "meta": {
+      "title": "The platform",
+      "description": "Mapping, vegetation indices, weather, alerts and reports: the RoboCare platform brings all your fields together in one place."
+    },
+    "hero": {
+      "eyebrow": "The platform",
+      "title": "Everything runs from a single screen",
+      "intro": "Mapping, vegetation indices, weather, alerts and reports: the RoboCare platform brings all your fields together in one place.",
+      "imageAlt": "Satellite heat map of a farm monitored by RoboCare"
+    },
+    "showcase": {
+      "eyebrow": "The platform",
+      "title": "Everything runs from a single screen",
+      "badge": "Real screenshots from the app"
+    },
+    "views": {
+      "pivot": {
+        "tab": "Satellite monitoring",
+        "field": "Pivot 1 · Wheat · 30 ha",
+        "alt": "RoboCare app, Crop Health view of the Pivot 1 field: satellite map with an NDVI layer over the wheat pivot, average NDVI of 0.72, vegetation index curve, change detection and comparison between two satellite passes.",
+        "highlights": [
+          "NDVI layer applied to the field, with stress hotspots flagged in red",
+          "Index curve across the season and anomalies detected automatically",
+          "Change detection in six classes, from severe decline to strong growth",
+          "Comparison of two satellite passes and scan history with cloud cover"
+        ]
+      },
+      "olive": {
+        "tab": "Tree-by-tree detection",
+        "field": "Olive 2 · Chemlali · 4.3 ha",
+        "alt": "RoboCare app, Crop Health view of the Olive 2 grove: 2,117 olive trees detected individually on the satellite map, classified as stable vegetation, potential stress or vacant planting spot, with NDVI, EVI and SAVI indices.",
+        "highlights": [
+          "2,117 olive trees detected and tracked individually across the whole field",
+          "Automatic classification: stable vegetation, potential stress, vacant spot",
+          "101 planting spots identified, a 4.8% density gain",
+          "Three cross-referenced indices — NDVI, EVI and SAVI — suited to perennial crops"
+        ]
+      }
+    },
+    "modules": {
+      "dashboard": {
+        "title": "Dashboard",
+        "text": "Health status of every field, open alerts and today's tasks on a single screen."
+      },
+      "mapping": {
+        "title": "Field mapping",
+        "text": "Boundaries, areas, crops and per-field history, with KML/Shapefile import."
+      },
+      "satellite": {
+        "title": "NDVI / NDRE satellite monitoring",
+        "text": "Vegetation index time series and side-by-side comparison between two dates."
+      },
+      "weather": {
+        "title": "Weather intelligence",
+        "text": "7-day forecasts, rainfall totals and evapotranspiration at field scale."
+      },
+      "reports": {
+        "title": "Smart reports",
+        "text": "Weekly PDF report per field, exportable for the cooperative or the bank."
+      },
+      "alerts": {
+        "title": "Multichannel alerts",
+        "text": "Email, SMS and WhatsApp — with escalation if the alert goes unread."
+      }
+    },
+    "onboarding": {
+      "title": "From raw data to the agronomic decision",
+      "subtitle": "No hardware to buy to get started: the satellite is enough."
+    },
+    "steps": {
+      "account": {
+        "title": "Create your account",
+        "text": "Sign up online, with no hardware and no installation."
+      },
+      "fields": {
+        "title": "Add your fields",
+        "text": "Draw the boundary on the map or import a KML/Shapefile."
+      },
+      "monitor": {
+        "title": "Monitor your crops",
+        "text": "Every satellite pass updates the vegetation status of the field."
+      },
+      "decisions": {
+        "title": "Receive your decisions",
+        "text": "Alerts and recommendations by email, SMS or WhatsApp, in French or Arabic."
+      }
+    }
+  },
+  "technology": {
+    "meta": {
+      "title": "Technology",
+      "description": "Satellite, ground sensors, drone and artificial intelligence: each building block answers a precise observation scale, from region to tree."
+    },
+    "hero": {
+      "eyebrow": "Technology",
+      "title": "Four technologies, one decision chain",
+      "intro": "Satellite, ground sensors, drone and artificial intelligence: each building block answers a precise observation scale, from region to tree.",
+      "imageAlt": "RoboCare multispectral drone flying over a field"
+    },
+    "metrics": {
+      "revisit": { "label": "Satellite revisit", "value": "5 days" },
+      "sensors": { "label": "Sensor readings", "value": "15 min" },
+      "drone": { "label": "Drone resolution", "value": "Centimetric" },
+      "lead": { "label": "Lead time on stress", "value": "14 days" }
+    },
+    "blocks": {
+      "ai": {
+        "title": "Artificial intelligence",
+        "text": "Models trained on Mediterranean time series, not on data imported from another climate.",
+        "note": "Retrained every season",
+        "points": [
+          "Image segmentation to delineate stress zones",
+          "Yield forecasting models per crop",
+          "Disease classification from field images"
+        ]
+      },
+      "satellite": {
+        "title": "Satellite technology",
+        "text": "Open and commercial multispectral imagery, processed automatically at every pass.",
+        "note": "",
+        "points": [
+          "Sentinel-2 and Landsat, 5-day revisit",
+          "NDVI, NDRE, NDWI and SAVI indices",
+          "Automatic cloud masking"
+        ]
+      },
+      "iot": {
+        "title": "IoT technology",
+        "text": "Standalone stations designed for the field: low power, long range, low maintenance.",
+        "note": "",
+        "points": [
+          "Soil moisture probes at several depths",
+          "LoRaWAN and 4G transmission depending on coverage",
+          "Solar powered, long-duration autonomy"
+        ]
+      },
+      "drone": {
+        "title": "Drone technology",
+        "text": "The high-resolution complement to satellite, when you need to zoom down to the individual tree.",
+        "note": "",
+        "points": [
+          "Multispectral and thermal sensors",
+          "Centimetric resolution, tree counting",
+          "Scheduled missions and automatic reporting"
+        ]
+      }
+    },
+    "pipeline": {
+      "eyebrow": "Processing chain",
+      "title": "From raw data to the agronomic instruction",
+      "stepLabel": "Step {number}",
+      "steps": {
+        "acquisition": {
+          "title": "Acquisition",
+          "text": "Satellite images, sensor readings, drone flights and weather data aggregated field by field."
+        },
+        "preprocessing": {
+          "title": "Pre-processing",
+          "text": "Cloud masking, atmospheric correction and vegetation index computation."
+        },
+        "inference": {
+          "title": "Inference",
+          "text": "Stress zone segmentation, disease detection and water requirement forecasting."
+        },
+        "delivery": {
+          "title": "Delivery",
+          "text": "A dated, quantified instruction sent by email, SMS or WhatsApp in FR, EN or AR."
+        }
+      }
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "About",
+      "description": "Born in Sfax in 2021, RoboCare brings together engineers, data scientists and agronomists around a single question: what should the grower do, this week, on this field?"
+    },
+    "hero": {
+      "eyebrow": "About",
+      "title": "Born in Sfax, built for the Mediterranean",
+      "intro": "RoboCare brings together engineers, data scientists and agronomists around a single question: what should the grower do, this week, on this field?",
+      "imageAlt": "The RoboCare team in the field",
+      "foundedLabel": "Founded in",
+      "hectaresLabel": "Hectares monitored",
+      "farmsLabel": "Farms"
+    },
+    "history": {
+      "eyebrow": "Our story",
+      "title": "From four olive groves to 100,000 hectares",
+      "subtitle": "Four years in the field, season after season, with the same partner farms."
+    },
+    "milestones": {
+      "y2021": {
+        "title": "Founded in Sfax",
+        "text": "First satellite monitoring trials on four partner olive groves in central Tunisia."
+      },
+      "y2022": {
+        "title": "First platform",
+        "text": "Field mapping and vegetation indices went live."
+      },
+      "y2023": {
+        "title": "Sensors in the field",
+        "text": "First IoT stations deployed and cereal crops added to the platform."
+      },
+      "y2024": {
+        "title": "Multichannel alerts",
+        "text": "Email, SMS and WhatsApp notifications in French and Arabic, with automatic escalation."
+      },
+      "y2025": {
+        "title": "100,000 hectares monitored",
+        "text": "Extension to citrus and greenhouse crops, and expansion into the MENA region."
+      }
+    },
+    "mission": {
+      "eyebrow": "Why we exist",
+      "title": "Our mission",
+      "missionLabel": "Mission",
+      "missionText": "Put satellite imagery, sensors and artificial intelligence within reach of a ten-hectare grower and a thousand-hectare estate alike, in their own language and on their own phone.",
+      "visionLabel": "Vision",
+      "visionText": "A Mediterranean agriculture that produces more with less water, because every decision rests on data rather than on habit."
+    },
+    "values": {
+      "eyebrow": "What guides us",
+      "title": "Our values",
+      "items": {
+        "useful": {
+          "title": "Useful before impressive",
+          "text": "A recommendation a farmer cannot act on tomorrow morning is worth nothing."
+        },
+        "field": {
+          "title": "The field decides",
+          "text": "Every model is benchmarked against field readings before it goes into production."
+        },
+        "language": {
+          "title": "In the user's language",
+          "text": "French, English, Arabic: the platform and the alerts adapt — not the farmer."
+        },
+        "sobriety": {
+          "title": "Resource sobriety",
+          "text": "Saving water and inputs is not a marketing option, it is the product."
+        }
+      }
+    },
+    "team": {
+      "eyebrow": "The team",
+      "title": "Engineering and agronomy in the same room",
+      "subtitle": "Leadership, engineering and agronomy experts: ten people between Sfax and the field.",
+      "groups": {
+        "leadership": "Leadership",
+        "engineering": "Engineering",
+        "agronomy": "Agronomy experts"
+      },
+      "members": {
+        "ceo": { "name": "First Last", "role": "Co-founder & CEO" },
+        "cto": { "name": "First Last", "role": "Co-founder & CTO" },
+        "po": { "name": "Karim Hbiri", "role": "Product Owner & Scrum Master" },
+        "backend": { "name": "First Last", "role": "Backend engineer (Spring Boot)" },
+        "frontend": { "name": "First Last", "role": "Frontend engineer (React)" },
+        "data": { "name": "First Last", "role": "Data scientist — satellite imagery" },
+        "iot": { "name": "First Last", "role": "IoT & embedded engineer" },
+        "olive": { "name": "First Last", "role": "Agronomist — olive growing" },
+        "cereal": { "name": "First Last", "role": "Agronomist — arable crops" },
+        "field": { "name": "First Last", "role": "Field advisor — Sfax region" }
+      }
+    },
+    "partners": {
+      "eyebrow": "Ecosystem",
+      "title": "Our partners",
+      "subtitle": "Cooperatives, technology operators and research institutes.",
+      "groups": {
+        "agriculture": "Agricultural partners",
+        "technology": "Technology partners",
+        "research": "Research partners"
+      },
+      "items": {
+        "olive-coop": { "name": "Olive Growers Cooperative", "note": "Sfax" },
+        "cereal-group": { "name": "Cereal Growers Group", "note": "Béja" },
+        "farm-estates": { "name": "Agricultural Estates", "note": "Kairouan" },
+        "citrus-union": { "name": "Citrus Growers Union", "note": "Nabeul" },
+        "cloud": { "name": "Cloud provider", "note": "Infrastructure" },
+        "satellite-data": { "name": "Satellite data", "note": "Imagery" },
+        "iot-networks": { "name": "IoT networks", "note": "LoRaWAN" },
+        "telecom": { "name": "Telecom operator", "note": "SMS & data" },
+        "inrat": { "name": "INRAT", "note": "Agronomy" },
+        "inat": { "name": "INAT", "note": "Applied research" },
+        "crda": { "name": "CRDA Sfax", "note": "Field work" },
+        "iit": { "name": "IIT Sfax", "note": "Engineering" }
+      }
+    },
+    "awards": {
+      "eyebrow": "Recognition",
+      "title": "Awards & distinctions",
+      "subtitle": "Awards and support programmes that backed our move to scale.",
+      "programsLabel": "Support programmes",
+      "items": {
+        "national-innovation": {
+          "title": "National Agricultural Innovation Award",
+          "year": "2024",
+          "issuer": "Ministry of Agriculture",
+          "text": "Awarded for the satellite monitoring platform covering olive groves in central Tunisia."
+        },
+        "best-agritech": {
+          "title": "Best AgriTech Startup",
+          "year": "2023",
+          "issuer": "Tunisian Startup Awards",
+          "text": "Awarded for the measured impact on water consumption across partner farms."
+        },
+        "sustainable": {
+          "title": "Sustainable Agriculture Award",
+          "year": "2023",
+          "issuer": "MENA AgriTech Summit",
+          "text": "Regional recognition for reducing inputs on cereal crops."
+        }
+      },
+      "programs": {
+        "accelerator": {
+          "title": "AgriTech Accelerator",
+          "year": "2024",
+          "text": "Smart Capital — a 6-month programme focused on regional scale-up."
+        },
+        "green": {
+          "title": "Green Innovation Programme",
+          "year": "2023",
+          "text": "GIZ — support for deploying IoT stations in semi-arid areas."
+        },
+        "startup-act": {
+          "title": "Startup Act",
+          "year": "2022",
+          "text": "Republic of Tunisia — startup label and team structuring."
+        }
+      }
+    },
+    "media": {
+      "eyebrow": "In the press",
+      "title": "Press",
+      "subtitle": "Articles, reports and interviews about RoboCare.",
+      "items": {
+        "irrigation": {
+          "kind": "Article",
+          "date": "12 Apr 2025",
+          "title": "When the satellite decides how olive trees are irrigated",
+          "outlet": "La Presse"
+        },
+        "hectares": {
+          "kind": "Article",
+          "date": "3 Feb 2025",
+          "title": "Tunisian AgriTech: RoboCare passes the 100,000-hectare mark",
+          "outlet": "African Manager"
+        },
+        "tv": {
+          "kind": "TV report",
+          "date": "20 Nov 2024",
+          "title": "A day with the RoboCare agronomists",
+          "outlet": "Watania 1"
+        },
+        "drought": {
+          "kind": "Feature",
+          "date": "8 Sep 2024",
+          "title": "Drought: digital tools at the bedside of farms",
+          "outlet": "Le Manager"
+        },
+        "interview": {
+          "kind": "Interview",
+          "date": "17 Jun 2024",
+          "title": "\"Farmers don't want data, they want a decision\"",
+          "outlet": "Express FM"
+        },
+        "maghreb": {
+          "kind": "Article",
+          "date": "5 Mar 2024",
+          "title": "The startups reinventing agriculture in the Maghreb",
+          "outlet": "Jeune Afrique"
+        }
+      }
+    },
+    "resources": {
+      "eyebrow": "Downloads",
+      "title": "Resources",
+      "subtitle": "Agronomic guides, white papers and platform documentation.",
+      "items": {
+        "deficit-irrigation": {
+          "title": "A guide to deficit irrigation in olive groves",
+          "text": "When to cut back without penalising fruit set, and how to read soil moisture thresholds.",
+          "format": "PDF · 24 pages"
+        },
+        "read-ndvi": {
+          "title": "Reading an NDVI map in five minutes",
+          "text": "The visual cues to know before acting on an index reading.",
+          "format": "PDF · 8 pages"
+        },
+        "remote-sensing": {
+          "title": "Remote sensing and water stress in the Mediterranean",
+          "text": "Method, datasets and limits of early stress detection at field scale.",
+          "format": "PDF · 32 pages"
+        },
+        "traceability": {
+          "title": "Input traceability and certification",
+          "text": "What buyers and certification bodies ask for, and how to export it from the platform.",
+          "format": "PDF · 18 pages"
+        },
+        "import-fields": {
+          "title": "Importing your fields (KML / Shapefile)",
+          "text": "Accepted formats, expected coordinate system and post-import checks.",
+          "format": "Online"
+        },
+        "report-template": {
+          "title": "Field report template",
+          "text": "The weekly report monitored farms receive, with annotated commentary.",
+          "format": "PDF · 1.4 MB"
+        }
+      }
+    },
+    "contactCta": {
+      "eyebrow": "Let's work together",
+      "title": "A question, a project, a partnership?",
+      "text": "Farm, cooperative, institution or laboratory: write to us and we'll reply within 48 hours."
+    }
+  },
+  "impact": {
+    "meta": {
+      "title": "Impact",
+      "description": "Results measured field by field: an olive grove in Sfax, a cereal cooperative in Béja, a citrus orchard in Nabeul."
+    },
+    "hero": {
+      "eyebrow": "Impact",
+      "title": "Results measured, field by field",
+      "intro": "Every figure on this page comes from a monitored farm: an olive grove in Sfax, a cereal cooperative in Béja, a citrus orchard in Nabeul.",
+      "imageAlt": "Durum wheat fields monitored by RoboCare in the Béja region"
+    },
+    "method": {
+      "eyebrow": "Methodology",
+      "title": "The cycle behind these figures",
+      "subtitle": "Four steps, repeated all season long: what is measured is compared against what was recommended.",
+      "steps": {
+        "collect": {
+          "title": "Field data collection",
+          "text": "Sentinel-2 images every five days, soil moisture sensors, on-demand drone flights and local weather data, aggregated field by field.",
+          "timing": "Continuous"
+        },
+        "analyse": {
+          "title": "AI-driven analysis",
+          "text": "Our models, trained on Mediterranean time series, segment stress zones and detect diseases and deficiencies before they become visible.",
+          "timing": "Within 24 h"
+        },
+        "recommend": {
+          "title": "Tailored recommendations",
+          "text": "A dated, quantified instruction per zone — irrigation rate, variable-rate nitrogen, treatment window — sent by email, SMS or WhatsApp.",
+          "timing": "Every week"
+        },
+        "monitor": {
+          "title": "Continuous crop monitoring",
+          "text": "Every satellite pass measures the effect of the intervention. Field history feeds the model, which is retrained each season.",
+          "timing": "All season"
+        }
+      }
+    },
+    "results": {
+      "eyebrow": "Proven results",
+      "title": "What monitored farms actually measured"
+    },
+    "stats": {
+      "hectares": { "label": "Hectares monitored", "note": "Tunisia and the MENA region" },
+      "farms": { "label": "Active farms", "note": "From family estates to cooperatives" },
+      "water": { "label": "Irrigation water saved", "note": "220 ha olive grove, Sfax" },
+      "yield": { "label": "Yield on monitored zones", "note": "At constant input levels" },
+      "nitrogen": { "label": "Nitrogen applied", "note": "Cereal cooperative, Béja" },
+      "lead": { "label": "Days of lead time on stress", "note": "Before the symptom becomes visible" },
+      "images": { "label": "Satellite images processed", "note": "Since 2021" },
+      "uptime": { "label": "Platform uptime", "note": "Measured over 12 months" }
+    },
+    "crops": {
+      "eyebrow": "By crop",
+      "title": "The detail, crop by crop",
+      "items": {
+        "oliviers": {
+          "name": "Olive trees",
+          "description": "Tree-by-tree vigour, water stress spotted before fruit set, and alternate bearing softened by managed deficit irrigation.",
+          "indicators": [
+            { "label": "Water", "value": "−28%" },
+            { "label": "Yield", "value": "+12%" },
+            { "label": "Area", "value": "220 ha" }
+          ]
+        },
+        "agrumes": {
+          "name": "Citrus",
+          "description": "Salinity and heat stress monitoring on irrigated orchards, with alerts on sectors where soil conductivity drifts.",
+          "indicators": [
+            { "label": "Salinity", "value": "Monitored" },
+            { "label": "Water", "value": "−21%" }
+          ]
+        },
+        "tomates": {
+          "name": "Tomatoes",
+          "description": "Open-field and protected crops: climate management, early blight detection and treatment windows aligned with local weather.",
+          "indicators": [
+            { "label": "Treatments", "value": "−24%" },
+            { "label": "Lead time", "value": "11 d" }
+          ]
+        },
+        "pommes-de-terre": {
+          "name": "Potatoes",
+          "description": "Emergence uniformity, zone-level water needs and pre-harvest tonnage estimates to plan storage and sales.",
+          "indicators": [
+            { "label": "Tonnage", "value": "Estimated" },
+            { "label": "Water", "value": "−17%" }
+          ]
+        },
+        "vignes": {
+          "name": "Vineyards",
+          "description": "Row-level vigour, water constraint managed ahead of harvest, and block zoning to pick each sector at ripeness.",
+          "indicators": [
+            { "label": "Zoning", "value": "Per row" },
+            { "label": "Passes", "value": "−18%" }
+          ]
+        },
+        "cereales": {
+          "name": "Cereals",
+          "description": "Variable-rate nitrogen maps derived from NDRE at tillering, emergence checks and yield estimates a month before harvest.",
+          "indicators": [
+            { "label": "Nitrogen", "value": "−19%" },
+            { "label": "Area", "value": "1,400 ha" }
+          ]
+        }
+      }
+    },
+    "benefits": {
+      "title": "What the farm gains",
+      "items": {
+        "data": {
+          "title": "Decide on data",
+          "text": "Every recommendation rests on a dated, located measurement, available in the field history."
+        },
+        "resources": {
+          "title": "Save resources",
+          "text": "Water, fertiliser and fuel applied where the field needs them, and only there."
+        },
+        "productivity": {
+          "title": "Increase productivity",
+          "text": "Spotting an underperforming zone early still leaves time to recover the season's yield."
+        },
+        "sustainable": {
+          "title": "Sustainable farming",
+          "text": "Fewer inputs per hectare and exportable traceability for certifications and buyers."
+        }
+      }
+    },
+    "stories": {
+      "eyebrow": "Case studies",
+      "title": "Three farms, three problems, three results",
+      "labels": {
+        "challenge": "The challenge",
+        "solution": "The solution",
+        "results": "The results"
+      },
+      "items": {
+        "olive-farm-tunisia": {
+          "title": "220 ha olive grove, Sfax",
+          "meta": "Olive (Chemlali) · 220 hectares · Sfax, Tunisia",
+          "challenge": "Highly uneven yields from one block to the next with no clear explanation, and an irrigation bill up 18% over two seasons.",
+          "solution": "Full mapping of the estate, weekly NDVI monitoring, six soil moisture stations in the most heterogeneous sectors and a deficit irrigation schedule recalculated every week.",
+          "results": [
+            "28% of irrigation water saved over the season",
+            "+12% average yield on monitored zones",
+            "Two peacock spot outbreaks treated before spreading"
+          ]
+        },
+        "cereal-cooperative-beja": {
+          "title": "Cereal cooperative, Béja",
+          "meta": "Durum wheat · 1,400 hectares · 38 members · Béja, Tunisia",
+          "challenge": "Uniform nitrogen applications across all fields, with no visibility on which zones were genuinely deficient or on the yield expected before harvest.",
+          "solution": "Variable-rate nitrogen maps generated from NDRE at tillering, distributed to members over WhatsApp, and per-field yield estimates a month before harvest.",
+          "results": [
+            "19% less nitrogen at equivalent yield",
+            "Harvest planning brought forward by three weeks",
+            "38 farms on a single shared map"
+          ]
+        },
+        "citrus-orchard-nabeul": {
+          "title": "85 ha citrus orchard, Nabeul",
+          "meta": "Citrus (Maltaise) · 85 hectares · Nabeul, Tunisia",
+          "challenge": "Progressive salinisation of the water table and unexplained yellowing on border rows, with fruit size losses recorded two seasons running.",
+          "solution": "Weekly NDVI and NDRE monitoring cross-referenced with eight conductivity probes, orchard zoning into four irrigation sectors, and targeted leaching only where salinity exceeded the threshold.",
+          "results": [
+            "21% of irrigation water saved over the season",
+            "Salinity brought back below threshold in three sectors out of four",
+            "Average fruit size back to 2022 levels"
+          ]
+        }
+      }
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact",
+      "description": "Tell us about your farm: a RoboCare agronomist will reply within 48 hours, in French, English or Arabic."
+    },
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Let's talk about your fields",
+      "intro": "Tell us about your farm: a RoboCare agronomist will reply within 48 hours, in French, English or Arabic.",
+      "imageAlt": "Citrus orchard in the Nabeul region monitored by RoboCare",
+      "badges": ["Reply within 48 h", "No commitment", "FR · EN · AR"]
+    },
+    "form": {
+      "title": "Write to us",
+      "intro": "Fields marked with an asterisk are what we need to give you a useful answer.",
+      "fields": {
+        "name": { "label": "Full name *", "placeholder": "e.g. Mohamed Trabelsi" },
+        "org": {
+          "label": "Farm / organisation",
+          "placeholder": "e.g. Sfax Olive Growers Cooperative"
+        },
+        "email": { "label": "Email *", "placeholder": "you@example.tn" },
+        "phone": { "label": "Phone", "placeholder": "+216 …" },
+        "crop": { "label": "Main crop", "other": "Other" },
+        "area": { "label": "Area (hectares)", "placeholder": "e.g. 45" },
+        "subject": { "label": "What is your enquiry about?" },
+        "message": {
+          "label": "Your message *",
+          "placeholder": "Your fields, your crops, what you are looking to monitor…"
+        }
+      },
+      "subjects": {
+        "demo": "Demo",
+        "quote": "Quote",
+        "partnership": "Partnership",
+        "support": "Support"
+      },
+      "consent": "I agree that RoboCare may use this information to reply to me. No data is shared with third parties.",
+      "submit": "Send my enquiry",
+      "statusIdle": "Reply within 48 working hours",
+      "statusSent": "Message sent — reply within 48 h",
+      "errors": {
+        "nameRequired": "Please enter your full name.",
+        "emailRequired": "Please enter an email address.",
+        "emailInvalid": "This email address doesn't look valid.",
+        "messageRequired": "Please describe your enquiry in a few lines.",
+        "messageTooShort": "Your message is a little short: 20 characters minimum.",
+        "consentRequired": "We need your consent before we can reply.",
+        "summary": "The form has {count} field(s) to correct."
+      }
+    },
+    "info": {
+      "office": "Office",
+      "phone": "Phone",
+      "email": "Email",
+      "nextStepsTitle": "What happens next",
+      "nextSteps": [
+        "An agronomist reads your enquiry and prepares a first read of your fields.",
+        "We call you to schedule the demo — 30 minutes, online or on site.",
+        "You add a test field: first satellite analysis within 24 hours."
+      ]
+    },
+    "faq": {
+      "eyebrow": "Frequently asked",
+      "title": "Before you write to us",
+      "intro": "Answers to the questions we are asked most often on first contact.",
+      "items": {
+        "hardware": {
+          "question": "Do I need to buy hardware to get started?",
+          "answer": "No. The satellite is enough: you create an account, add a field, and the first analysis arrives within 24 hours. IoT sensors and drone flights come later, and only if your farm needs them."
+        },
+        "delay": {
+          "question": "How quickly do you reply?",
+          "answer": "48 working hours at most. For support on an existing account, go through the platform: those requests are prioritised."
+        },
+        "languages": {
+          "question": "Which languages can we work in?",
+          "answer": "French, English and Arabic — in writing and on the phone. Platform alerts follow the same rule."
+        },
+        "coverage": {
+          "question": "Do you work outside Tunisia?",
+          "answer": "Yes: the platform has been open to the MENA region since 2025. Satellite monitoring works everywhere; sensors and drone flights depend on local coverage."
+        }
+      }
+    }
+  },
+  "notFound": {
+    "eyebrow": "Error 404",
+    "title": "This page doesn't exist",
+    "text": "The link may be out of date. Head back home or browse our solutions by crop."
+  }
+}
