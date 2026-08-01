@@ -12,9 +12,10 @@ export const SITE = {
   appLoginUrl: 'https://app.satellite.robocare.tn/',
   appRegisterUrl: 'https://app.satellite.robocare.tn/signup',
   social: {
-    linkedin: 'https://www.linkedin.com/company/robocare',
-    facebook: 'https://www.facebook.com/robocare',
-    youtube: 'https://www.youtube.com/@robocare',
+    linkedin: 'https://www.linkedin.com/company/robocareagriculture/',
+    facebook: 'https://www.facebook.com/robocareTn',
+    youtube: 'https://www.youtube.com/@robocare4.065',
+    maps: 'https://www.google.com/maps?cid=10022768204593663262&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&hl=fr&gl=TN&source=embed',
   },
 } as const;
 

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Facebook, Linkedin, Youtube } from 'lucide-react';
+import { Facebook, Linkedin, MapPin, Youtube } from 'lucide-react';
 import { useTranslation } from '@/i18n';
 import { FOOTER_COLUMNS, SITE } from '@/lib/data/site';
 import { Reveal } from '@/components/animations/Reveal';
@@ -11,6 +11,7 @@ const SOCIALS = [
   { label: 'LinkedIn', href: SITE.social.linkedin, Icon: Linkedin },
   { label: 'Facebook', href: SITE.social.facebook, Icon: Facebook },
   { label: 'YouTube', href: SITE.social.youtube, Icon: Youtube },
+  { label: 'Google Maps', href: SITE.social.maps, Icon: MapPin },
 ] as const;
 
 const isExternal = (href: string) =>

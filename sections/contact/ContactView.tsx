@@ -1,6 +1,6 @@
 'use client';
 
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Clock, Mail, MapPin, Phone } from 'lucide-react';
 import { useTranslation } from '@/i18n';
 import { PageHero } from '@/components/layout/PageHero';
 import { Section } from '@/components/ui/Section';
@@ -55,9 +55,18 @@ export function ContactView() {
                     <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-400">
                       {t('contact.info.office')}
                     </p>
-                    <p className="mt-1 text-[15px] text-ink-900">
-                      {t('common.city')}, {t('common.country')}
+                    <p className="mt-1 text-[15px] leading-[1.55] text-ink-900">
+                      {t('contact.info.address')}
                     </p>
+                  </div>
+                </li>
+                <li className="flex gap-3.5">
+                  <Clock size={20} className="mt-0.5 shrink-0 text-forest-900" aria-hidden />
+                  <div>
+                    <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-400">
+                      {t('contact.info.hours')}
+                    </p>
+                    <p className="mt-1 text-[15px] text-ink-900">{t('contact.info.hoursValue')}</p>
                   </div>
                 </li>
                 <li className="flex gap-3.5">

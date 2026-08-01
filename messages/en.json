@@ -1508,8 +1508,11 @@
     },
     "info": {
       "office": "Office",
+      "address": "Rue Hedi Nouira, Immeuble Fourat, 3rd floor, No. 307, Bab El Jebli, Sfax Medina, Sfax, 3047",
       "phone": "Phone",
       "email": "Email",
+      "hours": "Hours",
+      "hoursValue": "Monday – Friday: 9:00 AM – 5:00 PM",
       "nextStepsTitle": "What happens next",
       "nextSteps": [
         "An agronomist reads your enquiry and prepares a first read of your fields.",
