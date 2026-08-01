@@ -9,7 +9,8 @@ export const SITE = {
   phoneHref: 'tel:+21639737368',
   appUrl: 'https://app.satellite.robocare.tn',
   appHost: 'app.satellite.robocare.tn',
-  appRegisterUrl: 'https://app.satellite.robocare.tn/register',
+  appLoginUrl: 'https://app.satellite.robocare.tn/',
+  appRegisterUrl: 'https://app.satellite.robocare.tn/signup',
   social: {
     linkedin: 'https://www.linkedin.com/company/robocare',
     facebook: 'https://www.facebook.com/robocare',

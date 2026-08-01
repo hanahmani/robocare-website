@@ -47,6 +47,7 @@
     "contact": "Contact"
   },
   "actions": {
+    "login": "Se connecter",
     "createAccount": "Créer un compte",
     "requestDemo": "Demander une démo",
     "seeSolutions": "Voir nos solutions",
@@ -912,6 +913,7 @@
       "eyebrow": "Écosystème",
       "title": "Nos partenaires",
       "subtitle": "Coopératives, opérateurs technologiques et instituts de recherche.",
+      "logoAlt": "Logo partenaire RoboCare",
       "groups": {
         "agriculture": "Partenaires agricoles",
         "technology": "Partenaires technologiques",

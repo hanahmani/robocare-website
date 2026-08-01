@@ -74,6 +74,14 @@ export function Navbar() {
           <LanguageSwitcher className="hidden md:flex" />
 
           <ButtonExternal
+            href={SITE.appLoginUrl}
+            variant="outline"
+            className="hidden sm:inline-flex"
+          >
+            {t('actions.login')}
+          </ButtonExternal>
+
+          <ButtonExternal
             href={SITE.appRegisterUrl}
             variant="dark"
             className="hidden sm:inline-flex"

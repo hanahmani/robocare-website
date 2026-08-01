@@ -110,6 +110,10 @@ const config: Config = {
           '50%': { transform: 'translateY(12px)' },
         },
         spinSlow: { to: { transform: 'rotate(360deg)' } },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         sweep: 'sweep 6.5s cubic-bezier(.5,0,.5,1) infinite',
@@ -117,6 +121,7 @@ const config: Config = {
         floaty: 'floaty 7s ease-in-out infinite',
         'floaty-alt': 'floatyAlt 8s ease-in-out infinite',
         'spin-slow': 'spinSlow 6s linear infinite',
+        marquee: 'marquee 34s linear infinite',
       },
     },
   },

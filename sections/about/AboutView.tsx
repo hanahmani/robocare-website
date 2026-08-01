@@ -5,6 +5,7 @@ import { useTranslation } from '@/i18n';
 import { PageHero } from '@/components/layout/PageHero';
 import { Section } from '@/components/ui/Section';
 import { AboutApproach } from '@/sections/about/AboutApproach';
+import { PartnersMarquee } from '@/sections/about/PartnersMarquee';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Card } from '@/components/ui/Card';
 import { ButtonExternal } from '@/components/ui/Button';
@@ -17,8 +18,6 @@ import {
   AWARDS,
   MEDIA,
   MILESTONES,
-  PARTNERS,
-  PARTNER_GROUPS,
   PROGRAMS,
   RESOURCES,
   TEAM,
@@ -218,39 +217,7 @@ export function AboutView() {
       </Section>
 
       {/* Partenaires */}
-      <Section id="partenaires" className="scroll-mt-24">
-        <SectionHeading
-          eyebrow={t('about.partners.eyebrow')}
-          title={t('about.partners.title')}
-          subtitle={t('about.partners.subtitle')}
-        />
-        <Stagger className="mt-8 grid gap-5 lg:mt-14 lg:grid-cols-3">
-          {PARTNER_GROUPS.map((group) => (
-            <StaggerItem key={group} className="h-full">
-              <Card className="p-[26px]">
-                <h3 className="font-mono text-[11px] font-normal uppercase tracking-[0.16em] text-ink-300">
-                  {about.partners.groups[group]}
-                </h3>
-                <ul className="mt-4 flex flex-col gap-2.5">
-                  {PARTNERS.filter((partner) => partner.category === group).map((partner) => (
-                    <li
-                      key={partner.id}
-                      className="flex items-baseline justify-between gap-3 rounded-field bg-sage-50 px-4 py-3.5 transition-all duration-300 hover:translate-x-1 hover:bg-sage-200 rtl:hover:-translate-x-1"
-                    >
-                      <span className="text-[14.5px] font-bold text-ink-900">
-                        {about.partners.items[partner.id].name}
-                      </span>
-                      <span className="font-mono text-[11px] text-ink-400">
-                        {about.partners.items[partner.id].note}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            </StaggerItem>
-          ))}
-        </Stagger>
-      </Section>
+      <PartnersMarquee />
 
       {/* Prix & distinctions */}
       <Section id="prix" tone="sage" className="scroll-mt-24">

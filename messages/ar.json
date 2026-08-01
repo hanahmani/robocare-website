@@ -47,6 +47,7 @@
     "contact": "اتصل بنا"
   },
   "actions": {
+    "login": "تسجيل الدخول",
     "createAccount": "إنشاء حساب",
     "requestDemo": "طلب عرض توضيحي",
     "seeSolutions": "اكتشف حلولنا",
@@ -912,6 +913,7 @@
       "eyebrow": "المنظومة",
       "title": "شركاؤنا",
       "subtitle": "تعاضديات ومشغّلون تكنولوجيون ومعاهد بحث.",
+      "logoAlt": "شعار شريك RoboCare",
       "groups": {
         "agriculture": "الشركاء الفلاحيون",
         "technology": "الشركاء التكنولوجيون",
