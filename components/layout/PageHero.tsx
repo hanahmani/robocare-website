@@ -40,7 +40,12 @@ export function PageHero({
   className,
 }: Props) {
   return (
-    <section className={cn('relative isolate overflow-hidden bg-forest-950 text-white', className)}>
+    <section
+      className={cn(
+        'relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-forest-950 text-white',
+        className,
+      )}
+    >
       <div className="absolute inset-0 -z-20">
         <Image
           src={image}
@@ -60,7 +65,7 @@ export function PageHero({
         />
       ) : null}
 
-      <div className="container-page py-16 lg:py-28">
+      <div className="container-page flex flex-1 flex-col justify-center py-16 lg:py-28">
         <Reveal from="scale">
           <Breadcrumbs items={crumbs} />
         </Reveal>

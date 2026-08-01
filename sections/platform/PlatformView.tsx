@@ -29,7 +29,7 @@ export function PlatformView() {
         eyebrow={t('platform.hero.eyebrow')}
         title={t('platform.hero.title')}
         intro={t('platform.hero.intro')}
-        image="/hero/satellite-heatmap.webp"
+        image="/hero/platforme.png"
         imageAlt={t('platform.hero.imageAlt')}
         crumbs={[{ labelKey: 'nav.platform' }]}
         actions={

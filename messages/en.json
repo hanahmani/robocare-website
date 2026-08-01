@@ -30,7 +30,11 @@
     "closeModal": "Close window",
     "languageGroup": "Choose a language",
     "switchTo": "View the site in {language}",
-    "appViews": "Application views"
+    "appViews": "Application views",
+    "playVideo": "Play video",
+    "pauseVideo": "Pause video",
+    "muteVideo": "Mute",
+    "unmuteVideo": "Unmute"
   },
   "languages": {
     "fr": "Français",
@@ -152,6 +156,11 @@
         "NDVI / NDRE time series and side-by-side date comparison",
         "Multichannel alerts and an exportable weekly report"
       ]
+    },
+    "videoShowcase": {
+      "eyebrow": "In action",
+      "title": "RoboCare in action, in the field",
+      "subtitle": "From satellite capture to the alert on the ground: see the platform and its solutions in a short video."
     },
     "why": {
       "eyebrow": "Why RoboCare",

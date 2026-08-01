@@ -6,6 +6,7 @@ import { About } from '@/sections/home/About';
 import { WhyRoboCare } from '@/sections/home/WhyRoboCare';
 import { SolutionsPreview } from '@/sections/home/SolutionsPreview';
 import { PlatformPreview } from '@/sections/home/PlatformPreview';
+import { VideoShowcase } from '@/sections/home/VideoShowcase';
 import { SocialProof } from '@/sections/home/SocialProof';
 import { HomeFaq } from '@/sections/home/HomeFaq';
 import { Statistics } from '@/sections/shared/Statistics';
@@ -36,6 +37,7 @@ export function HomeView() {
       <WhyRoboCare />
       <SolutionsPreview />
       <PlatformPreview />
+      <VideoShowcase />
       <SocialProof />
       <HomeFaq />
 

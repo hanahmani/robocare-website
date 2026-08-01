@@ -30,7 +30,11 @@
     "closeModal": "إغلاق النافذة",
     "languageGroup": "اختيار اللغة",
     "switchTo": "عرض الموقع بـ{language}",
-    "appViews": "واجهات التطبيق"
+    "appViews": "واجهات التطبيق",
+    "playVideo": "تشغيل الفيديو",
+    "pauseVideo": "إيقاف مؤقت",
+    "muteVideo": "كتم الصوت",
+    "unmuteVideo": "تفعيل الصوت"
   },
   "languages": {
     "fr": "Français",
@@ -152,6 +156,11 @@
         "سلاسل NDVI / NDRE ومقارنة بين تاريخين",
         "تنبيهات متعدّدة القنوات وتقرير أسبوعي قابل للتصدير"
       ]
+    },
+    "videoShowcase": {
+      "eyebrow": "بالفيديو",
+      "title": "RoboCare في الميدان",
+      "subtitle": "من الالتقاط الفضائي إلى التنبيه في الحقل: اكتشف المنصّة وحلولها في فيديو قصير."
     },
     "why": {
       "eyebrow": "لماذا RoboCare",
