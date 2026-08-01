@@ -23,7 +23,7 @@ export function SolutionsView() {
   return (
     <>
       <PageHero
-        eyebrow={t('solutions.hero.eyebrow')}
+        eyebrow={t('solutions.hero.eyebrow')} // "Solutions"
         title={t('solutions.hero.title')}
         intro={t('solutions.hero.intro')}
         image="/hero/sfax.webp"
