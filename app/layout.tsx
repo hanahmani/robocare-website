@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { IBM_Plex_Mono, IBM_Plex_Sans_Arabic, Manrope, Space_Grotesk } from 'next/font/google';
 import '@/styles/globals.css';
 import { LOCALE_META, getDirection } from '@/i18n/config';
@@ -49,6 +49,14 @@ const FONT_VARIABLES = [
   plexMono.variable,
   plexArabic.variable,
 ].join(' ');
+
+/** Couleur de l'UI navigateur (barre d'adresse mobile, splash PWA) : fond de marque. */
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  colorScheme: 'light',
+  themeColor: '#06120C',
+};
 
 /** Métadonnées globales, localisées selon le cookie de langue. */
 export async function generateMetadata(): Promise<Metadata> {
