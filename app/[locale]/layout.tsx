@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from 'next';
+import { notFound } from 'next/navigation';
 import { IBM_Plex_Mono, IBM_Plex_Sans_Arabic, Manrope, Space_Grotesk } from 'next/font/google';
 import '@/styles/globals.css';
-import { LOCALE_META, getDirection } from '@/i18n/config';
+import { LOCALES, LOCALE_META, getDirection, isLocale, type Locale } from '@/i18n/config';
 import { I18nProvider } from '@/i18n/provider';
 import { getTranslation } from '@/i18n/getDictionary';
 import { Navbar } from '@/components/layout/Navbar';
@@ -11,6 +12,7 @@ import { DemoModalProvider } from '@/components/demo/DemoModalProvider';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { graph, organizationSchema, websiteSchema } from '@/lib/seo/schema';
 import { SITE } from '@/lib/data/site';
+import { languageAlternates } from '@/lib/seo/metadata';
 
 // Polices auto-hébergées par Next (préchargées, sans requête tierce).
 const manrope = Manrope({
@@ -50,6 +52,11 @@ const FONT_VARIABLES = [
   plexArabic.variable,
 ].join(' ');
 
+/** Génère les trois pages `/fr`, `/en`, `/ar` en statique au build. */
+export function generateStaticParams(): { locale: Locale }[] {
+  return LOCALES.map((locale) => ({ locale }));
+}
+
 /** Couleur de l'UI navigateur (barre d'adresse mobile, splash PWA) : fond de marque. */
 export const viewport: Viewport = {
   width: 'device-width',
@@ -58,9 +65,14 @@ export const viewport: Viewport = {
   themeColor: '#06120C',
 };
 
-/** Métadonnées globales, localisées selon le cookie de langue. */
-export async function generateMetadata(): Promise<Metadata> {
-  const { locale, d } = await getTranslation();
+type LayoutParams = { params: Promise<{ locale: string }> };
+
+/** Métadonnées globales, localisées selon la langue de l'URL. */
+export async function generateMetadata({ params }: LayoutParams): Promise<Metadata> {
+  const { locale: raw } = await params;
+  if (!isLocale(raw)) return {};
+  const locale = raw;
+  const { d } = getTranslation(locale);
 
   return {
     metadataBase: new URL(SITE.url),
@@ -73,10 +85,15 @@ export async function generateMetadata(): Promise<Metadata> {
     applicationName: SITE.name,
     category: 'Agriculture technology',
     formatDetection: { telephone: false, address: false, email: false },
+    alternates: {
+      canonical: `/${locale}`,
+      languages: languageAlternates('/'),
+    },
     openGraph: {
       type: 'website',
       locale: LOCALE_META[locale].ogLocale,
-      url: SITE.url,
+      alternateLocale: LOCALES.filter((l) => l !== locale).map((l) => LOCALE_META[l].ogLocale),
+      url: `${SITE.url}/${locale}`,
       siteName: d.meta.siteName,
       title: d.meta.defaultTitle,
       description: d.meta.description,
@@ -103,8 +120,17 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const { locale, d, t } = await getTranslation();
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale: raw } = await params;
+  if (!isLocale(raw)) notFound();
+  const locale = raw;
+  const { d, t } = getTranslation(locale);
 
   return (
     <html
@@ -114,7 +140,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       suppressHydrationWarning
     >
       <body>
-        <I18nProvider initialLocale={locale}>
+        <I18nProvider locale={locale}>
           <DemoModalProvider>
             {/* Lien d'évitement pour la navigation clavier */}
             <a

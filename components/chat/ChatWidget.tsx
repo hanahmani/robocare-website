@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, MessageCircle, Moon, RotateCcw, Send, Sun, X } from 'lucide-react';
-import { useTranslation } from '@/i18n';
+import { localizePath, useTranslation } from '@/i18n';
 import { EASE } from '@/lib/motion';
 import { cn } from '@/lib/utils';
 import { QUICK_REPLIES, findEntry, type KnowledgeEntry } from '@/lib/chat/knowledge';
@@ -398,7 +398,7 @@ export function ChatWidget() {
 
                       {message.link ? (
                         <Link
-                          href={message.link.href}
+                          href={localizePath(locale, message.link.href)}
                           onClick={() => setOpen(false)}
                           className={cn(
                             'mt-2 inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[12.5px] font-bold transition-colors',
@@ -518,7 +518,7 @@ export function ChatWidget() {
             >
               <span>{t('chat.disclaimer')}</span>
               <Link
-                href="/contact"
+                href={localizePath(locale, '/contact')}
                 onClick={() => setOpen(false)}
                 className={cn('font-semibold', palette.footerLink)}
               >
