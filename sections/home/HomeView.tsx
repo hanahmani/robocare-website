@@ -9,7 +9,7 @@ import { PlatformPreview } from '@/sections/home/PlatformPreview';
 import { VideoShowcase } from '@/sections/home/VideoShowcase';
 import { SocialProof } from '@/sections/home/SocialProof';
 import { HomeFaq } from '@/sections/home/HomeFaq';
-import { StatsShowcase } from '@/sections/home/StatsShowcase';
+import { StatsShowcase } from '@/sections/shared/StatsShowcase';
 import { CtaBand } from '@/sections/shared/CtaBand';
 import { Section, IndexScale } from '@/components/ui/Section';
 import { HOME_STATS } from '@/lib/data/home';

@@ -22,15 +22,18 @@ const PARTICLE_SEEDS = [0.12, 0.34, 0.58, 0.71, 0.89];
 
 /**
  * Bandeau de statistiques premium : bento glassmorphique, halo qui suit la souris,
- * inclinaison 3D des cartes et bordure animée au survol. Réservé à l'accueil —
- * la page Impact garde `<Statistics>` (grille plus dense, huit indicateurs).
+ * inclinaison 3D des cartes et bordure animée au survol. Utilisé sur l'accueil
+ * (6 chiffres) et sur la page Impact (8 chiffres, `columns={4}`).
  */
 export function StatsShowcase({
   stats,
   className,
+  columns = 6,
 }: {
   stats: readonly StatCardData[];
   className?: string;
+  /** Nombre de colonnes en desktop (`lg:`) : 6 par défaut, 4 pour une grille plus dense. */
+  columns?: 4 | 6;
 }) {
   const mx = useMotionValue(0.5);
   const my = useMotionValue(0.5);
@@ -49,7 +52,10 @@ export function StatsShowcase({
 
       <Stagger
         stagger={0.09}
-        className="relative grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-6 lg:gap-4"
+        className={cn(
+          'relative grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:gap-4',
+          columns === 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-6',
+        )}
       >
         {stats.map((stat, index) => (
           <StatCard key={stat.id} stat={stat} index={index} />

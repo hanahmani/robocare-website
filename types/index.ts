@@ -87,7 +87,6 @@ export type Step = {
 export type CropResult = {
   slug: 'oliviers' | 'agrumes' | 'tomates' | 'pommes-de-terre' | 'vignes' | 'cereales';
   image: string;
-  tint: string;
   solutionSlug: Solution['slug'];
 };
 

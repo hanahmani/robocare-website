@@ -14,7 +14,11 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/solutions)",
       "Bash(chromium-cli --help)",
       "Bash(curl -s http://localhost:3000/solutions)",
-      "Bash(taskkill //PID 9888 //F)"
+      "Bash(taskkill //PID 9888 //F)",
+      "Bash(git mv *)",
+      "Bash(git rm *)",
+      "Bash(timeout 30 bash -c 'until curl -sf http://localhost:3000/ >/dev/null; do sleep 1; done')",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/about)"
     ]
   }
 }
