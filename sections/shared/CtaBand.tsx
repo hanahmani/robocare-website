@@ -35,6 +35,10 @@ export function CtaBand({ eyebrow, title, text, actions, showContacts = false }:
       />
       <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(6,18,12,.95)_12%,rgba(6,18,12,.55)_62%,rgba(6,18,12,.85))]" />
       <div className="grid-overlay absolute inset-0" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -end-24 -top-24 h-[360px] w-[360px] rounded-full bg-lime-500/20 blur-[110px]"
+      />
 
       <div className="relative max-w-[48rem] p-8 sm:p-12 lg:p-[72px]">
         <p className="eyebrow text-lime-500">{eyebrow ?? t('cta.eyebrow')}</p>
