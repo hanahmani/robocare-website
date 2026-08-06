@@ -1362,7 +1362,7 @@
       "items": {
         "olive-farm-tunisia": {
           "title": "Oliveraie de 220 ha, Sfax",
-          "meta": "Olivier (Chemlali) · 220 hectares · Sfax, Tunisie",
+          "meta": ["Olivier (Chemlali)", "220 hectares", "Sfax, Tunisie"],
           "challenge": "Rendements très inégaux d’une parcelle à l’autre sans explication claire, et une facture d’irrigation en hausse de 18 % en deux campagnes.",
           "solution": "Cartographie complète de l’exploitation, suivi NDVI hebdomadaire, six stations d’humidité de sol dans les secteurs les plus hétérogènes et un calendrier d’irrigation déficitaire recalculé chaque semaine.",
           "results": [
@@ -1373,7 +1373,7 @@
         },
         "cereal-cooperative-beja": {
           "title": "Coopérative céréalière, Béja",
-          "meta": "Blé dur · 1 400 hectares · 38 adhérents · Béja, Tunisie",
+          "meta": ["Blé dur", "1 400 hectares", "38 adhérents", "Béja, Tunisie"],
           "challenge": "Apports d’azote uniformes sur toutes les parcelles, sans visibilité sur les zones réellement déficitaires ni sur le rendement attendu avant moisson.",
           "solution": "Cartes de modulation azotée générées à partir du NDRE au stade tallage, diffusées aux adhérents par WhatsApp, et estimation de rendement par parcelle un mois avant la moisson.",
           "results": [
@@ -1384,7 +1384,7 @@
         },
         "citrus-orchard-nabeul": {
           "title": "Verger d’agrumes de 85 ha, Nabeul",
-          "meta": "Agrumes (Maltaise) · 85 hectares · Nabeul, Tunisie",
+          "meta": ["Agrumes (Maltaise)", "85 hectares", "Nabeul, Tunisie"],
           "challenge": "Salinisation progressive de la nappe et jaunissement inexpliqué sur les rangs de bordure, avec une perte de calibre constatée deux campagnes de suite.",
           "solution": "Suivi NDVI et NDRE hebdomadaire croisé avec huit sondes de conductivité, zonage du verger en quatre secteurs d’irrigation et lessivage ciblé sur les seules zones où la salinité dépassait le seuil.",
           "results": [

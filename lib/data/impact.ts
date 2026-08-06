@@ -82,15 +82,19 @@ export const IMPACT_STORIES = [
 
 /**
  * Réductions moyennes constatées — libellés dans `impact.environment.bars.<id>`.
- * `value` est le pourcentage affiché ET la largeur de la barre.
+ * `value` est le pourcentage affiché ; la largeur de barre se calcule relativement
+ * à `IMPACT_ENV_BARS_MAX` pour que l'écart entre les valeurs reste lisible.
  */
 export const IMPACT_ENV_BARS = [
-  { id: 'water', value: 28, featured: true },
+  { id: 'water', value: 28 },
   { id: 'nitrogen', value: 19 },
   { id: 'treatments', value: 24 },
   { id: 'fuel', value: 15 },
   { id: 'emissions', value: 21 },
 ] as const;
+
+/** Plus grande valeur absolue de la série — calculée une fois, réutilisée par chaque barre. */
+export const IMPACT_ENV_BARS_MAX = Math.max(...IMPACT_ENV_BARS.map((bar) => Math.abs(bar.value)));
 
 /** Cartes environnementales — textes dans `impact.environment.cards.<id>`. */
 export const IMPACT_ENV_CARDS = [

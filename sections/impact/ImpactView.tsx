@@ -1,6 +1,5 @@
 'use client';
 
-import { Check } from 'lucide-react';
 import { useTranslation } from '@/i18n';
 import { PageHero } from '@/components/layout/PageHero';
 import { Section } from '@/components/ui/Section';
@@ -14,6 +13,7 @@ import { StatsShowcase } from '@/sections/shared/StatsShowcase';
 import { CtaBand } from '@/sections/shared/CtaBand';
 import { ImpactEnvironment } from '@/sections/impact/ImpactEnvironment';
 import { CultureCard } from '@/sections/impact/CultureCard';
+import { CaseStudyCard } from '@/sections/impact/CaseStudyCard';
 import {
   IMPACT_BENEFITS,
   IMPACT_CROPS,
@@ -150,60 +150,24 @@ export function ImpactView() {
 
       <Section id="etudes" tone="sage" className="scroll-mt-24">
         <SectionHeading eyebrow={t('impact.stories.eyebrow')} title={t('impact.stories.title')} />
-        <div className="mt-10 flex flex-col gap-6">
+        <Stagger className="mt-12 flex flex-col gap-7 lg:mt-16 lg:gap-8">
           {IMPACT_STORIES.map((story) => {
             const copy = stories[story.slug];
             return (
-              <Reveal key={story.slug}>
-                <article
-                  id={story.slug}
-                  className="scroll-mt-24 overflow-hidden rounded-card border border-forest-950/[0.08] bg-white shadow-soft"
-                >
-                  <header className="flex flex-wrap items-baseline gap-x-6 gap-y-2 bg-forest-900 px-5 py-5 text-white sm:px-8">
-                    <h3 className="text-[20px] text-white">{copy.title}</h3>
-                    <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-lime-500">
-                      {copy.meta}
-                    </p>
-                  </header>
-                  <div className="grid gap-6 p-5 sm:p-8 lg:grid-cols-3 lg:gap-8">
-                    <div>
-                      <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-300">
-                        {t('impact.stories.labels.challenge')}
-                      </p>
-                      <p className="mt-3 text-[14.5px] leading-[1.7] text-ink-700">
-                        {copy.challenge}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-300">
-                        {t('impact.stories.labels.solution')}
-                      </p>
-                      <p className="mt-3 text-[14.5px] leading-[1.7] text-ink-700">
-                        {copy.solution}
-                      </p>
-                    </div>
-                    <div className="rounded-[16px] bg-sage-50 p-5">
-                      <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-leaf-600">
-                        {t('impact.stories.labels.results')}
-                      </p>
-                      <ul className="mt-3 flex flex-col gap-2.5">
-                        {copy.results.map((result) => (
-                          <li
-                            key={result}
-                            className="flex items-start gap-2.5 text-[14px] leading-[1.55] text-ink-700"
-                          >
-                            <Check size={16} className="mt-0.5 shrink-0 text-leaf-500" aria-hidden />
-                            {result}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </article>
-              </Reveal>
+              <StaggerItem key={story.slug}>
+                <CaseStudyCard
+                  slug={story.slug}
+                  title={copy.title}
+                  meta={copy.meta}
+                  challenge={copy.challenge}
+                  solution={copy.solution}
+                  results={copy.results}
+                  labels={d.impact.stories.labels}
+                />
+              </StaggerItem>
             );
           })}
-        </div>
+        </Stagger>
       </Section>
 
       <Section>
