@@ -8,7 +8,6 @@ import { VideoPlayer } from '@/components/visuals/VideoPlayer';
 /** Vidéo de démonstration : plateforme et solutions RoboCare en action. */
 export function VideoShowcase() {
   const { t } = useTranslation();
-
   return (
     <Section tone="cream">
       <div className="grid items-center gap-10 lg:grid-cols-[0.85fr_1fr] lg:gap-[72px]">
