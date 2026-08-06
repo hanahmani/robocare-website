@@ -3,7 +3,14 @@
     "allow": [
       "Bash(npx tsc *)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/)",
-      "Bash(tasklist //FI \"PID eq 24508\")"
+      "Bash(tasklist //FI \"PID eq 24508\")",
+      "Read(//c//**)",
+      "Bash(npx --yes chromium-cli --help)",
+      "Bash(find / -maxdepth 4 -iname \"*puppeteer*\" 2>/dev/null | grep -v node_modules/node_modules | head -10; echo \"---npm cache---\"; npm ls -g --depth=0 2>&1)",
+      "Bash(timeout 100 npx playwright install chromium)",
+      "Bash(nvm list *)",
+      "Bash(nvm use *)",
+      "Bash(timeout 180 npx playwright install chromium --with-deps)"
     ]
   }
 }
