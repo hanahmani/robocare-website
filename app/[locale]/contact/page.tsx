@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { isLocale, type Locale } from '@/i18n/config';
 import { getTranslation } from '@/i18n/getDictionary';
 import { ContactView } from '@/sections/contact/ContactView';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -8,20 +10,27 @@ import { CONTACT_FAQ } from '@/lib/data/about';
 
 const PATH = '/contact';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const { d, locale } = await getTranslation();
+type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale: raw } = await params;
+  if (!isLocale(raw)) return {};
+  const { d } = getTranslation(raw);
   return buildPageMetadata({
     title: d.contact.meta.title,
     description: d.contact.meta.description,
     path: PATH,
-    locale,
+    locale: raw,
     ogImage: 'og-contact',
     ogImageAlt: d.contact.hero.imageAlt,
   });
 }
 
-export default async function Page() {
-  const { d, locale } = await getTranslation();
+export default async function Page({ params }: Props) {
+  const { locale: raw } = await params;
+  if (!isLocale(raw)) notFound();
+  const locale: Locale = raw;
+  const { d } = getTranslation(locale);
 
   const faq = CONTACT_FAQ.map((id) => ({
     question: d.contact.faq.items[id].question,
@@ -38,14 +47,15 @@ export default async function Page() {
               description: d.contact.meta.description,
               path: PATH,
               locale,
+              hasFaq: true,
             }),
             '@type': 'ContactPage',
           },
-          breadcrumbSchema([
+          breadcrumbSchema(locale, [
             { name: d.nav.home, path: '/' },
             { name: d.nav.contact, path: PATH },
           ]),
-          faqSchema(faq),
+          faqSchema(locale, PATH, faq),
         )}
       />
       <ContactView />

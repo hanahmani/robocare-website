@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useTranslation } from '@/i18n';
+import { localizePath, useTranslation } from '@/i18n';
 import { Section } from '@/components/ui/Section';
 import { Arrow } from '@/components/ui/Arrow';
 import { Reveal } from '@/components/animations/Reveal';
@@ -11,7 +11,7 @@ import { SOLUTIONS } from '@/lib/data/solutions';
 
 /** Aperçu des quatre solutions, avec renvoi vers la page dédiée. */
 export function SolutionsPreview() {
-  const { t, d } = useTranslation();
+  const { t, d, locale } = useTranslation();
   const items = d.solutions.items;
 
   return (
@@ -24,7 +24,7 @@ export function SolutionsPreview() {
           </h2>
         </div>
         <Link
-          href="/solutions"
+          href={localizePath(locale, '/solutions')}
           className="inline-flex items-center gap-2.5 text-[15px] font-bold text-leaf-600"
         >
           {t('actions.allSolutions')}
@@ -38,7 +38,7 @@ export function SolutionsPreview() {
           return (
             <StaggerItem key={solution.slug} className="h-full">
               <Link
-                href={`/solutions#${solution.slug}`}
+                href={localizePath(locale, `/solutions#${solution.slug}`)}
                 className="group flex h-full flex-col overflow-hidden rounded-card border border-forest-950/[0.08] bg-white text-ink-900 shadow-soft transition-all duration-[400ms] ease-premium hover:-translate-y-2.5 hover:text-ink-900 hover:shadow-hover motion-reduce:hover:translate-y-0"
               >
                 <div className="relative h-[190px] overflow-hidden bg-forest-900">

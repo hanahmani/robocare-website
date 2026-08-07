@@ -9,17 +9,8 @@ export type Locale = (typeof LOCALES)[number];
 
 export type Direction = 'ltr' | 'rtl';
 
-/** Langue servie par défaut (première visite, cookie absent). */
+/** Langue servie quand l'URL ne permet pas de trancher (`/`, chemins hérités). */
 export const DEFAULT_LOCALE: Locale = 'fr';
-
-/** Cookie lu côté serveur pour rendre `<html lang dir>` correctement dès le SSR. */
-export const LOCALE_COOKIE = 'robocare_locale';
-
-/** Clé localStorage : mémorise le choix de l'utilisateur d'une visite à l'autre. */
-export const LOCALE_STORAGE_KEY = 'robocare.locale';
-
-/** Durée de vie du cookie de langue (1 an, en secondes). */
-export const LOCALE_COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
 
 type LocaleMeta = {
   /** Libellé court affiché dans le sélecteur. */
@@ -56,11 +47,36 @@ export function isRtlLocale(locale: Locale): boolean {
 }
 
 /**
- * Normalise une valeur quelconque (cookie, localStorage, `navigator.language`)
+ * Normalise une valeur quelconque (segment d'URL, `navigator.language`…)
  * en langue supportée. Retombe sur la langue par défaut.
  */
 export function resolveLocale(value: string | null | undefined): Locale {
   if (!value) return DEFAULT_LOCALE;
   const normalized = value.toLowerCase().split('-')[0];
   return isLocale(normalized) ? normalized : DEFAULT_LOCALE;
+}
+
+/**
+ * Préfixe un chemin interne par la langue courante (`/solutions` → `/fr/solutions`).
+ * Laisse intacts les ancres (`#etudes`), les liens externes et `mailto:`/`tel:` :
+ * l'URL est la seule source de vérité de la langue, ce préfixe est donc la
+ * seule opération qui la fait exister dans un `href`.
+ */
+export function localizePath(locale: Locale, href: string): string {
+  if (/^(#|[a-z][a-z0-9+.-]*:)/i.test(href)) return href;
+  if (!href.startsWith('/')) return href;
+  return `/${locale}${href === '/' ? '' : href}`;
+}
+
+const LOCALE_PREFIX = new RegExp(`^/(${LOCALES.join('|')})(?=/|$)`);
+
+/**
+ * Opération inverse : retire le préfixe de langue d'un chemin
+ * (`/fr/solutions` → `/solutions`). Sert à comparer `usePathname()` — qui
+ * inclut toujours la langue — à des `href` de données qui n'en ont pas
+ * (lien actif de la nav, sélecteur de langue).
+ */
+export function stripLocale(pathname: string): string {
+  const rest = pathname.replace(LOCALE_PREFIX, '');
+  return rest === '' ? '/' : rest;
 }

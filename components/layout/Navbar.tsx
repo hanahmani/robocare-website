@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { useTranslation } from '@/i18n';
+import { localizePath, stripLocale, useTranslation } from '@/i18n';
 import { NAV_ITEMS, SITE } from '@/lib/data/site';
 import { cn } from '@/lib/utils';
 import { EASE } from '@/lib/motion';
@@ -18,8 +18,11 @@ import { LanguageSwitcher, LanguageSwitcherMobile } from '@/components/layout/La
 /** Barre de navigation : sticky, glassmorphism, lien actif, menu mobile. */
 export function Navbar() {
   const pathname = usePathname();
-  const { t } = useTranslation();
+  const { locale, t } = useTranslation();
   const [open, setOpen] = useState(false);
+
+  // Chemin courant sans préfixe de langue, pour comparer aux `href` de NAV_ITEMS.
+  const currentPath = stripLocale(pathname);
 
   // Referme le tiroir à chaque changement de route.
   useEffect(() => setOpen(false), [pathname]);
@@ -32,12 +35,17 @@ export function Navbar() {
     };
   }, [open]);
 
-  const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
+  const isActive = (href: string) =>
+    href === '/' ? currentPath === '/' : currentPath.startsWith(href);
 
   return (
     <header className="sticky top-0 z-50 border-b border-forest-950/[0.07] bg-white/80 backdrop-blur-xl backdrop-saturate-150">
       <div className="container-page flex items-center gap-7 py-3.5">
-        <Link href="/" className="flex shrink-0 items-center" aria-label={t('a11y.homeLink')}>
+        <Link
+          href={localizePath(locale, '/')}
+          className="flex shrink-0 items-center"
+          aria-label={t('a11y.homeLink')}
+        >
           <Image
             src="/brand/logo-robocare.png"
             alt={t('common.logoAlt')}
@@ -55,7 +63,7 @@ export function Navbar() {
             return (
               <Link
                 key={item.href}
-                href={item.href}
+                href={localizePath(locale, item.href)}
                 aria-current={active ? 'page' : undefined}
                 className={cn(
                   'relative whitespace-nowrap rounded-full px-3 py-2 text-[14.5px] font-semibold transition-all duration-[250ms] ease-premium',
@@ -125,7 +133,7 @@ export function Navbar() {
                   transition={{ delay: 0.04 * index, ease: EASE }}
                 >
                   <Link
-                    href={item.href}
+                    href={localizePath(locale, item.href)}
                     aria-current={isActive(item.href) ? 'page' : undefined}
                     className={cn(
                       'block rounded-field px-4 py-3.5 text-[15.5px] font-semibold transition-colors',
