@@ -5,8 +5,8 @@ import { getTranslation } from '@/i18n/getDictionary';
 import { SolutionsView } from '@/sections/solutions/SolutionsView';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildPageMetadata } from '@/lib/seo/metadata';
-import { breadcrumbSchema, graph, serviceSchema, webPageSchema } from '@/lib/seo/schema';
-import { SOLUTIONS } from '@/lib/data/solutions';
+import { breadcrumbSchema, faqSchema, graph, serviceSchema, webPageSchema } from '@/lib/seo/schema';
+import { SOLUTIONS, SOLUTIONS_FAQ } from '@/lib/data/solutions';
 
 const PATH = '/solutions';
 
@@ -32,6 +32,11 @@ export default async function Page({ params }: Props) {
   const locale: Locale = raw;
   const { d } = getTranslation(locale);
 
+  const faq = SOLUTIONS_FAQ.map((id) => ({
+    question: d.solutions.faq.items[id].question,
+    answer: d.solutions.faq.items[id].answer,
+  }));
+
   return (
     <>
       <JsonLd
@@ -42,6 +47,7 @@ export default async function Page({ params }: Props) {
               description: d.solutions.meta.description,
               path: PATH,
               locale,
+              hasFaq: true,
             }),
             // Liste de fiches solutions : le type le plus précis pour cette page.
             '@type': 'CollectionPage',
@@ -58,6 +64,8 @@ export default async function Page({ params }: Props) {
               description: d.solutions.items[solution.slug].short,
             }),
           ),
+          // La FAQ est réellement affichée sur la page : le balisage la reflète.
+          faqSchema(locale, PATH, faq),
         )}
       />
       <SolutionsView />

@@ -40,11 +40,15 @@ const faqId = (locale: Locale, path: string) => `${page(locale, path)}#faq`;
 /**
  * Zone desservie — mêmes valeurs pour l'organisation et chaque service :
  * une même entité ne doit pas se contredire d'un nœud à l'autre du graphe.
- * Traduite (le nom du pays suit `d`), la liste des pays reste stable.
+ * Traduite (les noms de pays suivent `d`), la liste reste stable.
+ *
+ * RoboCare opère en Tunisie (marché principal) et, depuis peu, en Algérie —
+ * pas dans l'ensemble de la région MENA. `Place: 'MENA'` survendait la
+ * couverture réelle ; corrigé pour refléter les deux marchés effectifs.
  */
 const areaServed = (d: Dictionary): Json[] => [
   { '@type': 'Country', name: d.common.country },
-  { '@type': 'Place', name: 'MENA' },
+  { '@type': 'Country', name: d.common.countryExpansion },
 ];
 
 /** Fiche entreprise, référencée par toutes les autres entités. */
