@@ -9,16 +9,22 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { CheckRow, Pill } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { RequestDemoButton } from '@/components/ui/RequestDemoButton';
+import { FaqList } from '@/components/ui/FaqList';
 import { Reveal } from '@/components/animations/Reveal';
 import { CtaBand } from '@/sections/shared/CtaBand';
 import { FarmingConcepts } from '@/sections/solutions/FarmingConcepts';
-import { SOLUTIONS } from '@/lib/data/solutions';
+import { SOLUTIONS, SOLUTIONS_FAQ } from '@/lib/data/solutions';
 import { cn } from '@/lib/utils';
 
 /** Page « Solutions par culture ». */
 export function SolutionsView() {
   const { t, d } = useTranslation();
   const items = d.solutions.items;
+
+  const faq = SOLUTIONS_FAQ.map((id) => ({
+    question: d.solutions.faq.items[id].question,
+    answer: d.solutions.faq.items[id].answer,
+  }));
 
   return (
     <>
@@ -193,6 +199,23 @@ export function SolutionsView() {
 
       {/* Bloc pédagogique : ce sur quoi reposent les quatre solutions */}
       <FarmingConcepts />
+
+      {/* FAQ : arboriculture (oliviers, arbres fruitiers) et grandes cultures */}
+      <Section tone="sage">
+        <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-16">
+          <Reveal>
+            <p className="eyebrow text-leaf-600">{t('solutions.faq.eyebrow')}</p>
+            <h2 className="mt-4 text-[26px] leading-[1.06] sm:text-[32px] lg:text-[40px]">
+              {t('solutions.faq.title')}
+            </h2>
+            <p className="mt-[18px] text-[16px] leading-[1.7] text-ink-500">
+              {t('solutions.faq.intro')}
+            </p>
+          </Reveal>
+
+          <FaqList items={faq} />
+        </div>
+      </Section>
 
       <Section>
         <CtaBand

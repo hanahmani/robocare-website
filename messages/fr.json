@@ -17,7 +17,8 @@
     "city": "Sfax",
     "country": "Tunisie",
     "logoAlt": "RoboCare",
-    "thousandsSeparator": " "
+    "thousandsSeparator": " ",
+    "countryExpansion": "Algérie"
   },
   "a11y": {
     "skipToContent": "Aller au contenu",
@@ -58,7 +59,6 @@
     "thePlatform": "La plateforme",
     "accessPlatform": "Accéder à la plateforme RoboCare",
     "openApp": "Ouvrir l’application",
-    "login": "Se connecter",
     "ourStory": "Notre histoire",
     "ourTechnology": "Notre technologie",
     "talkToAgronomist": "Parler à un agronome",
@@ -235,6 +235,18 @@
         "data": {
           "question": "À qui appartiennent mes données ?",
           "answer": "À vous. Contours, relevés et historiques restent votre propriété : ils ne sont ni revendus ni transmis à un tiers, et vous pouvez les exporter ou en demander la suppression à tout moment."
+        },
+        "whatIs": {
+          "question": "Qu’est-ce que RoboCare ?",
+          "answer": "RoboCare est une entreprise AgriTech tunisienne qui aide les agriculteurs à surveiller leurs cultures grâce à l’imagerie satellite, l’intelligence artificielle et des capteurs IoT agricoles. Fondée à Sfax en 2021, RoboCare transforme les données satellite et capteurs en décisions concrètes à l’échelle de la parcelle — irrigation, besoins en azote, détection précoce des maladies — pour l’olivier, les céréales, les agrumes et les cultures sous serre. Aucun matériel n’est nécessaire pour démarrer : la première analyse satellite arrive en 24 heures."
+        },
+        "howHelps": {
+          "question": "Comment RoboCare aide-t-elle les agriculteurs ?",
+          "answer": "RoboCare remplace l’intuition par des preuves de terrain. L’imagerie satellite et drone révèle précisément quelles zones d’une parcelle sont en stress hydrique ou nutritionnel, les capteurs IoT confirment ce qui se passe sous la surface, et les modèles d’intelligence artificielle transforment ces données en actions concrètes — où irriguer en priorité, où apporter l’azote, quels arbres surveiller. L’agriculteur agit sur des conditions réelles plutôt que de parcourir toute la parcelle ou d’attendre des symptômes visibles."
+        },
+        "whyChoose": {
+          "question": "Pourquoi choisir RoboCare pour l’agriculture de précision ?",
+          "answer": "Les modèles de RoboCare sont entraînés sur les conditions méditerranéennes, pas importés d’un autre climat, et ré-entraînés chaque saison. L’équipe est basée à Sfax, au contact direct des exploitations qu’elle suit. La couverture dépasse déjà 100 000 hectares sur l’olivier, les céréales, les agrumes et les cultures sous serre, avec suivi satellite, capteurs IoT et drones agricoles réunis dans une seule plateforme — sans matériel obligatoire pour démarrer."
         }
       }
     }
@@ -426,6 +438,37 @@
             "Détection d’hétérogénéité du réseau goutte-à-goutte",
             "Irrigation déficitaire pilotée sur cultures pérennes"
           ]
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "Questions fréquentes",
+      "title": "Arboriculture et grandes cultures",
+      "intro": "Ce que RoboCare change concrètement, verger par verger et parcelle par parcelle.",
+      "items": {
+        "monitorOliveOrchards": {
+          "question": "RoboCare peut-elle suivre des oliveraies ?",
+          "answer": "Oui — le suivi des oliveraies est l’une des solutions phares de RoboCare, Olive Care. Elle suit la vigueur arbre par arbre grâce à l’imagerie satellite et drone, repère les arbres manquants ou en déclin, surveille le stress hydrique avant floraison et nouaison, et détecte précocement la maladie de l’œil de paon. Les exploitations qui l’utilisent réduisent leur consommation d’eau d’irrigation d’environ 28 % tout en maîtrisant mieux l’alternance naturelle de l’olivier."
+        },
+        "oliveProductionImprove": {
+          "question": "Comment l’agriculture de précision peut-elle améliorer la production d’olives ?",
+          "answer": "L’olivier tolère la sécheresse mais la paie l’année suivante par une baisse de rendement — l’effet d’alternance. En suivant la vigueur et le stress hydrique arbre par arbre avant la floraison, RoboCare permet de piloter précisément l’irrigation déficitaire, en maintenant juste assez de stress pour maîtriser la croissance végétative sans provoquer de chute de rendement la saison suivante. La détection précoce de l’œil de paon permet aussi de ne traiter que là où la pression de la maladie est confirmée."
+        },
+        "fruitTreeStress": {
+          "question": "RoboCare peut-elle détecter le stress des arbres fruitiers ?",
+          "answer": "Oui. Au-delà de l’olivier, la solution Citrus Care de RoboCare applique le même suivi à l’échelle de l’arbre aux vergers d’agrumes — en combinant les indices satellite à l’imagerie drone quand un niveau de détail plus fin est nécessaire pour repérer un stress hydrique ou nutritionnel sur un arbre isolé avant qu’il ne soit visible sur le terrain. La même approche s’étend aux autres arbres fruitiers à mesure que de nouveaux vergers rejoignent la plateforme."
+        },
+        "suitableLargeFarms": {
+          "question": "RoboCare convient-elle aux grandes exploitations ?",
+          "answer": "Oui — RoboCare suit déjà plus de 100 000 hectares, avec un tarif dégressif au-delà de cent hectares et un tarif spécifique pour les coopératives regroupant plusieurs adhérents. Cereal Care, par exemple, transforme les relevés NDRE en cartes de modulation azotée sur de grands blocs, suit la levée et la verse, et estime le rendement par zone plusieurs semaines avant la moisson — pensée pour l’échelle, pas seulement pour de petites parcelles isolées."
+        },
+        "irrigationFertilizationLargeFarms": {
+          "question": "Comment les grandes exploitations peuvent-elles optimiser irrigation et fertilisation avec RoboCare ?",
+          "answer": "Sur une grande exploitation, la plateforme RoboCare zone automatiquement chaque parcelle à partir des indices satellite, si bien que les décisions d’irrigation et d’azote se prennent par zone homogène plutôt qu’à l’échelle de toute la parcelle. Le NDWI signale où le stress hydrique démarre en premier, le NDRE pilote les cartes de modulation azotée à dose variable, et ces mêmes cartes s’exportent directement dans les formats déjà acceptés par la plupart des consoles d’épandage."
+        },
+        "multiplePlotsMonitoring": {
+          "question": "RoboCare peut-elle suivre plusieurs parcelles agricoles ?",
+          "answer": "Oui — la plateforme est conçue pour gérer tout un portefeuille de parcelles depuis un seul tableau de bord, pas une parcelle isolée. Chaque parcelle conserve son propre historique, ses indices et ses alertes, tandis que le tableau de bord fait remonter d’un coup d’œil celles qui nécessitent une attention sur l’ensemble de l’exploitation. C’est exactement l’usage sur lequel s’appuient les coopératives, un seul compte permettant de suivre les parcelles de plusieurs adhérents sous une vue unique."
         }
       }
     }
@@ -782,6 +825,53 @@
           "tag": "Protocoles",
           "title": "Communication de terrain",
           "text": "LoRaWAN pour les capteurs éloignés — portée de plusieurs kilomètres et consommation minimale —, 4G quand la couverture le permet et que le débit est nécessaire, MQTT pour la remontée des trames vers la passerelle d’ingestion, et stockage local sur la station en cas de coupure réseau."
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "Questions fréquentes",
+      "title": "Comprendre la technologie",
+      "intro": "Ce que couvrent réellement le satellite, l’intelligence artificielle et les drones chez RoboCare.",
+      "items": {
+        "whatIsPrecisionAg": {
+          "question": "Qu’est-ce que l’agriculture de précision ?",
+          "answer": "L’agriculture de précision pilote une parcelle zone par zone plutôt que comme un bloc uniforme — parce que le sol, l’eau et la vigueur ne le sont jamais. Elle combine imagerie satellite et drone, capteurs IoT et analyse par intelligence artificielle pour cartographier précisément où une culture a besoin d’eau, d’azote ou d’attention, et où ce n’est pas le cas. Résultat : une action ciblée plutôt qu’un traitement généralisé, avec des intrants apportés là où ils sont utiles."
+        },
+        "satelliteImproveFarming": {
+          "question": "Comment le suivi satellite améliore-t-il l’agriculture ?",
+          "answer": "Le suivi satellite offre une vue de la parcelle entière tous les quelques jours, sans avoir à la parcourir. RoboCare traite automatiquement l’imagerie Sentinel-2 et Landsat à chaque passage, masque les nuages et calcule des indices de végétation comme le NDVI et le NDRE pour révéler des changements de vigueur avant qu’ils ne soient visibles à l’œil. Trois à cinq ans d’archives permettent de comparer la campagne en cours aux précédentes dès le premier jour."
+        },
+        "detectStressEarly": {
+          "question": "Comment détecter précocement le stress d’une culture ?",
+          "answer": "Les premiers signes de stress hydrique ou nutritionnel apparaissent dans le proche infrarouge avant tout flétrissement ou jaunissement visible. L’indice NDWI de RoboCare signale spécifiquement le stress hydrique, avant toute baisse visible de vigueur, tandis que le NDRE suit la teneur en chlorophylle et le statut azoté dans les couverts denses où le NDVI sature. Combiné aux sondes d’humidité IoT, cela donne une alerte précoce, plusieurs jours à plusieurs semaines avant les symptômes visibles sur le terrain."
+        },
+        "analyzeSatelliteImages": {
+          "question": "Comment RoboCare analyse-t-elle les images satellite ?",
+          "answer": "Chaque passage satellite est traité automatiquement : les pixels couverts par les nuages sont masqués, et l’imagerie restante est convertie en indices de végétation — NDVI, NDRE, NDWI et SAVI — à une résolution de 10 mètres avec Sentinel-2. Chaque indice est conservé dans l’historique de la parcelle, si bien que l’agriculteur voit non seulement l’état du jour mais une courbe sur la saison et par rapport aux années précédentes, avec les zones à surveiller mises en évidence automatiquement."
+        },
+        "ndviNdreExplained": {
+          "question": "Que sont les indices NDVI et NDRE ?",
+          "answer": "Le NDVI (Normalized Difference Vegetation Index) mesure la densité et la vigueur générale du couvert végétal à partir du proche infrarouge et du rouge — utile pour le suivi de saison et le zonage, mais il sature sur les couverts très denses. Le NDRE (Normalized Difference Red Edge) lit plutôt la teneur en chlorophylle et le statut azoté via la bande red-edge, et reste précis là où le NDVI ne discrimine plus — c’est l’indice que RoboCare utilise pour la modulation azotée sur céréales."
+        },
+        "aiDecisionMaking": {
+          "question": "Comment l’intelligence artificielle aide-t-elle à la décision agricole ?",
+          "answer": "Les modèles d’intelligence artificielle de RoboCare sont entraînés sur des séries temporelles méditerranéennes, pas importées d’un autre climat, et ré-entraînés chaque saison. Ils assurent trois tâches : la segmentation d’image pour délimiter les zones de stress dans une parcelle, la prévision de rendement par culture, et la classification des maladies à partir de photos de terrain. Plutôt que des valeurs d’indices brutes, l’agriculteur reçoit une recommandation directe — irriguer telle zone, traiter telle autre."
+        },
+        "droneInspection": {
+          "question": "RoboCare propose-t-elle un service d’inspection par drone ?",
+          "answer": "Oui. Les drones agricoles de RoboCare embarquent des capteurs multispectraux et thermiques pour une inspection à résolution centimétrique — un niveau de détail que le satellite ne peut pas atteindre. Les missions sont programmées et survolent une parcelle ou une oliveraie, et les résultats sont compilés automatiquement dans un rapport par zone, avec comptage d’arbres individuel quand c’est pertinent. L’inspection par drone complète le suivi satellite plutôt qu’elle ne le remplace : le satellite pour toute la saison, le drone pour un regard plus précis."
+        },
+        "droneDetectProblems": {
+          "question": "Comment les drones détectent-ils les problèmes sur une culture ?",
+          "answer": "En volant bien plus près du couvert qu’un satellite, les drones de RoboCare capturent une imagerie multispectrale et thermique à résolution centimétrique qui révèle un arbre ou une plante isolée en stress — pas seulement une zone générale. Les capteurs thermiques détectent des écarts de température du couvert liés au stress hydrique avant tout flétrissement visible, tandis que les bandes multispectrales alimentent les mêmes indices de végétation qu’à l’échelle satellite, avec une résolution assez fine pour isoler un seul arbre touché."
+        },
+        "droneFertilizationSpraying": {
+          "question": "RoboCare utilise-t-elle des drones pour la fertilisation et la pulvérisation ?",
+          "answer": "Les missions drone de RoboCare cartographient précisément quelles zones d’une parcelle ont besoin d’azote ou d’un traitement, à partir des relevés NDRE et thermiques — cette carte peut ensuite guider une fertilisation et une pulvérisation ciblées, à dose variable, plutôt qu’un passage uniforme sur toute la parcelle. Les intrants ne sont apportés que là où les données montrent un besoin réel, le même principe que la modulation azotée par satellite sur céréales, appliqué à la résolution du drone."
+        },
+        "droneAdvantages": {
+          "question": "Quels sont les avantages des traitements agricoles par drone ?",
+          "answer": "Le traitement par drone cible exactement les zones qui en ont besoin, à partir d’une carte réelle plutôt que d’une application uniforme — ce qui réduit le volume de fertilisant ou de produit phytosanitaire utilisé, et son coût, sans sous-traiter les zones qui en ont réellement besoin. Les missions sont programmées et survolées rapidement sur une parcelle ou une oliveraie, plus vite qu’un repérage manuel, et les cartes obtenues restent dans la plateforme RoboCare pour la comparaison de la saison suivante."
         }
       }
     }
@@ -1539,7 +1629,7 @@
         },
         "coverage": {
           "question": "Travaillez-vous hors de Tunisie ?",
-          "answer": "Oui : la plateforme est ouverte à la région MENA depuis 2025. Le suivi satellite fonctionne partout ; les capteurs et les vols drone dépendent de la couverture locale."
+          "answer": "La Tunisie reste notre marché principal, où RoboCare est née et où l’équipe est basée. Depuis peu, la plateforme s’étend à l’Algérie pour répondre à la demande de plusieurs exploitations. Le suivi satellite fonctionne dès l’ouverture d’un compte ; les capteurs IoT et les vols de drone dépendent en revanche de la couverture logistique disponible localement."
         },
         "pricing": {
           "question": "Comment est calculé le tarif ?",
@@ -1552,6 +1642,14 @@
         "security": {
           "question": "Où sont hébergées nos données ?",
           "answer": "Dans des centres de données européens certifiés ISO 27001, avec chiffrement en transit et au repos et sauvegardes quotidiennes. Vos données ne sont ni revendues ni partagées, et l’export complet comme la suppression s’obtiennent sur simple demande."
+        },
+        "tunisiaBase": {
+          "question": "RoboCare est-elle disponible en Tunisie ?",
+          "answer": "Oui — la Tunisie est le marché d’origine de RoboCare. L’entreprise a été fondée à Sfax en 2021 et la plateforme couvre déjà plus de 100 000 hectares dans tout le pays, sur l’olivier, les céréales, les agrumes et les cultures sous serre. Le support, l’accompagnement au démarrage et l’équipe agronomique sont basés localement, avec une vraie connaissance des conditions tunisiennes."
+        },
+        "regionalFit": {
+          "question": "Les solutions RoboCare sont-elles adaptées à l’agriculture nord-africaine ?",
+          "answer": "Oui. Les modèles d’intelligence artificielle de RoboCare sont entraînés spécifiquement sur les conditions méditerranéennes et nord-africaines — les mêmes oliveraies en sec, céréales irriguées et vergers d’agrumes que l’on retrouve en Tunisie comme en Algérie — plutôt qu’adaptés de modèles conçus pour l’agriculture européenne ou américaine. Indices de végétation, seuils d’irrigation et alertes maladies sont calibrés sur le climat et les calendriers culturaux locaux, et ré-entraînés chaque saison."
         }
       }
     },

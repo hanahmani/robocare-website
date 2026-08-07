@@ -24,3 +24,13 @@ export const SOLUTION_CONCEPTS = [
   { id: 'ai', icon: Cpu },
   { id: 'irrigation', icon: Droplets },
 ] as const satisfies readonly FeatureItem[];
+
+/** FAQ de la page Solutions — textes dans `solutions.faq.items.<id>`. */
+export const SOLUTIONS_FAQ = [
+  'monitorOliveOrchards',
+  'oliveProductionImprove',
+  'fruitTreeStress',
+  'suitableLargeFarms',
+  'irrigationFertilizationLargeFarms',
+  'multiplePlotsMonitoring',
+] as const;

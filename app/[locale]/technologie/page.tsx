@@ -5,7 +5,8 @@ import { getTranslation } from '@/i18n/getDictionary';
 import { TechnologyView } from '@/sections/technology/TechnologyView';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildPageMetadata } from '@/lib/seo/metadata';
-import { breadcrumbSchema, graph, webPageSchema } from '@/lib/seo/schema';
+import { breadcrumbSchema, faqSchema, graph, webPageSchema } from '@/lib/seo/schema';
+import { TECHNOLOGY_FAQ } from '@/lib/data/technology';
 
 const PATH = '/technologie';
 
@@ -31,6 +32,11 @@ export default async function Page({ params }: Props) {
   const locale: Locale = raw;
   const { d } = getTranslation(locale);
 
+  const faq = TECHNOLOGY_FAQ.map((id) => ({
+    question: d.technology.faq.items[id].question,
+    answer: d.technology.faq.items[id].answer,
+  }));
+
   return (
     <>
       <JsonLd
@@ -40,11 +46,14 @@ export default async function Page({ params }: Props) {
             description: d.technology.meta.description,
             path: PATH,
             locale,
+            hasFaq: true,
           }),
           breadcrumbSchema(locale, [
             { name: d.nav.home, path: '/' },
             { name: d.nav.technology, path: PATH },
           ]),
+          // La FAQ est réellement affichée sur la page : le balisage la reflète.
+          faqSchema(locale, PATH, faq),
         )}
       />
       <TechnologyView />

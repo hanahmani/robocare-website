@@ -45,3 +45,17 @@ export const TECH_STACK = [
   { id: 'gis', icon: Compass, tone: 'ocre' },
   { id: 'protocols', icon: Radio },
 ] as const satisfies readonly FeatureItem[];
+
+/** FAQ de la page Technologie — textes dans `technology.faq.items.<id>`. */
+export const TECHNOLOGY_FAQ = [
+  'whatIsPrecisionAg',
+  'satelliteImproveFarming',
+  'detectStressEarly',
+  'analyzeSatelliteImages',
+  'ndviNdreExplained',
+  'aiDecisionMaking',
+  'droneInspection',
+  'droneDetectProblems',
+  'droneFertilizationSpraying',
+  'droneAdvantages',
+] as const;
