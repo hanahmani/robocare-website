@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
+import { localizePath, useTranslation } from '@/i18n';
 import { cn } from '@/lib/utils';
 
 export type Variant = 'primary' | 'lime' | 'dark' | 'outline' | 'outline-light';
@@ -31,7 +34,7 @@ type CommonProps = {
   children: ReactNode;
 };
 
-/** Bouton interne (navigation App Router). */
+/** Bouton interne (navigation App Router). `href` reste écrit sans langue (`/solutions`) : elle est ajoutée ici depuis l'URL courante. */
 export function Button({
   href,
   variant = 'primary',
@@ -40,8 +43,13 @@ export function Button({
   children,
   ...rest
 }: CommonProps & { href: string } & AnchorHTMLAttributes<HTMLAnchorElement>) {
+  const { locale } = useTranslation();
   return (
-    <Link href={href} className={cn(BASE, SIZES[size], VARIANTS[variant], className)} {...rest}>
+    <Link
+      href={localizePath(locale, href)}
+      className={cn(BASE, SIZES[size], VARIANTS[variant], className)}
+      {...rest}
+    >
       {children}
     </Link>
   );

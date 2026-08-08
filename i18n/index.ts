@@ -1,21 +1,22 @@
 /**
  * Point d'entrée i18n **côté client**.
  *
- * `getDictionary.ts` n'est volontairement pas réexporté ici : il lit les cookies
- * de la requête et doit rester importé directement par les Server Components
- * (`import { getTranslation } from '@/i18n/getDictionary'`).
+ * `getDictionary.ts` n'est volontairement pas réexporté ici : bien qu'il ne
+ * lise plus de cookie, il reste le point d'entrée dédié aux Server Components
+ * (`import { getTranslation } from '@/i18n/getDictionary'`), pour garder une
+ * frontière claire entre code serveur et code client.
  */
 
 export {
   DEFAULT_LOCALE,
   LOCALES,
-  LOCALE_COOKIE,
   LOCALE_META,
-  LOCALE_STORAGE_KEY,
   getDirection,
   isLocale,
   isRtlLocale,
+  localizePath,
   resolveLocale,
+  stripLocale,
   type Direction,
   type Locale,
 } from '@/i18n/config';

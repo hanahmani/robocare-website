@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslation } from '@/i18n';
+import { localizePath, useTranslation } from '@/i18n';
 import { PageHero } from '@/components/layout/PageHero';
 import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
@@ -24,7 +24,7 @@ import {
 
 /** Page « Impact ». */
 export function ImpactView() {
-  const { t, d } = useTranslation();
+  const { t, d, locale } = useTranslation();
   const method = d.impact.method.steps;
   const crops = d.impact.crops.items;
   const benefits = d.impact.benefits.items;
@@ -107,7 +107,7 @@ export function ImpactView() {
             return (
               <StaggerItem key={crop.slug} className="h-full">
                 <CultureCard
-                  href={`/solutions#${crop.solutionSlug}`}
+                  href={localizePath(locale, `/solutions#${crop.solutionSlug}`)}
                   image={crop.image}
                   title={copy.name}
                   description={copy.description}

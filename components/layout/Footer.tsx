@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Facebook, Linkedin, MapPin, Youtube } from 'lucide-react';
-import { useTranslation } from '@/i18n';
+import { localizePath, useTranslation } from '@/i18n';
 import { FOOTER_COLUMNS, SITE } from '@/lib/data/site';
 import { Reveal } from '@/components/animations/Reveal';
 
@@ -19,7 +19,7 @@ const isExternal = (href: string) =>
 
 /** Pied de page global : identité, colonnes de liens, contacts, mentions. */
 export function Footer() {
-  const { t } = useTranslation();
+  const { locale, t } = useTranslation();
 
   return (
     <footer className="border-t border-white/10 bg-forest-950 pb-7 pt-[76px] text-white">
@@ -72,7 +72,7 @@ export function Footer() {
                           {label}
                         </a>
                       ) : (
-                        <Link href={link.href} className={className}>
+                        <Link href={localizePath(locale, link.href)} className={className}>
                           {label}
                         </Link>
                       )}

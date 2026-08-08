@@ -82,6 +82,8 @@ export const CONTACT_FAQ = [
   'security',
   'languages',
   'coverage',
+  'tunisiaBase',
+  'regionalFit',
 ] as const;
 
 /** Approche et méthodologie — textes dans `about.approach.items.<id>`. */

@@ -6,12 +6,14 @@ import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { FaqList } from '@/components/ui/FaqList';
+import { Reveal } from '@/components/animations/Reveal';
 import { Stagger, StaggerItem } from '@/components/animations/Stagger';
 import { CtaBand } from '@/sections/shared/CtaBand';
 import { VegetationIndices } from '@/sections/technology/VegetationIndices';
 import { TechStack } from '@/sections/technology/TechStack';
 import { TechBlocks } from '@/sections/technology/TechBlocks';
-import { TECH_METRICS, TECH_PIPELINE } from '@/lib/data/technology';
+import { TECH_METRICS, TECH_PIPELINE, TECHNOLOGY_FAQ } from '@/lib/data/technology';
 import { cn, pad2 } from '@/lib/utils';
 
 /** Page « Technologie ». */
@@ -19,6 +21,11 @@ export function TechnologyView() {
   const { t, d } = useTranslation();
   const metrics = d.technology.metrics;
   const pipeline = d.technology.pipeline.steps;
+
+  const faq = TECHNOLOGY_FAQ.map((id) => ({
+    question: d.technology.faq.items[id].question,
+    answer: d.technology.faq.items[id].answer,
+  }));
 
   return (
     <>
@@ -104,6 +111,23 @@ export function TechnologyView() {
             );
           })}
         </Stagger>
+      </Section>
+
+      {/* FAQ : agriculture de précision, satellite & IA, drones agricoles */}
+      <Section tone="sage">
+        <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-16">
+          <Reveal>
+            <p className="eyebrow text-leaf-600">{t('technology.faq.eyebrow')}</p>
+            <h2 className="mt-4 text-[26px] leading-[1.06] sm:text-[32px] lg:text-[40px]">
+              {t('technology.faq.title')}
+            </h2>
+            <p className="mt-[18px] text-[16px] leading-[1.7] text-ink-500">
+              {t('technology.faq.intro')}
+            </p>
+          </Reveal>
+
+          <FaqList items={faq} />
+        </div>
       </Section>
 
       <Section flushTop>

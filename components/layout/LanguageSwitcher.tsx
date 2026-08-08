@@ -1,14 +1,20 @@
 'use client';
 
-import { LOCALES, LOCALE_META, useTranslation, type Locale } from '@/i18n';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { LOCALES, LOCALE_META, stripLocale, useTranslation, type Locale } from '@/i18n';
 import { cn } from '@/lib/utils';
 
 /**
  * Sélecteur FR / EN / AR — design d'origine conservé (pilule bordée).
- * Le clic change langue, direction et contenu sans rechargement de page.
+ *
+ * Chaque option est un vrai lien vers l'équivalent de la page courante dans
+ * l'autre langue (`/fr/services` → `/en/services`) : navigable au clavier,
+ * suivi par les moteurs, fonctionnel sans JavaScript.
  */
 export function LanguageSwitcher({ className }: { className?: string }) {
-  const { locale, setLocale, t } = useTranslation();
+  const { locale, t } = useTranslation();
+  const rest = stripLocale(usePathname());
 
   return (
     <div
@@ -22,23 +28,22 @@ export function LanguageSwitcher({ className }: { className?: string }) {
       {LOCALES.map((code: Locale) => {
         const active = code === locale;
         return (
-          <button
+          <Link
             key={code}
-            type="button"
-            lang={LOCALE_META[code].htmlLang}
-            onClick={() => setLocale(code)}
-            aria-pressed={active}
+            href={`/${code}${rest === '/' ? '' : rest}`}
+            hrefLang={LOCALE_META[code].htmlLang}
+            aria-current={active ? 'true' : undefined}
             aria-label={t('a11y.switchTo', { language: LOCALE_META[code].name })}
             title={LOCALE_META[code].name}
             className={cn(
-              'rounded-full px-2.5 py-[5px] font-mono text-[11px] transition-colors duration-[250ms] ease-premium',
+              'inline-block rounded-full px-2.5 py-[5px] font-mono text-[11px] transition-colors duration-[250ms] ease-premium',
               active
                 ? 'bg-forest-900 text-lime-100'
                 : 'text-ink-400 hover:bg-sage-100 hover:text-leaf-600',
             )}
           >
             {LOCALE_META[code].code}
-          </button>
+          </Link>
         );
       })}
     </div>
@@ -47,7 +52,8 @@ export function LanguageSwitcher({ className }: { className?: string }) {
 
 /** Variante pleine largeur pour le tiroir mobile. */
 export function LanguageSwitcherMobile() {
-  const { locale, setLocale, t } = useTranslation();
+  const { locale, t } = useTranslation();
+  const rest = stripLocale(usePathname());
 
   return (
     <div
@@ -58,19 +64,18 @@ export function LanguageSwitcherMobile() {
       {LOCALES.map((code: Locale) => {
         const active = code === locale;
         return (
-          <button
+          <Link
             key={code}
-            type="button"
-            lang={LOCALE_META[code].htmlLang}
-            onClick={() => setLocale(code)}
-            aria-pressed={active}
+            href={`/${code}${rest === '/' ? '' : rest}`}
+            hrefLang={LOCALE_META[code].htmlLang}
+            aria-current={active ? 'true' : undefined}
             className={cn(
-              'min-h-11 rounded-[10px] px-3 py-2 text-[14px] font-semibold transition-colors duration-[250ms]',
+              'flex min-h-11 items-center justify-center rounded-[10px] px-3 py-2 text-[14px] font-semibold transition-colors duration-[250ms]',
               active ? 'bg-forest-900 text-lime-100' : 'text-ink-700 hover:bg-sage-100',
             )}
           >
             {LOCALE_META[code].name}
-          </button>
+          </Link>
         );
       })}
     </div>

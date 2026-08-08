@@ -17,7 +17,8 @@
     "city": "Sfax",
     "country": "Tunisia",
     "logoAlt": "RoboCare",
-    "thousandsSeparator": ","
+    "thousandsSeparator": ",",
+    "countryExpansion": "Algeria"
   },
   "a11y": {
     "skipToContent": "Skip to content",
@@ -51,7 +52,7 @@
     "contact": "Contact"
   },
   "actions": {
-    "login": "Log in",
+    "login": "Sign in",
     "createAccount": "Create an account",
     "requestDemo": "Request a demo",
     "seeSolutions": "See our solutions",
@@ -62,7 +63,6 @@
     "thePlatform": "The platform",
     "accessPlatform": "Open the RoboCare platform",
     "openApp": "Open the app",
-    "login": "Sign in",
     "ourStory": "Our story",
     "ourTechnology": "Our technology",
     "talkToAgronomist": "Talk to an agronomist",
@@ -244,6 +244,18 @@
         "data": {
           "question": "Who owns my data?",
           "answer": "You do. Outlines, readings and history remain your property: they are never sold or passed to third parties, and you can export them or request deletion at any time."
+        },
+        "whatIs": {
+          "question": "What is RoboCare?",
+          "answer": "RoboCare is a Tunisian AgriTech company that helps farmers monitor their crops using satellite imagery, artificial intelligence, and agricultural IoT sensors. Founded in Sfax in 2021, RoboCare turns satellite and sensor data into clear, field-level decisions — irrigation timing, nitrogen needs, early disease detection — for olive groves, cereals, citrus, and greenhouse crops. No hardware is required to start: a satellite-based analysis is available within 24 hours of adding a field."
+        },
+        "howHelps": {
+          "question": "How does RoboCare help farmers?",
+          "answer": "RoboCare replaces guesswork with field-level evidence. Satellite and drone imagery reveal exactly which zones of a field are under water or nutrient stress, IoT soil sensors confirm what’s happening below ground, and AI models turn both into concrete actions — where to irrigate first, where to apply nitrogen, which trees need attention. Farmers act on real conditions instead of walking the whole field or waiting for visible symptoms."
+        },
+        "whyChoose": {
+          "question": "Why choose RoboCare for precision agriculture?",
+          "answer": "RoboCare’s models are trained on Mediterranean growing conditions, not imported from another climate, and retrained every season. The team is based in Sfax, working alongside the farms it monitors rather than remotely. Coverage already spans over 100,000 hectares across olive, cereal, citrus, and greenhouse operations, with satellite monitoring, IoT sensors, and agricultural drones combined in a single platform — and no hardware required to get started."
         }
       }
     }
@@ -435,6 +447,37 @@
             "Detection of drip-network unevenness",
             "Managed deficit irrigation on perennial crops"
           ]
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "Frequently asked questions",
+      "title": "Arboriculture and large-scale crops",
+      "intro": "What RoboCare changes in practice, orchard by orchard and field by field.",
+      "items": {
+        "monitorOliveOrchards": {
+          "question": "Can RoboCare monitor olive orchards?",
+          "answer": "Yes — olive monitoring is one of RoboCare’s core solutions, Olive Care. It tracks tree-by-tree vigor using satellite and drone imagery, flags missing or declining trees, monitors water stress ahead of flowering and fruit set, and screens for early signs of peacock spot disease. Farms using it have reduced irrigation water use by around 28% while managing the tree’s natural alternate-bearing cycle more predictably."
+        },
+        "oliveProductionImprove": {
+          "question": "How can precision agriculture improve olive production?",
+          "answer": "Olive trees tolerate drought but pay for it the following year through reduced yield — the alternate-bearing effect. By tracking vigor and water stress tree-by-tree before flowering, RoboCare lets growers time deficit irrigation precisely, keeping trees under just enough stress to manage vegetative growth without triggering a yield crash the next season. Early peacock spot detection also means treatment goes only where disease pressure is confirmed."
+        },
+        "fruitTreeStress": {
+          "question": "Can RoboCare detect stress in fruit trees?",
+          "answer": "Yes. Beyond olives, RoboCare’s Citrus Care solution applies the same tree-level monitoring to citrus orchards — combining satellite indices with drone imagery when finer detail is needed to spot water or nutrient stress in individual trees before it’s visible on the ground. The same approach extends to other fruit tree crops as farms bring new orchards onto the platform."
+        },
+        "suitableLargeFarms": {
+          "question": "Is RoboCare suitable for large farms?",
+          "answer": "Yes — RoboCare already monitors over 100,000 hectares, and pricing scales with a degressive tier beyond 100 hectares plus a specific rate for cooperatives grouping several members. Cereal Care, for example, turns NDRE readings into nitrogen modulation maps across large blocks, tracks emergence and lodging, and estimates yield by zone weeks before harvest — built for scale, not just single small plots."
+        },
+        "irrigationFertilizationLargeFarms": {
+          "question": "How can large-scale farms optimize irrigation and fertilization with RoboCare?",
+          "answer": "Across a large farm, RoboCare’s platform zones every field automatically from satellite indices, so irrigation and nitrogen decisions are made per homogeneous zone instead of per whole field. NDWI flags where water stress starts first, NDRE drives variable-rate nitrogen maps, and the same maps export directly to the formats most spreading consoles already accept."
+        },
+        "multiplePlotsMonitoring": {
+          "question": "Can RoboCare monitor multiple agricultural plots?",
+          "answer": "Yes — the platform is built around managing a full portfolio of fields from one dashboard, not a single plot. Each field keeps its own history, indices, and alerts, while the dashboard surfaces which fields need attention across the whole operation at a glance. This is exactly the use case cooperatives rely on, since it lets one account track many members’ plots under a single, consistent view."
         }
       }
     }
@@ -791,6 +834,53 @@
           "tag": "Protocols",
           "title": "Field communication",
           "text": "LoRaWAN for remote sensors — kilometres of range at minimal power draw — 4G where coverage allows and throughput is needed, MQTT to push frames to the ingestion gateway, and local storage on the station whenever the network drops."
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "Frequently asked questions",
+      "title": "Understanding the technology",
+      "intro": "What satellite monitoring, AI, and agricultural drones actually cover at RoboCare.",
+      "items": {
+        "whatIsPrecisionAg": {
+          "question": "What is precision agriculture?",
+          "answer": "Precision agriculture manages a field zone by zone instead of treating it as one uniform block — because soil, water, and vigor rarely are. It combines satellite and drone imagery, IoT soil sensors, and AI analysis to map exactly where a crop needs water, nitrogen, or attention, and where it doesn’t. The result is targeted action instead of blanket treatment: inputs go where they’re useful, not everywhere at once."
+        },
+        "satelliteImproveFarming": {
+          "question": "How does satellite monitoring improve farming?",
+          "answer": "Satellite monitoring gives farmers a view of the entire field every few days, without walking it. RoboCare processes Sentinel-2 and Landsat imagery automatically at each pass, masking clouds and calculating vegetation indices like NDVI and NDRE to reveal vigor changes before they’re visible to the eye. Three to five years of archived imagery let farmers compare the current season against past ones from day one."
+        },
+        "detectStressEarly": {
+          "question": "How can farmers detect crop stress early?",
+          "answer": "The earliest signs of water or nutrient stress show up in the near-infrared spectrum before leaves visibly wilt or yellow. RoboCare’s NDWI index flags water stress specifically, ahead of a visible drop in vigor, while NDRE tracks chlorophyll and nitrogen status in dense canopies where NDVI saturates. Combined with IoT soil moisture probes, this gives an early warning days to weeks before symptoms are visible on the ground."
+        },
+        "analyzeSatelliteImages": {
+          "question": "How does RoboCare analyze satellite images?",
+          "answer": "Every satellite pass is processed automatically: cloud-covered pixels are masked out, and the remaining imagery is converted into vegetation indices — NDVI, NDRE, NDWI, and SAVI — at 10-meter resolution from Sentinel-2. Each index is stored in the field’s history, so a farmer sees not just today’s snapshot but a trend line across the season and against previous years, with zones of concern highlighted automatically."
+        },
+        "ndviNdreExplained": {
+          "question": "What are NDVI and NDRE indices?",
+          "answer": "NDVI (Normalized Difference Vegetation Index) measures overall vegetation density and vigor from near-infrared and red light — useful for season-long tracking and zoning, though it saturates in very dense canopies. NDRE (Normalized Difference Red Edge) reads chlorophyll and nitrogen status instead, using the red-edge band, and stays accurate exactly where NDVI stops discriminating — making it the index RoboCare uses for nitrogen modulation on cereals."
+        },
+        "aiDecisionMaking": {
+          "question": "How does AI help agricultural decision-making?",
+          "answer": "RoboCare’s AI models are trained on Mediterranean time series, not imported from another climate, and retrained every season. They handle three tasks: image segmentation to delimit stressed zones within a field, yield forecasting per crop, and disease classification from field photos. Instead of raw index values, a farmer receives a direct recommendation — irrigate this zone, treat that one — reducing analysis to a decision."
+        },
+        "droneInspection": {
+          "question": "Does RoboCare provide drone inspection services?",
+          "answer": "Yes. RoboCare’s agricultural drones carry multispectral and thermal sensors for centimeter-resolution inspection — the level of detail satellite imagery can’t reach. Missions are programmed and flown over a field or orchard, and results are compiled automatically into a report per zone, including individual tree counts where relevant. Drone inspection complements satellite monitoring rather than replacing it: satellite for the whole season, drone when a closer look is needed."
+        },
+        "droneDetectProblems": {
+          "question": "How can drones detect crop problems?",
+          "answer": "Flying much closer to the canopy than a satellite, RoboCare’s drones capture centimeter-resolution multispectral and thermal imagery that reveals individual trees or plants under stress — not just a general zone. Thermal sensors pick up canopy temperature differences linked to water stress before wilting is visible, while multispectral bands support the same vegetation indices used at satellite scale, at a resolution fine enough to isolate a single affected tree."
+        },
+        "droneFertilizationSpraying": {
+          "question": "Does RoboCare use drones for fertilization and spraying?",
+          "answer": "RoboCare’s drone missions map exactly which zones of a field need nitrogen or treatment, based on NDRE and thermal readings — and that map can guide targeted, variable-rate fertilization and spraying instead of a uniform pass over the whole field. Inputs go only where the data shows they’re needed, which is the same principle behind RoboCare’s satellite-based nitrogen modulation on cereals, applied at drone resolution."
+        },
+        "droneAdvantages": {
+          "question": "What are the advantages of drone-based agricultural treatments?",
+          "answer": "Drone-based treatment targets exactly the zones that need it, based on a real map rather than a uniform application — reducing the volume of fertilizer or crop-protection product used, and its cost, without under-treating the areas that actually need it. Missions are programmed and flown quickly over a field or orchard, faster than manual scouting, and the resulting maps stay in RoboCare’s platform for the next season’s comparison."
         }
       }
     }
@@ -1548,7 +1638,7 @@
         },
         "coverage": {
           "question": "Do you work outside Tunisia?",
-          "answer": "Yes: the platform has been open to the MENA region since 2025. Satellite monitoring works everywhere; sensors and drone flights depend on local coverage."
+          "answer": "Tunisia remains our main market — RoboCare was founded here and the team is based in Sfax. The platform has recently expanded into Algeria in response to demand from several farms there. Satellite monitoring is available as soon as an account is created; IoT sensors and drone flights depend on local logistics coverage."
         },
         "pricing": {
           "question": "How is pricing calculated?",
@@ -1561,6 +1651,14 @@
         "security": {
           "question": "Where is our data hosted?",
           "answer": "In ISO 27001 certified European data centres, with encryption in transit and at rest and daily backups. Your data is never sold or shared, and a full export or deletion is available on request."
+        },
+        "tunisiaBase": {
+          "question": "Is RoboCare available in Tunisia?",
+          "answer": "Yes — Tunisia is RoboCare’s home market. The company was founded in Sfax in 2021 and the platform already covers over 100,000 hectares nationwide, across olive groves, cereal farms, citrus orchards, and greenhouses. Support, onboarding, and the agronomist team are all based locally, so questions get answered by people familiar with Tunisian growing conditions, not a remote call center."
+        },
+        "regionalFit": {
+          "question": "Are RoboCare’s solutions adapted to North African agriculture?",
+          "answer": "Yes. RoboCare’s AI models are trained specifically on Mediterranean and North African growing conditions — the same dry-farming olive groves, irrigated cereals, and citrus orchards found across Tunisia and Algeria — rather than adapted from models built for European or American agriculture. Vegetation indices, irrigation thresholds, and disease alerts are calibrated to local climate and crop calendars, and retrained every season."
         }
       }
     },

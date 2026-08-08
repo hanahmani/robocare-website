@@ -62,4 +62,13 @@ export const HOME_BENEFITS = [
 export const HOME_TESTIMONIALS = ['olive', 'cereal', 'citrus'] as const;
 
 /** Mini-FAQ de l'accueil — textes dans `home.faq.items.*`. */
-export const HOME_FAQ = ['start', 'accuracy', 'clouds', 'size', 'data'] as const;
+export const HOME_FAQ = [
+  'whatIs',
+  'howHelps',
+  'whyChoose',
+  'start',
+  'accuracy',
+  'clouds',
+  'size',
+  'data',
+] as const;
