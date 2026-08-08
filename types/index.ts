@@ -44,6 +44,7 @@ export type StatDatum = {
   /** Applique le séparateur de milliers de la langue active. */
   grouped?: boolean;
   featured?: boolean;
+  icon?: LucideIcon;
 };
 
 /** Statistique prête à l'affichage (libellés déjà traduits). */
@@ -86,7 +87,6 @@ export type Step = {
 export type CropResult = {
   slug: 'oliviers' | 'agrumes' | 'tomates' | 'pommes-de-terre' | 'vignes' | 'cereales';
   image: string;
-  tint: string;
   solutionSlug: Solution['slug'];
 };
 

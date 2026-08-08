@@ -1452,7 +1452,7 @@
       "items": {
         "olive-farm-tunisia": {
           "title": "220 ha olive grove, Sfax",
-          "meta": "Olive (Chemlali) · 220 hectares · Sfax, Tunisia",
+          "meta": ["Olive (Chemlali)", "220 hectares", "Sfax, Tunisia"],
           "challenge": "Highly uneven yields from one block to the next with no clear explanation, and an irrigation bill up 18% over two seasons.",
           "solution": "Full mapping of the estate, weekly NDVI monitoring, six soil moisture stations in the most heterogeneous sectors and a deficit irrigation schedule recalculated every week.",
           "results": [
@@ -1463,7 +1463,7 @@
         },
         "cereal-cooperative-beja": {
           "title": "Cereal cooperative, Béja",
-          "meta": "Durum wheat · 1,400 hectares · 38 members · Béja, Tunisia",
+          "meta": ["Durum wheat", "1,400 hectares", "38 members", "Béja, Tunisia"],
           "challenge": "Uniform nitrogen applications across all fields, with no visibility on which zones were genuinely deficient or on the yield expected before harvest.",
           "solution": "Variable-rate nitrogen maps generated from NDRE at tillering, distributed to members over WhatsApp, and per-field yield estimates a month before harvest.",
           "results": [
@@ -1474,7 +1474,7 @@
         },
         "citrus-orchard-nabeul": {
           "title": "85 ha citrus orchard, Nabeul",
-          "meta": "Citrus (Maltaise) · 85 hectares · Nabeul, Tunisia",
+          "meta": ["Citrus (Maltaise)", "85 hectares", "Nabeul, Tunisia"],
           "challenge": "Progressive salinisation of the water table and unexplained yellowing on border rows, with fruit size losses recorded two seasons running.",
           "solution": "Weekly NDVI and NDRE monitoring cross-referenced with eight conductivity probes, orchard zoning into four irrigation sectors, and targeted leaching only where salinity exceeded the threshold.",
           "results": [

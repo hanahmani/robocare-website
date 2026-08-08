@@ -114,6 +114,10 @@ const config: Config = {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
         },
+        gridPan: {
+          '0%': { backgroundPosition: '0px 0px' },
+          '100%': { backgroundPosition: '64px 64px' },
+        },
       },
       animation: {
         sweep: 'sweep 6.5s cubic-bezier(.5,0,.5,1) infinite',
@@ -122,6 +126,7 @@ const config: Config = {
         'floaty-alt': 'floatyAlt 8s ease-in-out infinite',
         'spin-slow': 'spinSlow 6s linear infinite',
         marquee: 'marquee 34s linear infinite',
+        'grid-pan': 'gridPan 14s linear infinite',
       },
     },
   },
