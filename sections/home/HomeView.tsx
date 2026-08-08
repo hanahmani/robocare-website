@@ -9,7 +9,7 @@ import { PlatformPreview } from '@/sections/home/PlatformPreview';
 import { VideoShowcase } from '@/sections/home/VideoShowcase';
 import { SocialProof } from '@/sections/home/SocialProof';
 import { HomeFaq } from '@/sections/home/HomeFaq';
-import { Statistics } from '@/sections/shared/Statistics';
+import { StatsShowcase } from '@/sections/shared/StatsShowcase';
 import { CtaBand } from '@/sections/shared/CtaBand';
 import { Section, IndexScale } from '@/components/ui/Section';
 import { HOME_STATS } from '@/lib/data/home';
@@ -25,9 +25,9 @@ export function HomeView() {
       <Hero />
 
       {/* Chiffres clés : prolonge le fond sombre du hero */}
-      <section className="relative bg-forest-950 pb-[72px] lg:pb-[110px]">
+      <section className="relative overflow-hidden bg-forest-950 pb-[72px] lg:pb-[110px]">
         <div className="container-page">
-          <Statistics stats={stats} />
+          <StatsShowcase stats={stats} />
         </div>
         <IndexScale className="absolute inset-x-0 bottom-0" />
       </section>

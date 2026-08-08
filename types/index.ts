@@ -44,6 +44,7 @@ export type StatDatum = {
   /** Applique le séparateur de milliers de la langue active. */
   grouped?: boolean;
   featured?: boolean;
+  icon?: LucideIcon;
 };
 
 /** Statistique prête à l'affichage (libellés déjà traduits). */

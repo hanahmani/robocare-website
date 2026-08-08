@@ -13,7 +13,7 @@ import { RequestDemoButton } from '@/components/ui/RequestDemoButton';
 import { Arrow } from '@/components/ui/Arrow';
 import { Reveal } from '@/components/animations/Reveal';
 import { Stagger, StaggerItem } from '@/components/animations/Stagger';
-import { Statistics } from '@/sections/shared/Statistics';
+import { StatsShowcase } from '@/sections/shared/StatsShowcase';
 import { CtaBand } from '@/sections/shared/CtaBand';
 import { ImpactEnvironment } from '@/sections/impact/ImpactEnvironment';
 import {
@@ -85,18 +85,14 @@ export function ImpactView() {
       </Section>
 
       {/* Résultats consolidés */}
-      <Section tone="dark">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -bottom-1/4 end-[-10%] start-[40%] h-[520px] rounded-full bg-[radial-gradient(circle,rgba(77,158,47,.18),transparent_68%)]"
-        />
+      <Section tone="dark" className="overflow-hidden">
         <SectionHeading
           invert
           eyebrow={t('impact.results.eyebrow')}
           title={t('impact.results.title')}
         />
-        <div className="mt-8 lg:mt-12">
-          <Statistics stats={stats} />
+        <div className="relative mt-8 lg:mt-12">
+          <StatsShowcase stats={stats} columns={4} />
         </div>
       </Section>
 

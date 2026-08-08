@@ -37,22 +37,26 @@ export function StatCounter({
   return (
     <div
       className={cn(
-        'bg-forest-950 px-6 py-7 transition-colors duration-[400ms] hover:bg-white/[0.04]',
+        'group relative overflow-hidden bg-forest-950 px-6 py-7 transition-colors duration-300 ease-premium hover:bg-white/[0.06]',
         className,
       )}
     >
+      <span
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-[2px] origin-center scale-x-0 bg-lime-500 transition-transform duration-300 ease-premium group-hover:scale-x-100"
+      />
       <div
         ref={ref}
         dir="ltr"
         className={cn(
-          'font-display font-semibold leading-none tracking-display tabular-nums rtl:text-right',
+          'font-display font-semibold leading-none tracking-display tabular-nums transition-colors duration-300 ease-premium rtl:text-right',
           size === 'lg' ? 'text-[32px] lg:text-[44px]' : 'text-[30px]',
-          featured ? 'text-lime-500' : 'text-white',
+          featured ? 'text-lime-500' : 'text-white group-hover:text-lime-400',
         )}
       >
         {display}
       </div>
-      <div className="mt-3 font-mono text-[11px] uppercase tracking-[0.16em] text-white/50">
+      <div className="mt-3 font-mono text-[11px] uppercase tracking-[0.16em] text-white/50 transition-colors duration-300 ease-premium group-hover:text-white/70">
         {label}
       </div>
       {note ? <div className="mt-1.5 text-[13px] text-white/40">{note}</div> : null}

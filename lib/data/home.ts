@@ -1,25 +1,30 @@
 import {
+  Activity,
   BarChart3,
+  BellRing,
   Cpu,
   FileCheck2,
   FileText,
+  Handshake,
   Languages,
+  Map,
   Rocket,
   Satellite,
   Sun,
   Target,
   Timer,
+  Users,
 } from 'lucide-react';
 import type { FeatureItem, StatDatum } from '@/types';
 
 /** Chiffres clés sous le hero d'accueil — libellés dans `home.stats.*`. */
 export const HOME_STATS = [
-  { id: 'users', value: 300, suffix: '+' },
-  { id: 'hectares', value: 100000, suffix: '+', grouped: true, featured: true },
-  { id: 'partners', value: 15, suffix: '+' },
-  { id: 'alerts', value: 100000, suffix: '+', grouped: true },
-  { id: 'images', value: 1, suffix: 'M+' },
-  { id: 'uptime', value: 99, suffix: '%' },
+  { id: 'users', value: 300, suffix: '+', icon: Users },
+  { id: 'hectares', value: 100000, suffix: '+', grouped: true, featured: true, icon: Map },
+  { id: 'partners', value: 15, suffix: '+', icon: Handshake },
+  { id: 'alerts', value: 100000, suffix: '+', grouped: true, icon: BellRing },
+  { id: 'images', value: 1, suffix: 'M+', icon: Satellite },
+  { id: 'uptime', value: 99, suffix: '%', icon: Activity },
 ] as const satisfies readonly StatDatum[];
 
 /** Piliers de la section « Qui nous sommes » — textes dans `home.about.pillars.*`. */

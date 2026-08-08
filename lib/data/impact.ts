@@ -1,13 +1,19 @@
 import {
+  Activity,
   BarChart3,
+  Clock,
   Cpu,
   Droplets,
   FileText,
+  FlaskConical,
   Leaf,
+  Map,
   Satellite,
   ShieldCheck,
   Sprout,
   Sun,
+  TrendingUp,
+  Users,
 } from 'lucide-react';
 import type { CropResult, FeatureItem, StatDatum, Step, Story } from '@/types';
 
@@ -21,14 +27,14 @@ export const IMPACT_METHOD = [
 
 /** Résultats consolidés — libellés dans `impact.stats.<id>`. */
 export const IMPACT_STATS = [
-  { id: 'hectares', value: 100000, suffix: '+', grouped: true, featured: true },
-  { id: 'farms', value: 300, suffix: '+' },
-  { id: 'water', value: 28, prefix: '−', suffix: ' %' },
-  { id: 'yield', value: 12, prefix: '+', suffix: ' %' },
-  { id: 'nitrogen', value: 19, prefix: '−', suffix: ' %' },
-  { id: 'lead', value: 14 },
-  { id: 'images', value: 1, suffix: ' M+' },
-  { id: 'uptime', value: 99, suffix: ' %' },
+  { id: 'hectares', value: 100000, suffix: '+', grouped: true, featured: true, icon: Map },
+  { id: 'farms', value: 300, suffix: '+', icon: Users },
+  { id: 'water', value: 28, prefix: '−', suffix: ' %', icon: Droplets },
+  { id: 'yield', value: 12, prefix: '+', suffix: ' %', icon: TrendingUp },
+  { id: 'nitrogen', value: 19, prefix: '−', suffix: ' %', icon: FlaskConical },
+  { id: 'lead', value: 14, icon: Clock },
+  { id: 'images', value: 1, suffix: ' M+', icon: Satellite },
+  { id: 'uptime', value: 99, suffix: ' %', icon: Activity },
 ] as const satisfies readonly StatDatum[];
 
 /** Résultats par culture — textes dans `impact.crops.items.<slug>`. */
