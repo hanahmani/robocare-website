@@ -18,7 +18,14 @@
       "Bash(git mv *)",
       "Bash(git rm *)",
       "Bash(timeout 30 bash -c 'until curl -sf http://localhost:3000/ >/dev/null; do sleep 1; done')",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/about)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/about)",
+      "PowerShell(Get-CimInstance Win32_Process -Filter \"ProcessId=28460\")",
+      "Bash(curl -s -m 20 -X POST http://127.0.0.1:3001/api/contact -H 'Content-Type: application/json' -d '{ *)",
+      "PowerShell(Get-CimInstance Win32_Process -Filter \"Name='node.exe'\" | Where-Object { $_.CommandLine -match 'next' } | Select-Object ProcessId, CreationDate, CommandLine)",
+      "Bash(curl -s -m 15 -X POST http://127.0.0.1:3000/api/contact -H 'Content-Type: application/json' -d '{ *)",
+      "PowerShell(wsl.exe -l -v 2>&1)",
+      "Bash(curl -s -m 20 -X POST http://127.0.0.1:3000/api/contact -H 'Content-Type: application/json' -d '{ *)",
+      "PowerShell(Get-CimInstance Win32_Process -Filter \"Name='node.exe'\" | Where-Object { $_.CommandLine -match 'next' } | Select-Object ProcessId, CommandLine)"
     ]
   }
 }

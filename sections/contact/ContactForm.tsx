@@ -11,15 +11,16 @@ const SUBJECTS = ['demo', 'quote', 'partnership', 'support'] as const;
 type Subject = (typeof SUBJECTS)[number];
 
 const FIELD =
-  'w-full min-h-12 rounded-field border border-forest-950/[0.14] bg-white px-4 py-3.5 text-[15px] text-ink-900 transition-all duration-[250ms] placeholder:text-ink-300';
+  'w-full min-h-10 rounded-field border border-forest-950/[0.14] bg-white px-3 py-2 text-[13.5px] text-ink-900 transition-all duration-[250ms] placeholder:text-ink-300';
 const FIELD_ERROR = 'border-danger focus-visible:outline-danger';
-const LABEL = 'font-mono text-[11px] uppercase tracking-[0.14em] text-ink-400';
-const ERROR = 'text-[13px] leading-[1.5] text-danger';
+const LABEL = 'font-mono text-[10px] uppercase tracking-[0.13em] text-ink-400';
+const ERROR = 'text-[12px] leading-[1.45] text-danger';
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const MESSAGE_MIN_LENGTH = 20;
 
-type FieldName = 'name' | 'email' | 'message' | 'consent';
+type FieldName = 'firstName' | 'lastName' | 'email' | 'message' | 'consent';
+type Status = 'idle' | 'submitting' | 'sent' | 'error';
 
 /**
  * Formulaire de contact.
@@ -27,30 +28,29 @@ type FieldName = 'name' | 'email' | 'message' | 'consent';
  * La validation est faite en JavaScript plutôt qu'en HTML natif : les messages
  * du navigateur suivent la langue du système, pas celle du site. Ici, chaque
  * erreur vient de `contact.form.errors.*` et suit donc le sélecteur de langue.
- *
- * TODO : brancher `handleSubmit` sur /api/contact ou le CRM.
  */
 export function ContactForm() {
   const { t } = useTranslation();
   const [subject, setSubject] = useState<Subject>('demo');
   const [errors, setErrors] = useState<Partial<Record<FieldName, string>>>({});
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<Status>('idle');
 
   const validate = (form: HTMLFormElement): Partial<Record<FieldName, string>> => {
     const data = new FormData(form);
-    const name = String(data.get('name') ?? '').trim();
+    const firstName = String(data.get('firstName') ?? '').trim();
+    const lastName = String(data.get('lastName') ?? '').trim();
     const email = String(data.get('email') ?? '').trim();
     const message = String(data.get('message') ?? '').trim();
     const consent = data.get('consent') === 'on';
     const found: Partial<Record<FieldName, string>> = {};
 
-    if (!name) found.name = t('contact.form.errors.nameRequired');
+    if (!firstName) found.firstName = t('contact.form.errors.firstNameRequired');
+    if (!lastName) found.lastName = t('contact.form.errors.lastNameRequired');
 
     if (!email) found.email = t('contact.form.errors.emailRequired');
     else if (!EMAIL_PATTERN.test(email)) found.email = t('contact.form.errors.emailInvalid');
 
-    if (!message) found.message = t('contact.form.errors.messageRequired');
-    else if (message.length < MESSAGE_MIN_LENGTH)
+    if (message && message.length < MESSAGE_MIN_LENGTH)
       found.message = t('contact.form.errors.messageTooShort');
 
     if (!consent) found.consent = t('contact.form.errors.consentRequired');
@@ -58,64 +58,117 @@ export function ContactForm() {
     return found;
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const found = validate(event.currentTarget);
+    const form = event.currentTarget;
+    const found = validate(form);
     setErrors(found);
 
     if (Object.keys(found).length > 0) {
-      setSent(false);
+      setStatus('idle');
       // Renvoie le focus sur le premier champ en erreur.
       const first = Object.keys(found)[0] as FieldName;
-      event.currentTarget.querySelector<HTMLElement>(`[name="${first}"]`)?.focus();
+      form.querySelector<HTMLElement>(`[name="${first}"]`)?.focus();
       return;
     }
 
-    setSent(true);
-    event.currentTarget.reset();
-    setSubject('demo');
+    const data = new FormData(form);
+    setStatus('submitting');
+
+    const cropSlug = String(data.get('crop') ?? '').trim();
+    const cropLabel = !cropSlug
+      ? ''
+      : cropSlug === 'other'
+        ? t('contact.form.fields.crop.other')
+        : t(`solutions.items.${cropSlug}.name`);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: String(data.get('firstName') ?? '').trim(),
+          lastName: String(data.get('lastName') ?? '').trim(),
+          email: String(data.get('email') ?? '').trim(),
+          phone: String(data.get('phone') ?? '').trim(),
+          org: String(data.get('org') ?? '').trim(),
+          crop: cropLabel,
+          area: String(data.get('area') ?? '').trim(),
+          subject,
+          message: String(data.get('message') ?? '').trim(),
+          consent: data.get('consent') === 'on',
+        }),
+      });
+
+      if (!response.ok) throw new Error('send_failed');
+
+      setStatus('sent');
+      form.reset();
+      setSubject('demo');
+    } catch {
+      setStatus('error');
+    }
   };
 
   const errorCount = Object.keys(errors).length;
+  const submitting = status === 'submitting';
 
   return (
     <form
       noValidate
       onSubmit={handleSubmit}
-      className="rounded-card border border-forest-950/[0.08] bg-white p-6 shadow-soft sm:p-9"
+      className="rounded-card border border-forest-950/[0.08] bg-white p-4 shadow-soft sm:p-6"
     >
-      <h2 className="text-[22px] tracking-[-0.025em] lg:text-[26px]">{t('contact.form.title')}</h2>
-      <p className="mt-2.5 text-[14.5px] leading-[1.6] text-ink-500">{t('contact.form.intro')}</p>
+      <h2 className="text-[18px] tracking-[-0.025em] lg:text-[20px]">{t('contact.form.title')}</h2>
+      <p className="mt-1.5 text-[13px] leading-[1.5] text-ink-500">{t('contact.form.intro')}</p>
 
       {errorCount > 0 ? (
         <p
           role="alert"
-          className="mt-5 rounded-field border border-danger/30 bg-danger/[0.06] px-4 py-3 text-[14px] text-danger"
+          className="mt-3.5 rounded-field border border-danger/30 bg-danger/[0.06] px-3 py-2 text-[12.5px] text-danger"
         >
           {t('contact.form.errors.summary', { count: errorCount })}
         </p>
       ) : null}
 
-      <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        <label className="flex flex-col gap-2">
-          <span className={LABEL}>{t('contact.form.fields.name.label')}</span>
+      <div className="mt-4 grid gap-2.5 sm:grid-cols-2">
+        <label className="flex flex-col gap-1">
+          <span className={LABEL}>{t('contact.form.fields.firstName.label')}</span>
           <input
             type="text"
-            name="name"
-            autoComplete="name"
-            aria-invalid={Boolean(errors.name)}
-            aria-describedby={errors.name ? 'error-name' : undefined}
-            placeholder={t('contact.form.fields.name.placeholder')}
-            className={cn(FIELD, errors.name && FIELD_ERROR)}
+            name="firstName"
+            autoComplete="given-name"
+            aria-invalid={Boolean(errors.firstName)}
+            aria-describedby={errors.firstName ? 'error-firstName' : undefined}
+            placeholder={t('contact.form.fields.firstName.placeholder')}
+            className={cn(FIELD, errors.firstName && FIELD_ERROR)}
           />
-          {errors.name ? (
-            <span id="error-name" className={ERROR}>
-              {errors.name}
+          {errors.firstName ? (
+            <span id="error-firstName" className={ERROR}>
+              {errors.firstName}
             </span>
           ) : null}
         </label>
 
-        <label className="flex flex-col gap-2">
+        <label className="flex flex-col gap-1">
+          <span className={LABEL}>{t('contact.form.fields.lastName.label')}</span>
+          <input
+            type="text"
+            name="lastName"
+            autoComplete="family-name"
+            aria-invalid={Boolean(errors.lastName)}
+            aria-describedby={errors.lastName ? 'error-lastName' : undefined}
+            placeholder={t('contact.form.fields.lastName.placeholder')}
+            className={cn(FIELD, errors.lastName && FIELD_ERROR)}
+          />
+          {errors.lastName ? (
+            <span id="error-lastName" className={ERROR}>
+              {errors.lastName}
+            </span>
+          ) : null}
+        </label>
+
+        <label className="flex flex-col gap-1">
           <span className={LABEL}>{t('contact.form.fields.org.label')}</span>
           <input
             type="text"
@@ -126,7 +179,7 @@ export function ContactForm() {
           />
         </label>
 
-        <label className="flex flex-col gap-2">
+        <label className="flex flex-col gap-1">
           <span className={LABEL}>{t('contact.form.fields.email.label')}</span>
           <input
             type="email"
@@ -145,7 +198,7 @@ export function ContactForm() {
           ) : null}
         </label>
 
-        <label className="flex flex-col gap-2">
+        <label className="flex flex-col gap-1">
           <span className={LABEL}>{t('contact.form.fields.phone.label')}</span>
           <input
             type="tel"
@@ -157,7 +210,7 @@ export function ContactForm() {
           />
         </label>
 
-        <label className="flex flex-col gap-2">
+        <label className="flex flex-col gap-1">
           <span className={LABEL}>{t('contact.form.fields.crop.label')}</span>
           <select name="crop" className={FIELD} defaultValue={SOLUTIONS[0].slug}>
             {SOLUTIONS.map((solution) => (
@@ -169,7 +222,7 @@ export function ContactForm() {
           </select>
         </label>
 
-        <label className="flex flex-col gap-2">
+        <label className="flex flex-col gap-1">
           <span className={LABEL}>{t('contact.form.fields.area.label')}</span>
           <input
             type="text"
@@ -182,10 +235,10 @@ export function ContactForm() {
         </label>
       </div>
 
-      <fieldset className="mt-5 border-0 p-0">
+      <fieldset className="mt-3.5 border-0 p-0">
         <legend className={LABEL}>{t('contact.form.fields.subject.label')}</legend>
         <input type="hidden" name="subject" value={subject} />
-        <div className="mt-3 flex flex-wrap gap-2.5">
+        <div className="mt-2 flex flex-wrap gap-1.5">
           {SUBJECTS.map((item) => {
             const selected = subject === item;
             return (
@@ -195,7 +248,7 @@ export function ContactForm() {
                 aria-pressed={selected}
                 onClick={() => setSubject(item)}
                 className={cn(
-                  'min-h-11 rounded-full px-[18px] py-2.5 text-[14px] font-semibold transition-all duration-[250ms] ease-premium',
+                  'min-h-8 rounded-full px-3.5 py-1.5 text-[12.5px] font-semibold transition-all duration-[250ms] ease-premium',
                   selected
                     ? 'border border-forest-900 bg-forest-900 text-lime-100'
                     : 'border border-forest-950/[0.14] bg-white text-ink-700 hover:border-leaf-500/50',
@@ -208,15 +261,15 @@ export function ContactForm() {
         </div>
       </fieldset>
 
-      <label className="mt-5 flex flex-col gap-2">
+      <label className="mt-3.5 flex flex-col gap-1">
         <span className={LABEL}>{t('contact.form.fields.message.label')}</span>
         <textarea
           name="message"
-          rows={5}
+          rows={3}
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? 'error-message' : undefined}
           placeholder={t('contact.form.fields.message.placeholder')}
-          className={cn(FIELD, 'resize-y leading-[1.6]', errors.message && FIELD_ERROR)}
+          className={cn(FIELD, 'resize-y leading-[1.5]', errors.message && FIELD_ERROR)}
         />
         {errors.message ? (
           <span id="error-message" className={ERROR}>
@@ -225,13 +278,13 @@ export function ContactForm() {
         ) : null}
       </label>
 
-      <label className="mt-[18px] flex items-start gap-3 text-[13.5px] leading-[1.55] text-ink-500">
+      <label className="mt-3.5 flex items-start gap-2 text-[12.5px] leading-[1.45] text-ink-500">
         <input
           type="checkbox"
           name="consent"
           aria-invalid={Boolean(errors.consent)}
           aria-describedby={errors.consent ? 'error-consent' : undefined}
-          className="mt-1 h-[18px] w-[18px] shrink-0 accent-leaf-500"
+          className="mt-0.5 h-4 w-4 shrink-0 accent-leaf-500"
         />
         <span>
           {t('contact.form.consent')}
@@ -243,9 +296,18 @@ export function ContactForm() {
         </span>
       </label>
 
-      <div className="mt-6 flex flex-wrap items-center gap-4">
-        <ButtonAction type="submit" size="lg">
-          {t('contact.form.submit')}
+      {status === 'error' ? (
+        <p
+          role="alert"
+          className="mt-3.5 rounded-field border border-danger/30 bg-danger/[0.06] px-3 py-2 text-[12.5px] text-danger"
+        >
+          {t('contact.form.statusError')}
+        </p>
+      ) : null}
+
+      <div className="mt-4 flex flex-wrap items-center gap-3">
+        <ButtonAction type="submit" size="md" disabled={submitting}>
+          {submitting ? t('contact.form.submitting') : t('contact.form.submit')}
           <Arrow />
         </ButtonAction>
         <p
@@ -253,10 +315,14 @@ export function ContactForm() {
           aria-live="polite"
           className={cn(
             'font-mono text-[11px] uppercase tracking-[0.1em]',
-            sent ? 'text-leaf-600' : 'text-ink-300',
+            status === 'sent' ? 'text-leaf-600' : 'text-ink-300',
           )}
         >
-          {sent ? t('contact.form.statusSent') : t('contact.form.statusIdle')}
+          {status === 'sent'
+            ? t('contact.form.statusSent')
+            : status === 'submitting'
+              ? t('contact.form.statusSending')
+              : t('contact.form.statusIdle')}
         </p>
       </div>
     </form>

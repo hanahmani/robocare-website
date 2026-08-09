@@ -6,6 +6,7 @@ import { PageHero } from '@/components/layout/PageHero';
 import { Section } from '@/components/ui/Section';
 import { AboutApproach } from '@/sections/about/AboutApproach';
 import { PartnersMarquee } from '@/sections/about/PartnersMarquee';
+import { TeamSection } from '@/sections/about/TeamSection';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Card } from '@/components/ui/Card';
 import { ButtonExternal } from '@/components/ui/Button';
@@ -14,18 +15,9 @@ import { StatCounter } from '@/components/ui/StatCounter';
 import { Reveal } from '@/components/animations/Reveal';
 import { Stagger, StaggerItem } from '@/components/animations/Stagger';
 import { CtaBand } from '@/sections/shared/CtaBand';
-import {
-  AWARDS,
-  MEDIA,
-  MILESTONES,
-  PROGRAMS,
-  RESOURCES,
-  TEAM,
-  TEAM_GROUPS,
-  VALUES,
-} from '@/lib/data/about';
+import { AWARDS, MEDIA, MILESTONES, PROGRAMS, RESOURCES, VALUES } from '@/lib/data/about';
 import { SITE } from '@/lib/data/site';
-import { cn, initialsFromName, pad2 } from '@/lib/utils';
+import { cn, pad2 } from '@/lib/utils';
 
 const MEDIA_TONES = {
   leaf: 'bg-sage-100 text-leaf-600',
@@ -173,48 +165,7 @@ export function AboutView() {
       </Section>
 
       {/* Équipe */}
-      <Section id="equipe" tone="sage" className="scroll-mt-24">
-        <SectionHeading
-          eyebrow={t('about.team.eyebrow')}
-          title={t('about.team.title')}
-          subtitle={t('about.team.subtitle')}
-        />
-        <div className="mt-8 flex flex-col gap-8 lg:mt-14">
-          {TEAM_GROUPS.map((group) => (
-            <div key={group}>
-              <h3 className="font-mono text-[11px] font-normal uppercase tracking-[0.16em] text-ink-300">
-                {about.team.groups[group]}
-              </h3>
-              <Stagger className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {TEAM.filter((member) => member.group === group).map((member) => {
-                  const person = about.team.members[member.id];
-                  return (
-                    <StaggerItem key={member.id}>
-                      <article className="flex items-center gap-4 rounded-[20px] border border-forest-950/[0.08] bg-white p-5 shadow-soft transition-all duration-300 ease-premium hover:-translate-y-1.5 hover:shadow-lift">
-                        <span
-                          aria-hidden
-                          className={cn(
-                            'inline-flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full font-display text-[17px] font-semibold',
-                            'placeholder' in member && member.placeholder
-                              ? 'bg-sage-100 text-leaf-600'
-                              : 'bg-forest-900 text-lime-100',
-                          )}
-                        >
-                          {initialsFromName(person.name)}
-                        </span>
-                        <div>
-                          <div className="text-[15.5px] font-bold text-ink-900">{person.name}</div>
-                          <div className="mt-1 text-[13.5px] text-ink-400">{person.role}</div>
-                        </div>
-                      </article>
-                    </StaggerItem>
-                  );
-                })}
-              </Stagger>
-            </div>
-          ))}
-        </div>
-      </Section>
+      <TeamSection />
 
       {/* Partenaires */}
       <PartnersMarquee />
