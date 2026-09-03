@@ -29,14 +29,14 @@ export function TechCard({ icon: Icon, tone, index, title, text, points, extra }
   return (
     <article
       className={cn(
-        'rounded-card border border-forest-950/[0.08] bg-white p-6 shadow-soft transition-all duration-[350ms] ease-premium hover:-translate-y-1.5 hover:shadow-hover motion-reduce:hover:translate-y-0 sm:p-7 lg:p-9',
+        'rounded-card border border-forest-950/[0.08] bg-white p-6 shadow-soft transition-surface duration-slow ease-premium hover:-translate-y-1.5 hover:shadow-hover motion-reduce:hover:translate-y-0 sm:p-7 lg:p-9',
         palette.border,
       )}
     >
       <div className="grid gap-8 lg:grid-cols-12 lg:items-start lg:gap-10 xl:gap-16">
         <div className="lg:col-span-7">
           <div className="flex items-center gap-4">
-            <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[14px] bg-forest-900 text-lime-500">
+            <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-field bg-forest-900 text-lime-500">
               <Icon size={21} aria-hidden />
             </span>
             <h2 className="text-[24px] tracking-[-0.02em] text-ink-900 lg:text-[26px]">{title}</h2>

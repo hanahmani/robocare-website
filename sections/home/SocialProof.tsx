@@ -27,7 +27,7 @@ export function SocialProof() {
         title={t('home.testimonials.title')}
       />
 
-      <Stagger className="mt-8 grid gap-5 lg:mt-14 lg:grid-cols-3">
+      <Stagger className="mt-section-gap grid gap-5 lg:grid-cols-3">
         {HOME_TESTIMONIALS.map((id, index) => {
           const dark = index === 1;
           const quote = quotes[id];
@@ -35,7 +35,7 @@ export function SocialProof() {
             <StaggerItem key={id} className="h-full">
               <figure
                 className={cn(
-                  'flex h-full flex-col rounded-tile border p-7 transition-all duration-[350ms] ease-premium hover:-translate-y-2 hover:shadow-lift motion-reduce:hover:translate-y-0',
+                  'flex h-full flex-col rounded-tile border p-7 transition-surface duration-slow ease-premium hover:-translate-y-1.5 hover:shadow-lift motion-reduce:hover:translate-y-0',
                   dark
                     ? 'border-lime-500/20 bg-[linear-gradient(165deg,#0B2015,#06120C_60%)] shadow-glass'
                     : 'border-forest-950/[0.08] bg-white shadow-soft hover:border-leaf-500/40',
@@ -90,7 +90,7 @@ export function SocialProof() {
       {/* Bandeau partenaires */}
       <Reveal className="mt-14 border-t border-forest-950/[0.08] pt-12 lg:mt-20 lg:pt-16">
         <p className="eyebrow text-leaf-600">{t('home.partners.eyebrow')}</p>
-        <h2 className="mt-4 max-w-[38rem] text-[24px] leading-[1.14] sm:text-[30px]">
+        <h2 className="mt-4 max-w-[38rem] text-h3-lg">
           {t('home.partners.title')}
         </h2>
         <p className="mt-3.5 max-w-[42rem] text-[15.5px] leading-[1.7] text-ink-500">
@@ -101,13 +101,13 @@ export function SocialProof() {
       <Stagger
         as="ul"
         stagger={0.05}
-        className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
+        className="mt-section-gap grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
       >
         {PARTNERS.map((partner) => (
           <StaggerItem
             key={partner.id}
             as="li"
-            className="flex items-center gap-3.5 rounded-field border border-forest-950/[0.08] bg-sage-50 px-4 py-3.5 transition-all duration-300 ease-premium hover:-translate-y-1 hover:border-leaf-500/35 hover:bg-white hover:shadow-soft motion-reduce:hover:translate-y-0"
+            className="flex items-center gap-3.5 rounded-field border border-forest-950/[0.08] bg-sage-50 px-4 py-3.5 transition-surface duration-base ease-premium hover:-translate-y-1.5 hover:border-leaf-500/35 hover:bg-white hover:shadow-soft motion-reduce:hover:translate-y-0"
           >
             <span
               aria-hidden

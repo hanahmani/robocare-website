@@ -957,54 +957,75 @@
       }
     },
     "team": {
-      "eyebrow": "The team",
-      "title": "Engineering and agronomy in the same room",
-      "subtitle": "Leadership, engineering and agronomy experts: ten people between Sfax and the field.",
-      "groups": {
+      "eyebrow": "Our team",
+      "title": [
+        "Everyone you work with,",
+        "in the same room"
+      ],
+      "intro": "Leadership, engineering and agronomy experts: fourteen people between Sfax and the field.",
+      "filters": {
+        "all": "All",
         "leadership": "Leadership",
         "engineering": "Engineering",
-        "agronomy": "Agronomy experts"
+        "agronomy": "Agronomy"
       },
+      "linkedinAriaLabel": "{name} on LinkedIn",
       "members": {
-        "ceo": {
-          "name": "First Last",
-          "role": "Co-founder & CEO"
+        "imen-hbiri": {
+          "name": "Dr. Imen Hbiri",
+          "role": "Co-Founder & CEO"
         },
-        "cto": {
-          "name": "First Last",
-          "role": "Co-founder & CTO"
+        "ameur-hbiri": {
+          "name": "Ameur Hbiri",
+          "role": "Co-Founder & CIO"
+        },
+        "malek-benmbarek": {
+          "name": "Malek Ben Mbarek",
+          "role": "CMO"
         },
         "po": {
           "name": "Karim Hbiri",
           "role": "Product Owner & Scrum Master"
         },
-        "backend": {
-          "name": "First Last",
-          "role": "Backend engineer (Spring Boot)"
+        "zekri-mohamed": {
+          "name": "Zekri Mohamed",
+          "role": "R&D Director"
         },
-        "frontend": {
-          "name": "First Last",
-          "role": "Frontend engineer (React)"
+        "ali-chaabouni": {
+          "name": "Ali Chaabouni",
+          "role": "Software Development Engineer"
         },
-        "data": {
-          "name": "First Last",
-          "role": "Data scientist — satellite imagery"
+        "mohamed-habib-loukil": {
+          "name": "Mohamed Habib Loukil",
+          "role": "Data Scientist"
         },
-        "iot": {
-          "name": "First Last",
-          "role": "IoT & embedded engineer"
+        "moataz-guidara": {
+          "name": "Moataz Guidara",
+          "role": "Software Engineer"
         },
-        "olive": {
-          "name": "First Last",
-          "role": "Agronomist — olive growing"
+        "ahmed-elleuch": {
+          "name": "Ahmed Elleuch",
+          "role": "Embedded Systems Engineer"
         },
-        "cereal": {
-          "name": "First Last",
-          "role": "Agronomist — arable crops"
+        "ali-fourati": {
+          "name": "Ali Fourati",
+          "role": "Software Engineer"
         },
-        "field": {
-          "name": "First Last",
-          "role": "Field advisor — Sfax region"
+        "anwar-benmahmoud": {
+          "name": "Anwar Ben Mahmoud",
+          "role": "Embedded Systems Engineer"
+        },
+        "marwa-kadri": {
+          "name": "Marwa Kadri",
+          "role": "Agronomic Engineer"
+        },
+        "nour-el-houda-boughattas": {
+          "name": "Nour El Houda Boughattas",
+          "role": "Precision Farming Expert"
+        },
+        "emna-abdellatif": {
+          "name": "Emna Abdellatif",
+          "role": "Agronomist Researcher"
         }
       }
     },
@@ -1553,9 +1574,13 @@
       "title": "Write to us",
       "intro": "Fields marked with an asterisk are what we need to give you a useful answer.",
       "fields": {
-        "name": {
-          "label": "Full name *",
-          "placeholder": "e.g. Mohamed Trabelsi"
+        "firstName": {
+          "label": "First name *",
+          "placeholder": "e.g. Mohamed"
+        },
+        "lastName": {
+          "label": "Last name *",
+          "placeholder": "e.g. Trabelsi"
         },
         "org": {
           "label": "Farm / organisation",
@@ -1581,7 +1606,7 @@
           "label": "What is your enquiry about?"
         },
         "message": {
-          "label": "Your message *",
+          "label": "Your message",
           "placeholder": "Your fields, your crops, what you are looking to monitor…"
         }
       },
@@ -1593,16 +1618,20 @@
       },
       "consent": "I agree that RoboCare may use this information to reply to me. No data is shared with third parties.",
       "submit": "Send my enquiry",
+      "submitting": "Sending…",
       "statusIdle": "Reply within 48 working hours",
       "statusSent": "Message sent — reply within 48 h",
+      "statusSending": "Sending…",
+      "statusError": "Sending failed. Please try again or write to us directly.",
       "errors": {
-        "nameRequired": "Please enter your full name.",
+        "firstNameRequired": "Please enter your first name.",
+        "lastNameRequired": "Please enter your last name.",
         "emailRequired": "Please enter an email address.",
         "emailInvalid": "This email address doesn't look valid.",
-        "messageRequired": "Please describe your enquiry in a few lines.",
         "messageTooShort": "Your message is a little short: 20 characters minimum.",
         "consentRequired": "We need your consent before we can reply.",
-        "summary": "The form has {count} field(s) to correct."
+        "summary": "The form has {count} field(s) to correct.",
+        "sendFailed": "Sending failed. Please try again in a moment."
       }
     },
     "info": {

@@ -108,6 +108,10 @@ export type Member = {
   group: 'leadership' | 'engineering' | 'agronomy';
   /** Fiche encore générique (avatar neutre). */
   placeholder?: boolean;
+  /** Chemin de la photo dans /public (ex. `/team/imen-hbiri.jpg`). */
+  photo?: string;
+  /** URL du profil LinkedIn. */
+  linkedin?: string;
 };
 
 /** Partenaire. */

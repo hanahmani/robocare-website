@@ -20,7 +20,7 @@ export function PlatformPreview() {
       <div className="relative grid items-center gap-10 lg:grid-cols-2 lg:gap-[72px]">
         <Reveal>
           <p className="eyebrow text-lime-500">{t('home.platformPreview.eyebrow')}</p>
-          <h2 className="mt-4 text-[30px] leading-[1.04] text-white sm:text-[38px] lg:text-[52px]">
+          <h2 className="mt-4 text-h2 text-white">
             {t('home.platformPreview.title')}
           </h2>
           <p className="mt-[18px] text-[16px] leading-[1.7] text-white/[0.72] lg:text-[17px]">

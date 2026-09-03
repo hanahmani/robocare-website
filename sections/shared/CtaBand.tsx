@@ -24,7 +24,7 @@ export function CtaBand({ eyebrow, title, text, actions, showContacts = false }:
   const { t } = useTranslation();
 
   return (
-    <Reveal from="scale" className="relative overflow-hidden rounded-[32px] bg-forest-950">
+    <Reveal from="scale" className="relative overflow-hidden rounded-panel bg-forest-950">
       <Image
         src="/hero/satellite-heatmap.webp"
         alt=""
@@ -42,7 +42,7 @@ export function CtaBand({ eyebrow, title, text, actions, showContacts = false }:
 
       <div className="relative max-w-[48rem] p-8 sm:p-12 lg:p-[72px]">
         <p className="eyebrow text-lime-500">{eyebrow ?? t('cta.eyebrow')}</p>
-        <h2 className="mt-4 text-[28px] leading-[1.06] tracking-headline text-white sm:text-[36px] lg:text-[48px]">
+        <h2 className="mt-4 text-h2-alt tracking-headline text-white">
           {title ?? t('cta.title')}
         </h2>
         <p className="mt-4 text-[16px] leading-[1.65] text-white/80 lg:text-[17px]">

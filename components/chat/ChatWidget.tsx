@@ -84,7 +84,7 @@ function Avatar({ size = 38, online = false }: { size?: number; online?: boolean
     <span className="relative inline-flex shrink-0" style={{ width: size, height: size }}>
       <span
         aria-hidden
-        className="flex h-full w-full items-center justify-center rounded-[12px] bg-[linear-gradient(150deg,#123322,#06120C)] ring-1 ring-lime-500/30"
+        className="flex h-full w-full items-center justify-center rounded-field bg-[linear-gradient(150deg,#123322,#06120C)] ring-1 ring-lime-500/30"
       >
         <svg viewBox="0 0 24 24" fill="none" className="h-1/2 w-1/2" aria-hidden>
           <path
@@ -351,7 +351,7 @@ export function ChatWidget() {
                 <Avatar size={30} />
                 <div
                   className={cn(
-                    'max-w-[85%] rounded-[16px] rounded-ss-md px-3.5 py-3 text-[14px] leading-[1.6]',
+                    'max-w-[85%] rounded-chip rounded-ss-md px-3.5 py-3 text-[14px] leading-[1.6]',
                     palette.botBubble,
                   )}
                 >
@@ -370,7 +370,7 @@ export function ChatWidget() {
                   >
                     <p
                       className={cn(
-                        'max-w-[85%] rounded-[16px] rounded-ee-md px-3.5 py-3 text-[14px] leading-[1.6]',
+                        'max-w-[85%] rounded-chip rounded-ee-md px-3.5 py-3 text-[14px] leading-[1.6]',
                         palette.userBubble,
                       )}
                     >
@@ -389,7 +389,7 @@ export function ChatWidget() {
                     <div className="max-w-[85%]">
                       <div
                         className={cn(
-                          'rounded-[16px] rounded-ss-md px-3.5 py-3 text-[14px] leading-[1.6]',
+                          'rounded-chip rounded-ss-md px-3.5 py-3 text-[14px] leading-[1.6]',
                           palette.botBubble,
                         )}
                       >
@@ -445,7 +445,7 @@ export function ChatWidget() {
               {pending ? (
                 <div className="flex items-center gap-2.5">
                   <Avatar size={30} />
-                  <div className={cn('rounded-[16px] rounded-ss-md px-3.5 py-2.5', palette.botBubble)}>
+                  <div className={cn('rounded-chip rounded-ss-md px-3.5 py-2.5', palette.botBubble)}>
                     <span className="sr-only">{t('chat.typing')}</span>
                     <TypingDots className={palette.dots} />
                   </div>
@@ -495,7 +495,10 @@ export function ChatWidget() {
                 placeholder={t('chat.inputPlaceholder')}
                 autoComplete="off"
                 className={cn(
-                  'min-h-[44px] flex-1 rounded-full border px-4 text-[14px] outline-none transition-colors focus:border-leaf-500/60',
+                  // 16px sous `sm` : en dessous, Safari iOS zoome la page au
+                  // focus et le panneau flottant se retrouve hors cadre.
+                  'min-h-[44px] flex-1 rounded-full border px-4 text-[16px] outline-none sm:text-[14px]',
+                  'transition-colors duration-base focus:border-leaf-500/60',
                   palette.field,
                 )}
               />
@@ -503,7 +506,7 @@ export function ChatWidget() {
                 type="submit"
                 disabled={!draft.trim() || pending}
                 aria-label={t('chat.send')}
-                className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-leaf-500 text-forest-950 shadow-leaf transition-all duration-300 ease-premium hover:bg-[#5DB53A] disabled:pointer-events-none disabled:opacity-40"
+                className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-leaf-500 text-forest-950 shadow-leaf transition-[background-color,transform,box-shadow] duration-base ease-premium hover:bg-[#5DB53A] active:scale-95 active:duration-fast disabled:pointer-events-none disabled:opacity-40 motion-reduce:active:scale-100"
               >
                 <Send size={17} aria-hidden className="rtl:-scale-x-100" />
               </button>

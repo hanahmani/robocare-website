@@ -6,6 +6,7 @@ import { PageHero } from '@/components/layout/PageHero';
 import { Section } from '@/components/ui/Section';
 import { AboutApproach } from '@/sections/about/AboutApproach';
 import { PartnersMarquee } from '@/sections/about/PartnersMarquee';
+import { TeamSection } from '@/sections/about/TeamSection';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Card } from '@/components/ui/Card';
 import { ButtonExternal } from '@/components/ui/Button';
@@ -14,18 +15,9 @@ import { StatCounter } from '@/components/ui/StatCounter';
 import { Reveal } from '@/components/animations/Reveal';
 import { Stagger, StaggerItem } from '@/components/animations/Stagger';
 import { CtaBand } from '@/sections/shared/CtaBand';
-import {
-  AWARDS,
-  MEDIA,
-  MILESTONES,
-  PROGRAMS,
-  RESOURCES,
-  TEAM,
-  TEAM_GROUPS,
-  VALUES,
-} from '@/lib/data/about';
+import { AWARDS, MEDIA, MILESTONES, PROGRAMS, RESOURCES, VALUES } from '@/lib/data/about';
 import { SITE } from '@/lib/data/site';
-import { cn, initialsFromName, pad2 } from '@/lib/utils';
+import { cn, pad2 } from '@/lib/utils';
 
 const MEDIA_TONES = {
   leaf: 'bg-sage-100 text-leaf-600',
@@ -57,7 +49,7 @@ export function AboutView() {
         }
       >
         <div className="grid gap-4 sm:grid-cols-3">
-          <div className="glass rounded-[20px] px-[22px] py-5">
+          <div className="glass rounded-tile px-[22px] py-5">
             <p className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-white/55">
               {t('about.hero.foundedLabel')}
             </p>
@@ -73,7 +65,7 @@ export function AboutView() {
             label={t('about.hero.hectaresLabel')}
             featured
             size="sm"
-            className="glass rounded-[20px] bg-transparent px-[22px] py-5 hover:bg-white/[0.1]"
+            className="glass rounded-tile bg-transparent px-[22px] py-5 hover:bg-white/[0.1]"
           />
           <StatCounter
             id="farms"
@@ -81,7 +73,7 @@ export function AboutView() {
             suffix="+"
             label={t('about.hero.farmsLabel')}
             size="sm"
-            className="glass rounded-[20px] bg-transparent px-[22px] py-5 hover:bg-white/[0.1]"
+            className="glass rounded-tile bg-transparent px-[22px] py-5 hover:bg-white/[0.1]"
           />
         </div>
       </PageHero>
@@ -93,7 +85,7 @@ export function AboutView() {
           title={t('about.history.title')}
           subtitle={t('about.history.subtitle')}
         />
-        <ol className="mt-8 border-s border-forest-950/[0.09] ps-6 lg:mt-14 lg:ps-10">
+        <ol className="mt-section-gap border-s border-forest-950/[0.09] ps-6 lg:ps-10">
           {MILESTONES.map((milestone, index) => (
             <Reveal
               key={milestone.id}
@@ -173,48 +165,7 @@ export function AboutView() {
       </Section>
 
       {/* Équipe */}
-      <Section id="equipe" tone="sage" className="scroll-mt-24">
-        <SectionHeading
-          eyebrow={t('about.team.eyebrow')}
-          title={t('about.team.title')}
-          subtitle={t('about.team.subtitle')}
-        />
-        <div className="mt-8 flex flex-col gap-8 lg:mt-14">
-          {TEAM_GROUPS.map((group) => (
-            <div key={group}>
-              <h3 className="font-mono text-[11px] font-normal uppercase tracking-[0.16em] text-ink-300">
-                {about.team.groups[group]}
-              </h3>
-              <Stagger className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {TEAM.filter((member) => member.group === group).map((member) => {
-                  const person = about.team.members[member.id];
-                  return (
-                    <StaggerItem key={member.id}>
-                      <article className="flex items-center gap-4 rounded-[20px] border border-forest-950/[0.08] bg-white p-5 shadow-soft transition-all duration-300 ease-premium hover:-translate-y-1.5 hover:shadow-lift">
-                        <span
-                          aria-hidden
-                          className={cn(
-                            'inline-flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full font-display text-[17px] font-semibold',
-                            'placeholder' in member && member.placeholder
-                              ? 'bg-sage-100 text-leaf-600'
-                              : 'bg-forest-900 text-lime-100',
-                          )}
-                        >
-                          {initialsFromName(person.name)}
-                        </span>
-                        <div>
-                          <div className="text-[15.5px] font-bold text-ink-900">{person.name}</div>
-                          <div className="mt-1 text-[13.5px] text-ink-400">{person.role}</div>
-                        </div>
-                      </article>
-                    </StaggerItem>
-                  );
-                })}
-              </Stagger>
-            </div>
-          ))}
-        </div>
-      </Section>
+      <TeamSection />
 
       {/* Partenaires */}
       <PartnersMarquee />
@@ -226,11 +177,11 @@ export function AboutView() {
           title={t('about.awards.title')}
           subtitle={t('about.awards.subtitle')}
         />
-        <div className="mt-8 grid gap-6 lg:mt-14 lg:grid-cols-2 lg:gap-8">
+        <div className="mt-section-gap grid gap-6 lg:grid-cols-2 lg:gap-8">
           <Stagger className="flex flex-col gap-3.5">
             {AWARDS.map((award) => (
               <StaggerItem key={award}>
-                <article className="rounded-tile border border-forest-950/[0.08] bg-white p-6 shadow-soft transition-all duration-300 ease-premium hover:-translate-y-1.5 hover:shadow-lift">
+                <article className="rounded-tile border border-forest-950/[0.08] bg-white p-6 shadow-soft transition-surface duration-base ease-premium hover:-translate-y-1.5 motion-reduce:hover:translate-y-0 hover:shadow-lift">
                   <div className="flex flex-wrap items-baseline justify-between gap-2.5">
                     <h3 className="text-[18px]">{about.awards.items[award].title}</h3>
                     <span
@@ -260,7 +211,7 @@ export function AboutView() {
                 {PROGRAMS.map((program) => (
                   <div
                     key={program}
-                    className="rounded-[16px] border border-white/[0.12] bg-white/[0.06] p-4 transition-all duration-300 hover:border-lime-500/40 hover:bg-lime-500/[0.12]"
+                    className="rounded-chip border border-white/[0.12] bg-white/[0.06] p-4 transition-surface duration-base hover:border-lime-500/40 hover:bg-lime-500/[0.12]"
                   >
                     <div className="flex flex-wrap items-baseline justify-between gap-2">
                       <span className="text-[15px] font-bold text-white">
@@ -288,7 +239,7 @@ export function AboutView() {
           title={t('about.media.title')}
           subtitle={t('about.media.subtitle')}
         />
-        <Stagger className="mt-8 grid gap-5 sm:grid-cols-2 lg:mt-14 lg:grid-cols-3">
+        <Stagger className="mt-section-gap grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {MEDIA.map((item) => (
             <StaggerItem key={item.id} className="h-full">
               <Card interactive className="p-[26px]">
@@ -324,7 +275,7 @@ export function AboutView() {
           title={t('about.resources.title')}
           subtitle={t('about.resources.subtitle')}
         />
-        <Stagger className="mt-8 grid gap-5 sm:grid-cols-2 lg:mt-14 lg:grid-cols-3">
+        <Stagger className="mt-section-gap grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {RESOURCES.map((resource) => (
             <StaggerItem key={resource} className="h-full">
               <Card interactive className="p-[26px]">
@@ -347,7 +298,7 @@ export function AboutView() {
       <Section flushTop className="pt-14 lg:pt-20">
         <Reveal className="mx-auto max-w-[42rem] text-center">
           <p className="eyebrow justify-center text-leaf-600">{t('about.contactCta.eyebrow')}</p>
-          <h2 className="mt-4 text-[26px] leading-[1.06] sm:text-[30px] lg:text-[36px]">
+          <h2 className="mt-4 text-h2-alt">
             {t('about.contactCta.title')}
           </h2>
           <p className="mt-4 text-[16.5px] leading-[1.7] text-ink-500">
@@ -357,7 +308,7 @@ export function AboutView() {
             <RequestDemoButton variant="primary" size="lg" />
             <a
               href={`mailto:${SITE.email}`}
-              className="inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-full border border-forest-800/20 px-7 py-4 text-[15.5px] font-bold text-forest-800 transition-all duration-300 ease-premium hover:-translate-y-0.5 hover:border-forest-800/50 hover:bg-forest-800/[0.04] hover:text-forest-800"
+              className="inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-full border border-forest-800/20 px-7 py-4 text-[15.5px] font-bold text-forest-800 transition-surface duration-base ease-premium hover:-translate-y-0.5 motion-reduce:hover:translate-y-0 hover:border-forest-800/50 hover:bg-forest-800/[0.04] hover:text-forest-800"
             >
               <Mail size={16} aria-hidden />
               <span dir="ltr">{SITE.email}</span>

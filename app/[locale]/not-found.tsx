@@ -12,7 +12,7 @@ export default function NotFound() {
       <div className="grid-overlay absolute inset-0" />
       <div className="container-page relative py-24 text-center">
         <p className="eyebrow justify-center text-lime-500">{t('notFound.eyebrow')}</p>
-        <h1 className="mt-4 text-[34px] leading-[1.06] text-white sm:text-[44px]">
+        <h1 className="mt-4 text-h1 text-white">
           {t('notFound.title')}
         </h1>
         <p className="mx-auto mt-4 max-w-[34rem] text-[16px] leading-[1.65] text-white/70">

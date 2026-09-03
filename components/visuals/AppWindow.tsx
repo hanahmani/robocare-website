@@ -27,7 +27,7 @@ export function AppWindow() {
   const kpis = ['area', 'alerts', 'lastPass'] as const;
 
   return (
-    <div className="overflow-hidden rounded-[20px] border border-white/[0.16] bg-forest-900 shadow-glass">
+    <div className="overflow-hidden rounded-tile border border-white/[0.16] bg-forest-900 shadow-glass">
       <div className="flex items-center gap-2 border-b border-white/10 bg-white/[0.06] px-4 py-3">
         <span className="h-[9px] w-[9px] rounded-full bg-white/20" />
         <span className="h-[9px] w-[9px] rounded-full bg-white/20" />

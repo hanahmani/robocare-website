@@ -22,7 +22,7 @@ export function CaseStudyCard({ slug, title, meta, challenge, solution, results,
   return (
     <article
       id={slug}
-      className="scroll-mt-24 overflow-hidden rounded-card border border-forest-950/[0.08] bg-white shadow-soft transition-all duration-[350ms] ease-premium hover:border-leaf-600/25 hover:shadow-hover"
+      className="scroll-mt-24 overflow-hidden rounded-card border border-forest-950/[0.08] bg-white shadow-soft transition-surface duration-slow ease-premium hover:border-leaf-600/25 hover:shadow-hover"
     >
       <header className="relative overflow-hidden bg-[linear-gradient(165deg,#0B2015,#06120C_75%)] px-8 py-7 lg:px-10 lg:py-8">
         <div

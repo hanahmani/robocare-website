@@ -33,7 +33,10 @@ export function Section({
       className={cn(
         'relative',
         TONES[tone],
-        flushTop ? 'pb-[72px] lg:pb-[120px]' : 'py-[72px] lg:py-[120px]',
+        // Rythme fluide : le padding suit la largeur du viewport au lieu de
+        // sauter de 72 à 120px au franchissement de `lg`, ce qui laissait la
+        // plage tablette trop serrée par rapport à la taille des titres.
+        flushTop ? 'pb-section' : 'py-section',
         className,
       )}
     >

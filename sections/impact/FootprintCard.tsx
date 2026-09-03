@@ -23,7 +23,7 @@ export function FootprintCard({ icon: Icon, tone, title, text }: Props) {
   return (
     <article
       className={cn(
-        'flex h-full flex-col rounded-[20px] border border-forest-950/[0.08] bg-white p-6 shadow-soft transition-all duration-[350ms] ease-premium hover:-translate-y-1 hover:shadow-hover motion-reduce:hover:translate-y-0 lg:p-7',
+        'flex h-full flex-col rounded-tile border border-forest-950/[0.08] bg-white p-6 shadow-soft transition-surface duration-slow ease-premium hover:-translate-y-1.5 hover:shadow-hover motion-reduce:hover:translate-y-0 lg:p-7',
         palette.border,
       )}
     >

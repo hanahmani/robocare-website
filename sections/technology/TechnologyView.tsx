@@ -49,7 +49,7 @@ export function TechnologyView() {
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {TECH_METRICS.map((metric) => (
-            <div key={metric.id} className="glass rounded-[20px] px-5 py-[18px]">
+            <div key={metric.id} className="glass rounded-tile px-5 py-[18px]">
               <p className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-white/55">
                 {metrics[metric.id].label}
               </p>
@@ -81,7 +81,7 @@ export function TechnologyView() {
           eyebrow={t('technology.pipeline.eyebrow')}
           title={t('technology.pipeline.title')}
         />
-        <Stagger className="mt-8 grid gap-5 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
+        <Stagger className="mt-section-gap grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {TECH_PIPELINE.map((step, index) => {
             const dark = index === 2;
             return (

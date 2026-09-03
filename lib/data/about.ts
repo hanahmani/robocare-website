@@ -13,18 +13,42 @@ export const MILESTONES = [
 /** Valeurs — textes dans `about.values.items.<id>`. */
 export const VALUES = ['useful', 'field', 'language', 'sobriety'] as const;
 
-/** Équipe — noms et rôles dans `about.team.members.<id>`. */
+/** Équipe — noms et rôles dans `about.team.members.<id>`. Photos dans `/public/team/`. */
 export const TEAM = [
-  { id: 'ceo', group: 'leadership', placeholder: true },
-  { id: 'cto', group: 'leadership', placeholder: true },
-  { id: 'po', group: 'leadership' },
-  { id: 'backend', group: 'engineering', placeholder: true },
-  { id: 'frontend', group: 'engineering', placeholder: true },
-  { id: 'data', group: 'engineering', placeholder: true },
-  { id: 'iot', group: 'engineering', placeholder: true },
-  { id: 'olive', group: 'agronomy', placeholder: true },
-  { id: 'cereal', group: 'agronomy', placeholder: true },
-  { id: 'field', group: 'agronomy', placeholder: true },
+  { id: 'imen-hbiri', group: 'leadership', photo: '/team/Imen-Hbiri.png', linkedin: '' },
+  { id: 'ameur-hbiri', group: 'leadership', photo: '/team/Ameur-Hbiri.jpg', linkedin: '' },
+  {
+    id: 'malek-benmbarek',
+    group: 'leadership',
+    photo: '/team/Malek-Ben-mbarek.jpg',
+    linkedin: '',
+  },
+  { id: 'po', group: 'leadership', photo: undefined, linkedin: '' },
+  { id: 'zekri-mohamed', group: 'leadership', photo: '/team/Mohamed-zekri.png', linkedin: '' },
+  { id: 'ali-chaabouni', group: 'engineering', photo: '/team/Ali-chaabouni.png', linkedin: '' },
+  {
+    id: 'mohamed-habib-loukil',
+    group: 'engineering',
+    photo: '/team/Mohamed-Habib-Loukil.png',
+    linkedin: '',
+  },
+  { id: 'moataz-guidara', group: 'engineering', photo: '/team/Moataz-Guidara.png', linkedin: '' },
+  { id: 'ahmed-elleuch', group: 'engineering', photo: '/team/Ahmed-Elleuch.png', linkedin: '' },
+  { id: 'ali-fourati', group: 'engineering', photo: '/team/Ali-Fourati.png', linkedin: '' },
+  {
+    id: 'anwar-benmahmoud',
+    group: 'engineering',
+    photo: '/team/Anwar-Ben-Mahmoud.png',
+    linkedin: '',
+  },
+  { id: 'marwa-kadri', group: 'agronomy', photo: '/team/Marwa-kadri.png', linkedin: '' },
+  {
+    id: 'nour-el-houda-boughattas',
+    group: 'agronomy',
+    photo: '/team/Boughattas-Nour-El-Houda.png',
+    linkedin: '',
+  },
+  { id: 'emna-abdellatif', group: 'agronomy', photo: '/team/Emna-Abdellatif.jpg', linkedin: '' },
 ] as const satisfies readonly Member[];
 
 export const TEAM_GROUPS = ['leadership', 'engineering', 'agronomy'] as const;

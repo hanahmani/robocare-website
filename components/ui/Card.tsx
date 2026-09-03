@@ -22,10 +22,17 @@ export function Card({ children, tone = 'white', className, interactive = false 
   return (
     <div
       className={cn(
-        'flex h-full flex-col rounded-tile border p-7 transition-all duration-[350ms] ease-premium',
+        // `group` : permet aux enfants (IconChip…) de réagir au survol de la carte.
+        'group flex h-full flex-col rounded-tile border p-7',
+        'transition-[transform,border-color,box-shadow,background-color] duration-slow ease-premium',
         TONES[tone],
-        interactive &&
-          'hover:-translate-y-2 hover:border-leaf-500/40 hover:shadow-lift motion-reduce:hover:translate-y-0',
+        interactive && [
+          'hover:-translate-y-1.5 motion-reduce:hover:translate-y-0 hover:border-leaf-500/40 hover:shadow-lift',
+          // Une carte qui contient un lien doit réagir aussi à la tabulation,
+          // sinon l'élévation n'existe que pour la souris.
+          'focus-within:-translate-y-1.5 focus-within:border-leaf-500/40 focus-within:shadow-lift',
+          'motion-reduce:hover:translate-y-0 motion-reduce:focus-within:translate-y-0',
+        ],
         className,
       )}
     >
@@ -54,7 +61,11 @@ export function IconChip({
   return (
     <span
       className={cn(
-        'inline-flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-[14px]',
+        'inline-flex h-[46px] w-[46px] shrink-0 items-center justify-center rounded-field',
+        // Rotation minime au survol de la carte parente : assez pour signaler
+        // que la surface est vivante, trop peu pour attirer l'œil.
+        'transition-transform duration-slow ease-premium group-hover:-rotate-3 group-hover:scale-105',
+        'motion-reduce:group-hover:rotate-0 motion-reduce:group-hover:scale-100',
         tones[tone],
         className,
       )}
@@ -108,7 +119,9 @@ export function CheckRow({
   return (
     <li
       className={cn(
-        'flex gap-3 rounded-field px-4 py-3.5 text-[14.5px] leading-[1.55] text-ink-700 transition-all duration-300 hover:translate-x-1 rtl:hover:-translate-x-1',
+        'flex gap-3 rounded-field px-4 py-3.5 text-[14.5px] leading-[1.55] text-ink-700',
+        'transition-[transform,background-color] duration-base ease-premium hover:translate-x-1 rtl:hover:-translate-x-1',
+        'motion-reduce:hover:translate-x-0 rtl:motion-reduce:hover:translate-x-0',
         onSage ? 'bg-white hover:bg-sage-200' : 'bg-sage-50 hover:bg-sage-200',
       )}
     >

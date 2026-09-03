@@ -36,7 +36,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
             aria-label={t('a11y.switchTo', { language: LOCALE_META[code].name })}
             title={LOCALE_META[code].name}
             className={cn(
-              'inline-block rounded-full px-2.5 py-[5px] font-mono text-[11px] transition-colors duration-[250ms] ease-premium',
+              'inline-block rounded-full px-2.5 py-[5px] font-mono text-[11px] transition-colors duration-base ease-premium',
               active
                 ? 'bg-forest-900 text-lime-100'
                 : 'text-ink-400 hover:bg-sage-100 hover:text-leaf-600',
@@ -70,7 +70,7 @@ export function LanguageSwitcherMobile() {
             hrefLang={LOCALE_META[code].htmlLang}
             aria-current={active ? 'true' : undefined}
             className={cn(
-              'flex min-h-11 items-center justify-center rounded-[10px] px-3 py-2 text-[14px] font-semibold transition-colors duration-[250ms]',
+              'flex min-h-11 items-center justify-center rounded-[10px] px-3 py-2 text-[14px] font-semibold transition-colors duration-base',
               active ? 'bg-forest-900 text-lime-100' : 'text-ink-700 hover:bg-sage-100',
             )}
           >

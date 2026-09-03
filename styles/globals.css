@@ -10,12 +10,19 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    /* `clip` plutôt que `hidden` : il bloque le débordement latéral sans faire
+       de l'élément un conteneur de défilement, ce qui casserait le `sticky`
+       de la navbar. */
+    overflow-x: clip;
+    /* Marge haute des ancres, pour que la navbar collante ne recouvre pas la
+       cible d'un lien `#section`. */
+    scroll-padding-top: 6rem;
   }
 
   body {
     @apply bg-white font-sans text-ink-900 antialiased;
     text-wrap: pretty;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   h1,
@@ -37,10 +44,21 @@
     @apply bg-forest-900 text-lime-100;
   }
 
-  /* Anneau de focus unifié pour l'accessibilité clavier. */
+  /* Anneau de focus unifié pour l'accessibilité clavier. `leaf-500` reste
+     lisible sur les deux fonds du site (≈ 5,4:1 sur `forest-950`, ≈ 3,9:1 sur
+     blanc), donc un seul anneau suffit — inutile de le décliner par surface.
+     L'outline suit automatiquement le `border-radius` de l'élément. */
   :focus-visible {
     outline: 2px solid #4d9e2f;
     outline-offset: 3px;
+  }
+
+  /* Les champs de saisie sont denses : un décalage plus serré évite que les
+     anneaux de deux champs voisins ne se chevauchent. */
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline-offset: 1px;
   }
 
   summary::-webkit-details-marker {
@@ -97,6 +115,57 @@
     @apply rounded-full bg-white/20;
   }
 
+  /* Soulignement qui se déploie depuis le début de ligne. Animé en `scaleX`
+     (composité par le GPU) plutôt qu'en `width`, qui déclencherait un reflow
+     à chaque frame. */
+  .link-underline {
+    @apply relative;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 bg-current transition-transform duration-base ease-premium;
+  }
+
+  .link-underline:hover::after,
+  .link-underline:focus-visible::after {
+    @apply scale-x-100;
+  }
+
+  [dir='rtl'] .link-underline::after {
+    transform-origin: right;
+  }
+
+  /* La flèche éventuelle avance dans le sens de lecture, comme sur les boutons. */
+  .link-underline svg {
+    @apply transition-transform duration-base ease-premium;
+  }
+
+  .link-underline:hover svg,
+  .link-underline:focus-visible svg {
+    @apply translate-x-0.5;
+  }
+
+  [dir='rtl'] .link-underline:hover svg,
+  [dir='rtl'] .link-underline:focus-visible svg {
+    @apply -translate-x-0.5;
+  }
+
+  /* Liste explicite des propriétés animées d'une surface (carte, tuile, ligne).
+     `transition-all` interpole aussi les propriétés de mise en page : si l'une
+     d'elles change au survol, le navigateur recalcule la mise en page à chaque
+     frame. Nommer les propriétés limite l'animation à des valeurs composées.
+     Le `ring` de Tailwind est une `box-shadow` : il est déjà couvert. */
+  .transition-surface {
+    transition-property: transform, box-shadow, border-color, background-color, color, opacity;
+    @apply duration-slow ease-premium;
+  }
+
+  /* Conteneur d'image dont l'enfant zoome au survol du groupe parent. */
+  .zoom-media {
+    @apply transition-transform duration-[600ms] ease-premium group-hover:scale-[1.04] motion-reduce:group-hover:scale-100;
+  }
+
   .grid-overlay {
     background-image:
       linear-gradient(rgba(158, 216, 75, 0.09) 1px, transparent 1px),
@@ -104,6 +173,38 @@
     background-size: 64px 64px;
     -webkit-mask-image: radial-gradient(120% 80% at 60% 40%, #000 20%, transparent 78%);
     mask-image: radial-gradient(120% 80% at 60% 40%, #000 20%, transparent 78%);
+  }
+
+  /*
+   * Variante animée de la trame.
+   *
+   * L'approche directe — animer `background-position` — repeint la couche
+   * entière à chaque frame, sur toute la largeur de la section. Ici la trame
+   * vit dans un pseudo-élément débordant d'une tuile (64px) que l'on translate :
+   * le déplacement reste sur le compositeur, et le masque porté par le parent
+   * masque le débordement. Le rendu est identique.
+   */
+  .grid-overlay-drift {
+    overflow: hidden;
+    -webkit-mask-image: radial-gradient(120% 80% at 60% 40%, #000 20%, transparent 78%);
+    mask-image: radial-gradient(120% 80% at 60% 40%, #000 20%, transparent 78%);
+  }
+
+  .grid-overlay-drift::before {
+    content: '';
+    position: absolute;
+    inset: -64px;
+    background-image:
+      linear-gradient(rgba(158, 216, 75, 0.09) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(158, 216, 75, 0.09) 1px, transparent 1px);
+    background-size: 64px 64px;
+    animation: grid-drift 14s linear infinite;
+  }
+
+  @keyframes grid-drift {
+    to {
+      transform: translate3d(64px, 64px, 0);
+    }
   }
 }
 

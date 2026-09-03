@@ -22,7 +22,7 @@ export function CultureCard({ href, image, title, description, indicators, seeSo
   return (
     <Link
       href={href}
-      className="group flex h-full flex-col overflow-hidden rounded-card border border-forest-950/[0.08] bg-white shadow-soft transition-all duration-[400ms] ease-premium hover:-translate-y-2 hover:border-leaf-600/30 hover:shadow-hover focus-visible:ring-2 focus-visible:ring-leaf-600/40 focus-visible:ring-offset-2 motion-reduce:hover:translate-y-0"
+      className="group flex h-full flex-col overflow-hidden rounded-card border border-forest-950/[0.08] bg-white shadow-soft transition-surface duration-slow ease-premium hover:-translate-y-1.5 hover:border-leaf-600/30 hover:shadow-hover focus-visible:ring-2 focus-visible:ring-leaf-600/40 focus-visible:ring-offset-2 motion-reduce:hover:translate-y-0"
     >
       <div className="relative h-[180px] shrink-0 overflow-hidden bg-forest-900 sm:h-[200px]">
         <Image
@@ -31,12 +31,12 @@ export function CultureCard({ href, image, title, description, indicators, seeSo
           fill
           loading="lazy"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
-          className="object-cover object-center transition-transform duration-700 ease-premium group-hover:scale-105"
+          className="zoom-media object-cover object-center"
         />
       </div>
 
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="text-[20px] tracking-[-0.02em] text-ink-900 lg:text-[21px]">{title}</h3>
+        <h3 className="text-h3 tracking-[-0.02em] text-ink-900">{title}</h3>
         <p className="mt-2.5 flex-1 text-[14.5px] leading-[1.7] text-ink-500">{description}</p>
 
         <div className="mt-[18px] grid grid-cols-3 gap-3 border-t border-forest-950/[0.06] pt-4">
@@ -49,7 +49,7 @@ export function CultureCard({ href, image, title, description, indicators, seeSo
           {seeSolutionLabel}
           <Arrow
             size={15}
-            className="transition-transform duration-300 ease-premium group-hover:translate-x-1 rtl:group-hover:-translate-x-1"
+            className="transition-transform duration-base ease-premium group-hover:translate-x-1 rtl:group-hover:-translate-x-1"
           />
         </span>
       </div>

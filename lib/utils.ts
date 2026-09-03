@@ -1,6 +1,16 @@
-/** Concatène des classes conditionnelles sans dépendance externe. */
-export function cn(...values: Array<string | false | null | undefined>): string {
-  return values.filter(Boolean).join(' ');
+type ClassValue = string | false | null | undefined | ClassValue[];
+
+/**
+ * Concatène des classes conditionnelles sans dépendance externe.
+ * Les tableaux sont acceptés et aplatis, ce qui permet de regrouper par
+ * intention (état de survol, focus, motion-reduce…) les longues listes de
+ * classes d'un même composant.
+ */
+export function cn(...values: ClassValue[]): string {
+  return values
+    .flat(Infinity as 1)
+    .filter(Boolean)
+    .join(' ');
 }
 
 /** Formate un entier avec un séparateur de milliers (ex. 100000 → « 100 000 »). */

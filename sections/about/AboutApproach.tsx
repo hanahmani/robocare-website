@@ -23,7 +23,7 @@ export function AboutApproach() {
     <Section id="approche" tone="cream" className="scroll-mt-24">
       <Reveal className="max-w-[44rem]">
         <p className="eyebrow text-leaf-600">{t('about.approach.eyebrow')}</p>
-        <h2 className="mt-4 text-[34px] leading-[1.08] tracking-[-0.02em] sm:text-[38px] lg:text-[44px]">
+        <h2 className="mt-4 text-h2-alt tracking-[-0.02em]">
           {t('about.approach.title')}
         </h2>
         <p className="mt-[18px] max-w-[60ch] text-[16px] leading-[1.75] text-ink-500">
@@ -32,7 +32,7 @@ export function AboutApproach() {
       </Reveal>
 
       {/* Les quatre piliers de méthode */}
-      <Stagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:items-stretch lg:gap-7">
+      <Stagger className="mt-section-gap-lg grid gap-6 sm:grid-cols-2 lg:items-stretch lg:gap-7">
         {ABOUT_APPROACH.map(({ id, icon, ...pillar }) => {
           const tone = 'tone' in pillar && pillar.tone === 'ocre' ? 'ocre' : 'leaf';
           return (
@@ -44,10 +44,10 @@ export function AboutApproach() {
       </Stagger>
 
       {/* Pourquoi nous choisir + engagement */}
-      <div className="mt-8 grid gap-6 lg:mt-10 lg:grid-cols-12 lg:gap-8">
+      <div className="mt-section-gap grid gap-6 lg:mt-10 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-7">
           <div className="rounded-card border border-forest-950/[0.08] bg-white p-7 shadow-soft sm:p-9">
-            <h3 className="text-[20px] tracking-[-0.02em] text-ink-900 lg:text-[22px]">
+            <h3 className="text-h3 tracking-[-0.02em] text-ink-900">
               {t('about.approach.whyUs.title')}
             </h3>
             <Stagger as="ol" stagger={0.08} className="mt-7 flex flex-col gap-6">
