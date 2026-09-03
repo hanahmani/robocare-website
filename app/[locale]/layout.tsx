@@ -10,6 +10,8 @@ import { Footer } from '@/components/layout/Footer';
 import { ChatWidget } from '@/components/chat/ChatWidget';
 import { DemoModalProvider } from '@/components/demo/DemoModalProvider';
 import { MotionProvider } from '@/components/animations/MotionProvider';
+import { PageLoader } from '@/components/animations/PageLoader';
+import { PageTransition } from '@/components/animations/PageTransition';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { graph, organizationSchema, websiteSchema } from '@/lib/seo/schema';
 import { SITE } from '@/lib/data/site';
@@ -143,6 +145,7 @@ export default async function LocaleLayout({
       <body>
         <I18nProvider locale={locale}>
           <MotionProvider>
+            <PageLoader />
             <DemoModalProvider>
               {/* Lien d'évitement pour la navigation clavier */}
               <a
@@ -152,7 +155,9 @@ export default async function LocaleLayout({
                 {t('a11y.skipToContent')}
               </a>
               <Navbar />
-              <main id="contenu">{children}</main>
+              <main id="contenu">
+                <PageTransition>{children}</PageTransition>
+              </main>
               <Footer />
               {/* Assistant flottant, présent sur toutes les pages */}
               <ChatWidget />
