@@ -27,12 +27,12 @@ export function VegetationIndices() {
         subtitle={t('technology.indices.lead')}
       />
 
-      <Stagger className="mt-8 grid gap-5 sm:grid-cols-2 lg:mt-14">
+      <Stagger className="mt-section-gap grid gap-5 sm:grid-cols-2">
         {VEGETATION_INDICES.map(({ id, accent }) => {
           const copy = items[id];
           return (
             <StaggerItem key={id} className="h-full">
-              <article className="flex h-full flex-col overflow-hidden rounded-card border border-forest-950/[0.08] bg-white shadow-soft transition-all duration-[350ms] ease-premium hover:-translate-y-1.5 hover:shadow-hover">
+              <article className="flex h-full flex-col overflow-hidden rounded-card border border-forest-950/[0.08] bg-white shadow-soft transition-surface duration-slow ease-premium hover:-translate-y-1.5 motion-reduce:hover:translate-y-0 hover:shadow-hover">
                 {/* Filet de couleur : reprend la teinte de l'indice sur l'échelle */}
                 <div aria-hidden className="h-1.5 w-full" style={{ background: accent }} />
 

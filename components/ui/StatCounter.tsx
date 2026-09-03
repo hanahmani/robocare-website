@@ -37,7 +37,7 @@ export function StatCounter({
   return (
     <div
       className={cn(
-        'bg-forest-950 px-6 py-7 transition-colors duration-[400ms] hover:bg-white/[0.04]',
+        'bg-forest-950 px-6 py-7 transition-colors duration-slow hover:bg-white/[0.04]',
         className,
       )}
     >

@@ -62,7 +62,7 @@ export function ImpactView() {
           title={t('impact.method.title')}
           subtitle={t('impact.method.subtitle')}
         />
-        <Stagger className="mt-8 grid gap-5 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
+        <Stagger className="mt-section-gap grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {IMPACT_METHOD.map(({ id, icon: Icon }) => (
             <StaggerItem key={id} className="h-full">
               <Card interactive className="p-[26px]">
@@ -101,7 +101,7 @@ export function ImpactView() {
           className="pointer-events-none absolute -end-24 top-1/3 h-[420px] w-[420px] rounded-full bg-lime-500/[0.08] blur-[120px]"
         />
         <SectionHeading eyebrow={t('impact.crops.eyebrow')} title={t('impact.crops.title')} />
-        <Stagger className="relative mt-12 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:items-stretch lg:gap-7">
+        <Stagger className="relative mt-section-gap-lg grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:items-stretch lg:gap-7">
           {IMPACT_CROPS.map((crop) => {
             const copy = crops[crop.slug];
             return (
@@ -123,7 +123,7 @@ export function ImpactView() {
       {/* Bénéfices */}
       <Section>
         <Reveal className="max-w-[47rem]">
-          <h2 className="text-[28px] leading-[1.04] sm:text-[32px] lg:text-[38px]">
+          <h2 className="text-h2-alt">
             {t('impact.benefits.title')}
           </h2>
         </Reveal>
@@ -150,7 +150,7 @@ export function ImpactView() {
 
       <Section id="etudes" tone="sage" className="scroll-mt-24">
         <SectionHeading eyebrow={t('impact.stories.eyebrow')} title={t('impact.stories.title')} />
-        <Stagger className="mt-12 flex flex-col gap-7 lg:mt-16 lg:gap-8">
+        <Stagger className="mt-section-gap-lg flex flex-col gap-7 lg:gap-8">
           {IMPACT_STORIES.map((story) => {
             const copy = stories[story.slug];
             return (

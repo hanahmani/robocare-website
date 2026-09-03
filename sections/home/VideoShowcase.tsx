@@ -13,7 +13,7 @@ export function VideoShowcase() {
       <div className="grid items-center gap-10 lg:grid-cols-[0.85fr_1fr] lg:gap-[72px]">
         <Reveal>
           <p className="eyebrow text-leaf-600">{t('home.videoShowcase.eyebrow')}</p>
-          <h2 className="mt-4 text-[30px] leading-[1.04] sm:text-[38px] lg:text-[44px]">
+          <h2 className="mt-4 text-h2-alt">
             {t('home.videoShowcase.title')}
           </h2>
           <p className="mt-[18px] max-w-[30rem] text-[16px] leading-[1.7] text-ink-500 lg:text-[17px]">

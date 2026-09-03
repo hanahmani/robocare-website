@@ -18,7 +18,7 @@ export function About() {
       <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-[72px]">
         <Reveal>
           <p className="eyebrow text-leaf-600">{t('home.about.eyebrow')}</p>
-          <h2 className="mt-4 text-[30px] leading-[1.04] sm:text-[38px] lg:text-[52px]">
+          <h2 className="mt-4 text-h2">
             {t('home.about.title')}
           </h2>
           <p className="mt-[18px] text-[16px] leading-[1.7] text-ink-500 lg:text-[17px]">
@@ -44,7 +44,7 @@ export function About() {
               <StaggerItem key={id}>
                 <Card
                   tone="sage"
-                  className="p-6 transition-all hover:-translate-y-1.5 hover:shadow-lift"
+                  className="p-6 transition-surface hover:-translate-y-1.5 motion-reduce:hover:translate-y-0 hover:shadow-lift"
                 >
                   <IconChip tone="light">
                     <Icon size={22} className={ocre ? 'text-ocre-600' : 'text-leaf-600'} />

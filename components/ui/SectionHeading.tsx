@@ -36,18 +36,11 @@ export function SectionHeading({
         {eyebrow ? (
           <p className={cn('eyebrow', invert ? 'text-lime-500' : 'text-leaf-600')}>{eyebrow}</p>
         ) : null}
-        <h2
-          className={cn(
-            'mt-4 text-[30px] leading-[1.04] sm:text-[38px] lg:text-[52px]',
-            invert && 'text-white',
-          )}
-        >
-          {title}
-        </h2>
+        <h2 className={cn('mt-4 text-h2', invert && 'text-white')}>{title}</h2>
         {subtitle ? (
           <p
             className={cn(
-              'mt-[18px] text-[16px] leading-[1.7] lg:text-[17px]',
+              'mt-[18px] text-body',
               invert ? 'text-white/[0.72]' : 'text-ink-500',
             )}
           >

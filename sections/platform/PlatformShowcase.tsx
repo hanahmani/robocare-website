@@ -31,10 +31,10 @@ export function PlatformShowcase() {
               aria-controls={`view-${item.id}`}
               onClick={() => setActive(item.id)}
               className={cn(
-                'rounded-[18px] px-5 py-3.5 text-start transition-all duration-300 ease-premium',
+                'rounded-chip px-5 py-3.5 text-start transition-surface duration-base ease-premium',
                 selected
                   ? 'border border-forest-900 bg-forest-900 text-lime-100 shadow-soft'
-                  : 'border border-forest-950/10 bg-white text-ink-700 hover:-translate-y-0.5 hover:border-leaf-500/40',
+                  : 'border border-forest-950/10 bg-white text-ink-700 hover:-translate-y-0.5 motion-reduce:hover:translate-y-0 hover:border-leaf-500/40',
               )}
             >
               <span className="block font-display text-[15px] font-semibold">
@@ -89,7 +89,7 @@ export function PlatformShowcase() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, ease: EASE }}
-            className="flex gap-3 rounded-[16px] border border-forest-950/[0.07] bg-white px-[18px] py-4 text-[14.5px] leading-[1.6] text-ink-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft"
+            className="flex gap-3 rounded-chip border border-forest-950/[0.07] bg-white px-[18px] py-4 text-[14.5px] leading-[1.6] text-ink-700 transition-surface duration-base hover:-translate-y-1.5 motion-reduce:hover:translate-y-0 hover:shadow-soft"
           >
             <Check size={17} className="mt-[3px] shrink-0 text-leaf-500" aria-hidden />
             {highlight}

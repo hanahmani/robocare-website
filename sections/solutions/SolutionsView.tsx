@@ -48,7 +48,7 @@ export function SolutionsView() {
             <Link
               key={solution.slug}
               href={`#${solution.slug}`}
-              className="glass rounded-card p-5 text-white transition-all duration-300 ease-premium hover:-translate-y-1 hover:border-lime-500/50 hover:bg-lime-500/[0.12] hover:text-white"
+              className="glass rounded-card p-5 text-white transition-surface duration-base ease-premium hover:-translate-y-1.5 motion-reduce:hover:translate-y-0 hover:border-lime-500/50 hover:bg-lime-500/[0.12] hover:text-white"
             >
               <p className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-lime-500">
                 {items[solution.slug].brand}

@@ -34,7 +34,7 @@ export function ImpactEnvironment() {
         subtitle={t('impact.environment.lead')}
       />
 
-      <div className="relative mt-12 grid gap-8 lg:mt-16 lg:grid-cols-12 lg:gap-12">
+      <div className="relative mt-section-gap-lg grid gap-8 lg:grid-cols-12 lg:gap-12">
         {/* Barres de réduction */}
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-24">
@@ -71,7 +71,7 @@ export function ImpactEnvironment() {
             </p>
           </Reveal>
 
-          <Stagger className="mt-8 grid gap-5 sm:grid-cols-2 sm:items-stretch">
+          <Stagger className="mt-section-gap grid gap-5 sm:grid-cols-2 sm:items-stretch">
             {IMPACT_ENV_CARDS.map(({ id, icon, ...card }) => {
               const tone = 'tone' in card && card.tone === 'ocre' ? 'ocre' : 'leaf';
               return (

@@ -68,10 +68,51 @@ const config: Config = {
         headline: '-0.035em',
         display: '-0.045em',
       },
+      /**
+       * Échelle typographique fluide. Chaque `clamp()` interpole entre la
+       * valeur mobile (375px) et la valeur desktop (1440px) : plus de palier
+       * brutal au franchissement d'un breakpoint, et surtout plus de titre
+       * surdimensionné sur la plage tablette, où l'ancienne échelle sautait
+       * directement de `sm:` à `lg:`.
+       *
+       * L'interlettrage reste géré par la règle de base sur h1–h4 (et par sa
+       * neutralisation en arabe) : ne pas le réintroduire ici.
+       */
+      fontSize: {
+        display: ['clamp(2.375rem, 1.495rem + 3.756vw, 4.875rem)', { lineHeight: '1.03' }],
+        h1: ['clamp(2.125rem, 1.641rem + 2.066vw, 3.5rem)', { lineHeight: '1.06' }],
+        h2: ['clamp(1.875rem, 1.391rem + 2.066vw, 3.25rem)', { lineHeight: '1.07' }],
+        // Titre de section secondaire : remplace les cinq échelles voisines
+        // (→40, →40, →44, →44, →48px) qui coexistaient d'une page à l'autre.
+        'h2-alt': ['clamp(1.75rem, 1.398rem + 1.502vw, 2.75rem)', { lineHeight: '1.09' }],
+        // Titre de bloc dense (preuve sociale, architecture).
+        'h3-lg': ['clamp(1.5rem, 1.368rem + 0.563vw, 1.875rem)', { lineHeight: '1.15' }],
+        h3: ['clamp(1.1875rem, 1.099rem + 0.376vw, 1.4375rem)', { lineHeight: '1.3' }],
+        lead: ['clamp(1.03125rem, 0.954rem + 0.329vw, 1.25rem)', { lineHeight: '1.6' }],
+        body: ['clamp(1rem, 0.978rem + 0.094vw, 1.0625rem)', { lineHeight: '1.7' }],
+      },
+      spacing: {
+        /** Rythme vertical d'une section : 72px en mobile → 120px en desktop, sans palier. */
+        section: 'clamp(4.5rem, 3.444rem + 4.507vw, 7.5rem)',
+        /** Respiration entre l'en-tête d'une section et sa grille de contenu. */
+        'section-gap': 'clamp(2rem, 1.3rem + 3vw, 3.5rem)',
+        /** Même rôle, pour les blocs larges (frises, comparatifs, colonnes). */
+        'section-gap-lg': 'clamp(3rem, 2.648rem + 1.502vw, 4rem)',
+      },
       borderRadius: {
-        card: '24px',
-        tile: '22px',
+        // Une seule famille de rayons, du plus petit au plus grand conteneur.
         field: '14px',
+        chip: '18px',
+        tile: '22px',
+        card: '24px',
+        panel: '32px',
+      },
+      transitionDuration: {
+        // Échelle miroir de `DURATION` dans `lib/motion.ts`.
+        fast: '180ms',
+        base: '260ms',
+        slow: '380ms',
+        reveal: '550ms',
       },
       boxShadow: {
         soft: '0 1px 2px rgba(6,18,12,.04), 0 22px 46px -30px rgba(6,18,12,.22)',
@@ -80,6 +121,8 @@ const config: Config = {
         glass: '0 50px 90px -40px rgba(0,0,0,.8)',
         lime: '0 18px 40px -18px rgba(158,216,75,.8)',
         leaf: '0 18px 40px -18px rgba(77,158,47,.9)',
+        /** Ombre resserrée de l'état enfoncé : la surface « touche » le fond. */
+        press: '0 2px 8px -4px rgba(11,32,21,.45)',
       },
       backgroundImage: {
         'index-scale':
@@ -114,10 +157,6 @@ const config: Config = {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
         },
-        gridPan: {
-          '0%': { backgroundPosition: '0px 0px' },
-          '100%': { backgroundPosition: '64px 64px' },
-        },
       },
       animation: {
         sweep: 'sweep 6.5s cubic-bezier(.5,0,.5,1) infinite',
@@ -126,7 +165,6 @@ const config: Config = {
         'floaty-alt': 'floatyAlt 8s ease-in-out infinite',
         'spin-slow': 'spinSlow 6s linear infinite',
         marquee: 'marquee 34s linear infinite',
-        'grid-pan': 'gridPan 14s linear infinite',
       },
     },
   },

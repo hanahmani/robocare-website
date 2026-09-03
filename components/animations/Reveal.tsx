@@ -3,10 +3,11 @@
 import { motion, type Variants } from 'framer-motion';
 import type { ElementType, ReactNode } from 'react';
 import { useDirection } from '@/i18n';
-import { fadeUp, slideInLeft, slideInRight, scaleIn, VIEWPORT } from '@/lib/motion';
+import { fadeUp, fadeIn, slideInLeft, slideInRight, scaleIn, VIEWPORT } from '@/lib/motion';
 
 const PRESETS = {
   up: fadeUp,
+  fade: fadeIn,
   left: slideInLeft,
   right: slideInRight,
   scale: scaleIn,
@@ -35,6 +36,9 @@ function mirror(from: Preset, isRtl: boolean): Preset {
 /**
  * Scroll reveal réutilisable : joue l'animation une seule fois,
  * quand l'élément entre dans le viewport.
+ *
+ * Le délai passe par `custom`, pas par la prop `transition` : framer donne la
+ * priorité à la transition définie dans le variant et ignorerait `transition`.
  */
 export function Reveal({ children, from = 'up', delay = 0, className, as = 'div', id }: RevealProps) {
   const { isRtl } = useDirection();
@@ -45,10 +49,10 @@ export function Reveal({ children, from = 'up', delay = 0, className, as = 'div'
       id={id}
       className={className}
       variants={PRESETS[mirror(from, isRtl)]}
+      custom={delay}
       initial="hidden"
       whileInView="show"
       viewport={VIEWPORT}
-      transition={{ delay }}
     >
       {children}
     </MotionTag>

@@ -30,7 +30,7 @@ export function PartnersMarquee() {
 
       <div
         dir="ltr"
-        className="group relative mt-8 overflow-hidden lg:mt-14"
+        className="group relative mt-section-gap overflow-hidden"
         style={{
           maskImage: 'linear-gradient(90deg, transparent, black 8%, black 92%, transparent)',
           WebkitMaskImage:
@@ -41,7 +41,7 @@ export function PartnersMarquee() {
           {track.map((src, index) => (
             <div
               key={`${src}-${index}`}
-              className="flex h-[92px] w-[168px] shrink-0 items-center justify-center rounded-[18px] border border-forest-950/[0.08] bg-white p-5 shadow-soft transition-all duration-300 ease-premium hover:-translate-y-1.5 hover:scale-[1.05] hover:shadow-leaf sm:h-[104px] sm:w-[192px] lg:h-[116px] lg:w-[216px] lg:p-6"
+              className="flex h-[92px] w-[168px] shrink-0 items-center justify-center rounded-chip border border-forest-950/[0.08] bg-white p-5 shadow-soft transition-surface duration-base ease-premium hover:-translate-y-1.5 motion-reduce:hover:translate-y-0 hover:scale-[1.05] hover:shadow-leaf sm:h-[104px] sm:w-[192px] lg:h-[116px] lg:w-[216px] lg:p-6"
             >
               <Image
                 src={src}

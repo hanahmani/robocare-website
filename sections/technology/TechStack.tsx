@@ -23,7 +23,7 @@ export function TechStack() {
         subtitle={t('technology.stack.lead')}
       />
 
-      <Stagger className="mt-8 grid gap-5 sm:grid-cols-2 lg:mt-14 lg:grid-cols-3">
+      <Stagger className="mt-section-gap grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {TECH_STACK.map(({ id, icon: Icon, ...block }) => {
           const ocre = 'tone' in block && block.tone === 'ocre';
           const copy = items[id];
@@ -39,7 +39,7 @@ export function TechStack() {
                     {copy.tag}
                   </Pill>
                 </div>
-                <h3 className="mt-5 text-[19px] tracking-[-0.02em]">{copy.title}</h3>
+                <h3 className="mt-5 text-h3 tracking-[-0.02em]">{copy.title}</h3>
                 <p className="mt-2.5 flex-1 text-[15px] leading-[1.65] text-ink-500">
                   {copy.text}
                 </p>

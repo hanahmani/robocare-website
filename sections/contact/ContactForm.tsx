@@ -10,9 +10,22 @@ import { cn } from '@/lib/utils';
 const SUBJECTS = ['demo', 'quote', 'partnership', 'support'] as const;
 type Subject = (typeof SUBJECTS)[number];
 
-const FIELD =
-  'w-full min-h-10 rounded-field border border-forest-950/[0.14] bg-white px-3 py-2 text-[13.5px] text-ink-900 transition-all duration-[250ms] placeholder:text-ink-300';
-const FIELD_ERROR = 'border-danger focus-visible:outline-danger';
+/*
+ * `text-[16px]` sous `sm` n'est pas un choix esthétique : en dessous de 16px,
+ * Safari iOS zoome automatiquement la page au focus d'un champ, ce qui décale
+ * toute la mise en page. La taille compacte ne reprend qu'à partir de la
+ * tablette, où le comportement n'existe pas.
+ *
+ * `min-h-11` (44px) est le plus petit contrôle confortable au doigt.
+ */
+const FIELD = [
+  'w-full min-h-11 rounded-field border border-forest-950/[0.14] bg-white px-3.5 py-2.5',
+  'text-[16px] text-ink-900 sm:text-[13.5px]',
+  'transition-[border-color,background-color,box-shadow] duration-base ease-premium',
+  'placeholder:text-ink-300 hover:border-forest-950/25',
+  'focus:border-leaf-500 focus:bg-sage-50/40',
+].join(' ');
+const FIELD_ERROR = 'border-danger focus:border-danger focus-visible:outline-danger';
 const LABEL = 'font-mono text-[10px] uppercase tracking-[0.13em] text-ink-400';
 const ERROR = 'text-[12px] leading-[1.45] text-danger';
 
@@ -248,10 +261,15 @@ export function ContactForm() {
                 aria-pressed={selected}
                 onClick={() => setSubject(item)}
                 className={cn(
-                  'min-h-8 rounded-full px-3.5 py-1.5 text-[12.5px] font-semibold transition-all duration-[250ms] ease-premium',
+                  // 36px minimum : les pastilles sont alignées en ligne et
+                  // restent atteignables au doigt sans casser la densité du
+                  // formulaire, contrairement à un `min-h-8` de 32px.
+                  'min-h-9 rounded-full px-4 py-2 text-[12.5px] font-semibold',
+                  'transition-[background-color,border-color,color,transform] duration-base ease-premium',
+                  'active:scale-95 active:duration-fast motion-reduce:active:scale-100',
                   selected
                     ? 'border border-forest-900 bg-forest-900 text-lime-100'
-                    : 'border border-forest-950/[0.14] bg-white text-ink-700 hover:border-leaf-500/50',
+                    : 'border border-forest-950/[0.14] bg-white text-ink-700 hover:border-leaf-500/50 hover:bg-sage-50',
                 )}
               >
                 {t(`contact.form.subjects.${item}`)}

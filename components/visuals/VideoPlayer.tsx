@@ -70,7 +70,7 @@ export function VideoPlayer({ src, className, aspectClassName = 'aspect-video' }
     <div
       ref={containerRef}
       className={cn(
-        'group relative overflow-hidden rounded-[24px] border border-white/[0.14] bg-forest-950 shadow-glass',
+        'group relative overflow-hidden rounded-card border border-white/[0.14] bg-forest-950 shadow-glass',
         className,
       )}
     >
@@ -97,7 +97,7 @@ export function VideoPlayer({ src, className, aspectClassName = 'aspect-video' }
         onClick={togglePlay}
         aria-label={isPlaying ? t('a11y.pauseVideo') : t('a11y.playVideo')}
         className={cn(
-          'absolute inset-0 m-auto flex h-[72px] w-[72px] items-center justify-center rounded-full bg-lime-500 text-forest-950 shadow-lime transition-all duration-300 ease-premium hover:scale-110',
+          'absolute inset-0 m-auto flex h-[72px] w-[72px] items-center justify-center rounded-full bg-lime-500 text-forest-950 shadow-lime transition-surface duration-base ease-premium hover:scale-110',
           isPlaying && 'opacity-0 group-hover:opacity-100',
         )}
       >
@@ -130,7 +130,7 @@ export function VideoPlayer({ src, className, aspectClassName = 'aspect-video' }
         type="button"
         onClick={toggleMute}
         aria-label={isMuted ? t('a11y.unmuteVideo') : t('a11y.muteVideo')}
-        className="glass absolute bottom-4 end-4 flex h-11 w-11 items-center justify-center rounded-full text-white transition-all duration-300 ease-premium hover:scale-110 hover:border-lime-500/50 hover:text-lime-500"
+        className="glass absolute bottom-4 end-4 flex h-11 w-11 items-center justify-center rounded-full text-white transition-surface duration-base ease-premium hover:scale-110 hover:border-lime-500/50 hover:text-lime-500"
       >
         {isMuted ? (
           <VolumeX size={18} aria-hidden />
@@ -142,7 +142,7 @@ export function VideoPlayer({ src, className, aspectClassName = 'aspect-video' }
       {/* Barre de progression discrète */}
       <div className="absolute inset-x-0 bottom-0 h-[3px] bg-white/15">
         <div
-          className="h-full bg-lime-500 transition-[width] duration-150 ease-linear"
+          className="h-full bg-lime-500 transition-[width] duration-fast ease-linear"
           style={{ width: `${progress}%` }}
         />
       </div>

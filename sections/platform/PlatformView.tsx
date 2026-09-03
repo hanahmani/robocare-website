@@ -61,7 +61,7 @@ export function PlatformView() {
               href={SITE.appUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[14px] font-bold text-leaf-600"
+              className="link-underline group inline-flex items-center gap-2 text-[14px] font-bold text-leaf-600"
             >
               {t('actions.openApp')}
               <Arrow />
@@ -81,7 +81,7 @@ export function PlatformView() {
                 <IconChip>
                   <Icon size={22} aria-hidden />
                 </IconChip>
-                <h2 className="mt-5 text-[19px] tracking-[-0.02em]">{modules[id].title}</h2>
+                <h2 className="mt-5 text-h3 tracking-[-0.02em]">{modules[id].title}</h2>
                 <p className="mt-2.5 flex-1 text-[15px] leading-[1.65] text-ink-500">
                   {modules[id].text}
                 </p>
@@ -97,7 +97,7 @@ export function PlatformView() {
       {/* Démarrage en quatre étapes */}
       <Section tone="sage">
         <Reveal className="max-w-[42rem]">
-          <h2 className="text-[28px] leading-[1.06] sm:text-[34px] lg:text-[40px]">
+          <h2 className="text-h2-alt">
             {t('platform.onboarding.title')}
           </h2>
           <p className="mt-4 text-[16px] leading-[1.7] text-ink-500 lg:text-[17px]">
@@ -105,7 +105,7 @@ export function PlatformView() {
           </p>
         </Reveal>
 
-        <Stagger className="mt-8 grid gap-6 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4">
+        <Stagger className="mt-section-gap grid gap-6 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4">
           {PLATFORM_STEPS.map((step, index) => (
             <StaggerItem key={step.id}>
               <span

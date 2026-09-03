@@ -30,7 +30,7 @@ export function ContactDemo() {
         subtitle={t('contact.demo.lead')}
       />
 
-      <Stagger className="mt-8 grid gap-6 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
+      <Stagger className="mt-section-gap grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {CONTACT_DEMO_STEPS.map((id, index) => {
           const last = index === CONTACT_DEMO_STEPS.length - 1;
           return (
@@ -59,7 +59,7 @@ export function ContactDemo() {
         <div className="rounded-card border border-forest-950/[0.08] bg-white p-7 shadow-soft sm:p-9">
           <div className="flex items-center gap-3.5">
             <ShieldCheck size={22} className="shrink-0 text-leaf-600" aria-hidden />
-            <h3 className="text-[19px] tracking-[-0.02em]">
+            <h3 className="text-h3 tracking-[-0.02em]">
               {t('contact.demo.reassurance.title')}
             </h3>
           </div>
@@ -67,7 +67,7 @@ export function ContactDemo() {
             {t.list('contact.demo.reassurance.items').map((item) => (
               <li
                 key={item}
-                className="rounded-field bg-sage-50 px-5 py-4 text-[14.5px] leading-[1.6] text-ink-700 transition-colors duration-300 hover:bg-sage-200"
+                className="rounded-field bg-sage-50 px-5 py-4 text-[14.5px] leading-[1.6] text-ink-700 transition-colors duration-base hover:bg-sage-200"
               >
                 {item}
               </li>

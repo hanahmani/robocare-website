@@ -25,7 +25,7 @@ export function SolutionsComparison() {
               <StaggerItem
                 key={solution.slug}
                 className={cn(
-                  'min-w-[78%] shrink-0 snap-start rounded-card border p-6 shadow-soft transition-all duration-[350ms] ease-premium hover:-translate-y-1 hover:shadow-hover hover:ring-1 hover:ring-lime-500/20 sm:min-w-0 sm:shrink',
+                  'min-w-[78%] shrink-0 snap-start rounded-card border p-6 shadow-soft transition-surface duration-slow ease-premium hover:-translate-y-1.5 motion-reduce:hover:translate-y-0 hover:shadow-hover hover:ring-1 hover:ring-lime-500/20 sm:min-w-0 sm:shrink',
                   dark ? 'border-lime-500/20 bg-forest-900' : 'border-forest-950/[0.08] bg-white',
                 )}
               >

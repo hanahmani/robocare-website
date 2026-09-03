@@ -6,6 +6,7 @@ import type { LucideIcon } from 'lucide-react';
 import { Stagger } from '@/components/animations/Stagger';
 import { EASE, fadeUp } from '@/lib/motion';
 import { useCountUp } from '@/hooks/useCountUp';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 import { useTranslation } from '@/i18n';
 import { cn } from '@/lib/utils';
 import type { StatView } from '@/types';
@@ -39,8 +40,16 @@ export function StatsShowcase({
   const my = useMotionValue(0.5);
   const springX = useSpring(mx, { stiffness: 40, damping: 22 });
   const springY = useSpring(my, { stiffness: 40, damping: 22 });
+  /*
+   * `MotionConfig reducedMotion="user"` ne couvre que les animations déclarées
+   * via `animate`. Le halo, l'inclinaison et les particules sont pilotés par
+   * des motion values réglées à la main ou par des boucles infinies : il faut
+   * les désactiver explicitement.
+   */
+  const reduced = usePrefersReducedMotion();
 
   function handlePointerMove(event: ReactMouseEvent<HTMLDivElement>) {
+    if (reduced) return;
     const rect = event.currentTarget.getBoundingClientRect();
     mx.set((event.clientX - rect.left) / rect.width);
     my.set((event.clientY - rect.top) / rect.height);
@@ -48,7 +57,7 @@ export function StatsShowcase({
 
   return (
     <div className={cn('relative', className)} onMouseMove={handlePointerMove}>
-      <AmbientBackground x={springX} y={springY} />
+      <AmbientBackground x={springX} y={springY} reduced={reduced} />
 
       <Stagger
         stagger={0.09}
@@ -69,9 +78,11 @@ export function StatsShowcase({
 function AmbientBackground({
   x,
   y,
+  reduced,
 }: {
   x: ReturnType<typeof useSpring>;
   y: ReturnType<typeof useSpring>;
+  reduced: boolean;
 }) {
   const spotlightX = useTransform(x, (v) => `${v * 100}%`);
   const spotlightY = useTransform(y, (v) => `${v * 100}%`);
@@ -80,11 +91,13 @@ function AmbientBackground({
     <div aria-hidden className="pointer-events-none absolute -inset-x-6 -inset-y-20 -z-10 overflow-hidden">
       <div className="absolute -left-[10%] top-0 h-[360px] w-[360px] animate-floaty rounded-full bg-[radial-gradient(circle,rgba(158,216,75,.16),transparent_70%)] blur-3xl" />
       <div className="absolute -right-[8%] bottom-0 h-[420px] w-[420px] animate-floaty-alt rounded-full bg-[radial-gradient(circle,rgba(31,128,73,.22),transparent_70%)] blur-3xl" />
-      <motion.div
-        className="absolute h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(158,216,75,.10),transparent_72%)] blur-2xl"
-        style={{ left: spotlightX, top: spotlightY }}
-      />
-      <div className="grid-overlay animate-grid-pan absolute inset-0 opacity-40" />
+      {reduced ? null : (
+        <motion.div
+          className="absolute h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(158,216,75,.10),transparent_72%)] blur-2xl"
+          style={{ left: spotlightX, top: spotlightY }}
+        />
+      )}
+      <div className="grid-overlay-drift absolute inset-0 opacity-40" />
       <div className="absolute inset-0 opacity-[0.05] mix-blend-overlay" style={{ backgroundImage: NOISE_BG }} />
     </div>
   );
@@ -102,6 +115,7 @@ function StatCard({ stat, index }: { stat: StatCardData; index: number }) {
   });
 
   const cardRef = useRef<HTMLDivElement>(null);
+  const reduced = usePrefersReducedMotion();
   const rotateX = useMotionValue(0);
   const rotateY = useMotionValue(0);
   const springRotateX = useSpring(rotateX, { stiffness: 240, damping: 22 });
@@ -109,7 +123,7 @@ function StatCard({ stat, index }: { stat: StatCardData; index: number }) {
 
   function handleMouseMove(event: ReactMouseEvent<HTMLDivElement>) {
     const node = cardRef.current;
-    if (!node) return;
+    if (!node || reduced) return;
     const rect = node.getBoundingClientRect();
     const px = (event.clientX - rect.left) / rect.width;
     const py = (event.clientY - rect.top) / rect.height;
@@ -130,17 +144,21 @@ function StatCard({ stat, index }: { stat: StatCardData; index: number }) {
     <motion.div
       ref={cardRef}
       variants={fadeUp}
-      whileHover={{ scale: 1.015 }}
-      transition={{ duration: 0.4, ease: EASE }}
+      whileHover={reduced ? undefined : { scale: 1.015 }}
+      transition={{ duration: 0.35, ease: EASE }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ rotateX: springRotateX, rotateY: springRotateY, transformPerspective: 900 }}
-      className="group relative rounded-[22px] p-px transition-shadow duration-[400ms] ease-premium hover:shadow-lime motion-reduce:!transform-none"
+      style={
+        reduced
+          ? undefined
+          : { rotateX: springRotateX, rotateY: springRotateY, transformPerspective: 900 }
+      }
+      className="group relative rounded-tile p-px transition-shadow duration-slow ease-premium hover:shadow-lime"
     >
       {/* Bordure dégradée animée : masquée au repos, révélée par le padding de 1px. */}
       <div
         aria-hidden
-        className="absolute inset-0 rounded-[22px] animate-spin-slow bg-[conic-gradient(from_0deg,transparent_0%,rgba(158,216,75,.65)_10%,transparent_26%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        className="absolute inset-0 rounded-tile animate-spin-slow bg-[conic-gradient(from_0deg,transparent_0%,rgba(158,216,75,.65)_10%,transparent_26%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
       />
 
       <div className="relative h-full overflow-hidden rounded-[21px] border border-white/10 bg-white/[0.035] p-4 backdrop-blur-xl sm:p-5">
@@ -163,10 +181,10 @@ function StatCard({ stat, index }: { stat: StatCardData; index: number }) {
               'radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(158,216,75,.16), transparent 70%)',
           }}
         />
-        <CardParticles seed={index} />
+        {reduced ? null : <CardParticles seed={index} />}
 
         <div className="relative flex h-full flex-col">
-          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] text-lime-400 transition-transform duration-[400ms] ease-premium group-hover:-rotate-6 group-hover:scale-110">
+          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] text-lime-400 transition-transform duration-slow ease-premium group-hover:-rotate-6 group-hover:scale-110">
             <Icon size={16} aria-hidden />
           </span>
 
@@ -189,7 +207,12 @@ function StatCard({ stat, index }: { stat: StatCardData; index: number }) {
   );
 }
 
-/** Particules ambiantes, positions dérivées d'une graine fixe (déterministe, sans dépendance). */
+/**
+ * Particules ambiantes, positions dérivées d'une graine fixe (déterministe,
+ * sans dépendance). Le composant n'est pas monté quand l'utilisateur demande
+ * moins d'animation : `reducedMotion` ferait bien tomber le `y`, mais la boucle
+ * d'opacité, elle, continuerait de tourner indéfiniment.
+ */
 function CardParticles({ seed }: { seed: number }) {
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">

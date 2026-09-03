@@ -47,7 +47,7 @@ export function ConceptCard({ icon: Icon, tone, index, copy }: Props) {
   return (
     <article
       className={cn(
-        'group relative flex h-full flex-col overflow-hidden rounded-card border border-forest-950/[0.08] bg-white p-6 shadow-soft transition-all duration-[350ms] ease-premium hover:-translate-y-1.5 hover:shadow-hover motion-reduce:hover:translate-y-0 sm:p-9',
+        'group relative flex h-full flex-col overflow-hidden rounded-card border border-forest-950/[0.08] bg-white p-6 shadow-soft transition-surface duration-slow ease-premium hover:-translate-y-1.5 hover:shadow-hover motion-reduce:hover:translate-y-0 sm:p-9',
         palette.border,
       )}
     >
@@ -63,16 +63,16 @@ export function ConceptCard({ icon: Icon, tone, index, copy }: Props) {
         <IconChip
           tone={tone}
           className={cn(
-            'h-14 w-14 shrink-0 rounded-[16px] ring-1 transition-transform duration-500 ease-premium group-hover:scale-105',
+            'h-14 w-14 shrink-0 rounded-chip ring-1 transition-transform duration-500 ease-premium group-hover:scale-105',
             palette.ring,
           )}
         >
           <Icon size={25} aria-hidden />
         </IconChip>
-        <h3 className="pt-1.5 text-[21px] tracking-[-0.025em] lg:text-[24px]">{copy.title}</h3>
+        <h3 className="pt-1.5 text-h3 tracking-[-0.025em]">{copy.title}</h3>
         <span
           className={cn(
-            'ms-auto shrink-0 pt-1.5 font-mono text-[11px] tracking-[0.16em] text-ink-300 transition-colors duration-300',
+            'ms-auto shrink-0 pt-1.5 font-mono text-[11px] tracking-[0.16em] text-ink-300 transition-colors duration-base',
             palette.accent,
           )}
         >

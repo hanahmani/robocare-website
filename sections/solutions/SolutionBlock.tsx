@@ -34,7 +34,7 @@ export function SolutionBlock({ solution, copy, index, total }: Props) {
 
   const visual = (
     <Reveal from={reversed ? 'right' : 'left'} className={cn(imageLarge ? 'lg:col-span-7' : 'lg:col-span-5')}>
-      <div className="group relative overflow-hidden rounded-[28px] shadow-hover">
+      <div className="group relative overflow-hidden rounded-card shadow-hover">
         <Image
           src={solution.image}
           alt={copy.imageAlt}
@@ -42,7 +42,7 @@ export function SolutionBlock({ solution, copy, index, total }: Props) {
           height={480}
           loading="lazy"
           sizes="(max-width: 1024px) 100vw, 640px"
-          className="h-[280px] w-full object-cover transition-transform duration-700 ease-premium group-hover:scale-105 lg:h-[420px]"
+          className="zoom-media h-[280px] w-full object-cover lg:h-[420px]"
         />
         <div
           aria-hidden
@@ -61,7 +61,7 @@ export function SolutionBlock({ solution, copy, index, total }: Props) {
         {pad2(index)} <span className="text-ink-300/60">/ {String(total).padStart(2, '0')}</span>
       </p>
       <p className={cn('eyebrow mt-4', ocre ? 'text-ocre-600' : 'text-leaf-600')}>{copy.name}</p>
-      <h2 className="mt-4 text-[28px] leading-[1.06] sm:text-[34px] lg:text-[40px]">{copy.brand}</h2>
+      <h2 className="mt-4 text-h2-alt">{copy.brand}</h2>
       <p className="mt-[18px] max-w-[52ch] text-[16px] leading-[1.7] text-ink-500 lg:text-[17px]">
         {copy.description}
       </p>

@@ -60,7 +60,7 @@ export function PlatformArchitecture() {
       {/* Cloud, sécurité et synchronisation */}
       <Reveal className="relative mt-14 border-t border-white/10 pt-12 lg:mt-20 lg:pt-16">
         <p className="eyebrow text-lime-500">{t('platform.security.eyebrow')}</p>
-        <h2 className="mt-4 max-w-[38rem] text-[24px] leading-[1.14] text-white sm:text-[30px]">
+        <h2 className="mt-4 max-w-[38rem] text-h3-lg text-white">
           {t('platform.security.title')}
         </h2>
         <p className="mt-3.5 max-w-[42rem] text-[15.5px] leading-[1.7] text-white/70">
@@ -68,7 +68,7 @@ export function PlatformArchitecture() {
         </p>
       </Reveal>
 
-      <Stagger className="relative mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+      <Stagger className="relative mt-section-gap grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
         {PLATFORM_SECURITY.map(({ id, icon }) => (
           <StaggerItem key={id} className="h-full">
             <TrustCard icon={icon} title={security[id].title} text={security[id].text} />
