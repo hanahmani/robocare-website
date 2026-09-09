@@ -1,8 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef } from 'react';
-import { motion, useScroll, useTransform, type Variants } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { BellRing, Check } from 'lucide-react';
 import { useTranslation } from '@/i18n';
 import { HERO_MOISTURE_BARS, HERO_NDVI_VALUE } from '@/lib/data/home';
@@ -10,7 +9,6 @@ import { Button } from '@/components/ui/Button';
 import { RequestDemoButton } from '@/components/ui/RequestDemoButton';
 import { Arrow } from '@/components/ui/Arrow';
 import { EASE, VIEWPORT } from '@/lib/motion';
-import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 import { cn } from '@/lib/utils';
 
 /**
@@ -50,43 +48,18 @@ const HERO_CARD =
 export function Hero() {
   const { t, d } = useTranslation();
   const cards = d.home.hero.cards;
-  const sectionRef = useRef<HTMLElement>(null);
-  const reduced = usePrefersReducedMotion();
-
-  /*
-   * Parallaxe du fond : l'image se déplace deux fois moins vite que le
-   * défilement, ce qui donne de la profondeur sans jamais découvrir ses bords
-   * (elle est agrandie de 12 %). `useScroll` sur une cible ne mesure que tant
-   * que la section est à l'écran, et l'animation ne touche que `translateY`.
-   */
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start start', 'end start'],
-  });
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
 
   return (
-    <section ref={sectionRef} className="relative isolate bg-forest-950 pt-16 lg:pt-[150px]">
-      {/* Fond : photo satellite, dégradés, grille et balayage lumineux */}
+    <section className="relative isolate bg-forest-950 pt-16 lg:pt-[150px]">
+      {/* Fond : photo satellite */}
       <div className="absolute inset-0 -z-20 overflow-hidden">
-        <motion.div
-          className="absolute inset-0"
-          style={reduced ? undefined : { y: backgroundY }}
-        >
-          <Image
-            src="/hero/satellite-field.webp"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="scale-[1.12] object-cover"
-          />
-        </motion.div>
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,18,12,.82)_0%,rgba(6,18,12,.5)_38%,rgba(6,18,12,.72)_72%,#06120C_100%)]" />
-        <div className="grid-overlay absolute inset-0" />
-        <div
-          aria-hidden
-          className="absolute inset-x-0 h-44 animate-sweep bg-[linear-gradient(180deg,transparent,rgba(158,216,75,.18)_55%,rgba(158,216,75,.75))] mix-blend-screen"
+        <Image
+          src="/hero/satellite-field.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
       </div>
 
@@ -99,20 +72,20 @@ export function Hero() {
         >
           <motion.div
             variants={HERO_ITEM}
-            className="inline-flex items-center gap-2.5 rounded-full border border-lime-500/35 bg-white/[0.08] py-[7px] pe-3.5 ps-2.5 backdrop-blur-md"
+            className="inline-flex items-center gap-2 rounded-full border border-lime-500/35 bg-white/[0.08] py-1 pe-3 ps-2 backdrop-blur-md"
           >
             <span className="relative inline-flex h-2 w-2">
               <span className="absolute inset-0 rounded-full bg-lime-500" />
               <span className="absolute inset-0 animate-ping-slow rounded-full bg-lime-500" />
             </span>
-            <span className="font-mono text-[11.5px] uppercase tracking-[0.16em] text-lime-100">
+            <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-lime-100">
               {t('home.hero.badge')}
             </span>
           </motion.div>
 
           <motion.h1
             variants={HERO_ITEM}
-            className="mt-6 text-display font-semibold tracking-display text-white"
+            className="mt-6 text-[clamp(2rem,1.47rem+2.25vw,3.5rem)] font-semibold leading-[1.08] tracking-display text-white"
           >
             {t('home.hero.titleLead')}{' '}
             <span className="bg-[linear-gradient(100deg,#9ED84B,#4D9E2F_65%,#DCF3C9)] bg-clip-text text-transparent">
@@ -122,7 +95,7 @@ export function Hero() {
 
           <motion.p
             variants={HERO_ITEM}
-            className="mt-6 max-w-[39rem] text-lead text-white/[0.82]"
+            className="mt-6 max-w-[34rem] text-[clamp(1rem,0.93rem+0.35vw,1.125rem)] leading-[1.6] text-white/[0.82]"
           >
             {t('home.hero.subtitle')}
           </motion.p>

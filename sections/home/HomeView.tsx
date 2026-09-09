@@ -24,10 +24,10 @@ export function HomeView() {
     <>
       <Hero />
 
-      {/* Chiffres clés : prolonge le fond sombre du hero */}
-      <section className="relative overflow-hidden bg-forest-950 pb-[72px] lg:pb-[110px]">
+      {/* Chiffres clés */}
+      <section className="relative overflow-hidden bg-white pt-10 pb-10 lg:pt-14 lg:pb-14">
         <div className="container-page">
-          <StatsShowcase stats={stats} />
+          <StatsShowcase stats={stats} tone="light" />
         </div>
         <IndexScale className="absolute inset-x-0 bottom-0" />
       </section>

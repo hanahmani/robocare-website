@@ -18,8 +18,6 @@ type Props = {
   actions?: ReactNode;
   /** Bloc additionnel sous les actions (raccourcis, indicateurs). */
   children?: ReactNode;
-  /** Le balayage lumineux du hero d'accueil. */
-  sweep?: boolean;
   className?: string;
 };
 
@@ -36,7 +34,6 @@ export function PageHero({
   crumbs,
   actions,
   children,
-  sweep = true,
   className,
 }: Props) {
   return (
@@ -53,17 +50,9 @@ export function PageHero({
           fill
           priority
           sizes="100vw"
-          className="scale-105 object-cover"
+          className="object-cover"
         />
       </div>
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(6,18,12,.9)_0%,rgba(6,18,12,.66)_45%,#06120C_100%)]" />
-      <div className="grid-overlay absolute inset-0 -z-10" />
-      {sweep ? (
-        <div
-          aria-hidden
-          className="absolute inset-x-0 -z-10 h-44 animate-sweep bg-[linear-gradient(180deg,transparent,rgba(158,216,75,.14)_55%,rgba(158,216,75,.6))] mix-blend-screen"
-        />
-      ) : null}
 
       <div className="container-page flex flex-1 flex-col justify-center py-16 lg:py-28">
         <Reveal from="scale">
