@@ -7,13 +7,11 @@ import { Reveal } from '@/components/animations/Reveal';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 import { FOOTPRINT_CYCLE, FOOTPRINT_LIST } from '@/lib/data/sustainability';
 
-const CENTER = 160;
-const RING_RADIUS = 128;
-const DOT_RADIUS = RING_RADIUS;
-/** Rayon des étiquettes HTML, en pourcentage du conteneur carré (cercle SVG ≈ 40 % → 46 % laisse un peu d'air). */
-const LABEL_RADIUS_PERCENT = 46;
+const CENTER = 220;
+const RING_RADIUS = 150;
+const LABEL_RADIUS = 182;
 
-/** Point sur un cercle, `angle` en degrés depuis le haut (0°), sens horaire. */
+/** Point sur un cercle, angle en degrés depuis le haut, dans le sens horaire. */
 function polarPoint(cx: number, cy: number, r: number, angleDeg: number) {
   const rad = (angleDeg * Math.PI) / 180;
   return { x: cx + r * Math.sin(rad), y: cy - r * Math.cos(rad) };
@@ -43,71 +41,98 @@ export function FootprintSection() {
           </ul>
         </Reveal>
 
-        <Reveal from="right" className="mx-auto min-w-0">
-          <div className="relative mx-auto aspect-square w-full max-w-[320px]">
-            <svg
-              viewBox="0 0 320 320"
-              className="absolute inset-0 h-full w-full"
+        <Reveal from="right" className="mx-auto w-full min-w-0 lg:max-w-[460px]">
+          <div className="mx-auto aspect-square w-full max-w-[420px]" dir="ltr">
+            <motion.svg
+              viewBox="0 0 440 440"
+              className="h-full w-full overflow-visible"
               role="img"
               aria-label={t('sustainability.footprint.title')}
             >
-              <circle cx={CENTER} cy={CENTER} r="150" className="fill-sage-50" />
-              <circle
+              <motion.circle
                 cx={CENTER}
                 cy={CENTER}
                 r={RING_RADIUS}
-                className="animate-[spinSlow_60s_linear_infinite] fill-none stroke-sage-300 motion-reduce:animate-none"
+                className="fill-none stroke-sage-300"
+                strokeWidth="2"
+                strokeDasharray="6 12"
+                initial={reduced ? false : { pathLength: 0, opacity: 0 }}
+                whileInView={{ pathLength: 1, opacity: 1 }}
+                viewport={{ once: true, amount: 0.6 }}
+                transition={{ duration: 1.35, ease: 'easeOut' }}
+              />
+              <motion.circle
+                cx={CENTER}
+                cy={CENTER}
+                r="105"
+                className="fill-sage-50 stroke-sage-200"
                 strokeWidth="1.5"
-                strokeDasharray="4 12"
+                initial={reduced ? false : { scale: 0.88, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true, amount: 0.6 }}
+                transition={{ delay: 0.2, duration: 0.7, ease: 'easeOut' }}
                 style={{ transformOrigin: `${CENTER}px ${CENTER}px` }}
               />
-              {reduced ? null : (
-                <motion.g
-                  style={{ transformOrigin: `${CENTER}px ${CENTER}px` }}
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 9, repeat: Infinity, ease: 'linear' }}
-                >
-                  <circle cx={CENTER} cy={CENTER - RING_RADIUS} r="12" className="fill-lime-500/25" />
-                  <circle cx={CENTER} cy={CENTER - RING_RADIUS} r="5" className="fill-lime-500" />
-                </motion.g>
-              )}
-
-              <circle cx={CENTER} cy={CENTER} r="96" className="fill-sage-200" />
-              <text
+              <motion.text
                 x={CENTER}
-                y={CENTER - 2}
+                y={CENTER - 5}
                 textAnchor="middle"
-                className="fill-ink-900 font-display text-[17px] font-semibold"
+                className="fill-ink-900 font-sans text-[22px] font-bold"
+                initial={reduced ? false : { y: 8, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.6 }}
+                transition={{ delay: 0.45, duration: 0.45, ease: 'easeOut' }}
               >
                 {t('sustainability.footprint.cycleTitle')}
-              </text>
-              <text
+              </motion.text>
+              <motion.text
                 x={CENTER}
-                y={CENTER + 18}
+                y={CENTER + 24}
                 textAnchor="middle"
-                className="fill-leaf-600 font-mono text-[10px] font-semibold uppercase tracking-[0.14em]"
+                className="fill-leaf-600 font-sans text-[20px] font-bold"
+                initial={reduced ? false : { y: 8, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.6 }}
+                transition={{ delay: 0.55, duration: 0.45, ease: 'easeOut' }}
               >
                 {t('sustainability.footprint.cycleSubtitle')}
-              </text>
+              </motion.text>
 
-              {FOOTPRINT_CYCLE.map(({ id, angle }) => {
-                const dot = polarPoint(CENTER, CENTER, DOT_RADIUS, angle);
-                return <circle key={id} cx={dot.x} cy={dot.y} r="5" className="fill-leaf-500" />;
+              {FOOTPRINT_CYCLE.map(({ id, angle }, index) => {
+                const dot = polarPoint(CENTER, CENTER, RING_RADIUS, angle);
+                const label = polarPoint(CENTER, CENTER, LABEL_RADIUS, angle);
+                const textAnchor = Math.abs(label.x - CENTER) < 24 ? 'middle' : label.x < CENTER ? 'end' : 'start';
+
+                return (
+                  <motion.g
+                    key={id}
+                    initial={reduced ? false : { scale: 0.65, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true, amount: 0.6 }}
+                    transition={{ delay: 0.55 + index * 0.13, duration: 0.38, ease: 'easeOut' }}
+                    style={{ transformOrigin: `${dot.x}px ${dot.y}px` }}
+                  >
+                    <motion.circle
+                      cx={dot.x}
+                      cy={dot.y}
+                      r="6"
+                      className="fill-leaf-500"
+                      animate={reduced ? undefined : { scale: [1, 1.18, 1] }}
+                      transition={{ delay: 1.4 + index * 0.13, duration: 0.7, ease: 'easeInOut' }}
+                      style={{ transformOrigin: `${dot.x}px ${dot.y}px` }}
+                    />
+                    <text
+                      x={label.x}
+                      y={label.y + 4}
+                      textAnchor={textAnchor}
+                      className="fill-ink-700 font-mono text-[12px] font-medium uppercase tracking-[0.04em]"
+                    >
+                      {cycle[id]}
+                    </text>
+                  </motion.g>
+                );
               })}
-            </svg>
-
-            {FOOTPRINT_CYCLE.map(({ id, angle }) => {
-              const pos = polarPoint(50, 50, LABEL_RADIUS_PERCENT, angle);
-              return (
-                <span
-                  key={id}
-                  className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-white px-2.5 py-1 font-mono text-[10.5px] font-semibold uppercase tracking-[0.1em] text-ink-700 shadow-soft"
-                  style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
-                >
-                  {cycle[id]}
-                </span>
-              );
-            })}
+            </motion.svg>
           </div>
         </Reveal>
       </div>
