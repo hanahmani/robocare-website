@@ -10,7 +10,7 @@ import type { LucideIcon } from 'lucide-react';
 
 /** Entrée de navigation. `key` pointe vers `nav.<key>` dans le dictionnaire. */
 export type NavItem = {
-  key: 'home' | 'solutions' | 'platform' | 'technology' | 'about' | 'impact' | 'contact';
+  key: 'home' | 'solutions' | 'sustainability' | 'technology' | 'about' | 'impact' | 'contact';
   href: string;
 };
 
@@ -60,6 +60,12 @@ export type FeatureItem = {
   id: string;
   icon: LucideIcon;
   tone?: Tone;
+};
+
+/** Nœud de l'orbite « En quoi RoboCare est différent ». */
+export type Differentiator = {
+  id: 'data' | 'agronomy' | 'technology';
+  icon: LucideIcon;
 };
 
 /** Solution par culture — visuels et identifiants uniquement. */

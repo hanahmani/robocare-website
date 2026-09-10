@@ -35,7 +35,7 @@ export function PlatformPreview() {
             ))}
           </ul>
           <div className="mt-8">
-            <Button href="/plateforme" variant="lime" size="lg">
+            <Button href="/solutions" variant="lime" size="lg">
               {t('actions.discoverPlatform')}
               <Arrow />
             </Button>

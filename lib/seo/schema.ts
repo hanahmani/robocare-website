@@ -23,7 +23,7 @@ type Json = Record<string, unknown>;
 const ORG_ID = `${SITE.url}/#organization`;
 const SITE_ID = `${SITE.url}/#website`;
 // La plateforme est un seul produit, servi sur un sous-domaine indépendant
-// de la langue de la page qui en parle (accueil ou /plateforme) : son `@id`
+// de la langue de la page qui en parle (accueil ou /solutions) : son `@id`
 // suit donc la même logique que l'organisation, pas celle des pages.
 const APP_ID = `${SITE.url}/#platform`;
 

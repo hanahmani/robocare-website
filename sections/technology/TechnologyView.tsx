@@ -41,7 +41,7 @@ export function TechnologyView() {
             <Button href="/contact" variant="primary" size="lg">
               {t('actions.talkToEngineer')}
             </Button>
-            <Button href="/plateforme" variant="outline-light" size="lg">
+            <Button href="/solutions" variant="outline-light" size="lg">
               {t('actions.seePlatform')}
             </Button>
           </>

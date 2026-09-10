@@ -45,7 +45,7 @@
   "nav": {
     "home": "Home",
     "solutions": "Solutions",
-    "platform": "Platform",
+    "sustainability": "Sustainability",
     "technology": "Technology",
     "about": "About",
     "impact": "Impact",
@@ -94,7 +94,7 @@
       "badge": "Agriculture 4.0 · Tunisia & MENA",
       "titleLead": "We",
       "titleAccent": "Tech-Care Of Your Land.",
-      "subtitle": "Satellite imagery, multispectral drones and artificial intelligence: RoboCare turns every field into precise agronomic decisions — water, fertilisation, crop protection.",
+      "subtitle": "RoboCare is an intelligent farm monitoring platform that combines satellites, drones, IoT and agronomic expertise to optimize crop needs, detect stress early, and enable smarter, more sustainable farming.",
       "note": "No hardware required. Add a field and get your first analysis within 24 hours.",
       "cards": {
         "ndvi": {
@@ -112,12 +112,45 @@
       }
     },
     "stats": {
+      "eyebrow": "By the numbers",
+      "title": "RoboCare, at scale",
       "users": "Active users",
       "hectares": "Hectares monitored",
       "partners": "Partners",
       "alerts": "Smart alerts",
       "images": "Satellite images processed",
       "uptime": "Platform uptime"
+    },
+    "different": {
+      "title": "Why RoboCare Is Different",
+      "lead": "At RoboCare, our strength comes from the integration of agronomy, data science, and cutting-edge technology.",
+      "body": "With years of hands-on field experience and R&D, we've positioned ourselves as a leading digital transformation partner in agriculture, tailored specifically for the MENA region.",
+      "servicesLabel": "Our Managed Services deliver an end-to-end suite of intelligent tools that:",
+      "items": {
+        "productivity": "Maximize crop productivity",
+        "sustainability": "Enhance sustainability through precision agriculture",
+        "risk": "Mitigate risks and reduce operational costs",
+        "decision": "Empower data-driven decision-making at every level"
+      },
+      "quote": "What truly sets RoboCare apart is our ability to translate complex agricultural data into actionable insights — built by agronomists, powered by data, and delivered through intuitive technology.",
+      "connected": "Connected to",
+      "nodes": {
+        "data": {
+          "label": "Data",
+          "meta": "Data science",
+          "content": "Field, sensor and satellite data unified into a single analytical layer."
+        },
+        "agronomy": {
+          "label": "Agronomy",
+          "meta": "Field expertise",
+          "content": "Years of hands-on field experience and R&D behind every recommendation."
+        },
+        "technology": {
+          "label": "Technology",
+          "meta": "Product engineering",
+          "content": "Intuitive tools that deliver insight end to end, tailored for the MENA region."
+        }
+      }
     },
     "about": {
       "eyebrow": "Who we are",
@@ -662,6 +695,18 @@
           "text": "99 % availability measured over twelve months. Data already loaded stays readable offline, and synchronisation resumes automatically once the network is back."
         }
       }
+    }
+  },
+  "sustainability": {
+    "meta": {
+      "title": "Sustainability",
+      "description": "Our approach to sustainable agriculture — content coming soon."
+    },
+    "hero": {
+      "eyebrow": "Sustainability",
+      "title": "A dedicated sustainability page is coming soon",
+      "intro": "We’re preparing dedicated content about our approach to sustainable agriculture. Check back soon.",
+      "imageAlt": "Farm field monitored by RoboCare"
     }
   },
   "technology": {

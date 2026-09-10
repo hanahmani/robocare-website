@@ -3,6 +3,7 @@ import {
   BarChart3,
   BellRing,
   Cpu,
+  Database,
   FileCheck2,
   FileText,
   Handshake,
@@ -10,12 +11,13 @@ import {
   Map,
   Rocket,
   Satellite,
+  Sprout,
   Sun,
   Target,
   Timer,
   Users,
 } from 'lucide-react';
-import type { FeatureItem, StatDatum } from '@/types';
+import type { Differentiator, FeatureItem, StatDatum } from '@/types';
 
 /** Chiffres clés sous le hero d'accueil — libellés dans `home.stats.*`. */
 export const HOME_STATS = [
@@ -47,6 +49,21 @@ export const HERO_MOISTURE_BARS = [
 
 /** Valeur affichée sur la carte NDVI du hero (chiffre, non traduit). */
 export const HERO_NDVI_VALUE = '0,74';
+
+/** Nœuds de l'orbite « En quoi RoboCare est différent » — textes dans `home.different.nodes.*`. */
+export const HOME_DIFFERENTIATORS = [
+  { id: 'data', icon: Database },
+  { id: 'agronomy', icon: Sprout },
+  { id: 'technology', icon: Cpu },
+] as const satisfies readonly Differentiator[];
+
+/** Points numérotés de la même section — textes dans `home.different.items.*`. */
+export const HOME_DIFFERENTIATOR_POINTS = [
+  'productivity',
+  'sustainability',
+  'risk',
+  'decision',
+] as const;
 
 /** Bénéfices « Pourquoi RoboCare » — textes dans `home.why.items.*`. */
 export const HOME_BENEFITS = [
