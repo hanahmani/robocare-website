@@ -55,6 +55,21 @@ export type StatView = StatDatum & {
 
 export type Tone = 'leaf' | 'ocre';
 
+/**
+ * Indicateur d'impact à valeur optionnelle. `value` absent affiche un
+ * placeholder (`--`) sans déclencher l'animation de comptage — utilisé tant
+ * que les données consolidées ne sont pas disponibles.
+ */
+export type ImpactMetricDatum = {
+  id: string;
+  icon: LucideIcon;
+  value?: number;
+  prefix?: string;
+  suffix?: string;
+  /** Unité affichée en petit à côté de la valeur (« tonnes », « m³», « ha »…). */
+  unit?: string;
+};
+
 /** Carte icône + texte (piliers, modules, bénéfices). */
 export type FeatureItem = {
   id: string;

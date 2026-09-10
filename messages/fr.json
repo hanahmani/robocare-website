@@ -700,13 +700,286 @@
   "sustainability": {
     "meta": {
       "title": "Durabilité",
-      "description": "Notre approche de l’agriculture durable — contenu à venir."
+      "description": "Découvrez comment RoboCare utilise les satellites, drones, IoT et intelligence artificielle pour accompagner une agriculture plus précise, plus résiliente et plus durable."
     },
     "hero": {
       "eyebrow": "Durabilité",
-      "title": "Une page dédiée à la durabilité arrive bientôt",
-      "intro": "Nous préparons un contenu dédié à notre approche de l’agriculture durable. Revenez bientôt.",
-      "imageAlt": "Parcelle agricole suivie par RoboCare"
+      "title": "Rendre l’agriculture plus durable, pour tous",
+      "intro": "Grâce aux données, à l’intelligence et à l’observation des cultures, RoboCare aide les agriculteurs à mieux utiliser les ressources, anticiper les risques et prendre des décisions plus responsables pour leurs exploitations.",
+      "imageAlt": "Vue aérienne d’une exploitation agricole suivie par RoboCare",
+      "ctaApproach": "Découvrir notre approche",
+      "ctaAbout": "Découvrir RoboCare",
+      "chips": {
+        "soilHealth": "Soil Health",
+        "waterStress": "Water Stress",
+        "cropHealth": "Crop Health",
+        "ndvi": "NDVI",
+        "iotSensor": "IoT Sensor",
+        "aiInsight": "AI Insight"
+      }
+    },
+    "why": {
+      "eyebrow": "Le contexte",
+      "title": "Pourquoi la durabilité est-elle importante dans l’agriculture ?",
+      "lead1": "L’agriculture doit aujourd’hui produire davantage tout en faisant face à des ressources naturelles limitées, au changement climatique et à une pression croissante sur les sols et les écosystèmes.",
+      "lead2": "Les agriculteurs doivent donc trouver un équilibre entre productivité, rentabilité et préservation des ressources naturelles. RoboCare accompagne cette transition en permettant de mieux comprendre l’état réel des cultures et d’intervenir au bon moment.",
+      "cards": {
+        "water": {
+          "title": "Préserver l’eau",
+          "text": "Optimiser l’irrigation grâce aux données issues des capteurs, des satellites et de l’observation des cultures."
+        },
+        "soil": {
+          "title": "Préserver les sols",
+          "text": "Éviter les interventions inutiles et favoriser une gestion plus précise des parcelles."
+        },
+        "footprint": {
+          "title": "Réduire l’impact environnemental",
+          "text": "Utiliser les ressources uniquement lorsque cela est nécessaire."
+        },
+        "climate": {
+          "title": "S’adapter au changement climatique",
+          "text": "Anticiper les épisodes de stress hydrique, les fortes chaleurs et les événements météorologiques."
+        }
+      }
+    },
+    "approach": {
+      "eyebrow": "Notre approche",
+      "title": "Quelles sont les solutions pour améliorer la durabilité ?",
+      "lead": "Satellite, données, analyse, décision, action, impact : un parcours en cinq étapes qui se répète à chaque campagne.",
+      "steps": {
+        "observe": {
+          "title": "Observer",
+          "text": "Satellites, drones et capteurs IoT permettent de collecter des informations sur les cultures et leur environnement."
+        },
+        "understand": {
+          "title": "Comprendre",
+          "text": "Les données sont analysées pour identifier les variations, les anomalies et les signes précoces de stress."
+        },
+        "anticipate": {
+          "title": "Anticiper",
+          "text": "Les agriculteurs peuvent détecter plus rapidement les situations nécessitant une intervention."
+        },
+        "act": {
+          "title": "Agir avec précision",
+          "text": "Les interventions peuvent être adaptées aux besoins réels des cultures et des parcelles."
+        },
+        "measure": {
+          "title": "Mesurer",
+          "text": "Les résultats permettent de suivre les progrès et d’améliorer continuellement les pratiques agricoles."
+        }
+      }
+    },
+    "technology": {
+      "eyebrow": "Les technologies",
+      "title": "La technologie au service d’une agriculture plus responsable",
+      "items": {
+        "satellite": {
+          "title": "Satellite",
+          "text": "Suivi régulier de la végétation et identification des variations au sein des parcelles."
+        },
+        "drone": {
+          "title": "Drone",
+          "text": "Observation très précise des zones agricoles lorsque cela est nécessaire."
+        },
+        "iot": {
+          "title": "IoT",
+          "text": "Collecte de données directement sur le terrain grâce aux capteurs."
+        },
+        "ai": {
+          "title": "Intelligence & analyse",
+          "text": "Transformation des données agricoles en informations utiles pour aider à la prise de décision."
+        }
+      }
+    },
+    "water": {
+      "eyebrow": "L’eau",
+      "title": "Mieux gérer l’eau, une priorité pour l’agriculture",
+      "lead1": "L’eau est l’une des ressources les plus précieuses pour l’agriculture. Une irrigation trop importante peut entraîner un gaspillage de ressources, tandis qu’une irrigation insuffisante peut provoquer un stress hydrique et affecter les rendements.",
+      "lead2": "RoboCare permet de mieux comprendre les besoins des cultures grâce à la combinaison de données provenant du terrain, des satellites et des technologies d’observation.",
+      "steps": {
+        "available": "Eau disponible",
+        "need": "Besoin réel de la plante",
+        "analysis": "Analyse des données",
+        "irrigation": "Irrigation adaptée"
+      }
+    },
+    "soil": {
+      "eyebrow": "Les sols",
+      "title": "Des sols plus sains pour une agriculture durable",
+      "lead": "La préservation des sols est essentielle à long terme. Une agriculture plus précise permet de limiter certaines interventions inutiles et d’adapter les pratiques aux caractéristiques réelles des parcelles.",
+      "checks": {
+        "health": "Santé des sols",
+        "resources": "Gestion des ressources",
+        "interventions": "Réduction des interventions inutiles"
+      },
+      "imageAlt": "Sol agricole et couverture végétale observés par RoboCare"
+    },
+    "biodiversity": {
+      "eyebrow": "Biodiversité",
+      "title": "Une agriculture qui respecte les écosystèmes",
+      "lead": "La durabilité ne concerne pas uniquement les rendements. Elle concerne également la protection des écosystèmes, de la biodiversité et des ressources naturelles. RoboCare contribue à une agriculture plus précise en aidant à mieux identifier les zones nécessitant une attention particulière et en favorisant une utilisation plus raisonnée des ressources.",
+      "cards": {
+        "biodiversity": {
+          "title": "Biodiversité",
+          "text": "Mieux repérer les zones sensibles pour adapter les pratiques agricoles autour d’elles."
+        },
+        "resources": {
+          "title": "Ressources naturelles",
+          "text": "Une utilisation plus raisonnée de l’eau, des sols et des intrants sur l’ensemble de l’exploitation."
+        },
+        "ecosystems": {
+          "title": "Écosystèmes agricoles",
+          "text": "Maintenir l’équilibre entre la production et le milieu naturel qui l’entoure."
+        }
+      }
+    },
+    "footprint": {
+      "eyebrow": "Empreinte",
+      "title": "Une agriculture plus efficace peut aussi réduire son empreinte",
+      "lead": "Optimiser les interventions peut contribuer indirectement à réduire :",
+      "list": {
+        "travel": "les déplacements inutiles",
+        "consumption": "certaines consommations de ressources",
+        "interventions": "certaines interventions répétitives",
+        "inputs": "l’utilisation excessive d’intrants",
+        "energy": "la consommation énergétique associée à certaines opérations"
+      },
+      "cycle": {
+        "observe": "Observer",
+        "analyze": "Analyser",
+        "optimize": "Optimiser",
+        "reduce": "Réduire",
+        "preserve": "Préserver"
+      },
+      "cycleTitle": "Cycle",
+      "cycleSubtitle": "d’optimisation"
+    },
+    "valueChain": {
+      "eyebrow": "Chaîne de valeur",
+      "title": "Durabilité pour le secteur agroalimentaire",
+      "lead": "La durabilité ne s’arrête pas à la parcelle. Elle concerne toute la chaîne de valeur agroalimentaire. RoboCare permet de rapprocher les données agricoles des besoins des différents acteurs.",
+      "cards": {
+        "farmers": {
+          "title": "Agriculteurs",
+          "text": "Mieux comprendre les besoins des cultures et optimiser les interventions."
+        },
+        "agrifood": {
+          "title": "Entreprises agroalimentaires",
+          "text": "Améliorer la visibilité sur les productions agricoles."
+        },
+        "advisors": {
+          "title": "Conseillers agricoles",
+          "text": "Disposer d’informations supplémentaires pour accompagner les exploitants."
+        },
+        "territories": {
+          "title": "Territoires & environnement",
+          "text": "Contribuer à une meilleure compréhension des ressources agricoles."
+        }
+      }
+    },
+    "dashboard": {
+      "eyebrow": "Tableau de bord",
+      "title": "Ce que nous avons fait jusqu’à présent",
+      "note": "Les indicateurs seront progressivement enrichis à partir des données consolidées de RoboCare.",
+      "metrics": {
+        "co2": {
+          "label": "CO₂ évité",
+          "text": "Estimation des émissions potentiellement évitées grâce à l’optimisation des interventions et des déplacements."
+        },
+        "water": {
+          "label": "Eau économisée",
+          "text": "Volume d’eau potentiellement économisé grâce à une gestion plus précise de l’irrigation."
+        },
+        "surface": {
+          "label": "Surface suivie",
+          "text": "Superficie agricole suivie et analysée grâce aux technologies RoboCare."
+        },
+        "parcels": {
+          "label": "Parcelles surveillées",
+          "text": "Nombre de parcelles bénéficiant d’un suivi régulier."
+        },
+        "farmers": {
+          "label": "Agriculteurs accompagnés",
+          "text": "Nombre d’utilisateurs et d’exploitants accompagnés par la plateforme."
+        }
+      }
+    },
+    "ecosystem": {
+      "eyebrow": "Écosystème",
+      "title": "Notre impact sur la nature",
+      "emblemTitle": "Écosystème",
+      "emblemSubtitle": "AGRICOLE",
+      "cards": {
+        "soil": {
+          "title": "Sols",
+          "text": "Préserver les ressources du sol."
+        },
+        "water": {
+          "title": "Eau",
+          "text": "Favoriser une utilisation plus raisonnée de l’eau."
+        },
+        "biodiversity": {
+          "title": "Biodiversité",
+          "text": "Encourager des pratiques agricoles respectueuses des écosystèmes."
+        },
+        "climate": {
+          "title": "Climat",
+          "text": "Aider les exploitations à mieux s’adapter aux variations climatiques."
+        },
+        "ecosystems": {
+          "title": "Écosystèmes",
+          "text": "Contribuer à maintenir l’équilibre entre production agricole et environnement."
+        }
+      }
+    },
+    "dataToImpact": {
+      "eyebrow": "Parcours",
+      "title": "De la donnée à l’impact",
+      "chain": {
+        "satellite": "Satellite",
+        "observation": "Observation",
+        "data": "Données",
+        "analysis": "Analyse",
+        "recommendation": "Recommandation",
+        "decision": "Décision",
+        "action": "Action",
+        "impact": "Impact positif"
+      }
+    },
+    "resilience": {
+      "eyebrow": "Résilience",
+      "title": "Préparer l’agriculture de demain",
+      "lead": "Face au changement climatique, à la raréfaction des ressources et à l’évolution des besoins alimentaires, l’agriculture doit devenir plus résiliente. RoboCare contribue à cette transformation en donnant aux agriculteurs une meilleure visibilité sur leurs cultures et leur environnement.",
+      "cards": {
+        "anticipate": {
+          "title": "Anticiper",
+          "text": "Identifier les signaux faibles avant qu’ils ne deviennent des problèmes majeurs.",
+          "imageAlt": "Parcelle agricole sous un ciel changeant"
+        },
+        "optimize": {
+          "title": "Optimiser",
+          "text": "Adapter les ressources et les interventions aux besoins réels.",
+          "imageAlt": "Irrigation de précision sur une parcelle RoboCare"
+        },
+        "preserve": {
+          "title": "Préserver",
+          "text": "Produire tout en protégeant les ressources naturelles.",
+          "imageAlt": "Végétation méditerranéenne en bonne santé"
+        }
+      }
+    },
+    "vision": {
+      "eyebrow": "Notre vision",
+      "title": "Produire mieux. Préserver davantage. Construire durablement.",
+      "lead1": "Nous croyons que l’avenir de l’agriculture repose sur une meilleure connaissance des cultures, une utilisation plus intelligente des ressources et une collaboration étroite entre l’agriculteur et la technologie.",
+      "lead2": "RoboCare veut contribuer à construire une agriculture plus précise, plus durable et plus résiliente.",
+      "imageAlt": "Exploitation agricole au coucher du soleil"
+    },
+    "cta": {
+      "eyebrow": "Passons à l’action",
+      "title": "Construisons ensemble une agriculture plus durable",
+      "text": "Découvrez comment RoboCare peut aider votre exploitation ou votre organisation à mieux observer, comprendre et gérer les ressources agricoles.",
+      "ctaDiscover": "Découvrir RoboCare"
     }
   },
   "technology": {
