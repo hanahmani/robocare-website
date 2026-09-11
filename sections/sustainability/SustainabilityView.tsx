@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/Button';
 import { RequestDemoButton } from '@/components/ui/RequestDemoButton';
 import { CtaBand } from '@/sections/shared/CtaBand';
 import { SustainabilityHero } from '@/sections/sustainability/SustainabilityHero';
+import { SustainabilitySteps } from '@/sections/sustainability/SustainabilitySteps';
 import { WhySustainability } from '@/sections/sustainability/WhySustainability';
 import { SustainabilityTimeline } from '@/sections/sustainability/SustainabilityTimeline';
 import { TechnologyGrid } from '@/sections/sustainability/TechnologyGrid';
@@ -31,6 +32,7 @@ export function SustainabilityView() {
   return (
     <>
       <SustainabilityHero />
+      <SustainabilitySteps />
       <WhySustainability />
       <SustainabilityTimeline />
       <TechnologyGrid />

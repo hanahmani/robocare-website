@@ -30,6 +30,30 @@ export const SUSTAINABILITY_HERO_CHIPS = [
   'aiInsight',
 ] as const;
 
+/** Étape de la méthode « Comment nous rendons l'agriculture plus durable ». */
+type SustainabilityStep = { id: 'measure' | 'decide' | 'prove'; image: string; cta?: boolean };
+
+/**
+ * Les trois étapes de la méthode — textes dans `sustainability.steps.<id>`.
+ * `cta: undefined` explicite sur les deux premières — voir la note sur
+ * `WHY_SUSTAINABILITY_CARDS`.
+ */
+export const SUSTAINABILITY_STEPS = [
+  { id: 'measure', image: '/hero/sols.jpg', cta: undefined },
+  { id: 'decide', image: '/hero/beja.webp', cta: undefined },
+  { id: 'prove', image: '/hero/e.webp', cta: true },
+] as const satisfies readonly SustainabilityStep[];
+
+/** Puces de chaque étape, dans l'ordre d'affichage — textes dans `sustainability.steps.<step>.bullets.<id>`. */
+export const SUSTAINABILITY_STEP_BULLETS = {
+  measure: ['satellite', 'sensors', 'fieldLog'],
+  decide: ['irrigationPlan', 'earlyAlert', 'targeted'],
+  prove: ['report', 'traceability', 'compliance'],
+} as const satisfies Record<SustainabilityStep['id'], readonly string[]>;
+
+/** Bandeau de résultats chiffrés qui clôt la méthode — textes dans `sustainability.steps.results.<id>`. */
+export const SUSTAINABILITY_RESULTS = ['water', 'inputs', 'yield'] as const;
+
 /**
  * Pourquoi la durabilité — textes dans `sustainability.why.cards.<id>`.
  * `tone: undefined` sur les deux éléments qui n'en ont pas : `as const` sur un

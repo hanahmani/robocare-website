@@ -718,6 +718,66 @@
         "aiInsight": "AI Insight"
       }
     },
+    "steps": {
+      "eyebrow": "Our method",
+      "title": "How we make agriculture more sustainable",
+      "lead": "Sustainability starts with numbers. RoboCare measures what is actually happening in the field, then helps the farm use less water, fewer inputs and less energy — without losing yield.",
+      "measure": {
+        "phase": "Measure",
+        "title": "We collect real data",
+        "text": "Satellite imagery, soil sensors and field records entered by the farmer all land in the same place. The farm starts from an objective baseline, not a guess.",
+        "bullets": {
+          "satellite": "Vegetation index per field, updated every 5 days",
+          "sensors": "Continuous soil moisture and local weather",
+          "fieldLog": "Interventions logged from the phone, even offline"
+        },
+        "imageAlt": "Farmer checking field conditions on a tablet",
+        "chip": {
+          "label": "Soil moisture — field B4",
+          "value": "28%",
+          "note": "threshold reached"
+        }
+      },
+      "decide": {
+        "phase": "Decide",
+        "title": "We turn that data into decisions",
+        "text": "Our models calculate the real need of each zone: when to irrigate, how much, where to treat and where to do nothing. The farmer gets a dated recommendation, not a table of numbers to interpret.",
+        "bullets": {
+          "irrigationPlan": "Irrigation plan adjusted to the next 7 days of weather",
+          "earlyAlert": "Early warning for water stress and disease",
+          "targeted": "Treatment localized to the affected zones only"
+        },
+        "imageAlt": "Dosage recommendation displayed in the field, in a wheat plot",
+        "chip": {
+          "label": "Nitrogen recommendation — field A2",
+          "value": "18 kg/ha",
+          "note": "targeted zone"
+        }
+      },
+      "prove": {
+        "phase": "Prove",
+        "title": "We make the gains verifiable",
+        "text": "Every season, the farm gets a detailed report: water saved, inputs avoided, pumping energy, a complete history of interventions. Enough to answer a buyer, a lender or an export audit.",
+        "bullets": {
+          "report": "Detailed season report, field by field",
+          "traceability": "Complete, exportable history of interventions",
+          "compliance": "Enough to answer a buyer, a lender or an audit"
+        },
+        "imageAlt": "Wheat field ready for harvest, monitored by RoboCare sensors",
+        "chip": {
+          "label": "Season report — 2026",
+          "value": "1,840 m³",
+          "note": "of water saved"
+        },
+        "cta": "Request a demo"
+      },
+      "results": {
+        "water": { "value": "−30%", "label": "water used on monitored fields" },
+        "inputs": { "value": "−22%", "label": "crop protection products through targeting" },
+        "yield": { "value": "+15%", "label": "average yield observed after one season" }
+      },
+      "resultsNote": "Indicative figures — replace with your own measured field results."
+    },
     "why": {
       "eyebrow": "The context",
       "title": "Why does sustainability matter in agriculture?",

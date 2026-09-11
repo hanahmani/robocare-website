@@ -718,6 +718,66 @@
         "aiInsight": "AI Insight"
       }
     },
+    "steps": {
+      "eyebrow": "Notre méthode",
+      "title": "Comment nous rendons l’agriculture plus durable",
+      "lead": "La durabilité commence par des chiffres. RoboCare mesure ce qui se passe réellement à la parcelle, puis aide l’exploitation à consommer moins d’eau, moins d’intrants et moins d’énergie — sans perdre de rendement.",
+      "measure": {
+        "phase": "Mesurer",
+        "title": "Nous collectons des données réelles",
+        "text": "Images satellites, capteurs de sol et relevés faits au champ par l’agriculteur arrivent au même endroit. L’exploitation démarre avec un point de départ objectif, pas une estimation.",
+        "bullets": {
+          "satellite": "Indice de végétation par parcelle, mis à jour tous les 5 jours",
+          "sensors": "Humidité du sol et météo locale en continu",
+          "fieldLog": "Interventions saisies depuis le téléphone, même hors connexion"
+        },
+        "imageAlt": "Agriculteur relevant l’état de sa parcelle sur tablette",
+        "chip": {
+          "label": "Humidité du sol — parcelle B4",
+          "value": "28 %",
+          "note": "seuil atteint"
+        }
+      },
+      "decide": {
+        "phase": "Décider",
+        "title": "Nous transformons ces données en décisions",
+        "text": "Nos modèles calculent le besoin réel de chaque zone : quand irriguer, combien, où traiter et où ne rien faire. L’agriculteur reçoit une recommandation datée, pas un tableau de chiffres à interpréter.",
+        "bullets": {
+          "irrigationPlan": "Plan d’irrigation ajusté à la météo des 7 prochains jours",
+          "earlyAlert": "Alerte précoce de stress hydrique et de maladie",
+          "targeted": "Traitement localisé sur les zones concernées uniquement"
+        },
+        "imageAlt": "Recommandation de dosage affichée au champ, dans une parcelle de blé",
+        "chip": {
+          "label": "Recommandation azote — parcelle A2",
+          "value": "18 kg/ha",
+          "note": "zone ciblée"
+        }
+      },
+      "prove": {
+        "phase": "Prouver",
+        "title": "Nous rendons les gains vérifiables",
+        "text": "Chaque saison, l’exploitation obtient un bilan chiffré : eau économisée, intrants évités, énergie de pompage, historique complet des interventions. De quoi répondre à un acheteur, à un bailleur ou à un audit d’export.",
+        "bullets": {
+          "report": "Bilan de saison détaillé, parcelle par parcelle",
+          "traceability": "Historique complet des interventions, exportable",
+          "compliance": "De quoi répondre à un acheteur, un bailleur ou un audit"
+        },
+        "imageAlt": "Champ de blé prêt pour la moisson, suivi par capteurs RoboCare",
+        "chip": {
+          "label": "Bilan de saison — 2026",
+          "value": "1 840 m³",
+          "note": "d’eau économisés"
+        },
+        "cta": "Demander une démonstration"
+      },
+      "results": {
+        "water": { "value": "−30 %", "label": "d’eau consommée sur les parcelles pilotées" },
+        "inputs": { "value": "−22 %", "label": "de produits phytosanitaires grâce au ciblage" },
+        "yield": { "value": "+15 %", "label": "de rendement moyen constaté après une saison" }
+      },
+      "resultsNote": "Chiffres indicatifs — à remplacer par vos résultats terrain mesurés."
+    },
     "why": {
       "eyebrow": "Le contexte",
       "title": "Pourquoi la durabilité est-elle importante dans l’agriculture ?",

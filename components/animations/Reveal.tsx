@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, type Variants } from 'framer-motion';
-import type { ElementType, ReactNode } from 'react';
+import { forwardRef, type ElementType, type ReactNode, type Ref } from 'react';
 import { useDirection } from '@/i18n';
 import { fadeUp, fadeIn, slideInLeft, slideInRight, scaleIn, VIEWPORT } from '@/lib/motion';
 
@@ -40,12 +40,16 @@ function mirror(from: Preset, isRtl: boolean): Preset {
  * Le délai passe par `custom`, pas par la prop `transition` : framer donne la
  * priorité à la transition définie dans le variant et ignorerait `transition`.
  */
-export function Reveal({ children, from = 'up', delay = 0, className, as = 'div', id }: RevealProps) {
+export const Reveal = forwardRef<HTMLElement, RevealProps>(function Reveal(
+  { children, from = 'up', delay = 0, className, as = 'div', id },
+  ref,
+) {
   const { isRtl } = useDirection();
   const MotionTag = motion[as as keyof typeof motion] as typeof motion.div;
 
   return (
     <MotionTag
+      ref={ref as Ref<HTMLDivElement>}
       id={id}
       className={className}
       variants={PRESETS[mirror(from, isRtl)]}
@@ -57,4 +61,4 @@ export function Reveal({ children, from = 'up', delay = 0, className, as = 'div'
       {children}
     </MotionTag>
   );
-}
+});

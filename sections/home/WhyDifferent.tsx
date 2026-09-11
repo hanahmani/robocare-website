@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { Differentiator } from '@/types';
 import { Reveal } from '@/components/animations/Reveal';
 import { Section } from '@/components/ui/Section';
@@ -36,6 +36,7 @@ export function WhyDifferent() {
 
   const [rotation, setRotation] = useState(0);
   const [openId, setOpenId] = useState<(typeof HOME_DIFFERENTIATORS)[number]['id'] | null>(null);
+  const diagramRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (reduced || openId) return;
@@ -44,6 +45,18 @@ export function WhyDifferent() {
     }, TICK_MS);
     return () => clearInterval(id);
   }, [reduced, openId]);
+
+  // Un clic hors du diagramme referme la fiche et relance la rotation automatique.
+  useEffect(() => {
+    if (!openId) return;
+    function handlePointerDown(event: PointerEvent) {
+      if (diagramRef.current && !diagramRef.current.contains(event.target as Node)) {
+        setOpenId(null);
+      }
+    }
+    document.addEventListener('pointerdown', handlePointerDown);
+    return () => document.removeEventListener('pointerdown', handlePointerDown);
+  }, [openId]);
 
   function select(id: (typeof HOME_DIFFERENTIATORS)[number]['id']) {
     if (openId === id) {
@@ -66,6 +79,7 @@ export function WhyDifferent() {
 
       <div className="mt-section-gap grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <Reveal
+          ref={diagramRef}
           from="scale"
           className="relative mx-auto aspect-square w-full max-w-[480px] overflow-hidden rounded-panel border border-forest-950/[0.08] bg-white p-6 shadow-soft [container-type:inline-size]"
         >
