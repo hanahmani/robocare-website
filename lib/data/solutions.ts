@@ -17,11 +17,11 @@ export type SolutionSlug = (typeof SOLUTIONS)[number]['slug'];
  * expliquent ce sur quoi reposent les quatre solutions ci-dessus.
  */
 export const SOLUTION_CONCEPTS = [
-  { id: 'precision', icon: Crosshair },
   { id: 'satellite', icon: Satellite },
-  { id: 'iot', icon: Radio, tone: 'ocre' },
   { id: 'drone', icon: Workflow, tone: 'ocre' },
+  { id: 'iot', icon: Radio, tone: 'ocre' },
   { id: 'ai', icon: Cpu },
+  { id: 'precision', icon: Crosshair },
   { id: 'irrigation', icon: Droplets },
 ] as const satisfies readonly FeatureItem[];
 
