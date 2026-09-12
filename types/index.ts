@@ -77,12 +77,6 @@ export type FeatureItem = {
   tone?: Tone;
 };
 
-/** Nœud de l'orbite « En quoi RoboCare est différent ». */
-export type Differentiator = {
-  id: 'data' | 'agronomy' | 'technology';
-  icon: LucideIcon;
-};
-
 /** Solution par culture — visuels et identifiants uniquement. */
 export type Solution = {
   slug: 'olive-care' | 'cereal-care' | 'citrus-care' | 'greenhouse-care';

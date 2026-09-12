@@ -55,6 +55,16 @@ const config: Config = {
         },
         cream: '#EAF4E3',
         danger: '#D8232A',
+        // Diagramme d'intersection « En quoi RoboCare est différent ».
+        agro: '#2CA14A',
+        data: '#6E747C',
+        tech: '#14532D',
+        core: '#1C7A3C',
+        // Onglets « Solutions par culture » — un accent par culture.
+        solutionOlive: '#8DBF4A',
+        solutionCereal: '#2E9E4F',
+        solutionCitrus: '#13847A',
+        solutionGreenhouse: '#0D4A2A',
       },
       fontFamily: {
         // `--font-arabic` est placé juste après la police latine : le navigateur

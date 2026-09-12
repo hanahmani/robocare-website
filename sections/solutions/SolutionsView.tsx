@@ -13,8 +13,9 @@ import { Reveal } from '@/components/animations/Reveal';
 import { Stagger, StaggerItem } from '@/components/animations/Stagger';
 import { CtaBand } from '@/sections/shared/CtaBand';
 import { FarmingConcepts } from '@/sections/solutions/FarmingConcepts';
-import { SolutionBlock } from '@/sections/solutions/SolutionBlock';
 import { SolutionsComparison } from '@/sections/solutions/SolutionsComparison';
+import { SolutionsTabs } from '@/components/sections/SolutionsTabs';
+import { parseMetric, type SolutionId, type SolutionTabContent } from '@/components/sections/solutions-content';
 import { PlatformShowcase } from '@/sections/platform/PlatformShowcase';
 import { PlatformCapabilities } from '@/sections/platform/PlatformCapabilities';
 import { PlatformArchitecture } from '@/sections/platform/PlatformArchitecture';
@@ -34,6 +35,22 @@ export function SolutionsView() {
     question: d.solutions.faq.items[id].question,
     answer: d.solutions.faq.items[id].answer,
   }));
+
+  const tabsContent: SolutionTabContent[] = SOLUTIONS.map((solution) => {
+    const copy = items[solution.slug];
+    const id = solution.slug.replace('-care', '') as SolutionId;
+    const { value, unit } = parseMetric(copy.metric);
+    return {
+      id,
+      name: copy.brand,
+      crop: copy.short,
+      lede: copy.description,
+      result: { value, unit, baseline: t('solutions.comparison.note') },
+      tracks: copy.points,
+      outcome: copy.outcomes.join(' · '),
+      image: { src: solution.image, alt: copy.imageAlt },
+    };
+  });
 
   return (
     <>
@@ -73,16 +90,10 @@ export function SolutionsView() {
         </div>
       </PageHero>
 
-      {/* Une section par solution, rythme varié (fond, poids visuel, côté) */}
-      {SOLUTIONS.map((solution, index) => (
-        <SolutionBlock
-          key={solution.slug}
-          solution={solution}
-          copy={items[solution.slug]}
-          index={index}
-          total={SOLUTIONS.length}
-        />
-      ))}
+      {/* Les quatre solutions, à onglets : un seul bloc au lieu de quatre sections empilées */}
+      <Section>
+        <SolutionsTabs solutions={tabsContent} />
+      </Section>
 
       {/* Comparatif synthétique */}
       <SolutionsComparison />
