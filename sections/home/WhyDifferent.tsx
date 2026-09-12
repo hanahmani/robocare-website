@@ -13,8 +13,16 @@ import { DEFAULT_DIFFERENCE_CONTENT } from '@/components/sections/difference-con
  * alors que le propos est une intersection.
  */
 export function WhyDifferent() {
-  const { t } = useTranslation();
-  const results = DEFAULT_DIFFERENCE_CONTENT.results;
+  const { t, d } = useTranslation();
+  const items = d.home.different.items;
+  const results = DEFAULT_DIFFERENCE_CONTENT.results.map((result, index) => ({
+    ...result,
+    // Réutilise les textes existants (productivité, durabilité, coûts) — seule
+    // « Traçabilité » n'a pas d'équivalent dans l'ancienne liste numérotée.
+    text: [items.productivity, items.sustainability, items.risk, "Un historique daté et exportable, à chaque étape."][
+      index
+    ],
+  }));
 
   return (
     <Section>
@@ -37,6 +45,7 @@ export function WhyDifferent() {
             )}
           >
             <p className="text-[15px] font-semibold text-ink-900">{result.label}</p>
+            <p className="mt-2.5 text-[13.5px] leading-[1.55] text-ink-500">{result.text}</p>
           </div>
         ))}
       </div>
