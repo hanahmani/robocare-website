@@ -5,7 +5,6 @@ import { Section } from '@/components/ui/Section';
 import { useTranslation } from '@/i18n';
 import { cn } from '@/lib/utils';
 import { DifferenceVenn } from '@/components/sections/DifferenceVenn';
-import { DEFAULT_DIFFERENCE_CONTENT } from '@/components/sections/difference-content';
 
 /**
  * « En quoi RoboCare est différent » : diagramme d'intersection (agronomie ×
@@ -14,15 +13,7 @@ import { DEFAULT_DIFFERENCE_CONTENT } from '@/components/sections/difference-con
  */
 export function WhyDifferent() {
   const { t, d } = useTranslation();
-  const items = d.home.different.items;
-  const results = DEFAULT_DIFFERENCE_CONTENT.results.map((result, index) => ({
-    ...result,
-    // Réutilise les textes existants (productivité, durabilité, coûts) — seule
-    // « Traçabilité » n'a pas d'équivalent dans l'ancienne liste numérotée.
-    text: [items.productivity, items.sustainability, items.risk, "Un historique daté et exportable, à chaque étape."][
-      index
-    ],
-  }));
+  const results = d.home.difference.results;
 
   return (
     <Section>
@@ -32,7 +23,7 @@ export function WhyDifferent() {
       </Reveal>
 
       <div className="mt-section-gap">
-        <DifferenceVenn />
+        <DifferenceVenn zones={d.home.difference} />
       </div>
 
       <div className="mt-section-gap grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4 sm:gap-x-0">

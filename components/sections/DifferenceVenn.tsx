@@ -148,7 +148,7 @@ export function DifferenceVenn({ zones = DEFAULT_DIFFERENCE_CONTENT }: Differenc
                 active === id ? PILL_ACTIVE_CLASS[id] : 'border-[rgba(21,32,26,.12)] text-[#15201A] hover:bg-black/[0.03]',
               )}
             >
-              {zones.labels[id].pillLabel}
+              {zones.labels[id].label}
             </button>
           ))}
           <button

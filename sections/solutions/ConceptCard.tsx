@@ -2,6 +2,7 @@
 
 import { useId, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { useTranslation } from '@/i18n';
 import { cn, pad2 } from '@/lib/utils';
 
 type ConceptTone = 'leaf' | 'ocre';
@@ -45,6 +46,7 @@ type Props = {
  * ligne, et le détail technique derrière une disclosure.
  */
 export function ConceptCard({ index, copy, tone, revealed, delayMs, reduced }: Props) {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const panelId = useId();
 
@@ -110,7 +112,7 @@ export function ConceptCard({ index, copy, tone, revealed, delayMs, reduced }: P
           FOCUS_RING[tone],
         )}
       >
-        {open ? 'Close' : 'How it works'}
+        {open ? t('solutions.labels.close') : t('solutions.labels.howItWorks')}
         <ChevronDown
           size={15}
           aria-hidden

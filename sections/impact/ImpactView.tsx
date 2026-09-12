@@ -42,7 +42,7 @@ export function ImpactView() {
         eyebrow={t('impact.hero.eyebrow')}
         title={t('impact.hero.title')}
         intro={t('impact.hero.intro')}
-        image="/hero/beja.webp"
+        image="/hero/impact.png"
         imageAlt={t('impact.hero.imageAlt')}
         crumbs={[{ labelKey: 'nav.impact' }]}
         actions={

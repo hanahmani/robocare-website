@@ -9,11 +9,7 @@ import { VideoPlayer, type VideoPlayerHandle } from '@/components/visuals/VideoP
 const RISE_EASE = [0.22, 1, 0.36, 1] as const;
 const ACCENT = '#3F9C4A';
 
-const CHAPTERS = [
-  { time: 0, label: 'Les parcelles suivies en imagerie satellitaire' },
-  { time: 39, label: 'RoboCare présenté par Dr. Imen Hbiri' },
-  { time: 136, label: "L'application RoboCare en démonstration" },
-] as const;
+const CHAPTER_TIMES = [0, 39, 136] as const;
 
 function formatTimecode(seconds: number): string {
   const m = Math.floor(seconds / 60);
@@ -55,16 +51,21 @@ export function VideoShowcase({ showChapters = true, accent = ACCENT }: { showCh
 
   const [currentTime, setCurrentTime] = useState(0);
 
+  const chapters = useMemo(
+    () => CHAPTER_TIMES.map((time, index) => ({ time, label: t.list('home.videoShowcase.chapters')[index] })),
+    [t],
+  );
+
   const activeChapter = useMemo(() => {
     let index = 0;
-    CHAPTERS.forEach((chapter, i) => {
+    chapters.forEach((chapter, i) => {
       if (currentTime + 0.5 >= chapter.time) index = i;
     });
     return index;
-  }, [currentTime]);
+  }, [currentTime, chapters]);
 
   const goToChapter = (index: number) => {
-    playerRef.current?.seekTo(CHAPTERS[index].time);
+    playerRef.current?.seekTo(chapters[index].time);
   };
 
   const rise = (delay: number) => ({
@@ -121,7 +122,7 @@ export function VideoShowcase({ showChapters = true, accent = ACCENT }: { showCh
 
           {showChapters ? (
             <motion.div {...rise(0.24)} className="mt-2 border-t border-[rgba(18,33,26,.08)]">
-              {CHAPTERS.map((chapter, index) => {
+              {chapters.map((chapter, index) => {
                 const isActive = index === activeChapter;
                 return (
                   <button
@@ -163,11 +164,11 @@ export function VideoShowcase({ showChapters = true, accent = ACCENT }: { showCh
               onClick={() => goToChapter(0)}
               className="inline-flex items-center gap-2.5 rounded-full bg-[#12211A] px-6 py-3.5 font-semibold text-white shadow-[0_12px_26px_rgba(16,40,26,.16)] transition-transform duration-[350ms] ease-[cubic-bezier(.2,.8,.3,1)] hover:-translate-y-0.5 hover:shadow-[0_16px_32px_rgba(16,40,26,.22)]"
             >
-              Voir la démonstration
+              {t('home.videoShowcase.cta')}
               <span aria-hidden>→</span>
             </button>
             <span className="font-mono text-[11.5px] uppercase tracking-[0.1em] text-[#8A9990]">
-              2 min 48 · Sfax, 2025
+              {t('home.videoShowcase.duration')}
             </span>
           </motion.div>
         </div>
@@ -182,7 +183,7 @@ export function VideoShowcase({ showChapters = true, accent = ACCENT }: { showCh
             ref={playerRef}
             src="/vd_robocare.mp4"
             poster="/hero/satellite-field.webp"
-            badgeLabel="Terrain · Oliveraie"
+            badgeLabel={t('home.videoShowcase.badge')}
             onTimeUpdate={setCurrentTime}
           />
         </motion.div>

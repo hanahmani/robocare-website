@@ -35,7 +35,10 @@
     "playVideo": "Lire la vidéo",
     "pauseVideo": "Mettre en pause",
     "muteVideo": "Couper le son",
-    "unmuteVideo": "Activer le son"
+    "unmuteVideo": "Activer le son",
+    "previousTestimonial": "Témoignage précédent",
+    "nextTestimonial": "Témoignage suivant",
+    "solutionsTablist": "Solutions par culture"
   },
   "languages": {
     "fr": "Français",
@@ -152,6 +155,63 @@
         }
       }
     },
+    "difference": {
+      "corePillLabel": "Le recouvrement",
+      "coreDiskLabel": "RoboCare",
+      "labels": {
+        "agro": { "label": "Agronomie", "sublabel": "Expertise terrain" },
+        "data": { "label": "Data science", "sublabel": "Data science" },
+        "tech": { "label": "Technologie", "sublabel": "Ingénierie produit" }
+      },
+      "states": {
+        "core": {
+          "eyebrow": "Le recouvrement",
+          "title": "L’intersection, pas l’addition",
+          "paragraph": "Notre force vient de l’intégration de l’agronomie, de la data science et de technologies de pointe : chaque paire de métiers produit quelque chose qu’aucun des deux ne produit seul.",
+          "points": [
+            { "title": "Agronomie × Data science", "text": "Des seuils calibrés sur des séries tunisiennes, au lieu de seuils importés." },
+            { "title": "Data science × Technologie", "text": "Une alerte automatique dans les 24 h qui suivent le passage satellite." },
+            { "title": "Agronomie × Technologie", "text": "Une consigne lisible par le chef de culture comme par l’ouvrier." }
+          ]
+        },
+        "agro": {
+          "eyebrow": "Agronomie",
+          "title": "Savoir ce qu’un chiffre veut dire sur une parcelle",
+          "paragraph": "L’expertise de terrain qui donne un sens agronomique à chaque mesure, avant toute décision.",
+          "points": [
+            { "title": "Itinéraires locaux", "text": "Olivier conduit en sec, céréales pluviales, maraîchage sous abri." },
+            { "title": "Seuils d’intervention", "text": "À partir de quel écart une action se justifie économiquement." },
+            { "title": "Lecture du symptôme", "text": "Distinguer un stress hydrique d’une carence." }
+          ]
+        },
+        "data": {
+          "eyebrow": "Data science",
+          "title": "Séparer le signal du bruit propre à la parcelle",
+          "paragraph": "Des modèles entraînés sur le terrain tunisien, qui distinguent une vraie anomalie du bruit de mesure.",
+          "points": [
+            { "title": "Indices par zone", "text": "NDVI, NDRE, NDWI, SAVI — jamais en moyenne de parcelle." },
+            { "title": "Séries locales", "text": "Entraînement sur l’historique tunisien, ré-entraînement chaque saison." },
+            { "title": "Détection d’écart", "text": "Alerte au-delà du bruit mesuré, pas sur un seuil fixe." }
+          ]
+        },
+        "tech": {
+          "eyebrow": "Technologie",
+          "title": "Mesurer en continu et faire arriver la consigne",
+          "paragraph": "L’ingénierie qui relie la mesure de terrain à la personne qui doit agir, sans perdre de temps.",
+          "points": [
+            { "title": "Trois sources", "text": "Satellite tous les 5 jours, capteurs toutes les 15 min, drone à la demande." },
+            { "title": "Trois canaux", "text": "E-mail, SMS, WhatsApp." },
+            { "title": "Trois langues", "text": "FR, EN, AR, rapports exportés inclus." }
+          ]
+        }
+      },
+      "results": [
+        { "label": "Rendement", "text": "Maximisent la productivité des cultures" },
+        { "label": "Durabilité", "text": "Renforcent la durabilité grâce à l’agriculture de précision" },
+        { "label": "Coûts", "text": "Réduisent les risques et les coûts opérationnels" },
+        { "label": "Traçabilité", "text": "Un historique daté et exportable, à chaque étape." }
+      ]
+    },
     "about": {
       "eyebrow": "Qui nous sommes",
       "title": "L’agronomie d’abord, la technologie au service de la décision",
@@ -193,7 +253,15 @@
     "videoShowcase": {
       "eyebrow": "En démonstration",
       "title": "RoboCare en action, sur le terrain",
-      "subtitle": "De la capture satellite à l'alerte sur le terrain : découvrez la plateforme et ses solutions en vidéo."
+      "subtitle": "De la capture satellite à l'alerte sur le terrain : découvrez la plateforme et ses solutions en vidéo.",
+      "chapters": [
+        "Les parcelles suivies en imagerie satellitaire",
+        "RoboCare présenté par Dr. Imen Hbiri",
+        "L’application RoboCare en démonstration"
+      ],
+      "cta": "Voir la démonstration",
+      "duration": "2 min 48 · Sfax, 2025",
+      "badge": "Terrain · Oliveraie"
     },
     "why": {
       "eyebrow": "Pourquoi RoboCare",
@@ -295,6 +363,8 @@
   },
   "appWindow": {
     "title": "Domaine El Hancha · 42 parcelles",
+    "domainLabel": "Domaine",
+    "upToDate": "À jour",
     "kpis": {
       "area": {
         "label": "Surface",
@@ -311,7 +381,14 @@
     },
     "chart": {
       "label": "NDVI · 12 semaines"
-    }
+    },
+    "legend": {
+      "low": "Faible",
+      "medium": "Moyen",
+      "vigorous": "Vigoureux",
+      "stress": "Stress"
+    },
+    "parcelAlert": "Parcelle 17 · stress hydrique"
   },
   "solutions": {
     "meta": {
@@ -326,7 +403,10 @@
     },
     "labels": {
       "whatYouTrack": "Ce que vous suivez",
-      "expectedOutcomes": "Résultats attendus"
+      "expectedOutcomes": "Résultats attendus",
+      "whatChanges": "Ce que ça change",
+      "howItWorks": "Comment ça marche",
+      "close": "Fermer"
     },
     "comparison": {
       "eyebrow": "En un coup d’œil",

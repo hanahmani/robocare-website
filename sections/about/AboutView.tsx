@@ -36,7 +36,7 @@ export function AboutView() {
         eyebrow={t('about.hero.eyebrow')}
         title={t('about.hero.title')}
         intro={t('about.hero.intro')}
-        image="/hero/team.webp"
+        image="/hero/team.jpg"
         imageAlt={t('about.hero.imageAlt')}
         crumbs={[{ labelKey: 'nav.about' }]}
         actions={

@@ -27,10 +27,10 @@ const PARCELS: { points: string; fill: string }[] = [
 const STRESS_MARKER = { x: 207, y: 107 };
 
 const LEGEND = [
-  { label: 'Faible', color: '#C9E4D0' },
-  { label: 'Moyen', color: '#8CC79B' },
-  { label: 'Vigoureux', color: '#2F7D3A' },
-  { label: 'Stress', color: '#E0A44A' },
+  { id: 'low', color: '#C9E4D0' },
+  { id: 'medium', color: '#8CC79B' },
+  { id: 'vigorous', color: '#2F7D3A' },
+  { id: 'stress', color: '#E0A44A' },
 ] as const;
 
 /** Fenêtre applicative : carte de parcelles, KPI et courbe NDVI (aperçu plateforme, page d'accueil). */
@@ -49,12 +49,12 @@ export function AppWindow() {
       <div className="p-4 sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-2.5">
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#9AA8A0]">Domaine</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#9AA8A0]">{d.appWindow.domainLabel}</p>
             <p className="mt-1 text-[15px] font-semibold text-[#0C1A12]">{d.appWindow.title}</p>
           </div>
           <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F1F7F2] px-3 py-1.5 text-[12px] font-medium text-[#2F7D3A]">
             <span aria-hidden className="h-[6px] w-[6px] rounded-full bg-[#3F9C4A]" />
-            À jour
+            {d.appWindow.upToDate}
           </span>
         </div>
 
@@ -94,18 +94,18 @@ export function AppWindow() {
 
           <div className="absolute bottom-3 left-3 flex items-center gap-2 rounded-full bg-white/95 px-3 py-1.5 shadow-[0_4px_14px_rgba(16,40,26,.12)]">
             <span aria-hidden className="h-[7px] w-[7px] shrink-0 rounded-full bg-[#E0A44A]" />
-            <span className="text-[12px] font-medium text-[#0C1A12]">Parcelle 17 · stress hydrique</span>
+            <span className="text-[12px] font-medium text-[#0C1A12]">{d.appWindow.parcelAlert}</span>
           </div>
         </div>
 
         <div dir="ltr" className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1.5">
           {LEGEND.map((item) => (
             <span
-              key={item.label}
+              key={item.id}
               className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.08em] text-[#9AA8A0]"
             >
               <span aria-hidden className="h-[9px] w-[9px] shrink-0 rounded-full" style={{ background: item.color }} />
-              {item.label}
+              {d.appWindow.legend[item.id]}
             </span>
           ))}
         </div>

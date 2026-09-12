@@ -3,6 +3,7 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Pause, Play, Volume2, VolumeX } from 'lucide-react';
+import { useTranslation } from '@/i18n';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 export type VideoPlayerHandle = {
@@ -39,6 +40,7 @@ export const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(funct
   { src, poster, badgeLabel, onTimeUpdate },
   ref,
 ) {
+  const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const reduced = usePrefersReducedMotion();
@@ -140,7 +142,7 @@ export const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(funct
         <button
           type="button"
           onClick={togglePlay}
-          aria-label={isPlaying ? 'Mettre la vidéo en pause' : 'Lire la vidéo'}
+          aria-label={isPlaying ? t('a11y.pauseVideo') : t('a11y.playVideo')}
           className={[
             'absolute inset-0 m-auto flex h-[64px] w-[64px] items-center justify-center rounded-full bg-[#7BC85F]',
             'shadow-[0_18px_40px_rgba(12,26,18,.35)] transition-[transform,background-color,opacity] duration-300 ease-out',
@@ -164,7 +166,7 @@ export const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(funct
         <button
           type="button"
           onClick={toggleMute}
-          aria-label={isMuted ? 'Activer le son' : 'Couper le son'}
+          aria-label={isMuted ? t('a11y.unmuteVideo') : t('a11y.muteVideo')}
           className="absolute bottom-[22px] right-3.5 flex h-[42px] w-[42px] items-center justify-center rounded-full bg-[#12211A]/50 text-white backdrop-blur-[8px] transition-transform duration-300 ease-out hover:scale-110"
         >
           {isMuted ? <VolumeX size={17} aria-hidden /> : <Volume2 size={17} aria-hidden />}

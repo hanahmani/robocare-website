@@ -11,6 +11,7 @@ import {
 } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { useTranslation } from '@/i18n';
 import { cn } from '@/lib/utils';
 import {
   DEFAULT_SOLUTIONS,
@@ -48,6 +49,7 @@ type SolutionsTabsProps = {
  * au clic, au clavier ou au survol d'un raccourci d'ancre existant.
  */
 export function SolutionsTabs({ solutions = DEFAULT_SOLUTIONS }: SolutionsTabsProps) {
+  const { t } = useTranslation();
   const [activeId, setActiveId] = useState<SolutionId>(solutions[0].id);
   const reduced = useReducedMotion();
   const isWide = useMediaQuery('(min-width: 900px)');
@@ -130,7 +132,7 @@ export function SolutionsTabs({ solutions = DEFAULT_SOLUTIONS }: SolutionsTabsPr
       <div
         ref={railRef}
         role="tablist"
-        aria-label="Solutions par culture"
+        aria-label={t('a11y.solutionsTablist')}
         className="relative grid grid-cols-1 border-b border-[rgba(21,32,26,.12)] min-[560px]:grid-cols-2 min-[900px]:grid-cols-4"
       >
         {solutions.map((solution, index) => {
@@ -220,6 +222,7 @@ function SolutionPanel({
   isActive: boolean;
   reduced: boolean;
 }) {
+  const { t } = useTranslation();
   const displayed = useCountUp(solution.result.value, isActive, reduced);
   const sign = solution.result.value < 0 ? '−' : solution.result.value > 0 ? '+' : '';
   const accent = ACCENTS[solution.id];
@@ -282,7 +285,7 @@ function SolutionPanel({
         </div>
 
         <p className="mt-6 text-[14px] leading-[1.6] text-[#6B7280]">
-          <span className="font-semibold text-ink-900">Ce que ça change : </span>
+          <span className="font-semibold text-ink-900">{t('solutions.labels.whatChanges')}: </span>
           {solution.outcome}
         </p>
       </div>

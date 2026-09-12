@@ -35,7 +35,10 @@
     "playVideo": "Play video",
     "pauseVideo": "Pause video",
     "muteVideo": "Mute",
-    "unmuteVideo": "Unmute"
+    "unmuteVideo": "Unmute",
+    "previousTestimonial": "Previous testimonial",
+    "nextTestimonial": "Next testimonial",
+    "solutionsTablist": "Solutions by crop"
   },
   "languages": {
     "fr": "Français",
@@ -152,6 +155,63 @@
         }
       }
     },
+    "difference": {
+      "corePillLabel": "The overlap",
+      "coreDiskLabel": "RoboCare",
+      "labels": {
+        "agro": { "label": "Agronomy", "sublabel": "Field expertise" },
+        "data": { "label": "Data science", "sublabel": "Data science" },
+        "tech": { "label": "Technology", "sublabel": "Product engineering" }
+      },
+      "states": {
+        "core": {
+          "eyebrow": "The overlap",
+          "title": "The intersection, not the addition",
+          "paragraph": "Our strength comes from the integration of agronomy, data science, and cutting-edge technology: each pair of disciplines produces something neither produces alone.",
+          "points": [
+            { "title": "Agronomy × Data science", "text": "Thresholds calibrated on Tunisian series, instead of imported thresholds." },
+            { "title": "Data science × Technology", "text": "An automatic alert within 24 hours of the satellite pass." },
+            { "title": "Agronomy × Technology", "text": "An instruction both the crop manager and the field worker can read." }
+          ]
+        },
+        "agro": {
+          "eyebrow": "Agronomy",
+          "title": "Knowing what a number actually means on a field",
+          "paragraph": "Field expertise that gives agronomic meaning to every measurement, before any decision.",
+          "points": [
+            { "title": "Local practices", "text": "Rainfed or irrigated olive groves, rainfed cereals, sheltered market gardening." },
+            { "title": "Action thresholds", "text": "The deviation beyond which an action is economically justified." },
+            { "title": "Reading the symptom", "text": "Telling water stress apart from a nutrient deficiency." }
+          ]
+        },
+        "data": {
+          "eyebrow": "Data science",
+          "title": "Separating signal from field-level noise",
+          "paragraph": "Models trained on Tunisian fields, built to tell a real anomaly from measurement noise.",
+          "points": [
+            { "title": "Zone-level indices", "text": "NDVI, NDRE, NDWI, SAVI — never averaged across the whole field." },
+            { "title": "Local series", "text": "Trained on Tunisian history, retrained every season." },
+            { "title": "Deviation detection", "text": "Alerts beyond measured noise, not a fixed threshold." }
+          ]
+        },
+        "tech": {
+          "eyebrow": "Technology",
+          "title": "Measuring continuously and getting the instruction there",
+          "paragraph": "The engineering that connects field measurement to the person who needs to act, without delay.",
+          "points": [
+            { "title": "Three sources", "text": "Satellite every 5 days, sensors every 15 minutes, drone on demand." },
+            { "title": "Three channels", "text": "Email, SMS, WhatsApp." },
+            { "title": "Three languages", "text": "FR, EN, AR, exported reports included." }
+          ]
+        }
+      },
+      "results": [
+        { "label": "Yield", "text": "Maximize crop productivity" },
+        { "label": "Sustainability", "text": "Enhance sustainability through precision agriculture" },
+        { "label": "Costs", "text": "Mitigate risks and reduce operational costs" },
+        { "label": "Traceability", "text": "A dated, exportable record, at every step." }
+      ]
+    },
     "about": {
       "eyebrow": "Who we are",
       "title": "Agronomy first, technology in service of the decision",
@@ -193,7 +253,15 @@
     "videoShowcase": {
       "eyebrow": "In action",
       "title": "RoboCare in action, in the field",
-      "subtitle": "From satellite capture to the alert on the ground: see the platform and its solutions in a short video."
+      "subtitle": "From satellite capture to the alert on the ground: see the platform and its solutions in a short video.",
+      "chapters": [
+        "Fields tracked by satellite imagery",
+        "RoboCare presented by Dr. Imen Hbiri",
+        "The RoboCare app in action"
+      ],
+      "cta": "Watch the demo",
+      "duration": "2 min 48 · Sfax, 2025",
+      "badge": "Field · Olive grove"
     },
     "why": {
       "eyebrow": "Why RoboCare",
@@ -295,6 +363,8 @@
   },
   "appWindow": {
     "title": "El Hancha Estate · 42 fields",
+    "domainLabel": "Estate",
+    "upToDate": "Up to date",
     "kpis": {
       "area": {
         "label": "Area",
@@ -311,7 +381,14 @@
     },
     "chart": {
       "label": "NDVI · 12 weeks"
-    }
+    },
+    "legend": {
+      "low": "Low",
+      "medium": "Medium",
+      "vigorous": "Vigorous",
+      "stress": "Stress"
+    },
+    "parcelAlert": "Plot 17 · water stress"
   },
   "solutions": {
     "meta": {
@@ -325,6 +402,9 @@
       "imageAlt": "Olive grove monitored by RoboCare in the Sfax region"
     },
     "labels": {
+      "whatChanges": "What it changes",
+      "howItWorks": "How it works",
+      "close": "Close",
       "whatYouTrack": "What you track",
       "expectedOutcomes": "Expected outcomes"
     },

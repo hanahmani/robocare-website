@@ -292,13 +292,14 @@ function NavArrow({
   accentRgb: string;
   onClick: () => void;
 }) {
+  const { t } = useTranslation();
   const Icon = direction === 'left' ? ArrowLeft : ArrowRight;
 
   return (
     <button
       type="button"
       onClick={onClick}
-      aria-label={direction === 'left' ? 'Témoignage précédent' : 'Témoignage suivant'}
+      aria-label={direction === 'left' ? t('a11y.previousTestimonial') : t('a11y.nextTestimonial')}
       className={[
         'grid h-[46px] w-[46px] place-items-center rounded-full border',
         'transition-[transform,border-color,box-shadow] duration-[350ms] ease-[cubic-bezier(.2,.8,.3,1)]',

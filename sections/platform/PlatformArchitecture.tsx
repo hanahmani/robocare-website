@@ -10,12 +10,12 @@ import { TrustCard } from '@/sections/platform/TrustCard';
 import { PLATFORM_LAYERS, PLATFORM_SECURITY } from '@/lib/data/platform';
 
 /**
- * Architecture technique et garanties de sécurité.
+ * Architecture technique, puis garanties de sécurité.
  *
- * Sur fond sombre, comme l'aperçu de la plateforme sur l'accueil : ce sont les
- * deux moments « sous le capot » du parcours, ils partagent le même registre.
- * Les cinq couches sont présentées comme un pipeline vertical, reliées par un
- * filet qui se dessine au scroll.
+ * Les cinq couches restent sur fond sombre, comme l'aperçu de la plateforme
+ * sur l'accueil, présentées comme un pipeline vertical relié par un filet qui
+ * se dessine au scroll. « Cloud, sécurité et synchronisation » est un moment
+ * différent (rassurer, pas impressionner) : section blanche séparée.
  */
 export function PlatformArchitecture() {
   const { t, d } = useTranslation();
@@ -23,58 +23,59 @@ export function PlatformArchitecture() {
   const security = d.platform.security.items;
 
   return (
-    <Section tone="dark" className="overflow-hidden">
-      <div aria-hidden className="grid-overlay pointer-events-none absolute inset-0 opacity-50" />
+    <>
+      <Section tone="dark" className="overflow-hidden">
+        <div aria-hidden className="grid-overlay pointer-events-none absolute inset-0 opacity-50" />
 
-      {/* Les cinq couches : en-tête collant + pipeline */}
-      <div className="relative grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
-        <div className="lg:sticky lg:top-24">
-          <SectionHeading
-            eyebrow={t('platform.architecture.eyebrow')}
-            title={t('platform.architecture.title')}
-            subtitle={t('platform.architecture.lead')}
-            invert
-          />
+        {/* Les cinq couches : en-tête collant + pipeline */}
+        <div className="relative grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
+          <div className="lg:sticky lg:top-24">
+            <SectionHeading
+              eyebrow={t('platform.architecture.eyebrow')}
+              title={t('platform.architecture.title')}
+              subtitle={t('platform.architecture.lead')}
+              invert
+            />
+          </div>
+
+          <div className="relative">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -top-[8%] end-[-12%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(77,158,47,.18),transparent_68%)]"
+            />
+            <Stagger as="ol" stagger={0.09} className="relative flex flex-col">
+              {PLATFORM_LAYERS.map((id, index) => (
+                <StaggerItem key={id} as="li">
+                  <PipelineStep
+                    index={index}
+                    last={index === PLATFORM_LAYERS.length - 1}
+                    title={layers[id].title}
+                    text={layers[id].text}
+                  />
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </div>
         </div>
+      </Section>
 
-        <div className="relative">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -top-[8%] end-[-12%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(77,158,47,.18),transparent_68%)]"
-          />
-          <Stagger as="ol" stagger={0.09} className="relative flex flex-col">
-            {PLATFORM_LAYERS.map((id, index) => (
-              <StaggerItem key={id} as="li">
-                <PipelineStep
-                  index={index}
-                  last={index === PLATFORM_LAYERS.length - 1}
-                  title={layers[id].title}
-                  text={layers[id].text}
-                />
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </div>
+      <Section>
+        <Reveal>
+          <p className="eyebrow text-leaf-600">{t('platform.security.eyebrow')}</p>
+          <h2 className="mt-4 max-w-[38rem] text-h3-lg">{t('platform.security.title')}</h2>
+          <p className="mt-3.5 max-w-[42rem] text-[15.5px] leading-[1.7] text-ink-500">
+            {t('platform.security.lead')}
+          </p>
+        </Reveal>
 
-      {/* Cloud, sécurité et synchronisation */}
-      <Reveal className="relative mt-14 border-t border-white/10 pt-12 lg:mt-20 lg:pt-16">
-        <p className="eyebrow text-lime-500">{t('platform.security.eyebrow')}</p>
-        <h2 className="mt-4 max-w-[38rem] text-h3-lg text-white">
-          {t('platform.security.title')}
-        </h2>
-        <p className="mt-3.5 max-w-[42rem] text-[15.5px] leading-[1.7] text-white/70">
-          {t('platform.security.lead')}
-        </p>
-      </Reveal>
-
-      <Stagger className="relative mt-section-gap grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-        {PLATFORM_SECURITY.map(({ id, icon }) => (
-          <StaggerItem key={id} className="h-full">
-            <TrustCard icon={icon} title={security[id].title} text={security[id].text} />
-          </StaggerItem>
-        ))}
-      </Stagger>
-    </Section>
+        <Stagger className="mt-section-gap grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          {PLATFORM_SECURITY.map(({ id, icon }) => (
+            <StaggerItem key={id} className="h-full">
+              <TrustCard icon={icon} title={security[id].title} text={security[id].text} />
+            </StaggerItem>
+          ))}
+        </Stagger>
+      </Section>
+    </>
   );
 }

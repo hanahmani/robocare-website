@@ -13,20 +13,19 @@ export type ZoneState = {
   eyebrow: string;
   title: string;
   paragraph: string;
-  points: readonly [ZonePoint, ZonePoint, ZonePoint];
+  points: ZonePoint[];
 };
 
 export type ZoneLabel = {
-  /** Libellé principal superposé sur le disque (« Agronomie »…). */
+  /** Libellé principal superposé sur le disque (« Agronomie »…) et de la pastille sous la figure. */
   label: string;
   /** Sous-titre court, sous le libellé principal. */
   sublabel: string;
-  /** Libellé de la pastille sous la figure — identique à `label` par défaut. */
-  pillLabel: string;
 };
 
 export type ResultItem = {
   label: string;
+  text: string;
 };
 
 /** Contenu complet reçu par `DifferenceVenn` via la prop `zones`. */
@@ -35,7 +34,7 @@ export type DifferenceContent = {
   labels: Record<ZoneId, ZoneLabel>;
   corePillLabel: string;
   coreDiskLabel: string;
-  results: readonly [ResultItem, ResultItem, ResultItem, ResultItem];
+  results: ResultItem[];
 };
 
 /** Valeurs FR par défaut — permettent de tester le composant seul. */
@@ -43,9 +42,9 @@ export const DEFAULT_DIFFERENCE_CONTENT: DifferenceContent = {
   corePillLabel: 'Le recouvrement',
   coreDiskLabel: 'RoboCare',
   labels: {
-    agro: { label: 'Agronomie', sublabel: 'Expertise terrain', pillLabel: 'Agronomie' },
-    data: { label: 'Data science', sublabel: 'Data science', pillLabel: 'Data science' },
-    tech: { label: 'Technologie', sublabel: 'Ingénierie produit', pillLabel: 'Technologie' },
+    agro: { label: 'Agronomie', sublabel: 'Expertise terrain' },
+    data: { label: 'Data science', sublabel: 'Data science' },
+    tech: { label: 'Technologie', sublabel: 'Ingénierie produit' },
   },
   states: {
     core: {
@@ -129,5 +128,10 @@ export const DEFAULT_DIFFERENCE_CONTENT: DifferenceContent = {
       ],
     },
   },
-  results: [{ label: 'Rendement' }, { label: 'Durabilité' }, { label: 'Coûts' }, { label: 'Traçabilité' }],
+  results: [
+    { label: 'Rendement', text: 'Maximisent la productivité des cultures' },
+    { label: 'Durabilité', text: 'Renforcent la durabilité grâce à l’agriculture de précision' },
+    { label: 'Coûts', text: 'Réduisent les risques et les coûts opérationnels' },
+    { label: 'Traçabilité', text: 'Un historique daté et exportable, à chaque étape.' },
+  ],
 };
