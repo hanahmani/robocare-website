@@ -6,7 +6,7 @@ type Tone = 'white' | 'sage' | 'cream' | 'dark';
 const TONES: Record<Tone, string> = {
   white: 'bg-white text-ink-900',
   sage: 'bg-sage-50 text-ink-900',
-  cream: 'bg-cream text-ink-900',
+  cream: 'bg-cream-fade text-ink-900',
   dark: 'bg-forest-950 text-white',
 };
 

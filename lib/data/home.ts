@@ -4,8 +4,8 @@ import {
   BellRing,
   Cpu,
   Database,
-  FileCheck2,
   FileText,
+  Gauge,
   Handshake,
   Languages,
   Map,
@@ -14,7 +14,6 @@ import {
   Sprout,
   Sun,
   Target,
-  Timer,
   Users,
 } from 'lucide-react';
 import type { Differentiator, FeatureItem, StatDatum } from '@/types';
@@ -67,11 +66,11 @@ export const HOME_DIFFERENTIATOR_POINTS = [
 
 /** Bénéfices « Pourquoi RoboCare » — textes dans `home.why.items.*`. */
 export const HOME_BENEFITS = [
-  { id: 'leadTime', icon: Timer },
+  { id: 'leadTime', icon: Gauge },
   { id: 'noHardware', icon: Rocket },
-  { id: 'mediterranean', icon: Sun, tone: 'ocre' },
+  { id: 'mediterranean', icon: Sun },
   { id: 'decision', icon: Target },
-  { id: 'traceability', icon: FileCheck2, tone: 'ocre' },
+  { id: 'traceability', icon: FileText },
   { id: 'reach', icon: Languages },
 ] as const satisfies readonly FeatureItem[];
 

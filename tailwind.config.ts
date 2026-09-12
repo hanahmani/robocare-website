@@ -53,7 +53,7 @@ const config: Config = {
           500: '#C88A2E',
           600: '#B87514',
         },
-        cream: '#FBF7F0',
+        cream: '#EAF4E3',
         danger: '#D8232A',
       },
       fontFamily: {
@@ -129,6 +129,7 @@ const config: Config = {
           'linear-gradient(90deg,#8C3B12 0%,#C88A2E 22%,#D9C657 40%,#7FA98B 62%,#1F8049 80%,#9ED84B 100%)',
         'grid-lime':
           'linear-gradient(rgba(158,216,75,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(158,216,75,.09) 1px, transparent 1px)',
+        'cream-fade': 'linear-gradient(135deg, #FFFFFF 0%, #F6FAF4 45%, #EAF4E3 100%)',
       },
       transitionTimingFunction: {
         premium: 'cubic-bezier(.2,.8,.2,1)',

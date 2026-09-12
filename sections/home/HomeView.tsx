@@ -7,7 +7,7 @@ import { WhyRoboCare } from '@/sections/home/WhyRoboCare';
 import { SolutionsPreview } from '@/sections/home/SolutionsPreview';
 import { PlatformPreview } from '@/sections/home/PlatformPreview';
 import { VideoShowcase } from '@/sections/home/VideoShowcase';
-import { SocialProof } from '@/sections/home/SocialProof';
+import { TestimonialsCarousel } from '@/sections/home/TestimonialsCarousel';
 import { HomeFaq } from '@/sections/home/HomeFaq';
 import { StatsShowcase } from '@/sections/shared/StatsShowcase';
 import { WhyDifferent } from '@/sections/home/WhyDifferent';
@@ -47,7 +47,7 @@ export function HomeView() {
       <SolutionsPreview />
       <PlatformPreview />
       <VideoShowcase />
-      <SocialProof />
+      <TestimonialsCarousel />
       <HomeFaq />
 
       <Section>

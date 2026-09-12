@@ -126,7 +126,7 @@ export function TeamSection() {
     <section
       id="equipe"
       aria-labelledby="team-heading"
-      className="scroll-mt-24 bg-cream py-section"
+      className="scroll-mt-24 bg-cream-fade py-section"
     >
       <div className="container-page">
         {/* En-tête */}

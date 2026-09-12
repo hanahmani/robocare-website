@@ -1,30 +1,61 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import { Pause, Play, Volume2, VolumeX } from 'lucide-react';
-import { useTranslation } from '@/i18n';
-import { cn } from '@/lib/utils';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+
+export type VideoPlayerHandle = {
+  /** Positionne la lecture au timecode donné (secondes) et relance la vidéo. */
+  seekTo: (seconds: number) => void;
+};
 
 type VideoPlayerProps = {
   src: string;
-  className?: string;
-  /** Ratio d'affichage de la vidéo (classe Tailwind `aspect-*`). */
-  aspectClassName?: string;
+  poster?: string;
+  badgeLabel: string;
+  onTimeUpdate?: (seconds: number) => void;
 };
 
-/** Lecteur vidéo personnalisé : play/pause central, mute, progression, autoplay au scroll. */
-export function VideoPlayer({ src, className, aspectClassName = 'aspect-video' }: VideoPlayerProps) {
-  const { t } = useTranslation();
+/** Halo pulsant autour du bouton play, désactivé sous `prefers-reduced-motion`. */
+function PlayRing({ delay }: { delay: number }) {
+  return (
+    <motion.span
+      aria-hidden
+      className="absolute inset-0 rounded-full border-2 border-[#7BC85F]"
+      initial={{ scale: 1, opacity: 0.6 }}
+      animate={{ scale: [1, 1.9], opacity: [0.6, 0] }}
+      transition={{ duration: 2.6, delay, repeat: Infinity, ease: 'easeOut' }}
+    />
+  );
+}
+
+/**
+ * Carte vidéo portrait (démonstration terrain) : lecture, son, badge et
+ * progression sont internes ; le parent pilote les chapitres via `ref`
+ * (`seekTo`) et les callbacks `onTimeUpdate` / `onDurationChange`.
+ */
+export const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(function VideoPlayer(
+  { src, poster, badgeLabel, onTimeUpdate },
+  ref,
+) {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const userPaused = useRef(false);
-
+  const reduced = usePrefersReducedMotion();
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
+  const [progress, setProgress] = useState(0);
 
+  useImperativeHandle(ref, () => ({
+    seekTo(seconds: number) {
+      const video = videoRef.current;
+      if (!video) return;
+      video.currentTime = seconds;
+      void video.play().catch(() => {});
+    },
+  }));
+
+  // Lecture par défaut à l'entrée dans le viewport, pause par défaut à la sortie.
   useEffect(() => {
     const container = containerRef.current;
     const video = videoRef.current;
@@ -32,15 +63,11 @@ export function VideoPlayer({ src, className, aspectClassName = 'aspect-video' }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          if (!userPaused.current) void video.play().catch(() => {});
-        } else {
-          video.pause();
-        }
+        if (entry.isIntersecting) void video.play().catch(() => {});
+        else video.pause();
       },
       { threshold: 0.5 },
     );
-
     observer.observe(container);
     return () => observer.disconnect();
   }, []);
@@ -48,13 +75,8 @@ export function VideoPlayer({ src, className, aspectClassName = 'aspect-video' }
   const togglePlay = () => {
     const video = videoRef.current;
     if (!video) return;
-    if (video.paused) {
-      userPaused.current = false;
-      void video.play().catch(() => {});
-    } else {
-      userPaused.current = true;
-      video.pause();
-    }
+    if (video.paused) void video.play().catch(() => {});
+    else video.pause();
   };
 
   const toggleMute = () => {
@@ -64,88 +86,97 @@ export function VideoPlayer({ src, className, aspectClassName = 'aspect-video' }
     setIsMuted(video.muted);
   };
 
-  const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
-
   return (
-    <div
-      ref={containerRef}
-      className={cn(
-        'group relative overflow-hidden rounded-card border border-white/[0.14] bg-forest-950 shadow-glass',
-        className,
-      )}
-    >
-      <video
-        ref={videoRef}
-        src={src}
-        muted={isMuted}
-        playsInline
-        preload="metadata"
-        className={cn('w-full cursor-pointer object-cover', aspectClassName)}
-        onClick={togglePlay}
-        onPlay={() => setIsPlaying(true)}
-        onPause={() => setIsPlaying(false)}
-        onEnded={() => setIsPlaying(false)}
-        onLoadedMetadata={(event) => setDuration(event.currentTarget.duration)}
-        onTimeUpdate={(event) => setCurrentTime(event.currentTarget.currentTime)}
+    <div ref={containerRef} className="relative mx-auto w-full max-w-[340px]">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -inset-x-[18px] -top-[26px] -bottom-[34px] rounded-[46px] bg-[radial-gradient(60%_60%_at_50%_35%,rgba(63,156,74,.35),transparent_72%)] blur-2xl"
       />
 
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(6,18,12,.15)_0%,transparent_28%,transparent_72%,rgba(6,18,12,.35)_100%)]" />
-
-      {/* Bouton play/pause central */}
-      <button
-        type="button"
-        onClick={togglePlay}
-        aria-label={isPlaying ? t('a11y.pauseVideo') : t('a11y.playVideo')}
-        className={cn(
-          'absolute inset-0 m-auto flex h-[72px] w-[72px] items-center justify-center rounded-full bg-lime-500 text-forest-950 shadow-lime transition-surface duration-base ease-premium hover:scale-110',
-          isPlaying && 'opacity-0 group-hover:opacity-100',
-        )}
+      <motion.div
+        animate={reduced ? undefined : { y: [0, -10, 0] }}
+        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 1.2 }}
+        className={[
+          'group/card relative aspect-[9/16] overflow-hidden rounded-[26px] bg-[#12211A]',
+          'shadow-[0_40px_90px_rgba(12,26,18,.28),0_4px_14px_rgba(12,26,18,.10)]',
+          'transition-transform duration-[600ms] ease-[cubic-bezier(.22,1,.36,1)]',
+          'hover:-translate-y-1.5 hover:scale-[1.012]',
+          'motion-reduce:hover:translate-y-0 motion-reduce:hover:scale-100',
+        ].join(' ')}
       >
-        {!isPlaying ? (
-          <span
-            aria-hidden
-            className="absolute inset-0 rounded-full bg-lime-500/60 animate-ping-slow"
-          />
-        ) : null}
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.span
-            key={isPlaying ? 'pause' : 'play'}
-            initial={{ opacity: 0, scale: 0.7 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.7 }}
-            transition={{ duration: 0.2 }}
-            className="relative flex items-center justify-center"
-          >
-            {isPlaying ? (
-              <Pause size={26} fill="currentColor" aria-hidden />
-            ) : (
-              <Play size={26} fill="currentColor" className="ms-0.5" aria-hidden />
-            )}
-          </motion.span>
-        </AnimatePresence>
-      </button>
-
-      {/* Bouton mute/unmute */}
-      <button
-        type="button"
-        onClick={toggleMute}
-        aria-label={isMuted ? t('a11y.unmuteVideo') : t('a11y.muteVideo')}
-        className="glass absolute bottom-4 end-4 flex h-11 w-11 items-center justify-center rounded-full text-white transition-surface duration-base ease-premium hover:scale-110 hover:border-lime-500/50 hover:text-lime-500"
-      >
-        {isMuted ? (
-          <VolumeX size={18} aria-hidden />
-        ) : (
-          <Volume2 size={18} aria-hidden />
-        )}
-      </button>
-
-      {/* Barre de progression discrète */}
-      <div className="absolute inset-x-0 bottom-0 h-[3px] bg-white/15">
-        <div
-          className="h-full bg-lime-500 transition-[width] duration-fast ease-linear"
-          style={{ width: `${progress}%` }}
+        <video
+          ref={videoRef}
+          src={src}
+          poster={poster}
+          muted={isMuted}
+          loop
+          playsInline
+          preload="metadata"
+          className="h-full w-full cursor-pointer object-cover"
+          onClick={togglePlay}
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+          onTimeUpdate={(event) => {
+            const video = event.currentTarget;
+            onTimeUpdate?.(video.currentTime);
+            setProgress(video.duration > 0 ? (video.currentTime / video.duration) * 100 : 0);
+          }}
         />
-      </div>
+
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage:
+              'linear-gradient(180deg, rgba(12,26,18,.34) 0%, rgba(12,26,18,0) 34%, rgba(12,26,18,0) 58%, rgba(12,26,18,.55) 100%)',
+          }}
+        />
+
+        <div className="absolute left-3.5 top-3.5 inline-flex items-center gap-1.5 rounded-full bg-[#12211A]/55 px-3 py-1.5 backdrop-blur-[8px]">
+          <span aria-hidden className="h-[7px] w-[7px] shrink-0 rounded-full bg-[#7BC85F]" />
+          <span className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-white">{badgeLabel}</span>
+        </div>
+
+        <button
+          type="button"
+          onClick={togglePlay}
+          aria-label={isPlaying ? 'Mettre la vidéo en pause' : 'Lire la vidéo'}
+          className={[
+            'absolute inset-0 m-auto flex h-[64px] w-[64px] items-center justify-center rounded-full bg-[#7BC85F]',
+            'shadow-[0_18px_40px_rgba(12,26,18,.35)] transition-[transform,background-color,opacity] duration-300 ease-out',
+            'hover:scale-[1.08] hover:bg-[#8FD86F] motion-reduce:hover:scale-100',
+            isPlaying ? 'opacity-0 group-hover/card:opacity-100' : 'opacity-100',
+          ].join(' ')}
+        >
+          {!isPlaying && !reduced ? (
+            <>
+              <PlayRing delay={0} />
+              <PlayRing delay={1.3} />
+            </>
+          ) : null}
+          {isPlaying ? (
+            <Pause size={20} fill="#0C1A12" className="relative text-[#0C1A12]" aria-hidden />
+          ) : (
+            <Play size={20} fill="#0C1A12" className="relative ms-1 text-[#0C1A12]" aria-hidden />
+          )}
+        </button>
+
+        <button
+          type="button"
+          onClick={toggleMute}
+          aria-label={isMuted ? 'Activer le son' : 'Couper le son'}
+          className="absolute bottom-[22px] right-3.5 flex h-[42px] w-[42px] items-center justify-center rounded-full bg-[#12211A]/50 text-white backdrop-blur-[8px] transition-transform duration-300 ease-out hover:scale-110"
+        >
+          {isMuted ? <VolumeX size={17} aria-hidden /> : <Volume2 size={17} aria-hidden />}
+        </button>
+
+        <div className="absolute bottom-[30px] left-[18px] right-[74px] h-[3px] rounded-full bg-white/[0.26]">
+          <div
+            className="h-full rounded-full bg-[#7BC85F] transition-[width] duration-700 ease-out"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+      </motion.div>
     </div>
   );
-}
+});
