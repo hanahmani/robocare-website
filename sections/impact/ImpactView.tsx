@@ -148,14 +148,24 @@ export function ImpactView() {
       {/* Empreinte environnementale */}
       <ImpactEnvironment />
 
-      <Section id="etudes" tone="sage" className="scroll-mt-24">
-        <SectionHeading eyebrow={t('impact.stories.eyebrow')} title={t('impact.stories.title')} />
-        <Stagger className="mt-section-gap-lg flex flex-col gap-7 lg:gap-8">
-          {IMPACT_STORIES.map((story) => {
-            const copy = stories[story.slug];
-            return (
-              <StaggerItem key={story.slug}>
+      <section id="etudes" className="scroll-mt-24 bg-[#F7F5F0] py-[clamp(72px,9vw,112px)]">
+        <div className="mx-auto w-[min(1180px,calc(100%-48px))]">
+          <div className="flex items-center gap-3">
+            <span aria-hidden className="h-px w-[26px] bg-[#7D9B70]" />
+            <p className="font-mono text-[11px] font-medium tracking-[0.14em] text-[#3E6B4C]">
+              {t('impact.stories.eyebrow')}
+            </p>
+          </div>
+          <h2 className="mt-[18px] max-w-[19ch] text-[clamp(30px,4.4vw,50px)] font-bold leading-[1.08] tracking-[-0.03em] text-[#16201B]">
+            {t('impact.stories.title')}
+          </h2>
+
+          <div className="mt-[clamp(44px,5.5vw,68px)] flex flex-col gap-5">
+            {IMPACT_STORIES.map((story, index) => {
+              const copy = stories[story.slug];
+              return (
                 <CaseStudyCard
+                  key={story.slug}
                   slug={story.slug}
                   title={copy.title}
                   meta={copy.meta}
@@ -163,12 +173,13 @@ export function ImpactView() {
                   solution={copy.solution}
                   results={copy.results}
                   labels={d.impact.stories.labels}
+                  delay={index * 0.07}
                 />
-              </StaggerItem>
-            );
-          })}
-        </Stagger>
-      </Section>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
       <Section>
         <CtaBand />

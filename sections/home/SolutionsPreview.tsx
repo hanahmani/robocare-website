@@ -2,70 +2,84 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion, useReducedMotion } from 'framer-motion';
 import { localizePath, useTranslation } from '@/i18n';
-import { Section } from '@/components/ui/Section';
 import { Arrow } from '@/components/ui/Arrow';
-import { Reveal } from '@/components/animations/Reveal';
-import { Stagger, StaggerItem } from '@/components/animations/Stagger';
 import { SOLUTIONS } from '@/lib/data/solutions';
+
+const EASE = [0.22, 0.61, 0.36, 1] as const;
 
 /** Aperçu des quatre solutions, avec renvoi vers la page dédiée. */
 export function SolutionsPreview() {
   const { t, d, locale } = useTranslation();
   const items = d.solutions.items;
+  const reduced = useReducedMotion();
+
+  const rise = (delay: number) => ({
+    initial: reduced ? undefined : { opacity: 0, y: 18 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.15 },
+    transition: { duration: reduced ? 0 : 0.7, ease: EASE, delay: reduced ? 0 : delay },
+  });
 
   return (
-    <Section tone="sage">
-      <Reveal className="flex flex-wrap items-end justify-between gap-6">
-        <div className="max-w-[42rem]">
-          <p className="eyebrow text-leaf-600">{t('home.solutionsPreview.eyebrow')}</p>
-          <h2 className="mt-4 text-h2">
-            {t('home.solutionsPreview.title')}
-          </h2>
-        </div>
-        <Link
-          href={localizePath(locale, '/solutions')}
-          className="link-underline group inline-flex items-center gap-2.5 text-[15px] font-bold text-leaf-600"
-        >
-          {t('actions.allSolutions')}
-          <Arrow />
-        </Link>
-      </Reveal>
+    <section className="bg-white py-[clamp(72px,9vw,120px)]">
+      <div className="mx-auto w-[min(1240px,calc(100%-48px))]">
+        <motion.div {...rise(0)} className="flex items-center gap-3">
+          <span aria-hidden className="h-px w-[26px] bg-[#7D9B70]" />
+          <p className="font-mono text-[11px] font-medium tracking-[0.14em] text-[#3E6B4C]">
+            {t('home.solutionsPreview.eyebrow')}
+          </p>
+        </motion.div>
 
-      <Stagger className="mt-section-gap grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {SOLUTIONS.map((solution) => {
-          const copy = items[solution.slug];
-          return (
-            <StaggerItem key={solution.slug} className="h-full">
-              <Link
-                href={localizePath(locale, `/solutions#${solution.slug}`)}
-                className="group flex h-full flex-col overflow-hidden rounded-card border border-forest-950/[0.08] bg-white text-ink-900 shadow-soft transition-surface duration-slow ease-premium hover:-translate-y-1.5 hover:text-ink-900 hover:shadow-hover motion-reduce:hover:translate-y-0"
-              >
-                <div className="relative h-[190px] overflow-hidden bg-forest-900">
-                  <Image
-                    src={solution.image}
-                    alt={copy.imageAlt}
-                    fill
-                    loading="lazy"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px"
-                    className="zoom-media object-cover opacity-90"
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_40%,rgba(6,18,12,.78))]" />
-                  <span className="absolute bottom-3.5 start-4 font-mono text-[10.5px] uppercase tracking-[0.14em] text-lime-500">
+        <div className="mt-6 flex flex-wrap items-end justify-between gap-8">
+          <motion.h2
+            {...rise(0.06)}
+            className="max-w-[14ch] text-[clamp(30px,4.2vw,50px)] font-bold leading-[1.1] tracking-[-0.03em] text-[#16201B]"
+          >
+            {t('home.solutionsPreview.title')}
+          </motion.h2>
+
+          <motion.div {...rise(0.12)}>
+            <Link
+              href={localizePath(locale, '/solutions')}
+              className="link-underline group inline-flex items-center gap-2 text-[14.5px] font-semibold text-[#3E6B4C]"
+            >
+              {t('actions.allSolutions')}
+              <Arrow size={16} />
+            </Link>
+          </motion.div>
+        </div>
+
+        <div className="mt-[clamp(48px,6vw,76px)] grid grid-cols-1 gap-[clamp(20px,2.4vw,32px)] sm:grid-cols-2 lg:grid-cols-4">
+          {SOLUTIONS.map((solution, index) => {
+            const copy = items[solution.slug];
+            return (
+              <motion.div key={solution.slug} {...rise(index * 0.08)}>
+                <Link href={localizePath(locale, `/solutions#${solution.slug}`)} className="group block">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-[12px] bg-[#DAD6CC]">
+                    <Image
+                      src={solution.image}
+                      alt={copy.imageAlt}
+                      fill
+                      loading="lazy"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="object-cover transition-transform duration-[800ms] ease-out group-hover:scale-[1.045] motion-reduce:group-hover:scale-100"
+                    />
+                  </div>
+                  <p className="mt-[18px] font-mono text-[10.5px] tracking-[0.14em] text-[#7D9B70] transition-colors duration-500 group-hover:text-[#3E6B4C]">
                     {copy.brand}
-                  </span>
-                </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="text-h3 tracking-[-0.02em]">{copy.name}</h3>
-                  <p className="mt-2.5 flex-1 text-[14.5px] leading-[1.65] text-ink-500">
-                    {copy.short}
                   </p>
-                </div>
-              </Link>
-            </StaggerItem>
-          );
-        })}
-      </Stagger>
-    </Section>
+                  <h3 className="mt-2 text-[20px] font-semibold tracking-[-0.015em] text-[#16201B]">
+                    {copy.name}
+                  </h3>
+                  <p className="mt-[9px] text-[14.5px] leading-[1.7] text-[#5C6862]">{copy.short}</p>
+                </Link>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
 }

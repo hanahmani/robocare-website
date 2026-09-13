@@ -1,98 +1,167 @@
 'use client';
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { Droplet } from 'lucide-react';
 import { useTranslation } from '@/i18n';
-import { Section } from '@/components/ui/Section';
-import { Reveal } from '@/components/animations/Reveal';
-import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 import { cn, pad2 } from '@/lib/utils';
 import { WATER_STEPS } from '@/lib/data/sustainability';
 
-/** L'eau : introduction et parcours de décision en quatre étapes. */
+const EASE = [0.22, 0.61, 0.36, 1] as const;
+const CYCLE_MS = 2600;
+
+/** L'eau : introduction et parcours de décision en quatre étapes, sur rail vertical. */
 export function WaterSection() {
   const { t, d } = useTranslation();
   const steps = d.sustainability.water.steps;
-  const reduced = usePrefersReducedMotion();
-  const [activeIndex, setActiveIndex] = useState(WATER_STEPS.length - 1);
+  const reduced = useReducedMotion();
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const railRef = useRef<HTMLDivElement>(null);
+  const dotRefs = useRef<Array<HTMLSpanElement | null>>([]);
+
+  const inView = useInView(sectionRef, { once: false, amount: 0.3 });
+  const [activeIndex, setActiveIndex] = useState(reduced ? WATER_STEPS.length - 1 : 0);
+  const [paused, setPaused] = useState(false);
+  const [fillHeight, setFillHeight] = useState(0);
+
+  // Avance automatique : seulement section visible, en pause au survol/focus.
+  useEffect(() => {
+    if (reduced || !inView || paused) return;
+    const id = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % WATER_STEPS.length);
+    }, CYCLE_MS);
+    return () => clearInterval(id);
+  }, [reduced, inView, paused]);
+
+  const measure = useCallback(() => {
+    const dot = dotRefs.current[activeIndex];
+    const rail = railRef.current;
+    if (!dot || !rail) return;
+    const railRect = rail.getBoundingClientRect();
+    const dotRect = dot.getBoundingClientRect();
+    setFillHeight(dotRect.top + dotRect.height / 2 - railRect.top);
+  }, [activeIndex]);
+
+  useEffect(() => {
+    measure();
+  }, [measure]);
+
+  useEffect(() => {
+    const rail = railRef.current;
+    if (!rail || typeof ResizeObserver === 'undefined') return;
+    const observer = new ResizeObserver(measure);
+    observer.observe(rail);
+    return () => observer.disconnect();
+  }, [measure]);
+
+  const rise = (delay: number) => ({
+    initial: reduced ? undefined : { opacity: 0, y: 18 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.15 },
+    transition: { duration: reduced ? 0 : 0.7, ease: EASE, delay: reduced ? 0 : delay },
+  });
 
   return (
-    <Section>
-      <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
-        <Reveal className="min-w-0">
-          <p className="eyebrow text-leaf-600">{t('sustainability.water.eyebrow')}</p>
-          <h2 className="mt-4 max-w-[620px] text-h2-alt">{t('sustainability.water.title')}</h2>
-          <div className="mt-5 max-w-[610px] space-y-3.5 text-body text-ink-500">
-            <p>{t('sustainability.water.lead1')}</p>
-            <p>{t('sustainability.water.lead2')}</p>
+    <section ref={sectionRef} className="relative overflow-hidden bg-white py-[clamp(80px,10vw,128px)]">
+      <Droplet
+        aria-hidden
+        strokeWidth={1}
+        className="pointer-events-none absolute top-[8%] end-[-90px] hidden h-[340px] w-[340px] text-[#7D9B70] opacity-[0.07] min-[900px]:block"
+      />
+
+      <div className="relative mx-auto grid w-[min(1180px,calc(100%-48px))] grid-cols-1 items-start gap-[clamp(32px,5vw,80px)] lg:grid-cols-12">
+        <div className="lg:col-span-6">
+          <motion.div {...rise(0)} className="flex items-center gap-3">
+            <span aria-hidden className="h-px w-[26px] bg-[#7D9B70]" />
+            <p className="font-mono text-[11px] font-medium tracking-[0.14em] text-[#3E6B4C]">
+              {t('sustainability.water.eyebrow')}
+            </p>
+          </motion.div>
+
+          <motion.h2
+            {...rise(0.06)}
+            className="my-5 max-w-[14ch] text-[clamp(34px,5.2vw,60px)] font-bold leading-[1.05] tracking-[-0.035em] text-[#16201B]"
+          >
+            {t('sustainability.water.title')}
+          </motion.h2>
+
+          <div className="max-w-[56ch] space-y-[18px]">
+            <motion.p {...rise(0.12)} className="text-[16px] leading-[1.75] text-[#5C6862]">
+              {t('sustainability.water.lead1')}
+            </motion.p>
+            <motion.p {...rise(0.17)} className="text-[16px] leading-[1.75] text-[#5C6862]">
+              {t('sustainability.water.lead2')}
+            </motion.p>
           </div>
-        </Reveal>
+        </div>
 
-        <Reveal from="right" className="min-w-0">
-          <div className="rounded-panel border border-forest-950/[0.08] bg-sage-50 p-6 shadow-soft sm:p-8">
-            <div aria-hidden className="flex h-20 items-center justify-center sm:h-24">
-              <motion.div
-                animate={reduced ? undefined : { y: [0, -4, 0] }}
-                transition={{ duration: 3.6, repeat: Infinity, ease: 'easeInOut' }}
-                className="grid h-14 w-14 place-items-center rounded-full border border-sage-200 bg-white"
-              >
-                <Droplet size={31} strokeWidth={1.6} className="text-leaf-500" />
-              </motion.div>
-            </div>
+        <div className="lg:col-span-5 lg:col-start-8 lg:pt-2.5">
+          <div ref={railRef} className="relative ps-[34px]">
+            <div aria-hidden className="absolute inset-y-3 start-[7px] w-[2px] bg-[#E4E0D6]" />
+            <div
+              aria-hidden
+              className="absolute start-[7px] top-3 w-[2px] bg-[#3E6B4C] transition-[height] duration-[800ms] ease-out"
+              style={{ height: Math.max(0, fillHeight - 12) }}
+            />
 
-            <ol className="m-0 flex list-none flex-col gap-2.5 p-0">
-              {WATER_STEPS.map(({ id }, index) => {
-                const isActive = index === activeIndex;
+            {WATER_STEPS.map(({ id }, index) => {
+              const isActive = index === activeIndex;
 
-                return (
-                  <motion.li
-                    key={id}
-                    initial={reduced ? false : { opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ delay: index * 0.08, duration: 0.38, ease: 'easeOut' }}
+              return (
+                <motion.div key={id} {...rise(index * 0.08)} className="relative py-[22px]">
+                  <button
+                    type="button"
+                    onClick={() => setActiveIndex(index)}
+                    onMouseEnter={() => {
+                      setPaused(true);
+                      setActiveIndex(index);
+                    }}
+                    onMouseLeave={() => setPaused(false)}
+                    onFocus={() => {
+                      setPaused(true);
+                      setActiveIndex(index);
+                    }}
+                    onBlur={() => setPaused(false)}
+                    aria-current={isActive}
+                    className="block w-full text-start focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#3E6B4C]"
                   >
-                    <motion.button
-                      type="button"
-                      onClick={() => setActiveIndex(index)}
-                      onMouseEnter={() => setActiveIndex(index)}
-                      aria-pressed={isActive}
+                    <span
+                      ref={(el) => {
+                        dotRefs.current[index] = el;
+                      }}
+                      aria-hidden
                       className={cn(
-                        'flex w-full items-center gap-4 rounded-field border px-4 py-4 text-left text-[14.5px] leading-[1.4] transition-colors duration-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-leaf-500 focus-visible:ring-offset-2',
+                        'absolute start-[-34px] top-[27px] h-4 w-4 rounded-full border-[1.5px] bg-white transition-[background-color,border-color,box-shadow] duration-500',
                         isActive
-                          ? 'border-forest-900 bg-forest-900 text-white shadow-soft'
-                          : 'border-forest-950/[0.06] bg-white text-ink-700 hover:border-sage-300',
+                          ? 'border-[#3E6B4C] bg-[#3E6B4C] shadow-[0_0_0_5px_rgba(62,107,76,0.12)]'
+                          : 'border-[#E4E0D6]',
                       )}
-                      whileHover={reduced ? undefined : { y: -2 }}
-                      whileTap={reduced ? undefined : { scale: 0.995 }}
-                      transition={{ duration: 0.22, ease: 'easeOut' }}
+                    />
+                    <span
+                      dir="ltr"
+                      className={cn(
+                        'font-mono text-[11px] tracking-[0.06em] transition-colors duration-500',
+                        isActive ? 'text-[#3E6B4C]' : 'text-[#7D9B70]',
+                      )}
                     >
-                      <span
-                        dir="ltr"
-                        className={cn(
-                          'font-mono text-[11px] tracking-[0.08em] tabular-nums',
-                          isActive ? 'text-lime-400' : 'text-leaf-600',
-                        )}
-                      >
-                        {pad2(index + 1)}
-                      </span>
-                      <span className={isActive ? 'font-semibold' : 'font-medium'}>{steps[id]}</span>
-                      {isActive ? (
-                        <motion.span
-                          layoutId="active-water-step"
-                          className="ml-auto h-1.5 w-1.5 rounded-full bg-lime-400"
-                          transition={{ type: 'spring', stiffness: 340, damping: 28 }}
-                        />
-                      ) : null}
-                    </motion.button>
-                  </motion.li>
-                );
-              })}
-            </ol>
+                      {pad2(index)}
+                    </span>
+                    <span
+                      className={cn(
+                        'mt-[7px] block text-[clamp(17px,1.5vw,21px)] tracking-[-0.015em] transition-colors duration-500',
+                        isActive ? 'font-semibold text-[#16201B]' : 'text-[#5C6862]',
+                      )}
+                    >
+                      {steps[id]}
+                    </span>
+                  </button>
+                </motion.div>
+              );
+            })}
           </div>
-        </Reveal>
+        </div>
       </div>
-    </Section>
+    </section>
   );
 }

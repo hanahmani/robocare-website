@@ -12,14 +12,14 @@ type Props = {
 export function CaseColumn({ index, label, className, children }: Props) {
   return (
     <div className={cn('flex h-full flex-col', className)}>
-      <div className="flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.16em] text-ink-300">
+      <span className="block font-mono text-[10px] font-medium uppercase tracking-[0.12em] text-[#7D9B70]">
         <span dir="ltr" className="tabular-nums">
           {pad2(index)}
-        </span>
-        <span>{label}</span>
-      </div>
-      <span aria-hidden className="mt-4 h-0.5 w-5 shrink-0 rounded-full bg-lime-500" />
-      <div className="mt-4 flex-1">{children}</div>
+        </span>{' '}
+        {label}
+      </span>
+      <div aria-hidden className="mb-3.5 mt-[9px] h-[2px] w-5 bg-[#7D9B70]" />
+      <div className="flex-1">{children}</div>
     </div>
   );
 }
