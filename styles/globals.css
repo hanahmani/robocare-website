@@ -176,6 +176,31 @@
   }
 
   /*
+   * Voile sombre du hero, côté texte.
+   *
+   * Deux couches plutôt qu'un seul dégradé horizontal : seul, celui-ci se lit
+   * comme une bande verticale dès qu'il traverse une zone claire de la photo.
+   * Le radial, ancré sur le bord et à hauteur du titre, courbe l'isocontour et
+   * rend la transition organique. La teinte est `forest-950` et non du noir
+   * pur : elle se fond dans les verts de l'image au lieu de les désaturer.
+   *
+   * L'opacité s'éteint à 62 % : au-delà, la photo est intacte.
+   */
+  .hero-scrim {
+    background-image:
+      radial-gradient(75% 115% at 0% 52%, rgba(6, 18, 12, 0.55) 0%, rgba(6, 18, 12, 0) 68%),
+      linear-gradient(
+        to right,
+        rgba(6, 18, 12, 0.9) 0%,
+        rgba(6, 18, 12, 0.78) 16%,
+        rgba(6, 18, 12, 0.56) 30%,
+        rgba(6, 18, 12, 0.32) 42%,
+        rgba(6, 18, 12, 0.12) 52%,
+        rgba(6, 18, 12, 0) 62%
+      );
+  }
+
+  /*
    * Variante animée de la trame.
    *
    * L'approche directe — animer `background-position` — repeint la couche

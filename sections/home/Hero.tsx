@@ -59,9 +59,13 @@ export function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="object-cover rtl:-scale-x-100"
         />
       </div>
+
+      {/* Voile dans sa propre couche, au-dessus de la photo et sous le contenu :
+          l'image garde ses couleurs, seul le contraste du texte change. */}
+      <div aria-hidden className="hero-scrim absolute inset-0 -z-10 rtl:-scale-x-100" />
 
       <div className="container-page">
         <motion.div

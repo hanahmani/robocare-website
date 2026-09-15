@@ -58,7 +58,7 @@ export function SolutionsView() {
         eyebrow={t('solutions.hero.eyebrow')} // "Solutions"
         title={t('solutions.hero.title')}
         intro={t('solutions.hero.intro')}
-        image="/hero/platforme.png"
+        image="/hero/platforme.jpg"
         imageAlt={t('solutions.hero.imageAlt')}
         crumbs={[{ labelKey: 'nav.solutions' }]}
         actions={

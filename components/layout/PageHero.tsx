@@ -14,6 +14,12 @@ type Props = {
   intro: string;
   image: string;
   imageAlt: string;
+  /**
+   * Miroir horizontal de l'image en RTL, pour que le vide de la composition
+   * reste du côté du texte. À désactiver sur une photo de personnes ou
+   * porteuse de texte, que l'inversion rendrait fausse.
+   */
+  mirrorOnRtl?: boolean;
   crumbs: readonly Crumb[];
   actions?: ReactNode;
   /** Bloc additionnel sous les actions (raccourcis, indicateurs). */
@@ -31,6 +37,7 @@ export function PageHero({
   intro,
   image,
   imageAlt,
+  mirrorOnRtl = true,
   crumbs,
   actions,
   children,
@@ -50,9 +57,13 @@ export function PageHero({
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className={cn('object-cover', mirrorOnRtl && 'rtl:-scale-x-100')}
         />
       </div>
+
+      {/* Même voile que le hero d'accueil. Toujours inversé en RTL, que la
+          photo le soit ou non : le voile suit le texte, pas l'image. */}
+      <div aria-hidden className="hero-scrim absolute inset-0 -z-10 rtl:-scale-x-100" />
 
       <div className="container-page flex flex-1 flex-col justify-center py-16 lg:py-28">
         <Reveal from="scale">

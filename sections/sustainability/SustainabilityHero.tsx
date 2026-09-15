@@ -19,7 +19,7 @@ export function SustainabilityHero() {
       eyebrow={t('sustainability.hero.eyebrow')}
       title={t('sustainability.hero.title')}
       intro={t('sustainability.hero.intro')}
-      image="/hero/durabilite.jpg"
+      image="/hero/durabilite.png"
       imageAlt={t('sustainability.hero.imageAlt')}
       crumbs={[{ labelKey: 'nav.sustainability' }]}
       actions={

@@ -30,7 +30,7 @@ export function TechnologyView() {
         eyebrow={t('technology.hero.eyebrow')}
         title={t('technology.hero.title')}
         intro={t('technology.hero.intro')}
-        image="/hero/drone-spray.png"
+        image="/hero/drone-spray.jpg"
         imageAlt={t('technology.hero.imageAlt')}
         crumbs={[{ labelKey: 'nav.technology' }]}
         actions={

@@ -29,7 +29,7 @@ export function ContactView() {
         eyebrow={t('contact.hero.eyebrow')}
         title={t('contact.hero.title')}
         intro={t('contact.hero.intro')}
-        image="/hero/nabeul.webp"
+        image="/hero/contact.jpg"
         imageAlt={t('contact.hero.imageAlt')}
         crumbs={[{ labelKey: 'nav.contact' }]}
       >
