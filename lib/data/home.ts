@@ -57,6 +57,17 @@ export const HOME_BENEFITS = [
   { id: 'reach', icon: Languages },
 ] as const satisfies readonly FeatureItem[];
 
+/**
+ * Modules de la plateforme, groupés par usage. Les libellés vivent dans
+ * `home.platform.groups.<groupe>.label` et `…​.modules.<module>.title|text` :
+ * ajouter un module ici suppose d'ajouter sa traduction dans les trois langues.
+ */
+export const HOME_PLATFORM_GROUPS = [
+  { id: 'observe', modules: ['satellite', 'sensors', 'lorawan', 'drone'] },
+  { id: 'act', modules: ['irrigation', 'alerts', 'operations'] },
+  { id: 'manage', modules: ['fields', 'organizations', 'reports'] },
+] as const satisfies readonly { id: string; modules: readonly string[] }[];
+
 /** Témoignages d'exploitations — textes dans `home.testimonials.items.*`. */
 export const HOME_TESTIMONIALS = ['olive', 'cereal', 'citrus'] as const;
 

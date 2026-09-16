@@ -179,7 +179,7 @@ export const DATA_TO_IMPACT_CHAIN = [
 
 /** Trois piliers de résilience — textes dans `sustainability.resilience.cards.<id>`. */
 export const RESILIENCE_CARDS = [
-  { id: 'anticipate', image: '/hero/sfax.webp' },
-  { id: 'optimize', image: '/hero/drone-spray.webp' },
-  { id: 'preserve', image: '/hero/b.webp' },
+  { id: 'anticipate', image: '/hero/x.jpg' },
+  { id: 'optimize', image: '/hero/y.jpg' },
+  { id: 'preserve', image: '/hero/z.jpg' },
 ] as const;

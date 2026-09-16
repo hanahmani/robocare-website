@@ -166,7 +166,7 @@
       "states": {
         "core": {
           "eyebrow": "Le recouvrement",
-          "title": "L’intersection, pas l’addition",
+          "title": "Trois métiers, une seule décision",
           "paragraph": "Notre force vient de l’intégration de l’agronomie, de la data science et de technologies de pointe : chaque paire de métiers produit quelque chose qu’aucun des deux ne produit seul.",
           "points": [
             { "title": "Agronomie × Data science", "text": "Des seuils calibrés sur des séries tunisiennes, au lieu de seuils importés." },
@@ -249,6 +249,98 @@
         "Séries NDVI / NDRE et comparaison entre deux dates",
         "Alertes multicanal et rapport hebdomadaire exportable"
       ]
+    },
+    "platform": {
+      "eyebrow": "La plateforme",
+      "title": "Une seule plateforme pour piloter vos parcelles",
+      "text": "Satellite, capteurs, drone et irrigation réunis au même endroit, pour décider au bon moment, parcelle par parcelle.",
+      "moduleCount": "{count} modules",
+      "deviceNote": "Ordinateur ou smartphone, dans le navigateur.",
+      "groups": {
+        "observe": {
+          "label": "Observer",
+          "modules": {
+            "satellite": {
+              "title": "Imagerie satellite",
+              "text": "Indice NDVI Sentinel-2 à chaque passage"
+            },
+            "sensors": {
+              "title": "Capteurs sol et météo",
+              "text": "Humidité, température, pluie en continu"
+            },
+            "lorawan": {
+              "title": "Réseau LoRaWAN",
+              "text": "Passerelles longue portée pour vos capteurs"
+            },
+            "drone": {
+              "title": "Services drone",
+              "text": "Survol, cartographie et traitement ciblé"
+            }
+          }
+        },
+        "act": {
+          "label": "Agir",
+          "modules": {
+            "irrigation": {
+              "title": "Irrigation intelligente",
+              "text": "Quand arroser et combien, selon le sol"
+            },
+            "alerts": {
+              "title": "Alertes et notifications",
+              "text": "Stress hydrique, gel, capteur hors ligne"
+            },
+            "operations": {
+              "title": "Suivi des interventions",
+              "text": "Traitements, récoltes et tâches d'équipe"
+            }
+          }
+        },
+        "manage": {
+          "label": "Gérer",
+          "modules": {
+            "fields": {
+              "title": "Parcelles et cultures",
+              "text": "Olivier, céréales, palmier dattier…"
+            },
+            "organizations": {
+              "title": "Organisations multi-niveaux",
+              "text": "Groupes, collecteurs et exploitants"
+            },
+            "reports": {
+              "title": "Rapports et abonnements",
+              "text": "Exports PDF, historique, facturation"
+            }
+          }
+        }
+      },
+      "mock": {
+        "farm": "Domaine El Amra",
+        "meta": "Sfax · 12 parcelles · 96 ha",
+        "capture": "Sentinel-2 · 12 sept.",
+        "stats": {
+          "ndvi": { "label": "NDVI moyen", "value": "0,52" },
+          "moisture": { "label": "Humidité sol", "value": "14 %" },
+          "sensors": { "label": "Capteurs", "value": "14/14" },
+          "irrigation": { "label": "Irrigation 7 j", "value": "210 m³" }
+        },
+        "legend": "NDVI",
+        "watchTitle": "À surveiller",
+        "watch": [
+          { "field": "B3 · Olivier", "value": "Sol 14 %" },
+          { "field": "A2 · Céréales", "value": "NDVI 0,38" },
+          { "field": "C1 · Dattier", "value": "NDVI 0,61" }
+        ],
+        "advice": "Irrigation conseillée demain 6 h · 42 m³",
+        "phone": {
+          "field": "Parcelle B3",
+          "crop": "Olivier · 8,6 ha",
+          "ndviLabel": "NDVI",
+          "ndviValue": "0,41",
+          "soilLabel": "Sol",
+          "soilValue": "14 %",
+          "advice": "Arroser demain 6 h · 42 m³"
+        }
+      }
     },
     "videoShowcase": {
       "eyebrow": "En démonstration",
@@ -1134,21 +1226,21 @@
       "imageAlt": "Drone multispectral RoboCare en vol au-dessus d’une parcelle"
     },
     "metrics": {
+      "agronomy": {
+        "label": "Agronomie de précision",
+        "value": "Zone par zone"
+      },
       "revisit": {
         "label": "Révisite satellite",
         "value": "5 jours"
-      },
-      "sensors": {
-        "label": "Relevé capteurs",
-        "value": "15 min"
       },
       "drone": {
         "label": "Résolution drone",
         "value": "Centimétrique"
       },
-      "lead": {
-        "label": "Avance sur le stress",
-        "value": "14 jours"
+      "sensors": {
+        "label": "Relevé capteurs",
+        "value": "15 min"
       }
     },
     "blocks": {
@@ -1436,10 +1528,6 @@
         "ameur-hbiri": {
           "name": "Ameur Hbiri",
           "role": "Cofondateur & CIO"
-        },
-        "malek-benmbarek": {
-          "name": "Malek Ben Mbarek",
-          "role": "CMO"
         },
         "po": {
           "name": "Karim Hbiri",

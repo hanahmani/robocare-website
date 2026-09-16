@@ -164,6 +164,8 @@ const config: Config = {
           '50%': { transform: 'translateY(12px)' },
         },
         spinSlow: { to: { transform: 'rotate(360deg)' } },
+        /** Apparition des parcelles de la carte NDVI (maquette plateforme). */
+        ndviIn: { from: { opacity: '0' }, to: { opacity: '1' } },
         marquee: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
@@ -175,6 +177,7 @@ const config: Config = {
         floaty: 'floaty 7s ease-in-out infinite',
         'floaty-alt': 'floatyAlt 8s ease-in-out infinite',
         'spin-slow': 'spinSlow 6s linear infinite',
+        ndvi: 'ndviIn .7s ease-out both',
         marquee: 'marquee 34s linear infinite',
       },
     },

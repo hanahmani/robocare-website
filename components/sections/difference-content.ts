@@ -49,7 +49,7 @@ export const DEFAULT_DIFFERENCE_CONTENT: DifferenceContent = {
   states: {
     core: {
       eyebrow: 'Le recouvrement',
-      title: "L'intersection, pas l'addition",
+      title: 'Trois métiers, une seule décision',
       paragraph:
         "Notre force vient de l'intégration de l'agronomie, de la data science et de technologies de pointe : chaque paire de métiers produit quelque chose qu'aucun des deux ne produit seul.",
       points: [

@@ -5,7 +5,7 @@ import { Hero } from '@/sections/home/Hero';
 import { About } from '@/sections/home/About';
 import { WhyRoboCare } from '@/sections/home/WhyRoboCare';
 import { SolutionsPreview } from '@/sections/home/SolutionsPreview';
-import { PlatformPreview } from '@/sections/home/PlatformPreview';
+import { PlatformOverview } from '@/sections/home/PlatformOverview';
 import { VideoShowcase } from '@/sections/home/VideoShowcase';
 import { TestimonialsCarousel } from '@/sections/home/TestimonialsCarousel';
 import { HomeFaq } from '@/sections/home/HomeFaq';
@@ -45,7 +45,7 @@ export function HomeView() {
       <About />
       <WhyRoboCare />
       <SolutionsPreview />
-      <PlatformPreview />
+      <PlatformOverview />
       <VideoShowcase />
       <TestimonialsCarousel />
       <HomeFaq />

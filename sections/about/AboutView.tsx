@@ -9,7 +9,6 @@ import { PartnersMarquee } from '@/sections/about/PartnersMarquee';
 import { TeamSection } from '@/sections/about/TeamSection';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Card } from '@/components/ui/Card';
-import { ButtonExternal } from '@/components/ui/Button';
 import { RequestDemoButton } from '@/components/ui/RequestDemoButton';
 import { StatCounter } from '@/components/ui/StatCounter';
 import { Reveal } from '@/components/animations/Reveal';
@@ -39,14 +38,6 @@ export function AboutView() {
         image="/hero/team.jpg"
         imageAlt={t('about.hero.imageAlt')}
         crumbs={[{ labelKey: 'nav.about' }]}
-        actions={
-          <>
-            <RequestDemoButton variant="lime" size="lg" />
-            <ButtonExternal href={SITE.appUrl} variant="outline-light" size="lg">
-              {t('actions.thePlatform')}
-            </ButtonExternal>
-          </>
-        }
       >
         <div className="grid gap-4 sm:grid-cols-3">
           <div className="glass rounded-tile px-[22px] py-5">

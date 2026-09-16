@@ -166,7 +166,7 @@
       "states": {
         "core": {
           "eyebrow": "The overlap",
-          "title": "The intersection, not the addition",
+          "title": "Three disciplines, one decision",
           "paragraph": "Our strength comes from the integration of agronomy, data science, and cutting-edge technology: each pair of disciplines produces something neither produces alone.",
           "points": [
             { "title": "Agronomy × Data science", "text": "Thresholds calibrated on Tunisian series, instead of imported thresholds." },
@@ -249,6 +249,98 @@
         "NDVI / NDRE time series and side-by-side date comparison",
         "Multichannel alerts and an exportable weekly report"
       ]
+    },
+    "platform": {
+      "eyebrow": "The platform",
+      "title": "One platform to run every field",
+      "text": "Satellite, sensors, drone and irrigation in one place, so you can act at the right moment, field by field.",
+      "moduleCount": "{count} modules",
+      "deviceNote": "Desktop or smartphone, straight from the browser.",
+      "groups": {
+        "observe": {
+          "label": "Observe",
+          "modules": {
+            "satellite": {
+              "title": "Satellite imagery",
+              "text": "Sentinel-2 NDVI on every pass"
+            },
+            "sensors": {
+              "title": "Soil and weather sensors",
+              "text": "Moisture, temperature and rainfall, continuously"
+            },
+            "lorawan": {
+              "title": "LoRaWAN network",
+              "text": "Long-range gateways for your sensors"
+            },
+            "drone": {
+              "title": "Drone services",
+              "text": "Survey, mapping and targeted treatment"
+            }
+          }
+        },
+        "act": {
+          "label": "Act",
+          "modules": {
+            "irrigation": {
+              "title": "Smart irrigation",
+              "text": "When to water and how much, based on the soil"
+            },
+            "alerts": {
+              "title": "Alerts and notifications",
+              "text": "Water stress, frost, sensor offline"
+            },
+            "operations": {
+              "title": "Operations tracking",
+              "text": "Treatments, harvests and team tasks"
+            }
+          }
+        },
+        "manage": {
+          "label": "Manage",
+          "modules": {
+            "fields": {
+              "title": "Fields and crops",
+              "text": "Olive, cereals, date palm and more"
+            },
+            "organizations": {
+              "title": "Multi-level organisations",
+              "text": "Groups, collectors and growers"
+            },
+            "reports": {
+              "title": "Reports and subscriptions",
+              "text": "PDF exports, history, billing"
+            }
+          }
+        }
+      },
+      "mock": {
+        "farm": "Domaine El Amra",
+        "meta": "Sfax · 12 fields · 96 ha",
+        "capture": "Sentinel-2 · 12 Sep",
+        "stats": {
+          "ndvi": { "label": "Average NDVI", "value": "0.52" },
+          "moisture": { "label": "Soil moisture", "value": "14%" },
+          "sensors": { "label": "Sensors", "value": "14/14" },
+          "irrigation": { "label": "Irrigation 7 d", "value": "210 m³" }
+        },
+        "legend": "NDVI",
+        "watchTitle": "Watch list",
+        "watch": [
+          { "field": "B3 · Olive", "value": "Soil 14%" },
+          { "field": "A2 · Cereals", "value": "NDVI 0.38" },
+          { "field": "C1 · Date palm", "value": "NDVI 0.61" }
+        ],
+        "advice": "Irrigation advised tomorrow 6 am · 42 m³",
+        "phone": {
+          "field": "Field B3",
+          "crop": "Olive · 8.6 ha",
+          "ndviLabel": "NDVI",
+          "ndviValue": "0.41",
+          "soilLabel": "Soil",
+          "soilValue": "14%",
+          "advice": "Water tomorrow 6 am · 42 m³"
+        }
+      }
     },
     "videoShowcase": {
       "eyebrow": "In action",
@@ -1134,21 +1226,21 @@
       "imageAlt": "RoboCare multispectral drone flying over a field"
     },
     "metrics": {
+      "agronomy": {
+        "label": "Precision agronomy",
+        "value": "Zone by zone"
+      },
       "revisit": {
         "label": "Satellite revisit",
         "value": "5 days"
-      },
-      "sensors": {
-        "label": "Sensor readings",
-        "value": "15 min"
       },
       "drone": {
         "label": "Drone resolution",
         "value": "Centimetric"
       },
-      "lead": {
-        "label": "Lead time on stress",
-        "value": "14 days"
+      "sensors": {
+        "label": "Sensor readings",
+        "value": "15 min"
       }
     },
     "blocks": {
@@ -1436,10 +1528,6 @@
         "ameur-hbiri": {
           "name": "Ameur Hbiri",
           "role": "Co-Founder & CIO"
-        },
-        "malek-benmbarek": {
-          "name": "Malek Ben Mbarek",
-          "role": "CMO"
         },
         "po": {
           "name": "Karim Hbiri",
