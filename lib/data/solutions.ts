@@ -5,7 +5,7 @@ import type { FeatureItem, Solution } from '@/types';
 export const SOLUTIONS = [
   { slug: 'olive-care', image: '/hero/1.jpg', tone: 'leaf' },
   { slug: 'cereal-care', image: '/hero/2.jpg', tone: 'ocre' },
-  { slug: 'citrus-care', image: '/hero/3.jpg', tone: 'ocre' },
+  { slug: 'citrus-care', image: '/hero/3..webp', tone: 'ocre' },
   { slug: 'greenhouse-care', image: '/hero/4.jpg', tone: 'leaf' },
 ] as const satisfies readonly Solution[];
 

@@ -39,9 +39,9 @@ type SustainabilityStep = { id: 'measure' | 'decide' | 'prove'; image: string; c
  * `WHY_SUSTAINABILITY_CARDS`.
  */
 export const SUSTAINABILITY_STEPS = [
-  { id: 'measure', image: '/hero/sols.jpg', cta: undefined },
-  { id: 'decide', image: '/hero/beja.webp', cta: undefined },
-  { id: 'prove', image: '/hero/e.webp', cta: true },
+  { id: 'measure', image: '/hero/9.jpg', cta: undefined },
+  { id: 'decide', image: '/hero/8.jpg', cta: undefined },
+  { id: 'prove', image: '/hero/7.jpg', cta: true },
 ] as const satisfies readonly SustainabilityStep[];
 
 /** Puces de chaque étape, dans l'ordre d'affichage — textes dans `sustainability.steps.<step>.bullets.<id>`. */
