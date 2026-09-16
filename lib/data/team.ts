@@ -26,12 +26,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
     linkedin: 'https://www.linkedin.com/in/ameur-hbiri/',
   },
   {
-    id: 'malek-benmbarek',
-    team: 'Leadership',
-    photo: '/team/Malek-Ben-mbarek.jpg',
-    linkedin: 'https://www.linkedin.com/in/malek-ben-mbarek-16a40a1b/',
-  },
-  {
     id: 'po',
     team: 'Leadership',
     linkedin: 'https://www.linkedin.com/in/karim-hbiri/',

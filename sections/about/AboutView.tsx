@@ -9,7 +9,6 @@ import { PartnersMarquee } from '@/sections/about/PartnersMarquee';
 import { TeamSection } from '@/sections/about/TeamSection';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Card } from '@/components/ui/Card';
-import { ButtonExternal } from '@/components/ui/Button';
 import { RequestDemoButton } from '@/components/ui/RequestDemoButton';
 import { StatCounter } from '@/components/ui/StatCounter';
 import { Reveal } from '@/components/animations/Reveal';
@@ -36,17 +35,9 @@ export function AboutView() {
         eyebrow={t('about.hero.eyebrow')}
         title={t('about.hero.title')}
         intro={t('about.hero.intro')}
-        image="/hero/team.webp"
+        image="/hero/team.jpg"
         imageAlt={t('about.hero.imageAlt')}
         crumbs={[{ labelKey: 'nav.about' }]}
-        actions={
-          <>
-            <RequestDemoButton variant="lime" size="lg" />
-            <ButtonExternal href={SITE.appUrl} variant="outline-light" size="lg">
-              {t('actions.thePlatform')}
-            </ButtonExternal>
-          </>
-        }
       >
         <div className="grid gap-4 sm:grid-cols-3">
           <div className="glass rounded-tile px-[22px] py-5">
@@ -112,26 +103,26 @@ export function AboutView() {
       {/* Mission & vision */}
       <Section id="mission" tone="sage">
         <SectionHeading eyebrow={t('about.mission.eyebrow')} title={t('about.mission.title')} />
-        <div className="mt-10 grid gap-5 lg:grid-cols-2">
-          <Reveal>
-            <Card tone="dark" className="border-lime-500/20 bg-forest-800 p-7 sm:p-8">
-              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-lime-500">
+        <div className="mt-10 grid items-stretch gap-5 lg:grid-cols-2">
+          <Reveal className="h-full">
+            <div className="flex h-full flex-col rounded-tile border border-leaf-500/20 bg-cream-fade p-7 shadow-soft sm:p-8">
+              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-leaf-600">
                 {t('about.mission.missionLabel')}
               </p>
-              <p className="mt-5 text-[17px] leading-[1.65] text-white lg:text-[19px]">
+              <p className="mt-5 text-[17px] leading-[1.65] text-ink-900 lg:text-[19px]">
                 {t('about.mission.missionText')}
               </p>
-            </Card>
+            </div>
           </Reveal>
-          <Reveal from="right">
-            <Card className="p-7 sm:p-8">
+          <Reveal from="right" className="h-full">
+            <div className="flex h-full flex-col rounded-tile border border-leaf-500/20 bg-cream-fade p-7 shadow-soft sm:p-8">
               <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-leaf-600">
                 {t('about.mission.visionLabel')}
               </p>
-              <p className="mt-5 text-[17px] leading-[1.65] text-forest-900 lg:text-[19px]">
+              <p className="mt-5 text-[17px] leading-[1.65] text-ink-900 lg:text-[19px]">
                 {t('about.mission.visionText')}
               </p>
-            </Card>
+            </div>
           </Reveal>
         </div>
       </Section>
@@ -202,32 +193,32 @@ export function AboutView() {
             ))}
           </Stagger>
 
-          <Reveal from="right">
-            <Card tone="dark" className="p-6 sm:p-7">
-              <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-lime-500">
+          <Reveal from="right" className="h-full">
+            <div className="h-full rounded-tile border border-leaf-500/20 bg-cream-fade p-6 shadow-soft sm:p-7">
+              <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-leaf-600">
                 {t('about.awards.programsLabel')}
               </p>
               <div className="mt-[18px] flex flex-col gap-3">
                 {PROGRAMS.map((program) => (
                   <div
                     key={program}
-                    className="rounded-chip border border-white/[0.12] bg-white/[0.06] p-4 transition-surface duration-base hover:border-lime-500/40 hover:bg-lime-500/[0.12]"
+                    className="rounded-chip border border-forest-950/[0.08] bg-white p-4 transition-surface duration-base hover:border-leaf-500/40 hover:shadow-soft"
                   >
                     <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <span className="text-[15px] font-bold text-white">
+                      <span className="text-[15px] font-bold text-ink-900">
                         {about.awards.programs[program].title}
                       </span>
-                      <span dir="ltr" className="font-mono text-[11px] text-lime-500">
+                      <span dir="ltr" className="font-mono text-[11px] text-leaf-600">
                         {about.awards.programs[program].year}
                       </span>
                     </div>
-                    <p className="mt-1.5 text-[13.5px] leading-[1.55] text-white/70">
+                    <p className="mt-1.5 text-[13.5px] leading-[1.55] text-ink-500">
                       {about.awards.programs[program].text}
                     </p>
                   </div>
                 ))}
               </div>
-            </Card>
+            </div>
           </Reveal>
         </div>
       </Section>

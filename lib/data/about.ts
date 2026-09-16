@@ -17,12 +17,6 @@ export const VALUES = ['useful', 'field', 'language', 'sobriety'] as const;
 export const TEAM = [
   { id: 'imen-hbiri', group: 'leadership', photo: '/team/Imen-Hbiri.png', linkedin: '' },
   { id: 'ameur-hbiri', group: 'leadership', photo: '/team/Ameur-Hbiri.jpg', linkedin: '' },
-  {
-    id: 'malek-benmbarek',
-    group: 'leadership',
-    photo: '/team/Malek-Ben-mbarek.jpg',
-    linkedin: '',
-  },
   { id: 'po', group: 'leadership', photo: undefined, linkedin: '' },
   { id: 'zekri-mohamed', group: 'leadership', photo: '/team/Mohamed-zekri.png', linkedin: '' },
   { id: 'ali-chaabouni', group: 'engineering', photo: '/team/Ali-chaabouni.png', linkedin: '' },

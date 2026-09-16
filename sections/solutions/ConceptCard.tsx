@@ -1,7 +1,8 @@
 'use client';
 
-import type { LucideIcon } from 'lucide-react';
-import { IconChip } from '@/components/ui/Card';
+import { useId, useState } from 'react';
+import { ChevronDown } from 'lucide-react';
+import { useTranslation } from '@/i18n';
 import { cn, pad2 } from '@/lib/utils';
 
 type ConceptTone = 'leaf' | 'ocre';
@@ -13,97 +14,124 @@ type ConceptCopy = {
   points: string[];
 };
 
-const TONE: Record<
-  ConceptTone,
-  { ring: string; border: string; accent: string; glow: string; check: string }
-> = {
-  leaf: {
-    ring: 'ring-leaf-500/20',
-    border: 'hover:border-leaf-600/30',
-    accent: 'group-hover:text-leaf-600',
-    glow: 'bg-leaf-500/[0.08]',
-    check: '#2F7D32',
-  },
-  ocre: {
-    ring: 'ring-ocre-400/20',
-    border: 'hover:border-ocre-600/30',
-    accent: 'group-hover:text-ocre-600',
-    glow: 'bg-ocre-400/[0.08]',
-    check: '#B87514',
-  },
+const ACCENT_TEXT: Record<ConceptTone, string> = {
+  leaf: 'text-leaf-600',
+  ocre: 'text-ocre-600',
 };
+
+const HAIRLINE_HOVER: Record<ConceptTone, string> = {
+  leaf: 'hover:border-t-leaf-600 focus-within:border-t-leaf-600',
+  ocre: 'hover:border-t-ocre-600 focus-within:border-t-ocre-600',
+};
+
+const FOCUS_RING: Record<ConceptTone, string> = {
+  leaf: 'focus-visible:outline-leaf-500',
+  ocre: 'focus-visible:outline-ocre-500',
+};
+
+const EASE = 'cubic-bezier(.22,.7,.25,1)';
 
 type Props = {
-  icon: LucideIcon;
-  tone: ConceptTone;
   index: number;
   copy: ConceptCopy;
+  tone: ConceptTone;
+  revealed: boolean;
+  delayMs: number;
+  reduced: boolean;
 };
 
-/** Carte d'une brique agronomique / technique — bloc « Les fondamentaux » de la page Solutions. */
-export function ConceptCard({ icon: Icon, tone, index, copy }: Props) {
-  const palette = TONE[tone];
+/**
+ * Une brique agronomique / technique — bloc « Les fondamentaux » (page
+ * Solutions). Pas de carte : un filet, un numéro, un titre, un fait court par
+ * ligne, et le détail technique derrière une disclosure.
+ */
+export function ConceptCard({ index, copy, tone, revealed, delayMs, reduced }: Props) {
+  const { t } = useTranslation();
+  const [open, setOpen] = useState(false);
+  const panelId = useId();
 
   return (
     <article
       className={cn(
-        'group relative flex h-full flex-col overflow-hidden rounded-card border border-forest-950/[0.08] bg-white p-6 shadow-soft transition-surface duration-slow ease-premium hover:-translate-y-1.5 hover:shadow-hover motion-reduce:hover:translate-y-0 sm:p-9',
-        palette.border,
+        'group border-t border-forest-950/[0.1] pt-6',
+        'transition-[border-color,border-width] duration-[220ms] ease-out',
+        'hover:border-t-2 focus-within:border-t-2',
+        HAIRLINE_HOVER[tone],
       )}
+      style={{
+        opacity: revealed ? 1 : 0,
+        transform: revealed ? 'none' : 'translateY(14px)',
+        transition: reduced
+          ? 'opacity .01ms, transform .01ms'
+          : `opacity 520ms ${EASE} ${delayMs}ms, transform 520ms ${EASE} ${delayMs}ms`,
+        willChange: revealed ? undefined : 'transform, opacity',
+      }}
+      onTransitionEnd={(event) => {
+        if (event.propertyName === 'transform') event.currentTarget.style.willChange = 'auto';
+      }}
     >
-      <div
-        aria-hidden
-        className={cn(
-          'pointer-events-none absolute -start-10 -top-10 h-[220px] w-[220px] rounded-full blur-[70px]',
-          palette.glow,
-        )}
-      />
-
-      <header className="relative flex items-start gap-4">
-        <IconChip
-          tone={tone}
-          className={cn(
-            'h-14 w-14 shrink-0 rounded-chip ring-1 transition-transform duration-500 ease-premium group-hover:scale-105',
-            palette.ring,
-          )}
-        >
-          <Icon size={25} aria-hidden />
-        </IconChip>
-        <h3 className="pt-1.5 text-h3 tracking-[-0.025em]">{copy.title}</h3>
+      <div className="flex items-baseline gap-3">
         <span
+          aria-hidden
           className={cn(
-            'ms-auto shrink-0 pt-1.5 font-mono text-[11px] tracking-[0.16em] text-ink-300 transition-colors duration-base',
-            palette.accent,
+            'font-mono text-[12px] tabular-nums transition-transform duration-200 ease-out',
+            'group-hover:translate-x-1 group-focus-within:translate-x-1',
+            ACCENT_TEXT[tone],
           )}
         >
           {pad2(index)}
         </span>
-      </header>
+        <h3 className="text-h3 tracking-[-0.02em] text-ink-900">{copy.title}</h3>
+      </div>
 
-      <p className="relative mt-5 max-w-[62ch] text-[15.5px] leading-[1.75] text-ink-500">{copy.text}</p>
-      <p className="relative mt-3 max-w-[62ch] flex-1 text-[14.5px] leading-[1.75] text-ink-400">
-        {copy.text2}
-      </p>
+      <p className="mt-3 max-w-[50ch] text-[15px] leading-[1.6] text-ink-500">{copy.text}</p>
 
-      <div className="relative mt-6 border-t border-forest-950/[0.06] pt-6">
-        <ul className="flex flex-col gap-2.5">
-          {copy.points.map((point) => (
-            <li key={point} className="flex items-start gap-2.5 text-[14px] leading-[1.5] text-ink-500">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke={palette.check}
-                strokeWidth="2"
-                strokeLinecap="round"
-                className="mt-[3px] h-[14px] w-[14px] shrink-0"
-                aria-hidden
-              >
-                <path d="m5 13 4 4L19 7" />
-              </svg>
-              <span>{point}</span>
-            </li>
-          ))}
-        </ul>
+      <div className="mt-5 flex flex-wrap gap-y-2">
+        {copy.points.map((point, i) => (
+          <span
+            key={point}
+            className={cn(
+              'text-[13px] leading-[1.4] text-ink-500',
+              i > 0 && 'border-s border-forest-950/[0.12] ps-4 ms-4',
+            )}
+          >
+            {point}
+          </span>
+        ))}
+      </div>
+
+      <button
+        type="button"
+        onClick={() => setOpen((value) => !value)}
+        aria-expanded={open}
+        aria-controls={panelId}
+        className={cn(
+          'mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-semibold',
+          'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4',
+          ACCENT_TEXT[tone],
+          FOCUS_RING[tone],
+        )}
+      >
+        {open ? t('solutions.labels.close') : t('solutions.labels.howItWorks')}
+        <ChevronDown
+          size={15}
+          aria-hidden
+          className="transition-transform duration-200 ease-out"
+          style={{ transform: open ? 'rotate(180deg)' : 'none' }}
+        />
+      </button>
+
+      <div
+        id={panelId}
+        className="grid"
+        style={{
+          gridTemplateRows: open ? '1fr' : '0fr',
+          transition: reduced ? 'grid-template-rows .01ms' : `grid-template-rows 380ms ${EASE}`,
+        }}
+      >
+        <div className="overflow-hidden">
+          <p className="max-w-[62ch] pt-4 text-[14px] leading-[1.6] text-ink-500">{copy.text2}</p>
+        </div>
       </div>
     </article>
   );

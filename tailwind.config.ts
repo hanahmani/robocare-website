@@ -53,8 +53,18 @@ const config: Config = {
           500: '#C88A2E',
           600: '#B87514',
         },
-        cream: '#FBF7F0',
+        cream: '#EAF4E3',
         danger: '#D8232A',
+        // Diagramme d'intersection « En quoi RoboCare est différent ».
+        agro: '#2CA14A',
+        data: '#6E747C',
+        tech: '#14532D',
+        core: '#1C7A3C',
+        // Onglets « Solutions par culture » — un accent par culture.
+        solutionOlive: '#8DBF4A',
+        solutionCereal: '#2E9E4F',
+        solutionCitrus: '#13847A',
+        solutionGreenhouse: '#0D4A2A',
       },
       fontFamily: {
         // `--font-arabic` est placé juste après la police latine : le navigateur
@@ -129,6 +139,7 @@ const config: Config = {
           'linear-gradient(90deg,#8C3B12 0%,#C88A2E 22%,#D9C657 40%,#7FA98B 62%,#1F8049 80%,#9ED84B 100%)',
         'grid-lime':
           'linear-gradient(rgba(158,216,75,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(158,216,75,.09) 1px, transparent 1px)',
+        'cream-fade': 'linear-gradient(135deg, #FFFFFF 0%, #F6FAF4 45%, #EAF4E3 100%)',
       },
       transitionTimingFunction: {
         premium: 'cubic-bezier(.2,.8,.2,1)',
@@ -153,6 +164,8 @@ const config: Config = {
           '50%': { transform: 'translateY(12px)' },
         },
         spinSlow: { to: { transform: 'rotate(360deg)' } },
+        /** Apparition des parcelles de la carte NDVI (maquette plateforme). */
+        ndviIn: { from: { opacity: '0' }, to: { opacity: '1' } },
         marquee: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
@@ -164,6 +177,7 @@ const config: Config = {
         floaty: 'floaty 7s ease-in-out infinite',
         'floaty-alt': 'floatyAlt 8s ease-in-out infinite',
         'spin-slow': 'spinSlow 6s linear infinite',
+        ndvi: 'ndviIn .7s ease-out both',
         marquee: 'marquee 34s linear infinite',
       },
     },

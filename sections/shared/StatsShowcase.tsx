@@ -30,11 +30,14 @@ export function StatsShowcase({
   stats,
   className,
   columns = 6,
+  tone = 'dark',
 }: {
   stats: readonly StatCardData[];
   className?: string;
   /** Nombre de colonnes en desktop (`lg:`) : 6 par défaut, 4 pour une grille plus dense. */
   columns?: 4 | 6;
+  /** Fond de la section qui accueille le bandeau : adapte le contraste des cartes. */
+  tone?: 'dark' | 'light';
 }) {
   const mx = useMotionValue(0.5);
   const my = useMotionValue(0.5);
@@ -67,7 +70,7 @@ export function StatsShowcase({
         )}
       >
         {stats.map((stat, index) => (
-          <StatCard key={stat.id} stat={stat} index={index} />
+          <StatCard key={stat.id} stat={stat} index={index} tone={tone} />
         ))}
       </Stagger>
     </div>
@@ -103,7 +106,16 @@ function AmbientBackground({
   );
 }
 
-function StatCard({ stat, index }: { stat: StatCardData; index: number }) {
+function StatCard({
+  stat,
+  index,
+  tone,
+}: {
+  stat: StatCardData;
+  index: number;
+  tone: 'dark' | 'light';
+}) {
+  const light = tone === 'light';
   const { t } = useTranslation();
   const separator = stat.grouped ? t('common.thousandsSeparator') : '';
 
@@ -161,7 +173,14 @@ function StatCard({ stat, index }: { stat: StatCardData; index: number }) {
         className="absolute inset-0 rounded-tile animate-spin-slow bg-[conic-gradient(from_0deg,transparent_0%,rgba(158,216,75,.65)_10%,transparent_26%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
       />
 
-      <div className="relative h-full overflow-hidden rounded-[21px] border border-white/10 bg-white/[0.035] p-4 backdrop-blur-xl sm:p-5">
+      <div
+        className={cn(
+          'relative h-full overflow-hidden rounded-[21px] border p-4 backdrop-blur-xl sm:p-5',
+          light
+            ? 'border-forest-900/10 bg-white shadow-soft'
+            : 'border-white/10 bg-white/[0.035]',
+        )}
+      >
         {/* Trait d'accent en haut, révélé au survol */}
         <span
           aria-hidden
@@ -181,10 +200,17 @@ function StatCard({ stat, index }: { stat: StatCardData; index: number }) {
               'radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(158,216,75,.16), transparent 70%)',
           }}
         />
-        {reduced ? null : <CardParticles seed={index} />}
+        {reduced ? null : <CardParticles seed={index} light={light} />}
 
         <div className="relative flex h-full flex-col">
-          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] text-lime-400 transition-transform duration-slow ease-premium group-hover:-rotate-6 group-hover:scale-110">
+          <span
+            className={cn(
+              'inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border transition-transform duration-slow ease-premium group-hover:-rotate-6 group-hover:scale-110',
+              light
+                ? 'border-forest-900/10 bg-forest-900/[0.04] text-leaf-600'
+                : 'border-white/10 bg-white/[0.06] text-lime-400',
+            )}
+          >
             <Icon size={16} aria-hidden />
           </span>
 
@@ -193,12 +219,19 @@ function StatCard({ stat, index }: { stat: StatCardData; index: number }) {
             dir="ltr"
             className={cn(
               'mt-4 whitespace-nowrap font-display font-semibold leading-none tracking-display tabular-nums rtl:text-right',
-              stat.featured ? 'text-[26px] text-lime-400 sm:text-[30px]' : 'text-[24px] text-white sm:text-[28px]',
+              stat.featured
+                ? cn('text-[26px] sm:text-[30px]', light ? 'text-leaf-600' : 'text-lime-400')
+                : cn('text-[24px] sm:text-[28px]', light ? 'text-forest-900' : 'text-white'),
             )}
           >
             {display}
           </div>
-          <div className="mt-2.5 font-mono text-[10px] font-semibold uppercase leading-snug tracking-[0.12em] text-white/55">
+          <div
+            className={cn(
+              'mt-2.5 font-mono text-[10px] font-semibold uppercase leading-snug tracking-[0.12em]',
+              light ? 'text-ink-400' : 'text-white/55',
+            )}
+          >
             {stat.label}
           </div>
         </div>
@@ -213,7 +246,7 @@ function StatCard({ stat, index }: { stat: StatCardData; index: number }) {
  * moins d'animation : `reducedMotion` ferait bien tomber le `y`, mais la boucle
  * d'opacité, elle, continuerait de tourner indéfiniment.
  */
-function CardParticles({ seed }: { seed: number }) {
+function CardParticles({ seed, light }: { seed: number; light: boolean }) {
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
       {PARTICLE_SEEDS.map((value, i) => {
@@ -223,7 +256,7 @@ function CardParticles({ seed }: { seed: number }) {
         return (
           <motion.span
             key={i}
-            className="absolute h-1 w-1 rounded-full bg-lime-400/40"
+            className={cn('absolute h-1 w-1 rounded-full', light ? 'bg-leaf-500/50' : 'bg-lime-400/40')}
             style={{ left, top }}
             animate={{ y: [0, -10, 0], opacity: [0.15, 0.55, 0.15] }}
             transition={{ duration: 4 + delay, repeat: Infinity, ease: 'easeInOut', delay }}

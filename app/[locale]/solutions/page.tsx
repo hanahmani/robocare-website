@@ -5,7 +5,14 @@ import { getTranslation } from '@/i18n/getDictionary';
 import { SolutionsView } from '@/sections/solutions/SolutionsView';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildPageMetadata } from '@/lib/seo/metadata';
-import { breadcrumbSchema, faqSchema, graph, serviceSchema, webPageSchema } from '@/lib/seo/schema';
+import {
+  breadcrumbSchema,
+  faqSchema,
+  graph,
+  serviceSchema,
+  softwareApplicationSchema,
+  webPageSchema,
+} from '@/lib/seo/schema';
 import { SOLUTIONS, SOLUTIONS_FAQ } from '@/lib/data/solutions';
 
 const PATH = '/solutions';
@@ -66,6 +73,8 @@ export default async function Page({ params }: Props) {
           ),
           // La FAQ est réellement affichée sur la page : le balisage la reflète.
           faqSchema(locale, PATH, faq),
+          // La page présente aussi l'application (captures, modules, architecture).
+          softwareApplicationSchema(d),
         )}
       />
       <SolutionsView />

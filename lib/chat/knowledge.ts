@@ -86,7 +86,7 @@ export const KNOWLEDGE: readonly KnowledgeEntry[] = [
       en: 'In four steps: you create an account, draw your field outlines on the map (or import a KML/Shapefile), each satellite pass updates the vegetation status, and you receive alerts and recommendations by email, SMS or WhatsApp. No hardware is needed to start and the first analysis arrives within 24 hours.',
       ar: 'في أربع خطوات: تُنشئ حسابًا، وترسم حدود قطعك على الخريطة (أو تستورد ملفّ KML/Shapefile)، ويحدّث كل مرور فضائي حالة الغطاء النباتي، ثمّ تصلك التنبيهات والتوصيات عبر البريد أو الرسائل القصيرة أو واتساب. ولا حاجة إلى أيّ عتاد للانطلاق، ويصل أوّل تحليل خلال 24 ساعة.',
     },
-    link: { href: '/plateforme', labelKey: 'actions.discoverPlatform' },
+    link: { href: '/solutions', labelKey: 'actions.discoverPlatform' },
   },
   {
     id: 'iot',
@@ -295,7 +295,7 @@ export const KNOWLEDGE: readonly KnowledgeEntry[] = [
       en: 'No. Satellite is enough: you create an account, add a field and the first analysis arrives within 24 hours. History usually goes back three to five years of archives, so you compare the current season with previous ones from day one. IoT sensors and drone flights come later, only if your fields draw a benefit from them.',
       ar: 'لا. القمر الاصطناعي يكفي: تنشئ حسابًا وتضيف قطعة فيصلك أوّل تحليل خلال 24 ساعة. ويعود السجلّ عادةً إلى ثلاث أو خمس سنوات من الأرشيف، فتقارن الموسم الجاري بالمواسم السابقة منذ اليوم الأول. أمّا حسّاسات إنترنت الأشياء وتحليقات الطائرات المسيّرة فتأتي لاحقًا، إن كانت قطعك تجني منها فائدة.',
     },
-    link: { href: '/plateforme', labelKey: 'actions.seePlatform' },
+    link: { href: '/solutions', labelKey: 'actions.seePlatform' },
   },
   {
     id: 'crops',
@@ -352,7 +352,7 @@ export const KNOWLEDGE: readonly KnowledgeEntry[] = [
       en: 'Yes. Your field outlines, readings and history belong to you: they are never sold or passed to third parties. Hosting is in ISO 27001 certified European data centres, with TLS 1.3 encryption in transit, encryption at rest and daily backups. A full export or permanent deletion is available on request.',
       ar: 'نعم. حدود قطعك وقياساتك وسجلّك ملك لك: لا تُباع ولا تُنقل إلى طرف ثالث. والاستضافة في مراكز بيانات أوروبية معتمدة وفق ISO 27001، مع تشفير TLS 1.3 أثناء النقل وتشفير عند التخزين ونسخ احتياطية يومية. والتصدير الكامل أو الحذف النهائي متاحان بمجرّد الطلب.',
     },
-    link: { href: '/plateforme', labelKey: 'actions.seePlatform' },
+    link: { href: '/solutions', labelKey: 'actions.seePlatform' },
   },
   {
     id: 'languages',

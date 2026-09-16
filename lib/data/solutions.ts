@@ -3,10 +3,10 @@ import type { FeatureItem, Solution } from '@/types';
 
 /** Les quatre solutions par culture — contenus dans `solutions.items.<slug>`. */
 export const SOLUTIONS = [
-  { slug: 'olive-care', image: '/hero/1.webp', tone: 'leaf' },
-  { slug: 'cereal-care', image: '/hero/2.webp', tone: 'ocre' },
-  { slug: 'citrus-care', image: '/hero/3.webp', tone: 'ocre' },
-  { slug: 'greenhouse-care', image: '/hero/4.webp', tone: 'leaf' },
+  { slug: 'olive-care', image: '/hero/1.jpg', tone: 'leaf' },
+  { slug: 'cereal-care', image: '/hero/2.jpg', tone: 'ocre' },
+  { slug: 'citrus-care', image: '/hero/3..webp', tone: 'ocre' },
+  { slug: 'greenhouse-care', image: '/hero/4.jpg', tone: 'leaf' },
 ] as const satisfies readonly Solution[];
 
 export type SolutionSlug = (typeof SOLUTIONS)[number]['slug'];
@@ -17,11 +17,11 @@ export type SolutionSlug = (typeof SOLUTIONS)[number]['slug'];
  * expliquent ce sur quoi reposent les quatre solutions ci-dessus.
  */
 export const SOLUTION_CONCEPTS = [
-  { id: 'precision', icon: Crosshair },
   { id: 'satellite', icon: Satellite },
-  { id: 'iot', icon: Radio, tone: 'ocre' },
   { id: 'drone', icon: Workflow, tone: 'ocre' },
+  { id: 'iot', icon: Radio, tone: 'ocre' },
   { id: 'ai', icon: Cpu },
+  { id: 'precision', icon: Crosshair },
   { id: 'irrigation', icon: Droplets },
 ] as const satisfies readonly FeatureItem[];
 

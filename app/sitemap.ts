@@ -7,7 +7,6 @@ import { NAV_ITEMS, SITE } from '@/lib/data/site';
 const OG_IMAGES: Record<string, string> = {
   '/': 'og-default',
   '/solutions': 'og-solutions',
-  '/plateforme': 'og-plateforme',
   '/technologie': 'og-technologie',
   '/about': 'og-about',
   '/impact': 'og-impact',

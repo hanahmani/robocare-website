@@ -14,12 +14,16 @@ type Props = {
   intro: string;
   image: string;
   imageAlt: string;
+  /**
+   * Miroir horizontal de l'image en RTL, pour que le vide de la composition
+   * reste du côté du texte. À désactiver sur une photo de personnes ou
+   * porteuse de texte, que l'inversion rendrait fausse.
+   */
+  mirrorOnRtl?: boolean;
   crumbs: readonly Crumb[];
   actions?: ReactNode;
   /** Bloc additionnel sous les actions (raccourcis, indicateurs). */
   children?: ReactNode;
-  /** Le balayage lumineux du hero d'accueil. */
-  sweep?: boolean;
   className?: string;
 };
 
@@ -33,10 +37,10 @@ export function PageHero({
   intro,
   image,
   imageAlt,
+  mirrorOnRtl = true,
   crumbs,
   actions,
   children,
-  sweep = true,
   className,
 }: Props) {
   return (
@@ -53,17 +57,13 @@ export function PageHero({
           fill
           priority
           sizes="100vw"
-          className="scale-105 object-cover"
+          className={cn('object-cover', mirrorOnRtl && 'rtl:-scale-x-100')}
         />
       </div>
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(6,18,12,.9)_0%,rgba(6,18,12,.66)_45%,#06120C_100%)]" />
-      <div className="grid-overlay absolute inset-0 -z-10" />
-      {sweep ? (
-        <div
-          aria-hidden
-          className="absolute inset-x-0 -z-10 h-44 animate-sweep bg-[linear-gradient(180deg,transparent,rgba(158,216,75,.14)_55%,rgba(158,216,75,.6))] mix-blend-screen"
-        />
-      ) : null}
+
+      {/* Même voile que le hero d'accueil. Toujours inversé en RTL, que la
+          photo le soit ou non : le voile suit le texte, pas l'image. */}
+      <div aria-hidden className="hero-scrim absolute inset-0 -z-10 rtl:-scale-x-100" />
 
       <div className="container-page flex flex-1 flex-col justify-center py-16 lg:py-28">
         <Reveal from="scale">

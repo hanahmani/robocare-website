@@ -3,8 +3,8 @@ import {
   BarChart3,
   BellRing,
   Cpu,
-  FileCheck2,
   FileText,
+  Gauge,
   Handshake,
   Languages,
   Map,
@@ -12,7 +12,6 @@ import {
   Satellite,
   Sun,
   Target,
-  Timer,
   Users,
 } from 'lucide-react';
 import type { FeatureItem, StatDatum } from '@/types';
@@ -50,13 +49,24 @@ export const HERO_NDVI_VALUE = '0,74';
 
 /** Bénéfices « Pourquoi RoboCare » — textes dans `home.why.items.*`. */
 export const HOME_BENEFITS = [
-  { id: 'leadTime', icon: Timer },
+  { id: 'leadTime', icon: Gauge },
   { id: 'noHardware', icon: Rocket },
-  { id: 'mediterranean', icon: Sun, tone: 'ocre' },
+  { id: 'mediterranean', icon: Sun },
   { id: 'decision', icon: Target },
-  { id: 'traceability', icon: FileCheck2, tone: 'ocre' },
+  { id: 'traceability', icon: FileText },
   { id: 'reach', icon: Languages },
 ] as const satisfies readonly FeatureItem[];
+
+/**
+ * Modules de la plateforme, groupés par usage. Les libellés vivent dans
+ * `home.platform.groups.<groupe>.label` et `…​.modules.<module>.title|text` :
+ * ajouter un module ici suppose d'ajouter sa traduction dans les trois langues.
+ */
+export const HOME_PLATFORM_GROUPS = [
+  { id: 'observe', modules: ['satellite', 'sensors', 'lorawan', 'drone'] },
+  { id: 'act', modules: ['irrigation', 'alerts', 'operations'] },
+  { id: 'manage', modules: ['fields', 'organizations', 'reports'] },
+] as const satisfies readonly { id: string; modules: readonly string[] }[];
 
 /** Témoignages d'exploitations — textes dans `home.testimonials.items.*`. */
 export const HOME_TESTIMONIALS = ['olive', 'cereal', 'citrus'] as const;

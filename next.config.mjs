@@ -13,9 +13,14 @@
 // migration i18n (voir `app/[locale]/layout.tsx`). Le projet ne rendant
 // aucun contenu utilisateur non échappé (le seul `dangerouslySetInnerHTML`
 // est le JSON-LD, lui-même échappé), ce compromis est acceptable.
+// En dev, le Fast Refresh de Next.js injecte des modules via `eval()` :
+// sans 'unsafe-eval' ici, le navigateur bloque tout script et la page reste
+// blanche (CSP violation silencieuse). Cette autorisation ne s'applique
+// jamais en production (`next build`/`next start`), où les bundles ne
+// passent pas par eval.
 const CSP = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV !== 'production' ? " 'unsafe-eval'" : ''}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data:",
   "font-src 'self' data:",

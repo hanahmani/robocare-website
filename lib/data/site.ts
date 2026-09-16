@@ -23,7 +23,7 @@ export const SITE = {
 export const NAV_ITEMS: readonly NavItem[] = [
   { key: 'home', href: '/' },
   { key: 'solutions', href: '/solutions' },
-  { key: 'platform', href: '/plateforme' },
+  { key: 'sustainability', href: '/durabilite' },
   { key: 'technology', href: '/technologie' },
   { key: 'about', href: '/about' },
   { key: 'impact', href: '/impact' },
@@ -36,7 +36,7 @@ export const FOOTER_COLUMNS: readonly FooterColumn[] = [
     titleKey: 'footer.explore',
     links: [
       { labelKey: 'nav.solutions', href: '/solutions' },
-      { labelKey: 'nav.platform', href: '/plateforme' },
+      { labelKey: 'nav.sustainability', href: '/durabilite' },
       { labelKey: 'nav.technology', href: '/technologie' },
       { labelKey: 'nav.impact', href: '/impact' },
     ],

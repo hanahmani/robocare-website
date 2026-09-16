@@ -1,43 +1,40 @@
 'use client';
 
 import { useTranslation } from '@/i18n';
-import { Section } from '@/components/ui/Section';
-import { SectionHeading } from '@/components/ui/SectionHeading';
-import { Card, IconChip } from '@/components/ui/Card';
-import { Stagger, StaggerItem } from '@/components/animations/Stagger';
 import { HOME_BENEFITS } from '@/lib/data/home';
+import { ReasonsPanels, type Reason } from '@/components/sections/ReasonsPanels';
 
-/** « Pourquoi RoboCare » : six bénéfices, même grammaire que les piliers. */
+/** « Pourquoi RoboCare » : six bénéfices, présentés en panneaux extensibles. */
 export function WhyRoboCare() {
   const { t, d } = useTranslation();
   const items = d.home.why.items;
 
-  return (
-    <Section tone="cream">
-      <SectionHeading
-        eyebrow={t('home.why.eyebrow')}
-        title={t('home.why.title')}
-        subtitle={t('home.why.lead')}
-      />
+  const reasons: Reason[] = HOME_BENEFITS.map(({ id }) => ({
+    id,
+    title: items[id].title,
+    text: items[id].text,
+    // Seule « Une consigne, pas un tableau de plus » reprend le filet terre (soil).
+    variant: id === 'decision' ? 'soil' : 'default',
+  }));
 
-      <Stagger className="mt-section-gap grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {HOME_BENEFITS.map(({ id, icon: Icon, ...benefit }) => {
-          const ocre = 'tone' in benefit && benefit.tone === 'ocre';
-          return (
-            <StaggerItem key={id} className="h-full">
-              <Card interactive>
-                <IconChip tone={ocre ? 'ocre' : 'leaf'}>
-                  <Icon size={22} aria-hidden />
-                </IconChip>
-                <h3 className="mt-5 text-h3 tracking-[-0.02em]">{items[id].title}</h3>
-                <p className="mt-2.5 flex-1 text-[15px] leading-[1.65] text-ink-500">
-                  {items[id].text}
-                </p>
-              </Card>
-            </StaggerItem>
-          );
-        })}
-      </Stagger>
-    </Section>
+  return (
+    <section className="bg-gradient-to-b from-white to-[#F7FBF8] py-20 md:py-28">
+      <div className="mx-auto max-w-[1240px] px-5 md:px-12">
+        <div className="flex items-center gap-2.5">
+          <span aria-hidden className="h-px w-10 bg-[#2F7D3A]" />
+          <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#2F7D3A]">
+            {t('home.why.eyebrow')}
+          </p>
+        </div>
+        <h2 className="mt-4 max-w-[18ch] text-4xl font-semibold tracking-[-0.03em] leading-[1.06] text-[#0C1A12] md:text-5xl">
+          {t('home.why.title')}
+        </h2>
+        <p className="mt-4 max-w-[58ch] leading-relaxed text-[#5A6C61]">{t('home.why.lead')}</p>
+
+        <div className="mt-12">
+          <ReasonsPanels reasons={reasons} />
+        </div>
+      </div>
+    </section>
   );
 }

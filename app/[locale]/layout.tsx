@@ -1,6 +1,13 @@
 import type { Metadata, Viewport } from 'next';
 import { notFound } from 'next/navigation';
-import { IBM_Plex_Mono, IBM_Plex_Sans_Arabic, Manrope, Space_Grotesk } from 'next/font/google';
+import {
+  IBM_Plex_Mono,
+  IBM_Plex_Sans_Arabic,
+  JetBrains_Mono,
+  Manrope,
+  Schibsted_Grotesk,
+  Space_Grotesk,
+} from 'next/font/google';
 import '@/styles/globals.css';
 import { LOCALES, LOCALE_META, getDirection, isLocale, type Locale } from '@/i18n/config';
 import { I18nProvider } from '@/i18n/provider';
@@ -48,11 +55,29 @@ const plexArabic = IBM_Plex_Sans_Arabic({
   display: 'swap',
 });
 
+// Duo dédié au carrousel de témoignages (section « Retours d'exploitation ») :
+// n'affecte pas `font-sans` / `font-mono`, disponible via `var(--font-…)`.
+const schibstedGrotesk = Schibsted_Grotesk({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-schibsted',
+  display: 'swap',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['500'],
+  variable: '--font-jetbrains',
+  display: 'swap',
+});
+
 const FONT_VARIABLES = [
   manrope.variable,
   spaceGrotesk.variable,
   plexMono.variable,
   plexArabic.variable,
+  schibstedGrotesk.variable,
+  jetbrainsMono.variable,
 ].join(' ');
 
 /** Génère les trois pages `/fr`, `/en`, `/ar` en statique au build. */
