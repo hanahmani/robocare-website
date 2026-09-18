@@ -18,6 +18,15 @@
 // blanche (CSP violation silencieuse). Cette autorisation ne s'applique
 // jamais en production (`next build`/`next start`), où les bundles ne
 // passent pas par eval.
+// NODE_ENV vaut "production" sur ce serveur même quand il ne sert que du HTTP
+// (pas de domaine/certificat) : il ne peut donc pas servir à détecter HTTPS.
+// HTTPS_ENABLED est explicite et vaut `true` par défaut (comportement normal
+// pour https://robocare.tn) — seul un environnement HTTP temporaire (test par
+// IP) doit le passer à `false`, sinon `upgrade-insecure-requests` force le
+// navigateur à requêter tous les assets (CSS/JS/fonts/images) en HTTPS alors
+// qu'aucun listener TLS n'existe, d'où les ERR_CONNECTION_REFUSED.
+const HTTPS_ENABLED = process.env.HTTPS_ENABLED !== 'false';
+
 const CSP = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV !== 'production' ? " 'unsafe-eval'" : ''}`,
@@ -29,7 +38,7 @@ const CSP = [
   "form-action 'self'",
   "base-uri 'self'",
   "object-src 'none'",
-  'upgrade-insecure-requests',
+  ...(HTTPS_ENABLED ? ['upgrade-insecure-requests'] : []),
 ].join('; ');
 
 const SECURITY_HEADERS = [
@@ -37,7 +46,9 @@ const SECURITY_HEADERS = [
   { key: 'X-Content-Type-Options', value: 'nosniff' },
   { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
   { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()' },
-  { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
+  ...(HTTPS_ENABLED
+    ? [{ key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' }]
+    : []),
   { key: 'Content-Security-Policy', value: CSP },
 ];
 
