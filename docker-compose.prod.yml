@@ -1,6 +1,9 @@
 services:
   web:
-    build: .
+    build:
+      context: .
+      args:
+        HTTPS_ENABLED: ${HTTPS_ENABLED:-true}
     container_name: robocare-website
     restart: unless-stopped
     environment:

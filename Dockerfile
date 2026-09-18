@@ -7,8 +7,13 @@ RUN npm ci
 
 FROM node:20-alpine AS builder
 WORKDIR /app
+
+ARG HTTPS_ENABLED=true
+ENV HTTPS_ENABLED=$HTTPS_ENABLED
+
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+
 RUN npm run build
 
 FROM node:20-alpine AS runner
