@@ -1,0 +1,21 @@
+services:
+  web:
+    build: .
+    container_name: robocare-website
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    env_file:
+      - .env.prod
+    expose:
+      - "3000"
+    networks:
+      - web-network
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+
+networks:
+  web-network:
+    external: true
