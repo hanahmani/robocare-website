@@ -179,7 +179,11 @@ export function TestimonialsCarousel({
         {showNav ? (
           <div className="mt-9 flex items-center justify-center gap-4">
             <NavArrow direction="left" accentRgb={accentRgb} onClick={() => goTo(active - 1)} />
-            <div className="flex items-center gap-2">
+            {/* Le repère visuel reste un trait de 5px, mais la zone tactile fait
+                toute la hauteur de la rangée : les `px-1` de chaque bouton
+                remplacent exactement l'ancien `gap-2`, donc l'espacement perçu
+                entre les trois traits ne bouge pas. */}
+            <div className="flex items-center">
               {HOME_TESTIMONIALS.map((id, index) => (
                 <button
                   key={id}
@@ -187,12 +191,17 @@ export function TestimonialsCarousel({
                   aria-label={`${t('home.testimonials.eyebrow')} ${index + 1}/${HOME_TESTIMONIALS.length}`}
                   aria-current={index === active}
                   onClick={() => goTo(index)}
-                  className="h-[5px] rounded-[3px] transition-[width,background-color] duration-300 ease-out"
-                  style={{
-                    width: index === active ? 28 : 14,
-                    background: index === active ? accent : 'rgba(18,33,26,.14)',
-                  }}
-                />
+                  className="flex h-[46px] items-center px-1"
+                >
+                  <span
+                    aria-hidden
+                    className="block h-[5px] rounded-[3px] transition-[width,background-color] duration-300 ease-out"
+                    style={{
+                      width: index === active ? 28 : 14,
+                      background: index === active ? accent : 'rgba(18,33,26,.14)',
+                    }}
+                  />
+                </button>
               ))}
             </div>
             <NavArrow direction="right" accentRgb={accentRgb} onClick={() => goTo(active + 1)} />

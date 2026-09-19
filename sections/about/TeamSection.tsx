@@ -79,7 +79,10 @@ function MemberCard({
           rel="noopener"
           aria-label={linkedinAriaLabel}
           className={cn(
-            'mt-3 flex h-7 w-7 items-center justify-center rounded-full border border-forest-950/[0.12]',
+            // La pastille garde ses 28px ; `before:-inset-2` lui ajoute une
+            // zone tactile invisible de 44px, sans toucher au dessin du cercle.
+            'relative mt-3 flex h-7 w-7 items-center justify-center rounded-full border border-forest-950/[0.12]',
+            "before:absolute before:-inset-2 before:content-['']",
             'text-[11px] font-extrabold text-ink-500',
             'transition-[background-color,border-color,color,transform] duration-base ease-premium',
             'hover:border-forest-900 hover:bg-forest-900 hover:text-cream',

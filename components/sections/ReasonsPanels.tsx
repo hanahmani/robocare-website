@@ -115,10 +115,18 @@ type ReasonsPanelsProps = {
  * et révèle son texte, les autres restent réduits à leur titre. Ouverture au
  * survol (pointeur fin uniquement), au clic ou au focus clavier ; un seul
  * panneau ouvert à la fois, le premier par défaut.
+ *
+ * La rangée n'est adoptée qu'à partir de `nav` (1240px) : en dessous, six
+ * colonnes ne laissent pas assez de largeur au panneau ouvert, dont le texte
+ * débordait de la hauteur fixe. Les panneaux s'empilent alors en accordéon,
+ * chacun à la hauteur de son contenu.
  */
 export function ReasonsPanels({ reasons = DEFAULT_REASONS }: ReasonsPanelsProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const isDesktop = useMediaQuery('(min-width: 1024px)');
+  // Doit rester aligné sur le breakpoint `nav:` utilisé plus bas : si les deux
+  // divergent, le `flexGrow` en ligne s'applique alors que la disposition CSS
+  // est encore empilée.
+  const isDesktop = useMediaQuery('(min-width: 1240px)');
   const hoverCapable = useMediaQuery('(hover: hover)');
   const prefersReducedMotion = useReducedMotion();
   const panelRefs = useRef<Array<HTMLElement | null>>([]);
@@ -157,7 +165,7 @@ export function ReasonsPanels({ reasons = DEFAULT_REASONS }: ReasonsPanelsProps)
 
   return (
     <motion.div
-      className="flex flex-col gap-3 lg:h-[clamp(240px,30vh,340px)] lg:flex-row"
+      className="flex flex-col gap-3 nav:h-[clamp(240px,30vh,340px)] nav:flex-row"
       variants={containerVariants}
       custom={prefersReducedMotion ? 0 : 0.06}
       initial="hidden"
@@ -213,7 +221,14 @@ function Panel({
   onKeyDown: (event: ReactKeyboardEvent) => void;
 }) {
   const sharedClassName = cn(
-    'relative flex min-h-11 flex-1 shrink-0 basis-0 flex-col rounded-[0.9rem] p-[clamp(0.9rem,0.6rem+0.8vw,1.4rem)] text-start',
+    'relative flex min-h-11 flex-col rounded-[0.9rem] p-[clamp(0.9rem,0.6rem+0.8vw,1.4rem)] text-start',
+    // `flex-1 shrink-0 basis-0` n'a de sens qu'en rangée : en colonne, l'axe
+    // principal devient vertical, donc `basis-0` ramène la hauteur du panneau
+    // à zéro. Et `min-h-11` remplaçant le minimum automatique (la taille du
+    // contenu), le texte débordait alors sur le panneau suivant. En dessous de
+    // `nav` on garde donc le flex par défaut : chaque panneau prend la hauteur
+    // de son contenu.
+    'nav:flex-1 nav:shrink-0 nav:basis-0',
     'transition-[background-color,border-color,box-shadow] duration-300 ease-out',
     FOCUS_RING,
     panelToneClass(variant, active),

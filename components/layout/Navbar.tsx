@@ -42,11 +42,22 @@ export function Navbar() {
   // Referme le tiroir à chaque changement de route.
   useEffect(() => setOpen(false), [pathname]);
 
-  // Bloque le défilement d'arrière-plan quand le menu mobile est ouvert.
+  /*
+   * Bloque le défilement d'arrière-plan quand le menu mobile est ouvert.
+   *
+   * Le verrou porte sur <html> et en `clip`, jamais sur <body> en `hidden` :
+   * `overflow: hidden` sur <body> en fait un conteneur de défilement, et le
+   * `sticky` de cette barre se cale alors sur le haut du document au lieu du
+   * haut de la fenêtre. Ouvert depuis le milieu de la page, le tiroir partait
+   * ainsi hors écran. `clip` bloque le défilement sans créer de conteneur —
+   * c'est déjà pour cette raison que `globals.css` utilise `overflow-x: clip`
+   * sur <html>.
+   */
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
+    const root = document.documentElement;
+    root.style.overflowY = open ? 'hidden' : '';
     return () => {
-      document.body.style.overflow = '';
+      root.style.overflowY = '';
     };
   }, [open]);
 
@@ -79,7 +90,7 @@ export function Navbar() {
     >
       <div
         className={cn(
-          'container-page flex items-center gap-7 transition-[padding] duration-slow ease-premium',
+          'container-page flex items-center gap-4 transition-[padding] duration-slow ease-premium',
           condensed ? 'py-2.5' : 'py-3.5',
         )}
       >
@@ -102,7 +113,7 @@ export function Navbar() {
         </Link>
 
         {/* Navigation desktop / laptop */}
-        <nav aria-label={t('a11y.mainNav')} className="hidden flex-1 items-center gap-1 lg:flex">
+        <nav aria-label={t('a11y.mainNav')} className="hidden flex-1 items-center gap-0.5 nav:flex">
           {NAV_ITEMS.map((item) => {
             const active = isActive(item.href);
             return (
@@ -114,7 +125,7 @@ export function Navbar() {
                   // `isolate` : sans lui, la pastille en `-z-10` remonterait
                   // jusqu'au contexte d'empilement du header (créé par le
                   // `backdrop-blur`) et disparaîtrait derrière son fond.
-                  'group relative isolate whitespace-nowrap rounded-full px-3.5 py-2 text-[14.5px] font-semibold',
+                  'group relative isolate whitespace-nowrap rounded-full px-2.5 py-2 text-[14.5px] font-semibold',
                   'transition-colors duration-base ease-premium',
                   active ? 'text-leaf-600' : 'text-ink-700 hover:text-leaf-600',
                 )}
@@ -141,13 +152,13 @@ export function Navbar() {
           })}
         </nav>
 
-        <div className="ms-auto flex shrink-0 items-center gap-2.5 lg:ms-0">
+        <div className="ms-auto flex shrink-0 items-center gap-2.5 nav:ms-0">
           <LanguageSwitcher className="hidden md:flex" />
 
           <ButtonExternal
             href={SITE.appLoginUrl}
             variant="outline"
-            className="hidden sm:inline-flex"
+            className="hidden sm:inline-flex nav:!px-[18px]"
           >
             {t('actions.login')}
           </ButtonExternal>
@@ -155,7 +166,7 @@ export function Navbar() {
           <ButtonExternal
             href={SITE.appRegisterUrl}
             variant="dark"
-            className="hidden sm:inline-flex"
+            className="hidden sm:inline-flex nav:!px-[18px]"
           >
             {t('actions.createAccount')}
           </ButtonExternal>
@@ -167,7 +178,7 @@ export function Navbar() {
             aria-controls="mobile-nav"
             aria-label={open ? t('a11y.closeMenu') : t('a11y.openMenu')}
             className={cn(
-              'inline-flex h-11 w-11 items-center justify-center rounded-full border text-forest-900 lg:hidden',
+              'inline-flex h-11 w-11 items-center justify-center rounded-full border text-forest-900 nav:hidden',
               'transition-[background-color,border-color,transform] duration-base ease-premium',
               'active:scale-95 active:duration-fast motion-reduce:active:scale-100',
               open
@@ -202,7 +213,17 @@ export function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: EASE }}
-            className="overflow-hidden border-t border-forest-950/[0.07] bg-white lg:hidden"
+            /*
+             * Le tiroir est superposé (`absolute`), pas inséré dans le flux.
+             * Inséré, son ouverture allongeait le document de ~700px : Chrome
+             * réancrait alors le défilement et la page sautait de plus de
+             * 1000px sous les yeux de l'utilisateur. En superposition, la
+             * hauteur du document ne bouge plus — donc plus de saut. Le rendu
+             * est identique : le panneau s'ouvre juste sous la barre, pleine
+             * largeur. `top-full` se cale sur le bas du <header>, qui est un
+             * élément positionné (`sticky`).
+             */
+            className="absolute inset-x-0 top-full overflow-hidden border-t border-forest-950/[0.07] bg-white shadow-[0_18px_40px_-28px_rgba(6,18,12,.45)] nav:hidden"
           >
             {/* Le défilement de la page est verrouillé pendant l'ouverture :
                 sans hauteur maximale, un tiroir plus haut que l'écran
@@ -238,6 +259,19 @@ export function Navbar() {
               })}
 
               <LanguageSwitcherMobile />
+
+              {/* Les deux actions de compte ne tiennent pas dans la barre en
+                  dessous de `sm` : le tiroir les reprend pour qu'elles restent
+                  atteignables sur téléphone. Au-delà, elles sont déjà dans la
+                  barre — inutile de les afficher deux fois. */}
+              <div className="mt-3 flex flex-col gap-2 sm:hidden">
+                <ButtonExternal href={SITE.appLoginUrl} variant="outline" size="lg" className="w-full">
+                  {t('actions.login')}
+                </ButtonExternal>
+                <ButtonExternal href={SITE.appRegisterUrl} variant="dark" size="lg" className="w-full">
+                  {t('actions.createAccount')}
+                </ButtonExternal>
+              </div>
 
               <RequestDemoButton
                 variant="primary"

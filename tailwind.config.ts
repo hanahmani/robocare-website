@@ -17,6 +17,12 @@ const config: Config = {
       screens: {
         xs: '375px',
         // md = tablet (768), lg = laptop (1024), xl = desktop (1440)
+        // `nav` : largeur à partir de laquelle la barre complète (logo, sept
+        // onglets, sélecteur de langue et deux boutons de compte) tient dans
+        // les 1160px utiles du conteneur. En dessous, le tiroir prend le relais.
+        // Le seuil est mesuré sur le français, dont les libellés sont les plus
+        // longs des trois langues.
+        nav: '1240px',
         xl: '1440px',
       },
       colors: {

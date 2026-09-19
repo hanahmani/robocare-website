@@ -32,8 +32,11 @@ export function SolutionsComparison() {
         </Reveal>
       </div>
 
-      <div className="mt-10 -mx-5 overflow-x-auto px-5 sm:mx-0 sm:overflow-visible sm:px-0">
-        <Stagger className="flex min-w-[760px] gap-0 sm:grid sm:min-w-0 sm:grid-cols-4">
+      {/* Quatre colonnes tiennent à partir de `sm`. En dessous, elles se
+          replient en 2 x 2 plutôt que d'imposer un défilement horizontal de
+          760px sur un écran de 320. */}
+      <div className="mt-10">
+        <Stagger className="grid grid-cols-2 gap-0 sm:grid-cols-4">
           {SOLUTIONS.map((solution, index) => {
             const copy = items[solution.slug];
             const accent = COLUMN_ACCENTS[index % COLUMN_ACCENTS.length];
@@ -41,11 +44,15 @@ export function SolutionsComparison() {
               <StaggerItem
                 key={solution.slug}
                 className={cn(
-                  'group min-w-[190px] flex-1 sm:min-w-0',
+                  'group min-w-0',
+                  // Séparateurs de la grille repliée : filet vertical sur la
+                  // colonne de droite, filet horizontal sur la seconde rangée.
+                  index % 2 === 1 && 'border-s border-s-forest-950/[0.08]',
+                  index >= 2 && 'border-t border-t-forest-950/[0.08] sm:border-t-0',
                   index > 0 && 'sm:border-s sm:border-s-forest-950/[0.08]',
                 )}
               >
-                <div className="relative px-5 py-6 transition-transform duration-slow ease-premium group-hover:-translate-y-1 motion-reduce:group-hover:translate-y-0">
+                <div className="relative px-3.5 py-5 transition-transform duration-slow ease-premium group-hover:-translate-y-1 motion-reduce:group-hover:translate-y-0 sm:px-5 sm:py-6">
                   <span aria-hidden className="absolute inset-x-0 top-0 block h-[2px] overflow-hidden">
                     <motion.span
                       className="block h-full origin-left"
@@ -60,7 +67,7 @@ export function SolutionsComparison() {
                   <p className="text-[16px] font-semibold text-ink-900">{copy.brand}</p>
 
                   <p
-                    className="mt-4 font-display text-[32px] font-semibold tracking-[-0.02em] transition-colors duration-slow ease-premium"
+                    className="mt-4 font-display text-[26px] font-semibold tracking-[-0.02em] transition-colors duration-slow ease-premium sm:text-[32px]"
                     style={{ color: accent }}
                   >
                     {copy.metric}

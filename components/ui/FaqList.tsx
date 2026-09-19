@@ -22,7 +22,10 @@ export function FaqList({ items }: { items: readonly FaqEntry[] }) {
               'open:border-leaf-500/30 open:shadow-lift',
             ].join(' ')}
           >
-            <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-display text-[17px] font-semibold text-ink-900 lg:text-[18px]">
+            {/* `py-[9px] -my-[9px]` : la zone tactile atteint 44px de haut sans
+                déplacer le texte ni la réponse — le padding pousse vers
+                l'intérieur ce que la marge négative retire vers l'extérieur. */}
+            <summary className="flex cursor-pointer list-none items-start justify-between gap-4 py-[9px] -my-[9px] font-display text-[17px] font-semibold text-ink-900 lg:text-[18px]">
               {item.question}
               <span
                 aria-hidden

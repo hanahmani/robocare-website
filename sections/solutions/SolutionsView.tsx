@@ -119,7 +119,7 @@ export function SolutionsView() {
               href={SITE.appUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="link-underline group inline-flex items-center gap-2 text-[14px] font-bold text-leaf-600"
+              className="link-underline group inline-flex items-center gap-2 text-[14px] font-bold text-leaf-600 before:absolute before:inset-x-0 before:-inset-y-3 before:content-['']"
             >
               {t('actions.openApp')}
               <Arrow />

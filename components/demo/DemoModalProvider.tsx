@@ -32,10 +32,18 @@ export function DemoModalProvider({ children }: { children: ReactNode }) {
   const openDemoModal = useCallback(() => setOpen(true), []);
   const closeDemoModal = useCallback(() => setOpen(false), []);
 
+  /*
+   * Verrou de défilement de l'arrière-plan. Il porte sur <html> et non sur
+   * <body> : `overflow: hidden` sur <body> ne bloque pas le défilement de la
+   * page (le défilement appartient à <html>) et transforme <body> en conteneur
+   * de défilement, ce qui déplace le `sticky` de la navbar. Voir le même
+   * verrou dans `Navbar.tsx`.
+   */
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
+    const root = document.documentElement;
+    root.style.overflowY = open ? 'hidden' : '';
     return () => {
-      document.body.style.overflow = '';
+      root.style.overflowY = '';
     };
   }, [open]);
 

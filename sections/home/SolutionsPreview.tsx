@@ -43,7 +43,7 @@ export function SolutionsPreview() {
           <motion.div {...rise(0.12)}>
             <Link
               href={localizePath(locale, '/solutions')}
-              className="link-underline group inline-flex items-center gap-2 text-[14.5px] font-semibold text-[#3E6B4C]"
+              className="link-underline group inline-flex items-center gap-2 text-[14.5px] font-semibold text-[#3E6B4C] before:absolute before:inset-x-0 before:-inset-y-3 before:content-['']"
             >
               {t('actions.allSolutions')}
               <Arrow size={16} />

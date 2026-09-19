@@ -106,7 +106,9 @@ export function ConceptCard({ index, copy, tone, revealed, delayMs, reduced }: P
         aria-expanded={open}
         aria-controls={panelId}
         className={cn(
-          'mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-semibold',
+          // `mt-2 py-3 -mb-3` : 44px de hauteur tactile, sans déplacer le
+          // libellé (8 + 12 = les 20px de l'ancien `mt-5`) ni le panneau.
+          'mt-2 inline-flex items-center gap-1.5 py-3 -mb-3 text-[13.5px] font-semibold',
           'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4',
           ACCENT_TEXT[tone],
           FOCUS_RING[tone],

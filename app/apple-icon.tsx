@@ -1,8 +1,8 @@
 import { ImageResponse } from 'next/og';
 
 /**
- * Icône iOS (Ajouter à l'écran d'accueil), générée au build — même symbole
- * que `icon.svg`, en PNG plein format car Apple ne lit pas le SVG ici.
+ * Icône iOS (Ajouter à l'écran d'accueil), générée au build en PNG plein
+ * format, taille imposée par Apple (180x180).
  */
 export const size = { width: 180, height: 180 };
 export const contentType = 'image/png';
