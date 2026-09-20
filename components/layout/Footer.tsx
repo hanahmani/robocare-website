@@ -60,11 +60,18 @@ export function Footer() {
               <h2 className="font-mono text-[11px] font-normal uppercase tracking-[0.16em] text-white/40">
                 {t(column.titleKey)}
               </h2>
-              <ul className="mt-4 flex flex-col gap-2.5">
+              {/*
+                Sur téléphone chaque lien porte sa propre zone tactile
+                (`py-2`), et l'écart entre éléments est réduit d'autant : le
+                rythme visuel de la colonne ne bouge pas, mais la cible passe
+                de 19 à 35px de haut. À partir de `sm`, où le pointeur est
+                précis, on retrouve exactement l'espacement d'origine.
+              */}
+              <ul className="mt-4 flex flex-col gap-0.5 sm:gap-2.5">
                 {column.links.map((link) => {
                   const label = link.label ?? t(link.labelKey ?? '');
                   const className =
-                    'text-[14.5px] text-white/[0.78] transition-colors hover:text-lime-500';
+                    'inline-block py-2 text-[14.5px] text-white/[0.78] transition-colors hover:text-lime-500 sm:py-0';
                   return (
                     <li key={link.href}>
                       {isExternal(link.href) ? (

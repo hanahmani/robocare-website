@@ -67,7 +67,17 @@ export function DemoModalProvider({ children }: { children: ReactNode }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[90] flex items-start justify-center overflow-y-auto bg-forest-950/70 p-4 backdrop-blur-sm sm:items-center sm:p-6"
+            /*
+              `items-start` à toutes les tailles, jamais `items-center` : un
+              enfant plus haut que son conteneur de défilement et centré par
+              `align-items` déborde autant en haut qu'en bas, et la partie
+              haute — ici le bouton de fermeture — devient inatteignable au
+              défilement. Le centrage passe donc par `sm:my-auto` sur le
+              panneau : une marge auto centre quand la place le permet et
+              retombe à zéro quand elle manque, sans jamais rogner le haut.
+              Cas réel : téléphone en paysage (844x390).
+            */
+            className="fixed inset-0 z-[90] flex items-start justify-center overflow-y-auto bg-forest-950/70 p-4 backdrop-blur-sm sm:p-6"
             onMouseDown={(event) => {
               if (event.target === event.currentTarget) closeDemoModal();
             }}
@@ -80,7 +90,7 @@ export function DemoModalProvider({ children }: { children: ReactNode }) {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 12, scale: 0.97 }}
               transition={{ duration: 0.26 }}
-              className="relative my-8 w-full max-w-[620px]"
+              className="relative my-8 w-full max-w-[620px] sm:my-auto"
             >
               <button
                 type="button"

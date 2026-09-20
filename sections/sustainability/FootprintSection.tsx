@@ -98,7 +98,14 @@ export function FootprintSection() {
           </ul>
         </Reveal>
 
-        <Reveal from="right" className="mx-auto w-full min-w-0 lg:max-w-[460px]">
+        {/*
+          Les libellés du cycle sont posés à LABEL_RADIUS (182) alors que le
+          viewBox s'arrête à 440 : ils débordent donc du carré de l'anneau. Sur
+          desktop ce débordement tombe dans la gouttière de la grille, mais en
+          une seule colonne il venait toucher le bord de l'écran. La réserve
+          latérale rend cette marge au dessin sans toucher au tracé.
+        */}
+        <Reveal from="right" className="mx-auto w-full min-w-0 px-[7%] lg:max-w-[460px] lg:px-0">
           <div className="mx-auto aspect-square w-full max-w-[420px]" dir="ltr">
             <motion.svg
               ref={svgRef}

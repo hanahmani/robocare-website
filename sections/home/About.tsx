@@ -103,7 +103,11 @@ function TimelineStep({
     >
       <div>
         <p className="text-[19px] font-bold leading-none text-ink-900">{metric}</p>
-        <p className="mt-2 font-mono text-[9.5px] uppercase leading-[1.35] tracking-[0.04em] text-ink-300">
+        {/* La colonne fait 64px fixes : « Ré-entraînement » y tient sur deux
+            lignes, mais « ENTRAÎNEMENT » seul dépasse encore de 9px et mordait
+            sur la frise. `break-words` ne coupe que le mot qui ne rentre pas —
+            les autres légendes gardent leur césure naturelle. */}
+        <p className="mt-2 break-words font-mono text-[9.5px] uppercase leading-[1.35] tracking-[0.04em] text-ink-300">
           {caption}
         </p>
       </div>

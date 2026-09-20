@@ -67,7 +67,19 @@ export function SolutionsComparison() {
                   <p className="text-[16px] font-semibold text-ink-900">{copy.brand}</p>
 
                   <p
-                    className="mt-4 font-display text-[26px] font-semibold tracking-[-0.02em] transition-colors duration-slow ease-premium sm:text-[32px]"
+                    className={cn(
+                      'mt-4 font-display font-semibold tracking-[-0.02em]',
+                      // Taille fluide indexée sur la largeur de colonne : en
+                      // 2 colonnes (< sm) puis en 4 (>= sm), le libellé le plus
+                      // long — « de traitements » — débordait de la colonne et
+                      // se faisait rogner par le bord de l'écran à 320 et 768px.
+                      'text-[clamp(20px,5.6vw,26px)] sm:text-[clamp(18px,3vw,32px)]',
+                      // Filet de sécurité : un mot plus long qu'une colonne
+                      // passe à la ligne au lieu de déborder, quelle que soit
+                      // la langue.
+                      'break-words',
+                      'transition-colors duration-slow ease-premium',
+                    )}
                     style={{ color: accent }}
                   >
                     {copy.metric}
