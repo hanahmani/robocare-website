@@ -3,9 +3,9 @@ import type { FeatureItem, Step, TechBlock } from '@/types';
 
 /** Indicateurs du hero — textes dans `technology.metrics.<id>`. */
 export const TECH_METRICS = [
-  { id: 'agronomy', featured: true },
   { id: 'revisit' },
   { id: 'drone' },
+  { id: 'agronomy', featured: true },
   { id: 'sensors' },
 ] as const;
 

@@ -1239,8 +1239,8 @@
         "value": "Centimetric"
       },
       "sensors": {
-        "label": "Sensor readings",
-        "value": "15 min"
+        "label": "Data science",
+        "value": "Every season"
       }
     },
     "blocks": {

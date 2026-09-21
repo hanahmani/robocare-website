@@ -2,6 +2,7 @@
 
 import { useRef, useState, type CSSProperties, type FocusEvent, type KeyboardEvent } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { useEnteredView } from '@/hooks/useEnteredView';
 import { cn } from '@/lib/utils';
 import {
   DEFAULT_DIFFERENCE_CONTENT,
@@ -71,6 +72,16 @@ export function DifferenceVenn({ zones = DEFAULT_DIFFERENCE_CONTENT }: Differenc
     }
   };
 
+  /*
+   * Le déclenchement d'entrée est observé sur le conteneur HTML, jamais sur
+   * les <g> du SVG : WebKit (Safari, iOS) n'observe pas de manière fiable les
+   * éléments internes à un SVG avec IntersectionObserver, donc `whileInView`
+   * ne se déclenchait jamais et les trois disques restaient a opacity 0 —
+   * diagramme entièrement blanc sur iPhone. Le conteneur est un élément HTML
+   * ordinaire : il est observé correctement partout.
+   */
+  const inView = useEnteredView(figureRef, 0.35);
+
   const state = zones.states[active];
 
   return (
@@ -93,6 +104,7 @@ export function DifferenceVenn({ zones = DEFAULT_DIFFERENCE_CONTENT }: Differenc
                 dimmed={active !== 'core' && active !== id}
                 label={zones.labels[id].label}
                 entryDelay={index * 0.1}
+                inView={inView}
                 reduced={reduced}
                 onActivate={() => setActive(id)}
                 onKeyDownActivate={(event) => handleDiskKeyDown(event, id)}
@@ -101,6 +113,7 @@ export function DifferenceVenn({ zones = DEFAULT_DIFFERENCE_CONTENT }: Differenc
 
             {/* Le noyau est dessiné en dernier : en SVG, c'est le dernier élément qui reçoit le pointeur. */}
             <CoreDisk
+              inView={inView}
               active={active === 'core'}
               dimmed={active !== 'core'}
               reduced={reduced}
@@ -212,6 +225,7 @@ function ZoneDisk({
   dimmed,
   label,
   entryDelay,
+  inView,
   reduced,
   onActivate,
   onKeyDownActivate,
@@ -223,6 +237,7 @@ function ZoneDisk({
   dimmed: boolean;
   label: string;
   entryDelay: number;
+  inView: boolean;
   reduced: boolean | null;
   onActivate: () => void;
   onKeyDownActivate: (event: KeyboardEvent) => void;
@@ -236,8 +251,7 @@ function ZoneDisk({
   return (
     <motion.g
       initial={reduced ? undefined : { opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, amount: 0.35 }}
+      animate={inView ? { opacity: 1, scale: 1 } : undefined}
       transition={{ duration: reduced ? 0 : 0.5, delay: reduced ? 0 : entryDelay, ease: PANEL_EASE }}
       style={{ transformBox: 'fill-box', transformOrigin: 'center' }}
       tabIndex={0}
@@ -259,6 +273,7 @@ function ZoneDisk({
 function CoreDisk({
   active,
   dimmed,
+  inView,
   reduced,
   label,
   onActivate,
@@ -266,6 +281,7 @@ function CoreDisk({
 }: {
   active: boolean;
   dimmed: boolean;
+  inView: boolean;
   reduced: boolean | null;
   label: string;
   onActivate: () => void;
@@ -284,8 +300,7 @@ function CoreDisk({
   return (
     <motion.g
       initial={reduced ? undefined : { opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, amount: 0.35 }}
+      animate={inView ? { opacity: 1, scale: 1 } : undefined}
       transition={{ duration: reduced ? 0 : 0.5, delay: reduced ? 0 : 0.45, ease: PANEL_EASE }}
       style={{ transformBox: 'fill-box', transformOrigin: 'center' }}
       tabIndex={0}

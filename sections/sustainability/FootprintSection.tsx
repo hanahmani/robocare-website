@@ -5,6 +5,7 @@ import { motion, useInView } from 'framer-motion';
 import { useTranslation } from '@/i18n';
 import { Section } from '@/components/ui/Section';
 import { Reveal } from '@/components/animations/Reveal';
+import { useEnteredView } from '@/hooks/useEnteredView';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 import { FOOTPRINT_CYCLE, FOOTPRINT_LIST } from '@/lib/data/sustainability';
 
@@ -35,9 +36,19 @@ export function FootprintSection() {
   const cycle = d.sustainability.footprint.cycle;
   const reduced = usePrefersReducedMotion();
 
-  const svgRef = useRef<SVGSVGElement>(null);
+  const figureRef = useRef<HTMLDivElement>(null);
   const arcRef = useRef<SVGCircleElement>(null);
-  const inView = useInView(svgRef, { amount: 0.3 });
+  /*
+   * L'observation porte sur le conteneur HTML, pas sur le <svg> ni sur ses
+   * enfants : WebKit (Safari, iOS) n'observe pas de manière fiable les
+   * éléments d'un SVG avec IntersectionObserver. Les `whileInView` posés
+   * sur les <circle>, <text> et <g> ci-dessous ne se déclenchaient donc
+   * jamais sur iPhone : l'anneau, les points et les libellés restaient à
+   * opacity 0. Un seul déclencheur HTML pilote maintenant toute la figure.
+   */
+  const inView = useInView(figureRef, { amount: 0.3 });
+  /* Entree des elements SVG : verrouillee une fois pour toutes (voir le hook). */
+  const entered = useEnteredView(figureRef, 0.3);
 
   const [activeStep, setActiveStep] = useState(reduced ? STEP_COUNT - 1 : 0);
   const [paused, setPaused] = useState(false);
@@ -106,9 +117,8 @@ export function FootprintSection() {
           latérale rend cette marge au dessin sans toucher au tracé.
         */}
         <Reveal from="right" className="mx-auto w-full min-w-0 px-[7%] lg:max-w-[460px] lg:px-0">
-          <div className="mx-auto aspect-square w-full max-w-[420px]" dir="ltr">
+          <div ref={figureRef} className="mx-auto aspect-square w-full max-w-[420px]" dir="ltr">
             <motion.svg
-              ref={svgRef}
               viewBox="0 0 440 440"
               className="h-full w-full overflow-visible"
               role="img"
@@ -124,8 +134,7 @@ export function FootprintSection() {
                 strokeWidth="2"
                 strokeDasharray="6 12"
                 initial={reduced ? false : { pathLength: 0, opacity: 0 }}
-                whileInView={{ pathLength: 1, opacity: 1 }}
-                viewport={{ once: true, amount: 0.6 }}
+                animate={entered ? { pathLength: 1, opacity: 1 } : undefined}
                 transition={{ duration: 1.35, ease: 'easeOut' }}
               />
 
@@ -152,8 +161,7 @@ export function FootprintSection() {
                 className="fill-sage-50 stroke-sage-200"
                 strokeWidth="1.5"
                 initial={reduced ? false : { scale: 0.88, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true, amount: 0.6 }}
+                animate={entered ? { scale: 1, opacity: 1 } : undefined}
                 transition={{ delay: 0.2, duration: 0.7, ease: 'easeOut' }}
                 style={{ transformOrigin: `${CENTER}px ${CENTER}px` }}
               />
@@ -163,8 +171,7 @@ export function FootprintSection() {
                 textAnchor="middle"
                 className="fill-ink-900 font-sans text-[22px] font-bold"
                 initial={reduced ? false : { y: 8, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.6 }}
+                animate={entered ? { y: 0, opacity: 1 } : undefined}
                 transition={{ delay: 0.45, duration: 0.45, ease: 'easeOut' }}
               >
                 {t('sustainability.footprint.cycleTitle')}
@@ -175,8 +182,7 @@ export function FootprintSection() {
                 textAnchor="middle"
                 className="fill-leaf-600 font-sans text-[20px] font-bold"
                 initial={reduced ? false : { y: 8, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, amount: 0.6 }}
+                animate={entered ? { y: 0, opacity: 1 } : undefined}
                 transition={{ delay: 0.55, duration: 0.45, ease: 'easeOut' }}
               >
                 {t('sustainability.footprint.cycleSubtitle')}
@@ -192,8 +198,7 @@ export function FootprintSection() {
                   <motion.g
                     key={id}
                     initial={reduced ? false : { scale: 0.65, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true, amount: 0.6 }}
+                    animate={entered ? { scale: 1, opacity: 1 } : undefined}
                     transition={{ delay: 0.55 + index * 0.13, duration: 0.38, ease: 'easeOut' }}
                     style={{ transformOrigin: `${dot.x}px ${dot.y}px` }}
                   >

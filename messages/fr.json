@@ -1239,8 +1239,8 @@
         "value": "Centimétrique"
       },
       "sensors": {
-        "label": "Relevé capteurs",
-        "value": "15 min"
+        "label": "Data science",
+        "value": "Chaque saison"
       }
     },
     "blocks": {
