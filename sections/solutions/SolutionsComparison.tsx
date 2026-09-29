@@ -12,6 +12,25 @@ import { cn } from '@/lib/utils';
 /** Un accent de couleur par colonne — décoratif, propre à ce tableau. */
 const COLUMN_ACCENTS = ['#4D9E2F', '#3F9C4A', '#1F8F7A', '#1C7A3C'];
 
+/** `<signe><nombre> %` en tête de `metric`, isolable du reste du libellé. */
+const METRIC_FIGURE = /^([−+-]?\d+\s*%)\s*(.*)$/u;
+
+/**
+ * Rend « −28 % من الماء » sans disloquer le nombre : en RTL, le signe et le
+ * « % » sont des neutres que l'algorithme bidi rejette de part et d'autre de
+ * l'unité. On isole donc la partie chiffrée dans son propre sens de lecture,
+ * comme le fait déjà le grand chiffre des panneaux de solution.
+ */
+function MetricValue({ metric }: { metric: string }) {
+  const match = metric.match(METRIC_FIGURE);
+  if (!match) return <>{metric}</>;
+  return (
+    <>
+      <bdi dir="ltr">{match[1]}</bdi> {match[2]}
+    </>
+  );
+}
+
 /** Comparatif synthétique des quatre solutions, en tableau filaire à quatre colonnes. */
 export function SolutionsComparison() {
   const { t, d } = useTranslation();
@@ -26,8 +45,7 @@ export function SolutionsComparison() {
         </Reveal>
         <Reveal delay={0.06}>
           <p className="max-w-[46ch] text-[15px] leading-[1.6] text-ink-500 lg:text-end">
-            Quatre cultures, quatre priorités de mesure. Le chiffre en tête de colonne indique
-            l&apos;évolution mesurée par la solution correspondante.
+            {t('solutions.comparison.lead')}
           </p>
         </Reveal>
       </div>
@@ -82,7 +100,7 @@ export function SolutionsComparison() {
                     )}
                     style={{ color: accent }}
                   >
-                    {copy.metric}
+                    <MetricValue metric={copy.metric} />
                   </p>
 
                   <div className="mt-5 divide-y divide-forest-950/[0.08] border-t border-forest-950/[0.08]">

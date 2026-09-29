@@ -297,4 +297,12 @@
       #9ed84b 100%
     );
   }
+
+  /* Frise « de la mesure à la consigne » (accueil) : la colonne des chiffres
+     est calibrée à 64px sur « 5 jours » / « 15 min ». Les équivalents arabes
+     montent à 75px (« كل موسم ») et se couperaient en deux lignes collées par
+     le `leading-none` — on élargit la colonne pour cette langue seulement. */
+  html[lang='ar'] .timeline-step {
+    grid-template-columns: 78px 24px 1fr;
+  }
 }

@@ -234,6 +234,34 @@
           "title": "Consignes actionnables",
           "text": "Dose, zone et créneau — par e-mail, SMS ou WhatsApp, en FR, EN ou AR."
         }
+      },
+      "timeline": {
+        "title": "De la mesure à la consigne",
+        "steps": "4 étapes, en continu",
+        "metrics": {
+          "satellite": {
+            "value": "5 jours",
+            "caption": "Cadence satellite"
+          },
+          "sensors": {
+            "value": "15 min",
+            "caption": "Relevé capteur"
+          },
+          "ai": {
+            "value": "Saison",
+            "caption": "Ré-entraînement"
+          },
+          "guidance": {
+            "value": "24 h",
+            "caption": "Délai d’alerte"
+          }
+        },
+        "channels": [
+          "E-mail",
+          "SMS",
+          "WhatsApp",
+          "FR / EN / AR"
+        ]
       }
     },
     "solutionsPreview": {
@@ -503,6 +531,7 @@
     "comparison": {
       "eyebrow": "En un coup d’œil",
       "title": "Ce que chaque solution mesure en priorité",
+      "lead": "Quatre cultures, quatre priorités de mesure. Le chiffre en tête de colonne indique l’évolution mesurée par la solution correspondante.",
       "note": "Indicateurs relevés sur les exploitations partenaires — détail dans les études de cas"
     },
     "cta": {

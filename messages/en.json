@@ -234,6 +234,34 @@
           "title": "Actionable guidance",
           "text": "Rate, zone and time window — by email, SMS or WhatsApp, in FR, EN or AR."
         }
+      },
+      "timeline": {
+        "title": "From measurement to instruction",
+        "steps": "4 steps, continuously",
+        "metrics": {
+          "satellite": {
+            "value": "5 days",
+            "caption": "Satellite cadence"
+          },
+          "sensors": {
+            "value": "15 min",
+            "caption": "Sensor reading"
+          },
+          "ai": {
+            "value": "Season",
+            "caption": "Retraining"
+          },
+          "guidance": {
+            "value": "24 h",
+            "caption": "Alert lead time"
+          }
+        },
+        "channels": [
+          "Email",
+          "SMS",
+          "WhatsApp",
+          "FR / EN / AR"
+        ]
       }
     },
     "solutionsPreview": {
@@ -503,6 +531,7 @@
     "comparison": {
       "eyebrow": "At a glance",
       "title": "What each solution measures first",
+      "lead": "Four crops, four measurement priorities. The figure at the top of each column shows the change measured by the corresponding solution.",
       "note": "Indicators recorded on partner farms — full detail in the case studies"
     },
     "cta": {

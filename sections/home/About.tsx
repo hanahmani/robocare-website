@@ -8,20 +8,13 @@ import { Reveal } from '@/components/animations/Reveal';
 import { HOME_PILLARS } from '@/lib/data/home';
 import { cn } from '@/lib/utils';
 
-/** Chiffre clé + légende de chaque étape (chrome décoratif propre à cette frise). */
-const STEP_METRICS: Record<string, { metric: string; caption: string }> = {
-  satellite: { metric: '5 jours', caption: 'Cadence satellite' },
-  sensors: { metric: '15 min', caption: 'Relevé capteur' },
-  ai: { metric: 'Saison', caption: 'Ré-entraînement' },
-  guidance: { metric: '24 h', caption: "Délai d'alerte" },
-};
-
-const GUIDANCE_CHANNELS = ['E-mail', 'SMS', 'WhatsApp', 'FR / EN / AR'];
-
 /** Section « Qui nous sommes » : présentation + frise « de la mesure à la consigne ». */
 export function About() {
   const { t, d } = useTranslation();
   const pillars = d.home.about.pillars;
+  // Chiffre clé + légende de chaque étape : traduits, car « 5 jours » ou
+  // « Saison » n'ont pas de forme neutre entre le français, l'anglais et l'arabe.
+  const timeline = d.home.about.timeline;
 
   return (
     <Section>
@@ -47,8 +40,8 @@ export function About() {
 
         <div>
           <div className="flex items-baseline justify-between gap-4 border-b border-forest-950/[0.08] pb-3.5">
-            <h3 className="text-[16px] font-semibold text-ink-900">De la mesure à la consigne</h3>
-            <span className="shrink-0 text-[12.5px] text-ink-300">4 étapes, en continu</span>
+            <h3 className="text-[16px] font-semibold text-ink-900">{timeline.title}</h3>
+            <span className="shrink-0 text-[12.5px] text-ink-300">{timeline.steps}</span>
           </div>
 
           <div>
@@ -57,11 +50,11 @@ export function About() {
                 key={id}
                 index={index}
                 last={index === HOME_PILLARS.length - 1}
-                metric={STEP_METRICS[id].metric}
-                caption={STEP_METRICS[id].caption}
+                metric={timeline.metrics[id].value}
+                caption={timeline.metrics[id].caption}
                 title={pillars[id].title}
                 text={pillars[id].text}
-                channels={id === 'guidance' ? GUIDANCE_CHANNELS : undefined}
+                channels={id === 'guidance' ? timeline.channels : undefined}
               />
             ))}
           </div>
@@ -99,7 +92,7 @@ function TimelineStep({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.45, ease: 'easeOut', delay: index * 0.08 }}
-      className={cn('grid grid-cols-[64px_24px_1fr] items-start gap-4 py-5', !last && 'border-b border-forest-950/[0.06]')}
+      className={cn('timeline-step grid grid-cols-[64px_24px_1fr] items-start gap-4 py-5', !last && 'border-b border-forest-950/[0.06]')}
     >
       <div>
         <p className="text-[19px] font-bold leading-none text-ink-900">{metric}</p>

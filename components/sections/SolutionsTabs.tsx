@@ -159,8 +159,14 @@ export function SolutionsTabs({ solutions = DEFAULT_SOLUTIONS }: SolutionsTabsPr
             >
               <span className="block text-[15px] font-semibold text-ink-900">{solution.name}</span>
               <span className="mt-1 block text-[13px] font-medium" style={{ color: ACCENTS[solution.id] }}>
-                {result.sign}
-                {result.abs} % {solution.result.unit}
+                {/* Isolé en LTR comme le grand chiffre du panneau : accolé à une unité
+                    arabe, le « − » est un neutre que l'algorithme bidi renvoie à l'autre
+                    bout de la ligne (« من الماء % 28− »). */}
+                <bdi dir="ltr">
+                  {result.sign}
+                  {result.abs} %
+                </bdi>{' '}
+                {solution.result.unit}
               </span>
             </button>
           );
