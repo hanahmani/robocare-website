@@ -34,6 +34,7 @@ export const TEAM = [
     photo: '/team/Anwar-Ben-Mahmoud.webp',
     linkedin: '',
   },
+  { id: 'hadil-yangui', group: 'engineering', photo: '/team/Hadil-Yangui.webp', linkedin: '' },
   { id: 'marwa-kadri', group: 'agronomy', photo: '/team/Marwa-kadri.webp', linkedin: '' },
   {
     id: 'nour-el-houda-boughattas',
@@ -41,7 +42,7 @@ export const TEAM = [
     photo: '/team/Boughattas-Nour-El-Houda.webp',
     linkedin: '',
   },
-  { id: 'mariem-yousfi', group: 'agronomy', photo: undefined, linkedin: '' },
+  { id: 'mariem-yousfi', group: 'agronomy', photo: '/team/Mariem-Yousfi.webp', linkedin: '' },
 ] as const satisfies readonly Member[];
 
 export const TEAM_GROUPS = ['leadership', 'engineering', 'agronomy'] as const;

@@ -68,6 +68,11 @@ export const TEAM_MEMBERS: TeamMember[] = [
     linkedin: 'https://www.linkedin.com/in/anwar-ben-mahmoud-746354102/',
   },
   {
+    id: 'hadil-yangui',
+    team: 'Engineering',
+    photo: '/team/Hadil-Yangui.webp',
+  },
+  {
     id: 'marwa-kadri',
     team: 'Agronomy',
     photo: '/team/Marwa-kadri.webp',
@@ -82,5 +87,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'mariem-yousfi',
     team: 'Agronomy',
+    photo: '/team/Mariem-Yousfi.webp',
   },
 ];
