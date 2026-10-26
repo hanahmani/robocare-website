@@ -1560,11 +1560,7 @@
         },
         "po": {
           "name": "Karim Hbiri",
-          "role": "Product Owner & Scrum Master"
-        },
-        "zekri-mohamed": {
-          "name": "Zekri Mohamed",
-          "role": "Directeur R&D"
+          "role": "Cofondateur & Product Manager"
         },
         "ali-chaabouni": {
           "name": "Ali Chaabouni",
@@ -1598,9 +1594,9 @@
           "name": "Nour El Houda Boughattas",
           "role": "Experte en agriculture de précision"
         },
-        "emna-abdellatif": {
-          "name": "Emna Abdellatif",
-          "role": "Chercheuse agronome"
+        "mariem-yousfi": {
+          "name": "Mariem Yousfi",
+          "role": "Ingénieure agronome"
         }
       }
     },
