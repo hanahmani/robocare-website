@@ -1,5 +1,6 @@
 import type { Locale } from '@/i18n/config';
 import { KNOWLEDGE, type KnowledgeEntry } from '@/lib/chat/knowledge';
+import { matchSmallTalk } from '@/lib/chat/smalltalk';
 
 /**
  * Moteur de l'assistant RoboCare.
@@ -71,7 +72,7 @@ const STOPWORDS: Record<Locale, ReadonlySet<string>> = {
   ]),
 };
 
-function tokenize(text: string, locale: Locale): string[] {
+export function tokenize(text: string, locale: Locale): string[] {
   const stop = STOPWORDS[locale];
   return normalize(text)
     .split(' ')
@@ -190,6 +191,9 @@ export type ChatProvider = {
 export const localProvider: ChatProvider = {
   id: 'local',
   async ask(input, locale) {
+    const smallTalk = matchSmallTalk(input, locale);
+    if (smallTalk) return { text: smallTalk, entry: null, suggestions: [] };
+
     const { entry, suggestions } = matchKnowledge(input, locale);
     return {
       text: entry ? entry.answer[locale] : '',
