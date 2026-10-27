@@ -60,7 +60,7 @@ export function organizationSchema(d: Dictionary, locale: Locale): Json {
     url: SITE.url,
     description: d.meta.description,
     email: SITE.email,
-    telephone: SITE.phone,
+    telephone: SITE.phones[0].label,
     foundingDate: '2021',
     logo: {
       '@type': 'ImageObject',
@@ -88,7 +88,7 @@ export function organizationSchema(d: Dictionary, locale: Locale): Json {
       {
         '@type': 'ContactPoint',
         contactType: 'customer service',
-        telephone: SITE.phone,
+        telephone: SITE.phones.map((phone) => phone.label),
         email: SITE.email,
         areaServed: 'TN',
         availableLanguage: ['French', 'English', 'Arabic'],

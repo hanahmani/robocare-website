@@ -253,9 +253,9 @@ export const KNOWLEDGE: readonly KnowledgeEntry[] = [
       ar: 'كيف أتّصل بكم؟',
     },
     answer: {
-      fr: 'Par e-mail à info@robocare.tn, par téléphone au +216 39 737 36 85, ou via le formulaire de la page Contact. Nos bureaux sont à Sfax, en Tunisie. Nous répondons sous 48 h ouvrées, en français, en anglais ou en arabe.',
-      en: 'By email at info@robocare.tn, by phone on +216 39 737 36 85, or through the form on the Contact page. Our offices are in Sfax, Tunisia. We reply within 48 working hours, in French, English or Arabic.',
-      ar: 'عبر البريد الإلكتروني info@robocare.tn، أو الهاتف ‎+216 39 737 36 85‎، أو عبر استمارة صفحة الاتصال. مكاتبنا في صفاقس بتونس. ونجيب خلال 48 ساعة عمل بالفرنسية أو الإنجليزية أو العربية.',
+      fr: 'Par e-mail à contact@robocare.tn, par téléphone au +216 22 355 726 ou au +216 53 140 011, ou via le formulaire de la page Contact. Nos bureaux sont à Sfax, en Tunisie. Nous répondons sous 48 h ouvrées, en français, en anglais ou en arabe.',
+      en: 'By email at contact@robocare.tn, by phone on +216 22 355 726 or +216 53 140 011, or through the form on the Contact page. Our offices are in Sfax, Tunisia. We reply within 48 working hours, in French, English or Arabic.',
+      ar: 'عبر البريد الإلكتروني contact@robocare.tn، أو الهاتف ‎+216 22 355 726‎ أو ‎+216 53 140 011‎، أو عبر استمارة صفحة الاتصال. مكاتبنا في صفاقس بتونس. ونجيب خلال 48 ساعة عمل بالفرنسية أو الإنجليزية أو العربية.',
     },
     link: { href: '/contact', labelKey: 'nav.contact' },
   },

@@ -8,8 +8,8 @@ import { SustainabilityMetric } from '@/components/ui/SustainabilityMetric';
 import { IMPACT_METRICS } from '@/lib/data/sustainability';
 
 /**
- * Tableau de bord d'impact : cinq indicateurs, actuellement en attente de
- * données consolidées (`--`). `IMPACT_METRICS` est la seule source à modifier
+ * Tableau de bord d'impact : cinq indicateurs ; ceux encore en attente de
+ * données consolidées affichent `--`. `IMPACT_METRICS` est la seule source à modifier
  * le jour où une valeur devient disponible.
  */
 export function ImpactDashboard() {
@@ -26,13 +26,14 @@ export function ImpactDashboard() {
       </Reveal>
 
       <Stagger className="relative mt-section-gap grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-        {IMPACT_METRICS.map(({ id, icon, value, prefix, suffix, unit }) => (
+        {IMPACT_METRICS.map(({ id, icon, value, prefix, suffix, separator, unit }) => (
           <StaggerItem key={id} className="h-full">
             <SustainabilityMetric
               icon={icon}
               value={value}
               prefix={prefix}
               suffix={suffix}
+              separator={separator}
               unit={unit}
               label={metrics[id].label}
               text={metrics[id].text}

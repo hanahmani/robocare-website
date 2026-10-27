@@ -4,9 +4,11 @@ import type { FooterColumn, NavItem } from '@/types';
 export const SITE = {
   name: 'RoboCare',
   url: 'https://robocare.tn',
-  email: 'info@robocare.tn',
-  phone: '+216 39 737 36 85',
-  phoneHref: 'tel:+21639737368',
+  email: 'contact@robocare.tn',
+  phones: [
+    { label: '+216 22 355 726', href: 'tel:+21622355726' },
+    { label: '+216 53 140 011', href: 'tel:+21653140011' },
+  ],
   appUrl: 'https://app.satellite.robocare.tn',
   appHost: 'app.satellite.robocare.tn',
   appLoginUrl: 'https://app.satellite.robocare.tn/',
@@ -54,7 +56,7 @@ export const FOOTER_COLUMNS: readonly FooterColumn[] = [
     titleKey: 'footer.contact',
     links: [
       { label: SITE.email, href: `mailto:${SITE.email}`, ltr: true },
-      { label: SITE.phone, href: SITE.phoneHref, ltr: true },
+      ...SITE.phones.map((phone) => ({ label: phone.label, href: phone.href, ltr: true })),
       { labelKey: 'actions.requestDemo', href: '/contact' },
       { labelKey: 'actions.accessPlatform', href: SITE.appUrl },
     ],

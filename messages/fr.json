@@ -974,10 +974,10 @@
       },
       "results": {
         "water": { "value": "−30 %", "label": "d’eau consommée sur les parcelles pilotées" },
-        "inputs": { "value": "−22 %", "label": "de produits phytosanitaires grâce au ciblage" },
+        "inputs": { "value": "−25 %", "label": "de produits phytosanitaires grâce au ciblage" },
         "yield": { "value": "+15 %", "label": "de rendement moyen constaté après une saison" }
       },
-      "resultsNote": "Chiffres indicatifs — à remplacer par vos résultats terrain mesurés."
+      "resultsNote": "Résultats mesurés sur nos parcelles pilotes."
     },
     "why": {
       "eyebrow": "Le contexte",
@@ -1149,7 +1149,7 @@
         },
         "water": {
           "label": "Eau économisée",
-          "text": "Volume d’eau potentiellement économisé grâce à une gestion plus précise de l’irrigation."
+          "text": "Volume d’eau économisé depuis 2020 grâce à une gestion plus précise de l’irrigation."
         },
         "surface": {
           "label": "Surface suivie",

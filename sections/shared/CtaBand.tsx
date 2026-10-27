@@ -65,7 +65,11 @@ export function CtaBand({ eyebrow, title, text, actions, showContacts = false }:
             <span>
               {t('common.city')}, {t('common.country')}
             </span>
-            <span dir="ltr">{SITE.phone}</span>
+            {SITE.phones.map((phone) => (
+              <span key={phone.href} dir="ltr">
+                {phone.label}
+              </span>
+            ))}
             <span dir="ltr">{SITE.email}</span>
           </div>
         ) : null}

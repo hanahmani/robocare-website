@@ -140,17 +140,20 @@ export const VALUE_CHAIN_CARDS = [
 
 /**
  * Indicateurs d'impact — libellés dans `sustainability.dashboard.metrics.<id>`.
- * Aucune valeur n'est encore consolidée : `value` reste `undefined` et
- * `SustainabilityMetric` affiche `--` sans animation tant qu'il n'est pas
- * renseigné ici. `value`/`prefix`/`suffix`/`unit` sont explicités partout
- * (même absents) pour rester accessibles uniformément lors du `.map()`.
+ * Une valeur `undefined` fait afficher `--` sans animation par
+ * `SustainabilityMetric`. Le CO₂ est une estimation prudente limitée à
+ * l'énergie de pompage évitée (847 000 m³ × ~0,5 kWh/m³ × ~0,46 kg CO₂/kWh
+ * ≈ 195 t). Les grands nombres passent par un
+ * suffixe compact (`M`, `K`) pour tenir dans une tuile sur cinq colonnes.
+ * `value`/`prefix`/`suffix`/`unit` sont explicités partout (même absents)
+ * pour rester accessibles uniformément lors du `.map()`.
  */
 export const IMPACT_METRICS = [
-  { id: 'co2', icon: Cloud, value: undefined, prefix: undefined, suffix: undefined, unit: 'tonnes' },
-  { id: 'water', icon: Droplet, value: undefined, prefix: undefined, suffix: undefined, unit: 'm³' },
-  { id: 'surface', icon: Map, value: undefined, prefix: undefined, suffix: undefined, unit: 'ha' },
-  { id: 'parcels', icon: Grid3x3, value: undefined, prefix: undefined, suffix: undefined, unit: undefined },
-  { id: 'farmers', icon: Users, value: undefined, prefix: undefined, suffix: undefined, unit: undefined },
+  { id: 'co2', icon: Cloud, value: 200, prefix: '+', suffix: undefined, separator: undefined, unit: 'tonnes' },
+  { id: 'water', icon: Droplet, value: 847, prefix: undefined, suffix: '\u202fk', separator: undefined, unit: 'm³' },
+  { id: 'surface', icon: Map, value: 100, prefix: '+', suffix: 'K', separator: undefined, unit: 'ha' },
+  { id: 'parcels', icon: Grid3x3, value: 7000, prefix: '+', suffix: undefined, separator: '\u202f', unit: undefined },
+  { id: 'farmers', icon: Users, value: 300, prefix: '+', suffix: undefined, separator: undefined, unit: undefined },
 ] as const satisfies readonly ImpactMetricDatum[];
 
 /** Carte de l'écosystème agricole (§11) — la dernière est mise en avant sur fond sombre. */

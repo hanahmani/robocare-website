@@ -974,10 +974,10 @@
       },
       "results": {
         "water": { "value": "−30%", "label": "water used on monitored fields" },
-        "inputs": { "value": "−22%", "label": "crop protection products through targeting" },
+        "inputs": { "value": "−25%", "label": "crop protection products through targeting" },
         "yield": { "value": "+15%", "label": "average yield observed after one season" }
       },
-      "resultsNote": "Indicative figures — replace with your own measured field results."
+      "resultsNote": "Results measured on our pilot plots."
     },
     "why": {
       "eyebrow": "The context",
@@ -1149,7 +1149,7 @@
         },
         "water": {
           "label": "Water saved",
-          "text": "Volume of water potentially saved through more precise irrigation management."
+          "text": "Volume of water saved since 2020 through more precise irrigation management."
         },
         "surface": {
           "label": "Area monitored",

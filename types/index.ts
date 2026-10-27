@@ -66,6 +66,8 @@ export type ImpactMetricDatum = {
   value?: number;
   prefix?: string;
   suffix?: string;
+  /** Séparateur de milliers (« 7 000 »), absent par défaut. */
+  separator?: string;
   /** Unité affichée en petit à côté de la valeur (« tonnes », « m³», « ha »…). */
   unit?: string;
 };

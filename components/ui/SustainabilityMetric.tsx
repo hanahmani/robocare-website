@@ -11,6 +11,7 @@ type Props = {
   unit?: string;
   prefix?: string;
   suffix?: string;
+  separator?: string;
   label: string;
   text: string;
   className?: string;
@@ -29,6 +30,7 @@ export function SustainabilityMetric({
   unit,
   prefix,
   suffix,
+  separator,
   label,
   text,
   className,
@@ -38,6 +40,7 @@ export function SustainabilityMetric({
     target: value ?? 0,
     prefix,
     suffix,
+    separator,
   });
 
   return (

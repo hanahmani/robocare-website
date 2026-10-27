@@ -75,13 +75,16 @@ export function ContactView() {
                     <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-400">
                       {t('contact.info.phone')}
                     </p>
-                    <a
-                      href={SITE.phoneHref}
-                      dir="ltr"
-                      className="mt-1 block text-[15px] text-ink-900 hover:text-leaf-600 rtl:text-right"
-                    >
-                      {SITE.phone}
-                    </a>
+                    {SITE.phones.map((phone, index) => (
+                      <a
+                        key={phone.href}
+                        href={phone.href}
+                        dir="ltr"
+                        className={`${index === 0 ? 'mt-1' : 'mt-0.5'} block text-[15px] text-ink-900 hover:text-leaf-600 rtl:text-right`}
+                      >
+                        {phone.label}
+                      </a>
+                    ))}
                   </div>
                 </li>
                 <li className="flex gap-3.5">
