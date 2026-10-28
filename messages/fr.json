@@ -18,7 +18,13 @@
     "country": "Tunisie",
     "logoAlt": "RoboCare",
     "thousandsSeparator": " ",
-    "countryExpansion": "Algérie"
+    "countryExpansion": "Algérie",
+    "colon": " :",
+    "listSeparator": ", ",
+    "units": {
+      "percent": { "prefix": "", "suffix": " %" },
+      "million": { "prefix": "", "suffix": " M+" }
+    }
   },
   "a11y": {
     "skipToContent": "Aller au contenu",
@@ -85,24 +91,26 @@
   },
   "cta": {
     "eyebrow": "Parlons de vos parcelles",
-    "title": "Prêt à voir vos parcelles autrement ?",
+    "title": "Prêt à voir vos parcelles autrement ?",
     "body": "Créez votre compte gratuitement ou demandez une démonstration avec un agronome RoboCare. Réponse sous 48 h."
   },
   "home": {
     "meta": {
       "title": "RoboCare — Agriculture de précision par satellite",
-      "description": "Imagerie satellite, drones multispectraux et intelligence artificielle : RoboCare transforme chaque parcelle en décisions agronomiques précises."
+      "description": "Imagerie satellite, drones multispectraux et intelligence artificielle : RoboCare transforme chaque parcelle en décisions agronomiques précises.",
+      "ogImageAlt": "RoboCare prend soin de votre terre : suivi des parcelles par satellite, drone et capteurs."
     },
     "hero": {
-      "badge": "Agriculture 4.0 · Tunisie & MENA",
+      "badge": "Agriculture 4.0 · Tunisie & Algérie",
       "titleLead": "Nous prenons soin",
       "titleAccent": "de votre terre.",
-      "subtitle": "RoboCare est une plateforme intelligente de suivi agricole qui combine satellites, drones, IoT et expertise agronomique pour optimiser les besoins des cultures, détecter précocement le stress et permettre une agriculture plus intelligente et plus durable.",
+      "subtitle": "RoboCare est une plateforme intelligente de suivi agricole qui combine satellites, drones, IoT et expertise agronomique pour répondre au plus juste aux besoins des cultures, détecter précocement le stress et permettre une agriculture plus intelligente et plus durable.",
       "note": "Sans matériel. Ajoutez une parcelle, première analyse en 24 h.",
       "cards": {
         "ndvi": {
           "label": "NDVI moyen",
-          "delta": "+6 %"
+          "value": "0,74",
+          "delta": "+6 %"
         },
         "moisture": {
           "label": "Humidité du sol · zone Nord"
@@ -116,8 +124,8 @@
     },
     "stats": {
       "eyebrow": "En chiffres",
-      "title": "RoboCare, à l’échelle",
-      "users": "Utilisateurs actifs",
+      "title": "RoboCare en chiffres",
+      "users": "Exploitations actives",
       "hectares": "Hectares suivis",
       "partners": "Partenaires",
       "alerts": "Alertes intelligentes",
@@ -128,12 +136,12 @@
       "title": "En quoi RoboCare est différent",
       "lead": "Chez RoboCare, notre force vient de l’intégration de l’agronomie, de la data science et de technologies de pointe.",
       "body": "Après plusieurs années d’expérience de terrain et de R&D, nous nous sommes imposés comme un partenaire de référence de la transformation numérique agricole, pensé spécifiquement pour la région MENA.",
-      "servicesLabel": "Nos services managés déploient une suite d’outils intelligents de bout en bout qui :",
+      "servicesLabel": "Nos services managés déploient une suite d’outils intelligents de bout en bout pour :",
       "items": {
-        "productivity": "Maximisent la productivité des cultures",
-        "sustainability": "Renforcent la durabilité grâce à l’agriculture de précision",
-        "risk": "Réduisent les risques et les coûts opérationnels",
-        "decision": "Renforcent la décision fondée sur la donnée à tous les niveaux"
+        "productivity": "Maximiser la productivité des cultures",
+        "sustainability": "Réduire l’impact environnemental grâce à l’agriculture de précision",
+        "risk": "Réduire les risques et les coûts opérationnels",
+        "decision": "Fonder chaque décision sur la donnée, à tous les niveaux"
       },
       "quote": "Ce qui distingue vraiment RoboCare, c’est notre capacité à traduire des données agricoles complexes en décisions concrètes — conçu par des agronomes, propulsé par la donnée, porté par une technologie intuitive.",
       "connected": "En lien avec",
@@ -156,18 +164,18 @@
       }
     },
     "difference": {
-      "corePillLabel": "Le recouvrement",
+      "corePillLabel": "L’intersection",
       "coreDiskLabel": "RoboCare",
       "labels": {
         "agro": { "label": "Agronomie", "sublabel": "Expertise terrain" },
-        "data": { "label": "Data science", "sublabel": "Data science" },
+        "data": { "label": "Data science", "sublabel": "Modélisation" },
         "tech": { "label": "Technologie", "sublabel": "Ingénierie produit" }
       },
       "states": {
         "core": {
-          "eyebrow": "Le recouvrement",
+          "eyebrow": "L’intersection",
           "title": "Trois métiers, une seule décision",
-          "paragraph": "Notre force vient de l’intégration de l’agronomie, de la data science et de technologies de pointe : chaque paire de métiers produit quelque chose qu’aucun des deux ne produit seul.",
+          "paragraph": "Notre force vient de l’intégration de l’agronomie, de la data science et de technologies de pointe : chaque paire de métiers produit quelque chose qu’aucun des deux ne produit seul.",
           "points": [
             { "title": "Agronomie × Data science", "text": "Des seuils calibrés sur des séries tunisiennes, au lieu de seuils importés." },
             { "title": "Data science × Technologie", "text": "Une alerte automatique dans les 24 h qui suivent le passage satellite." },
@@ -206,9 +214,9 @@
         }
       },
       "results": [
-        { "label": "Rendement", "text": "Maximisent la productivité des cultures" },
-        { "label": "Durabilité", "text": "Renforcent la durabilité grâce à l’agriculture de précision" },
-        { "label": "Coûts", "text": "Réduisent les risques et les coûts opérationnels" },
+        { "label": "Rendement", "text": "Maximiser la productivité des cultures" },
+        { "label": "Durabilité", "text": "Réduire l’impact environnemental grâce à l’agriculture de précision" },
+        { "label": "Coûts", "text": "Réduire les risques et les coûts opérationnels" },
         { "label": "Traçabilité", "text": "Un historique daté et exportable, à chaque étape." }
       ]
     },
@@ -220,7 +228,7 @@
       "pillars": {
         "satellite": {
           "title": "Satellite tous les 5 jours",
-          "text": "Sentinel-2 et Landsat, indices NDVI, NDRE, NDWI et SAVI par zone."
+          "text": "Sentinel-2, complété par Landsat ; indices NDVI, NDRE, NDWI et SAVI par zone."
         },
         "sensors": {
           "title": "Capteurs au sol",
@@ -271,7 +279,7 @@
     "platformPreview": {
       "eyebrow": "La plateforme",
       "title": "Tout se pilote depuis un seul écran",
-      "text": "Cartographie, indices de végétation, météo, alertes et rapports : la plateforme RoboCare réunit vos parcelles au même endroit.",
+      "text": "Cartographie, indices de végétation, météo, alertes et rapports : la plateforme RoboCare réunit vos parcelles au même endroit.",
       "points": [
         "Tableau de bord, cartographie et historique par parcelle",
         "Séries NDVI / NDRE et comparaison entre deux dates",
@@ -319,7 +327,7 @@
             },
             "operations": {
               "title": "Suivi des interventions",
-              "text": "Traitements, récoltes et tâches d'équipe"
+              "text": "Traitements, récoltes et tâches d’équipe"
             }
           }
         },
@@ -347,14 +355,16 @@
         "capture": "Sentinel-2 · 12 sept.",
         "stats": {
           "ndvi": { "label": "NDVI moyen", "value": "0,52" },
-          "moisture": { "label": "Humidité sol", "value": "14 %" },
+          "moisture": { "label": "Humidité sol", "value": "14 %" },
           "sensors": { "label": "Capteurs", "value": "14/14" },
           "irrigation": { "label": "Irrigation 7 j", "value": "210 m³" }
         },
         "legend": "NDVI",
+        "legendMin": "0,1",
+        "legendMax": "0,9",
         "watchTitle": "À surveiller",
         "watch": [
-          { "field": "B3 · Olivier", "value": "Sol 14 %" },
+          { "field": "B3 · Olivier", "value": "Sol 14 %" },
           { "field": "A2 · Céréales", "value": "NDVI 0,38" },
           { "field": "C1 · Dattier", "value": "NDVI 0,61" }
         ],
@@ -365,7 +375,7 @@
           "ndviLabel": "NDVI",
           "ndviValue": "0,41",
           "soilLabel": "Sol",
-          "soilValue": "14 %",
+          "soilValue": "14 %",
           "advice": "Arroser demain 6 h · 42 m³"
         }
       }
@@ -373,10 +383,10 @@
     "videoShowcase": {
       "eyebrow": "En démonstration",
       "title": "RoboCare en action, sur le terrain",
-      "subtitle": "De la capture satellite à l'alerte sur le terrain : découvrez la plateforme et ses solutions en vidéo.",
+      "subtitle": "De la capture satellite à l’alerte sur le terrain : découvrez la plateforme et ses solutions en vidéo.",
       "chapters": [
         "Les parcelles suivies en imagerie satellitaire",
-        "RoboCare présenté par Dr. Imen Hbiri",
+        "RoboCare présenté par Dr Imen Hbiri",
         "L’application RoboCare en démonstration"
       ],
       "cta": "Voir la démonstration",
@@ -394,15 +404,15 @@
         },
         "noHardware": {
           "title": "Aucun investissement pour démarrer",
-          "text": "Le satellite couvre déjà votre exploitation : rien à installer, rien à louer. Vous dessinez un contour, la première analyse arrive en 24 h. Les capteurs et le drone ne viennent qu’ensuite, si la parcelle le justifie."
+          "text": "Le satellite couvre déjà votre exploitation : rien à installer, rien à louer. Vous dessinez un contour, la première analyse arrive en 24 h. Les capteurs et le drone ne viennent qu’ensuite, si la parcelle le justifie."
         },
         "mediterranean": {
           "title": "Calibré pour la Méditerranée",
-          "text": "Un modèle entraîné sur des céréales d’Europe du Nord se trompe de seuil sous 300 mm de pluie annuelle. Les nôtres apprennent sur des séries tunisiennes : sols carbonatés, olivier conduit en sec, salinité de nappe, épisodes de sirocco."
+          "text": "Un modèle entraîné sur des céréales d’Europe du Nord se trompe de seuil sous 300 mm de pluie annuelle. Les nôtres apprennent sur des séries tunisiennes : sols carbonatés, olivier conduit en sec, salinité de nappe, épisodes de sirocco."
         },
         "decision": {
           "title": "Une consigne, pas un tableau de plus",
-          "text": "Chaque analyse se termine par une phrase actionnable : quelle zone, quelle dose, quel créneau. L’indice reste consultable, mais il n’est jamais le livrable final."
+          "text": "Chaque analyse se termine par une phrase actionnable : quelle zone, quelle dose, quel créneau. L’indice reste consultable, mais il n’est jamais le livrable final."
         },
         "traceability": {
           "title": "Une traçabilité exportable",
@@ -420,7 +430,7 @@
       "note": "Retours recueillis auprès d’exploitations partenaires suivies depuis au moins deux campagnes.",
       "items": {
         "olive": {
-          "quote": "La première année, j’ai vérifié chaque alerte à pied. Les deux zones signalées en avril sont exactement celles qui ont décroché en juin sur les parcelles voisines non suivies. Depuis, j’irrigue en lisant la carte.",
+          "quote": "La première année, j’ai vérifié chaque alerte à pied. Les deux zones signalées en avril correspondaient exactement au stress apparu en juin sur les parcelles voisines non suivies. Depuis, j’irrigue en lisant la carte.",
           "role": "Responsable d’exploitation",
           "context": "Oliveraie de 220 ha · Sfax"
         },
@@ -430,7 +440,7 @@
           "context": "Coopérative céréalière · Béja"
         },
         "citrus": {
-          "quote": "Ce qui a changé, c’est le rythme : un point chaque lundi matin, avec le secteur à surveiller et la raison. Mes chefs d’équipe savent quoi faire avant de monter dans le tracteur.",
+          "quote": "Ce qui a changé, c’est le rythme : un point chaque lundi matin, avec le secteur à surveiller et la raison. Mes chefs d’équipe savent quoi faire avant de monter dans le tracteur.",
           "role": "Chef de culture",
           "context": "Verger d’agrumes de 85 ha · Nabeul"
         }
@@ -447,35 +457,35 @@
       "intro": "Les questions qui reviennent le plus souvent avant une première analyse.",
       "items": {
         "start": {
-          "question": "Combien de temps avant ma première analyse ?",
-          "answer": "Vingt-quatre heures après avoir dessiné le contour d’une parcelle. L’historique remonte en général sur trois à cinq ans d’archives satellite : vous comparez la campagne en cours aux précédentes dès le premier jour."
+          "question": "Combien de temps avant ma première analyse ?",
+          "answer": "Vingt-quatre heures après avoir dessiné le contour d’une parcelle. L’historique couvre jusqu’à dix ans d’archives satellite (Sentinel-2, depuis 2015) : vous comparez la campagne en cours aux précédentes dès le premier jour."
         },
         "accuracy": {
-          "question": "Quelle est la précision d’une analyse satellite ?",
+          "question": "Quelle est la précision d’une analyse satellite ?",
           "answer": "Sentinel-2 fournit un pixel de 10 mètres de côté, soit un point de mesure tous les 100 m². C’est suffisant pour zoner une parcelle et localiser un foyer, pas pour diagnostiquer un arbre isolé — c’est le rôle du drone, en complément."
         },
         "clouds": {
-          "question": "Que se passe-t-il quand il y a des nuages ?",
-          "answer": "Les pixels couverts sont masqués automatiquement et exclus du calcul. Le taux de nuages de chaque passage est affiché ; en Méditerranée, la couverture utile dépasse 80 % des passages sur la saison sèche."
+          "question": "Que se passe-t-il quand il y a des nuages ?",
+          "answer": "Les pixels couverts par des nuages sont masqués automatiquement et exclus du calcul. Le taux de nuages de chaque passage est affiché ; en Méditerranée, plus de 80 % des passages sont exploitables en saison sèche."
         },
         "size": {
-          "question": "Y a-t-il une surface minimale ?",
-          "answer": "Non, le suivi fonctionne dès un hectare. En dessous, le nombre de pixels devient trop faible pour un zonage fiable, mais la courbe de vigueur reste exploitable."
+          "question": "Y a-t-il une surface minimale ?",
+          "answer": "Oui : un hectare pour un zonage fiable. En dessous, le nombre de pixels devient trop faible pour découper la parcelle en zones, mais la courbe de vigueur reste exploitable."
         },
         "data": {
-          "question": "À qui appartiennent mes données ?",
-          "answer": "À vous. Contours, relevés et historiques restent votre propriété : ils ne sont ni revendus ni transmis à un tiers, et vous pouvez les exporter ou en demander la suppression à tout moment."
+          "question": "À qui appartiennent mes données ?",
+          "answer": "À vous. Contours, relevés et historiques restent votre propriété : ils ne sont ni revendus ni transmis à un tiers, et vous pouvez les exporter ou en demander la suppression à tout moment."
         },
         "whatIs": {
-          "question": "Qu’est-ce que RoboCare ?",
-          "answer": "RoboCare est une entreprise AgriTech tunisienne qui aide les agriculteurs à surveiller leurs cultures grâce à l’imagerie satellite, l’intelligence artificielle et des capteurs IoT agricoles. Fondée à Sfax en 2021, RoboCare transforme les données satellite et capteurs en décisions concrètes à l’échelle de la parcelle — irrigation, besoins en azote, détection précoce des maladies — pour l’olivier, les céréales, les agrumes et les cultures sous serre. Aucun matériel n’est nécessaire pour démarrer : la première analyse satellite arrive en 24 heures."
+          "question": "Qu’est-ce que RoboCare ?",
+          "answer": "RoboCare est une entreprise AgriTech tunisienne qui aide les agriculteurs à surveiller leurs cultures grâce à l’imagerie satellite, l’intelligence artificielle et des capteurs IoT agricoles. Fondée à Sfax en 2021, RoboCare transforme les données satellite et capteurs en décisions concrètes à l’échelle de la parcelle — irrigation, besoins en azote, détection précoce des maladies — pour l’olivier, les céréales, les agrumes et les cultures sous serre. Aucun matériel n’est nécessaire pour démarrer : la première analyse satellite arrive en 24 heures."
         },
         "howHelps": {
-          "question": "Comment RoboCare aide-t-elle les agriculteurs ?",
-          "answer": "RoboCare remplace l’intuition par des preuves de terrain. L’imagerie satellite et drone révèle précisément quelles zones d’une parcelle sont en stress hydrique ou nutritionnel, les capteurs IoT confirment ce qui se passe sous la surface, et les modèles d’intelligence artificielle transforment ces données en actions concrètes — où irriguer en priorité, où apporter l’azote, quels arbres surveiller. L’agriculteur agit sur des conditions réelles plutôt que de parcourir toute la parcelle ou d’attendre des symptômes visibles."
+          "question": "Comment RoboCare aide-t-elle les agriculteurs ?",
+          "answer": "RoboCare remplace l’intuition par des preuves de terrain. L’imagerie satellite et par drone révèle précisément quelles zones d’une parcelle sont en stress hydrique ou nutritionnel, les capteurs IoT confirment ce qui se passe sous la surface, et les modèles d’intelligence artificielle transforment ces données en actions concrètes — où irriguer en priorité, où apporter l’azote, quels arbres surveiller. L’agriculteur agit sur des conditions réelles plutôt que de parcourir toute la parcelle ou d’attendre des symptômes visibles."
         },
         "whyChoose": {
-          "question": "Pourquoi choisir RoboCare pour l’agriculture de précision ?",
+          "question": "Pourquoi choisir RoboCare pour l’agriculture de précision ?",
           "answer": "Les modèles de RoboCare sont entraînés sur les conditions méditerranéennes, pas importés d’un autre climat, et ré-entraînés chaque saison. L’équipe est basée à Sfax, au contact direct des exploitations qu’elle suit. La couverture dépasse déjà 100 000 hectares sur l’olivier, les céréales, les agrumes et les cultures sous serre, avec suivi satellite, capteurs IoT et drones agricoles réunis dans une seule plateforme — sans matériel obligatoire pour démarrer."
         }
       }
@@ -513,7 +523,7 @@
   "solutions": {
     "meta": {
       "title": "Solutions par culture",
-      "description": "Oliveraies, blé dur et orge, agrumes, cultures sous serre : des modèles calibrés culture par culture sur des données terrain méditerranéennes."
+      "description": "Oliveraies, blé dur et orge, agrumes, cultures sous serre : des modèles calibrés culture par culture sur des données terrain méditerranéennes."
     },
     "hero": {
       "eyebrow": "Solutions",
@@ -524,7 +534,7 @@
     "labels": {
       "whatYouTrack": "Ce que vous suivez",
       "expectedOutcomes": "Résultats attendus",
-      "whatChanges": "Ce que ça change",
+      "whatChanges": "Ce que cela change",
       "howItWorks": "Comment ça marche",
       "close": "Fermer"
     },
@@ -532,19 +542,20 @@
       "eyebrow": "En un coup d’œil",
       "title": "Ce que chaque solution mesure en priorité",
       "lead": "Quatre cultures, quatre priorités de mesure. Le chiffre en tête de colonne indique l’évolution mesurée par la solution correspondante.",
-      "note": "Indicateurs relevés sur les exploitations partenaires — détail dans les études de cas"
+      "note": "Indicateurs relevés sur les exploitations partenaires —",
+      "noteLink": "détail dans les études de cas"
     },
     "cta": {
       "eyebrow": "Parlons de vos parcelles",
-      "title": "Quelle culture voulez-vous suivre en premier ?",
-      "text": "Décrivez vos parcelles : un agronome RoboCare vous répond sous 48 h avec la solution calibrée pour votre culture."
+      "title": "Quelle culture voulez-vous suivre en premier ?",
+      "text": "Décrivez vos parcelles : un agronome RoboCare vous répond sous 48 h avec la solution calibrée pour votre culture."
     },
     "items": {
       "olive-care": {
         "brand": "Olive Care",
         "name": "Oliveraies",
-        "short": "Oliveraies en sec ou en irrigué : suivi du stress hydrique et de l’alternance.",
-        "description": "L’olivier tolère la sécheresse mais paie l’année suivante. Olive Care suit la vigueur de chaque arbre par imagerie satellite et drone, repère les zones en déficit hydrique avant la nouaison et sécurise le calendrier d’irrigation déficitaire.",
+        "short": "Oliveraies en sec ou en irrigué : suivi du stress hydrique et de l’alternance.",
+        "description": "L’olivier tolère la sécheresse mais la paie l’année suivante. Olive Care suit la vigueur de chaque arbre par imagerie satellite et drone, repère les zones en déficit hydrique avant la nouaison et sécurise le calendrier d’irrigation déficitaire.",
         "imageAlt": "Oliveraie suivie par imagerie satellite",
         "points": [
           "Indice de vigueur arbre par arbre et détection des manquants",
@@ -557,12 +568,12 @@
           "Irrigation déficitaire maîtrisée",
           "Traitements ciblés au lieu de généralisés"
         ],
-        "metric": "−28 % d’eau"
+        "metric": "−28 % d’eau"
       },
       "cereal-care": {
         "brand": "Cereal Care",
         "name": "Blé dur & orge",
-        "short": "Blé dur et orge : pilotage de l’azote et prévision de rendement.",
+        "short": "Blé dur et orge : pilotage de l’azote et prévision de rendement.",
         "description": "Sur céréales, tout se joue entre le tallage et l’épiaison. Cereal Care transforme l’indice NDRE en carte de modulation azotée, suit la levée, et donne une estimation de rendement par zone plusieurs semaines avant la moisson.",
         "imageAlt": "Parcelle de céréales suivie par NDRE",
         "points": [
@@ -573,15 +584,15 @@
         ],
         "outcomes": [
           "Azote apporté là où il est utile",
-          "Resemis décidé à temps",
+          "Ressemis décidé à temps",
           "Logistique de moisson anticipée"
         ],
-        "metric": "−19 % d’azote"
+        "metric": "−19 % d’azote"
       },
       "citrus-care": {
         "brand": "Citrus Care",
         "name": "Agrumes",
-        "short": "Agrumes : salinité, irrigation goutte-à-goutte et calibre des fruits.",
+        "short": "Agrumes : salinité, irrigation goutte-à-goutte et calibre des fruits.",
         "description": "Les agrumes réagissent vite à un excès de sel et à une irrigation mal répartie. Citrus Care croise capteurs de sol, conductivité et imagerie pour ajuster les tours d’eau, secteur par secteur, jusqu’au calibre visé à la récolte.",
         "imageAlt": "Verger d’agrumes irrigué au goutte-à-goutte",
         "points": [
@@ -595,12 +606,12 @@
           "Moins de fruits perdus",
           "Réseau d’irrigation contrôlé"
         ],
-        "metric": "−21 % d’eau"
+        "metric": "−21 % d’eau"
       },
       "greenhouse-care": {
         "brand": "Greenhouse Care",
         "name": "Cultures sous serre",
-        "short": "Serres : climat, fertirrigation et pression des ravageurs en continu.",
+        "short": "Serres : climat, fertirrigation et pression des ravageurs en continu.",
         "description": "Sous abri, une dérive de température ou d’humidité coûte une semaine de production. Greenhouse Care agrège les capteurs de chaque chapelle, surveille le VPD et déclenche l’alerte avant que la culture ne décroche.",
         "imageAlt": "Cultures sous serre équipées de capteurs",
         "points": [
@@ -614,7 +625,7 @@
           "Moins de traitements curatifs",
           "Consommation d’énergie maîtrisée"
         ],
-        "metric": "−24 % de traitements"
+        "metric": "−24 % de traitements"
       }
     },
     "concepts": {
@@ -624,8 +635,8 @@
       "items": {
         "precision": {
           "title": "Agriculture de précision",
-          "text": "L’agriculture de précision part d’un constat simple : une parcelle n’est jamais homogène. La profondeur de sol change, la réserve utile varie de plusieurs dizaines de millimètres d’un bout à l’autre, et une dose unique appliquée partout est forcément excessive quelque part et insuffisante ailleurs.",
-          "text2": "Piloter à la précision, c’est découper la parcelle en zones cohérentes et traiter chacune selon son besoin réel. La télédétection rend ce découpage possible sans sonder le sol tous les vingt mètres : la réponse spectrale du couvert intègre déjà l’effet conjugué du sol, de l’eau et de la nutrition.",
+          "text": "L’agriculture de précision part d’un constat simple : une parcelle n’est jamais homogène. La profondeur de sol change, la réserve utile varie de plusieurs dizaines de millimètres d’un bout à l’autre, et une dose unique appliquée partout est forcément excessive quelque part et insuffisante ailleurs.",
+          "text2": "Piloter avec précision, c’est découper la parcelle en zones cohérentes et traiter chacune selon son besoin réel. La télédétection rend ce découpage possible sans sonder le sol tous les vingt mètres : la réponse spectrale du couvert intègre déjà l’effet conjugué du sol, de l’eau et de la nutrition.",
           "points": [
             "Zonage intra-parcellaire issu de la réponse spectrale",
             "Doses modulées plutôt qu’uniformes",
@@ -634,17 +645,17 @@
         },
         "satellite": {
           "title": "Imagerie satellite et télédétection",
-          "text": "Les satellites Sentinel-2 du programme Copernicus survolent la Tunisie tous les cinq jours et mesurent la lumière renvoyée par le couvert dans treize bandes spectrales, du bleu à l’infrarouge à ondes courtes. Une plante en bonne santé absorbe le rouge pour la photosynthèse et renvoie massivement le proche infrarouge ; une plante contrainte fait l’inverse, progressivement.",
-          "text2": "Ce déséquilibre devient mesurable bien avant de se traduire par un jaunissement visible. C’est toute la valeur de la télédétection : elle donne accès à un signal physiologique, pas à une simple photographie de la parcelle.",
+          "text": "Les satellites Sentinel-2 du programme Copernicus survolent la Tunisie tous les cinq jours et mesurent la lumière renvoyée par le couvert dans treize bandes spectrales, du bleu à l’infrarouge à ondes courtes. Une plante en bonne santé absorbe le rouge pour la photosynthèse et renvoie massivement le proche infrarouge ; une plante contrainte fait l’inverse, progressivement.",
+          "text2": "Ce déséquilibre devient mesurable bien avant de se traduire par un jaunissement visible. C’est toute la valeur de la télédétection : elle donne accès à un signal physiologique, pas à une simple photographie de la parcelle.",
           "points": [
             "Révisite de cinq jours, archives disponibles depuis 2015",
-            "Treize bandes spectrales dont trois dans le red-edge",
+            "Treize bandes spectrales dont trois dans le red-edge (bord du rouge)",
             "Correction atmosphérique et masquage des nuages automatisés"
           ]
         },
         "iot": {
           "title": "Capteurs IoT au sol",
-          "text": "Le satellite observe le couvert ; il ne voit pas ce qui se joue à quarante centimètres de profondeur. Les stations IoT comblent cet angle mort : sondes d’humidité étagées, température de sol, conductivité électrique, et selon les sites pluviomètre et anémomètre, relevés toutes les quinze minutes.",
+          "text": "Le satellite observe le couvert ; il ne voit pas ce qui se joue à quarante centimètres de profondeur. Les stations IoT comblent cet angle mort : sondes d’humidité étagées, température de sol, conductivité électrique, et selon les sites pluviomètre et anémomètre, relevés toutes les quinze minutes.",
           "text2": "Transmises en LoRaWAN — plusieurs kilomètres de portée pour une consommation qui autorise des années d’autonomie sur batterie et panneau solaire — ces mesures servent à caler les seuils du modèle satellite sur la réalité pédologique de l’exploitation.",
           "points": [
             "Humidité mesurée à plusieurs profondeurs racinaires",
@@ -654,7 +665,7 @@
         },
         "drone": {
           "title": "Drones multispectraux",
-          "text": "Quand la question descend à l’échelle de l’arbre ou du rang, dix mètres de résolution ne suffisent plus. Le drone embarque une caméra multispectrale et une caméra thermique et vole à quelques dizaines de mètres : chaque pixel couvre alors deux à cinq centimètres de terrain.",
+          "text": "Quand la question descend à l’échelle de l’arbre ou du rang, dix mètres de résolution ne suffisent plus. Le drone embarque une caméra multispectrale et une caméra thermique et vole à quelques dizaines de mètres : chaque pixel couvre alors deux à cinq centimètres de terrain.",
           "text2": "À cette résolution, on compte les arbres un par un, on repère un goutteur bouché à sa signature thermique et on délimite un foyer de maladie au mètre près. Le vol est programmé à l’avance et le rapport est généré automatiquement après traitement.",
           "points": [
             "Résolution centimétrique, santé arbre par arbre",
@@ -664,7 +675,7 @@
         },
         "ai": {
           "title": "Intelligence artificielle appliquée",
-          "text": "Un indice de végétation brut est bruité : angle solaire, humidité de surface, stade phénologique et type de sol le font varier sans qu’aucun problème agronomique ne soit en cause. Le travail des modèles consiste précisément à séparer ce bruit du signal utile.",
+          "text": "Un indice de végétation brut est bruité : angle solaire, humidité de surface, stade phénologique et type de sol le font varier sans qu’aucun problème agronomique ne soit en cause. Le travail des modèles consiste précisément à séparer ce bruit du signal utile.",
           "text2": "Nous combinons des réseaux de segmentation pour délimiter les zones anormales, des modèles de séries temporelles pour détecter une rupture de tendance, et des classifieurs entraînés sur des photos de terrain pour proposer une hypothèse de maladie. Chaque prédiction est confrontée aux observations de l’agronome, et les modèles sont ré-entraînés en fin de saison.",
           "points": [
             "Segmentation d’image pour isoler les zones de stress",
@@ -675,7 +686,7 @@
         "irrigation": {
           "title": "Irrigation intelligente",
           "text": "Piloter l’irrigation ne consiste pas à arroser davantage, mais à savoir quel secteur a réellement épuisé sa réserve. Le bilan hydrique croise l’évapotranspiration de référence, le coefficient cultural du stade en cours, la pluie effective et l’humidité relevée par les sondes.",
-          "text2": "Le résultat est un volume par secteur et par tour d’eau, révisé à chaque passage satellite. Sur olivier, il permet de conduire une irrigation déficitaire maîtrisée : réduire volontairement les apports pendant les phases peu sensibles, sans compromettre la nouaison.",
+          "text2": "Le résultat est un volume par secteur et par tour d’eau, révisé à chaque passage satellite. Sur olivier, il permet de conduire une irrigation déficitaire maîtrisée : réduire volontairement les apports pendant les phases peu sensibles, sans compromettre la nouaison.",
           "points": [
             "Bilan hydrique par secteur, révisé à chaque passage",
             "Détection d’hétérogénéité du réseau goutte-à-goutte",
@@ -690,27 +701,27 @@
       "intro": "Ce que RoboCare change concrètement, verger par verger et parcelle par parcelle.",
       "items": {
         "monitorOliveOrchards": {
-          "question": "RoboCare peut-elle suivre des oliveraies ?",
-          "answer": "Oui — le suivi des oliveraies est l’une des solutions phares de RoboCare, Olive Care. Elle suit la vigueur arbre par arbre grâce à l’imagerie satellite et drone, repère les arbres manquants ou en déclin, surveille le stress hydrique avant floraison et nouaison, et détecte précocement la maladie de l’œil de paon. Les exploitations qui l’utilisent réduisent leur consommation d’eau d’irrigation d’environ 28 % tout en maîtrisant mieux l’alternance naturelle de l’olivier."
+          "question": "RoboCare peut-elle suivre des oliveraies ?",
+          "answer": "Oui — le suivi des oliveraies est l’une des solutions phares de RoboCare, Olive Care. Elle suit la vigueur arbre par arbre grâce à l’imagerie satellite et drone, repère les arbres manquants ou en déclin, surveille le stress hydrique avant floraison et nouaison, et détecte précocement la maladie de l’œil de paon. Les exploitations qui l’utilisent réduisent leur consommation d’eau d’irrigation d’environ 28 % tout en maîtrisant mieux l’alternance naturelle de l’olivier."
         },
         "oliveProductionImprove": {
-          "question": "Comment l’agriculture de précision peut-elle améliorer la production d’olives ?",
-          "answer": "L’olivier tolère la sécheresse mais la paie l’année suivante par une baisse de rendement — l’effet d’alternance. En suivant la vigueur et le stress hydrique arbre par arbre avant la floraison, RoboCare permet de piloter précisément l’irrigation déficitaire, en maintenant juste assez de stress pour maîtriser la croissance végétative sans provoquer de chute de rendement la saison suivante. La détection précoce de l’œil de paon permet aussi de ne traiter que là où la pression de la maladie est confirmée."
+          "question": "Comment l’agriculture de précision peut-elle améliorer la production d’olives ?",
+          "answer": "L’olivier tolère la sécheresse mais la paie l’année suivante par une baisse de rendement, qui accentue l’alternance. En suivant la vigueur et le stress hydrique arbre par arbre avant la floraison, RoboCare permet de piloter précisément l’irrigation déficitaire, en maintenant juste assez de stress pour maîtriser la croissance végétative sans provoquer de chute de rendement la saison suivante. La détection précoce de l’œil de paon permet aussi de ne traiter que là où la pression de la maladie est confirmée."
         },
         "fruitTreeStress": {
-          "question": "RoboCare peut-elle détecter le stress des arbres fruitiers ?",
+          "question": "RoboCare peut-elle détecter le stress des arbres fruitiers ?",
           "answer": "Oui. Au-delà de l’olivier, la solution Citrus Care de RoboCare applique le même suivi à l’échelle de l’arbre aux vergers d’agrumes — en combinant les indices satellite à l’imagerie drone quand un niveau de détail plus fin est nécessaire pour repérer un stress hydrique ou nutritionnel sur un arbre isolé avant qu’il ne soit visible sur le terrain. La même approche s’étend aux autres arbres fruitiers à mesure que de nouveaux vergers rejoignent la plateforme."
         },
         "suitableLargeFarms": {
-          "question": "RoboCare convient-elle aux grandes exploitations ?",
-          "answer": "Oui — RoboCare suit déjà plus de 100 000 hectares, avec un tarif dégressif au-delà de cent hectares et un tarif spécifique pour les coopératives regroupant plusieurs adhérents. Cereal Care, par exemple, transforme les relevés NDRE en cartes de modulation azotée sur de grands blocs, suit la levée et la verse, et estime le rendement par zone plusieurs semaines avant la moisson — pensée pour l’échelle, pas seulement pour de petites parcelles isolées."
+          "question": "RoboCare convient-elle aux grandes exploitations ?",
+          "answer": "Oui — RoboCare suit déjà plus de 100 000 hectares, avec un tarif dégressif au-delà de cent hectares et un tarif spécifique pour les coopératives regroupant plusieurs adhérents. Cereal Care, par exemple, transforme les relevés NDRE en cartes de modulation azotée sur de grands blocs, suit la levée et la verse, et estime le rendement par zone plusieurs semaines avant la moisson — conçue pour les grandes surfaces, pas seulement pour de petites parcelles isolées."
         },
         "irrigationFertilizationLargeFarms": {
-          "question": "Comment les grandes exploitations peuvent-elles optimiser irrigation et fertilisation avec RoboCare ?",
+          "question": "Comment les grandes exploitations peuvent-elles optimiser irrigation et fertilisation avec RoboCare ?",
           "answer": "Sur une grande exploitation, la plateforme RoboCare zone automatiquement chaque parcelle à partir des indices satellite, si bien que les décisions d’irrigation et d’azote se prennent par zone homogène plutôt qu’à l’échelle de toute la parcelle. Le NDWI signale où le stress hydrique démarre en premier, le NDRE pilote les cartes de modulation azotée à dose variable, et ces mêmes cartes s’exportent directement dans les formats déjà acceptés par la plupart des consoles d’épandage."
         },
         "multiplePlotsMonitoring": {
-          "question": "RoboCare peut-elle suivre plusieurs parcelles agricoles ?",
+          "question": "RoboCare peut-elle suivre plusieurs parcelles agricoles ?",
           "answer": "Oui — la plateforme est conçue pour gérer tout un portefeuille de parcelles depuis un seul tableau de bord, pas une parcelle isolée. Chaque parcelle conserve son propre historique, ses indices et ses alertes, tandis que le tableau de bord fait remonter d’un coup d’œil celles qui nécessitent une attention sur l’ensemble de l’exploitation. C’est exactement l’usage sur lequel s’appuient les coopératives, un seul compte permettant de suivre les parcelles de plusieurs adhérents sous une vue unique."
         }
       }
@@ -719,12 +730,12 @@
   "platform": {
     "meta": {
       "title": "La plateforme",
-      "description": "Cartographie, indices de végétation, météo, alertes et rapports : la plateforme RoboCare réunit vos parcelles au même endroit."
+      "description": "Cartographie, indices de végétation, météo, alertes et rapports : la plateforme RoboCare réunit vos parcelles au même endroit."
     },
     "hero": {
       "eyebrow": "La plateforme",
       "title": "Tout se pilote depuis un seul écran",
-      "intro": "Cartographie, indices de végétation, météo, alertes et rapports : la plateforme RoboCare réunit vos parcelles au même endroit.",
+      "intro": "Cartographie, indices de végétation, météo, alertes et rapports : la plateforme RoboCare réunit vos parcelles au même endroit.",
       "imageAlt": "Carte thermique satellite d’une exploitation suivie par RoboCare"
     },
     "showcase": {
@@ -736,7 +747,7 @@
       "pivot": {
         "tab": "Suivi satellite",
         "field": "Pivot 1 · Blé · 30 ha",
-        "alt": "Application RoboCare, vue Crop Health de la parcelle Pivot 1 : carte satellite avec calque NDVI sur le pivot de blé, NDVI moyen de 0,72, courbe des indices de végétation, détection de changement et comparaison entre deux passages satellite.",
+        "alt": "Application RoboCare, vue Santé des cultures de la parcelle Pivot 1 : carte satellite avec calque NDVI sur le pivot de blé, NDVI moyen de 0,72, courbe des indices de végétation, détection de changement et comparaison entre deux passages satellite.",
         "highlights": [
           "Calque NDVI appliqué à la parcelle, avec les foyers de stress repérés en rouge",
           "Courbe des indices sur la saison et anomalies détectées automatiquement",
@@ -747,11 +758,11 @@
       "olive": {
         "tab": "Détection arbre par arbre",
         "field": "Olivier 2 · Chemlali · 4,3 ha",
-        "alt": "Application RoboCare, vue Crop Health de l’oliveraie Olivier 2 : 2 117 oliviers détectés un par un sur la carte satellite, classés en végétation stable, stress potentiel et emplacement libre, avec les indices NDVI, EVI et SAVI.",
+        "alt": "Application RoboCare, vue Santé des cultures de l’oliveraie Olivier 2 : 2 117 oliviers détectés un par un sur la carte satellite, classés en végétation stable, stress potentiel et emplacement libre, avec les indices NDVI, EVI et SAVI.",
         "highlights": [
           "2 117 oliviers détectés et suivis individuellement sur toute la parcelle",
-          "Classement automatique : végétation stable, stress potentiel, emplacement libre",
-          "101 emplacements de plantation identifiés, soit 4,8 % de densité en plus",
+          "Classement automatique : végétation stable, stress potentiel, emplacement libre",
+          "101 emplacements de plantation identifiés, soit 4,8 % de densité en plus",
           "Trois indices croisés — NDVI, EVI et SAVI — adaptés aux cultures pérennes"
         ]
       }
@@ -784,7 +795,7 @@
     },
     "onboarding": {
       "title": "De la donnée brute à la décision agronomique",
-      "subtitle": "Aucun matériel à acheter pour commencer : le satellite suffit."
+      "subtitle": "Aucun matériel à acheter pour commencer : le satellite suffit."
     },
     "steps": {
       "account": {
@@ -801,21 +812,21 @@
       },
       "decisions": {
         "title": "Recevez vos décisions",
-        "text": "Alertes et recommandations par e-mail, SMS ou WhatsApp, en français ou en arabe."
+        "text": "Alertes et recommandations par e-mail, SMS ou WhatsApp, en français, en anglais ou en arabe."
       }
     },
     "capabilities": {
       "eyebrow": "Aller plus loin",
       "title": "Ce que vous faites réellement dans la plateforme",
-      "lead": "Au-delà des six modules, quatre usages structurent le quotidien des exploitations suivies.",
+      "lead": "Au-delà de ces modules, quatre usages structurent le quotidien des exploitations suivies.",
       "items": {
         "mapping": {
           "title": "Cartographie et gestion des parcelles",
-          "text": "Chaque parcelle est un objet géographique : contour, surface calculée, culture, variété, date de semis ou de plantation, secteur d’irrigation. Les contours se dessinent à la main sur fond satellite ou s’importent depuis un KML, un GeoJSON ou un Shapefile déjà utilisé par la coopérative.",
+          "text": "Chaque parcelle est un objet géographique : contour, surface calculée, culture, variété, date de semis ou de plantation, secteur d’irrigation. Les contours se dessinent à la main sur fond satellite ou s’importent depuis un KML, un GeoJSON ou un Shapefile déjà utilisé par la coopérative.",
           "points": [
             "Import KML, GeoJSON et Shapefile, reprojection automatique",
             "Découpage en secteurs d’irrigation et en zones de gestion",
-            "Calques superposables : indices, sol, altimétrie, historique"
+            "Calques superposables : indices, sol, altimétrie, historique"
           ]
         },
         "analytics": {
@@ -838,7 +849,7 @@
         },
         "farm": {
           "title": "Gestion de l’exploitation",
-          "text": "Plusieurs utilisateurs partagent le même compte avec des droits distincts : le chef de culture consulte et commente, le responsable technique valide les interventions, la coopérative accède à une vue consolidée de ses adhérents.",
+          "text": "Plusieurs utilisateurs partagent le même compte avec des droits distincts : le chef de culture consulte et commente, le responsable technique valide les interventions, la coopérative accède à une vue consolidée de ses adhérents.",
           "points": [
             "Comptes multi-utilisateurs et rôles différenciés",
             "Vue consolidée pour les coopératives et les groupements",
@@ -885,7 +896,7 @@
         },
         "encryption": {
           "title": "Chiffrement",
-          "text": "Trafic chiffré en TLS 1.3 de bout en bout, données au repos chiffrées, authentification par jeton avec expiration et double authentification disponible sur les comptes d’administration."
+          "text": "Trafic chiffré en TLS 1.3, données au repos chiffrées, authentification par jeton avec expiration et authentification à deux facteurs disponible sur les comptes d’administration."
         },
         "ownership": {
           "title": "Propriété des données",
@@ -893,7 +904,7 @@
         },
         "availability": {
           "title": "Disponibilité et synchronisation",
-          "text": "99 % de disponibilité mesurée sur douze mois. La consultation reste possible hors connexion sur les dernières données chargées, et la synchronisation reprend automatiquement au retour du réseau."
+          "text": "99 % de disponibilité mesurée sur douze mois. La consultation reste possible hors connexion sur les dernières données chargées, et la synchronisation reprend automatiquement au retour du réseau."
         }
       }
     }
@@ -901,22 +912,22 @@
   "sustainability": {
     "meta": {
       "title": "Durabilité",
-      "description": "Découvrez comment RoboCare utilise les satellites, drones, IoT et intelligence artificielle pour accompagner une agriculture plus précise, plus résiliente et plus durable."
+      "description": "Découvrez comment RoboCare utilise les satellites, les drones, l’IoT et l’intelligence artificielle pour accompagner une agriculture plus précise, plus résiliente et plus durable."
     },
     "hero": {
       "eyebrow": "Durabilité",
       "title": "Rendre l’agriculture plus durable, pour tous",
-      "intro": "Grâce aux données, à l’intelligence et à l’observation des cultures, RoboCare aide les agriculteurs à mieux utiliser les ressources, anticiper les risques et prendre des décisions plus responsables pour leurs exploitations.",
+      "intro": "Grâce aux données, à l’intelligence artificielle et à l’observation des cultures, RoboCare aide les agriculteurs à mieux utiliser les ressources, anticiper les risques et prendre des décisions plus responsables pour leurs exploitations.",
       "imageAlt": "Vue aérienne d’une exploitation agricole suivie par RoboCare",
       "ctaApproach": "Découvrir notre approche",
       "ctaAbout": "Découvrir RoboCare",
       "chips": {
-        "soilHealth": "Soil Health",
-        "waterStress": "Water Stress",
-        "cropHealth": "Crop Health",
+        "soilHealth": "Santé des sols",
+        "waterStress": "Stress hydrique",
+        "cropHealth": "Santé des cultures",
         "ndvi": "NDVI",
-        "iotSensor": "IoT Sensor",
-        "aiInsight": "AI Insight"
+        "iotSensor": "Capteur IoT",
+        "aiInsight": "Analyse IA"
       }
     },
     "steps": {
@@ -926,7 +937,7 @@
       "measure": {
         "phase": "Mesurer",
         "title": "Nous collectons des données réelles",
-        "text": "Images satellites, capteurs de sol et relevés faits au champ par l’agriculteur arrivent au même endroit. L’exploitation démarre avec un point de départ objectif, pas une estimation.",
+        "text": "Images satellite, capteurs de sol et relevés faits au champ par l’agriculteur arrivent au même endroit. L’exploitation démarre avec un point de départ objectif, pas une estimation.",
         "bullets": {
           "satellite": "Indice de végétation par parcelle, mis à jour tous les 5 jours",
           "sensors": "Humidité du sol et météo locale en continu",
@@ -935,14 +946,14 @@
         "imageAlt": "Agriculteur relevant l’état de sa parcelle sur tablette",
         "chip": {
           "label": "Humidité du sol — parcelle B4",
-          "value": "28 %",
+          "value": "28 %",
           "note": "seuil atteint"
         }
       },
       "decide": {
         "phase": "Décider",
         "title": "Nous transformons ces données en décisions",
-        "text": "Nos modèles calculent le besoin réel de chaque zone : quand irriguer, combien, où traiter et où ne rien faire. L’agriculteur reçoit une recommandation datée, pas un tableau de chiffres à interpréter.",
+        "text": "Nos modèles calculent le besoin réel de chaque zone : quand irriguer, combien, où traiter et où ne rien faire. L’agriculteur reçoit une recommandation datée, pas un tableau de chiffres à interpréter.",
         "bullets": {
           "irrigationPlan": "Plan d’irrigation ajusté à la météo des 7 prochains jours",
           "earlyAlert": "Alerte précoce de stress hydrique et de maladie",
@@ -958,11 +969,10 @@
       "prove": {
         "phase": "Prouver",
         "title": "Nous rendons les gains vérifiables",
-        "text": "Chaque saison, l’exploitation obtient un bilan chiffré : eau économisée, intrants évités, énergie de pompage, historique complet des interventions. De quoi répondre à un acheteur, à un bailleur ou à un audit d’export.",
+        "text": "Chaque saison, l’exploitation obtient un bilan chiffré : eau économisée, intrants évités, énergie de pompage, historique complet des interventions. De quoi répondre à un acheteur, à un bailleur ou à un audit d’export.",
         "bullets": {
           "report": "Bilan de saison détaillé, parcelle par parcelle",
-          "traceability": "Historique complet des interventions, exportable",
-          "compliance": "De quoi répondre à un acheteur, un bailleur ou un audit"
+          "traceability": "Historique complet des interventions, exportable"
         },
         "imageAlt": "Champ de blé prêt pour la moisson, suivi par capteurs RoboCare",
         "chip": {
@@ -973,15 +983,15 @@
         "cta": "Demander une démonstration"
       },
       "results": {
-        "water": { "value": "−30 %", "label": "d’eau consommée sur les parcelles pilotées" },
-        "inputs": { "value": "−25 %", "label": "de produits phytosanitaires grâce au ciblage" },
-        "yield": { "value": "+15 %", "label": "de rendement moyen constaté après une saison" }
+        "water": { "value": "−28 %", "label": "d’eau d’irrigation sur les exploitations suivies" },
+        "inputs": { "value": "−24 %", "label": "de traitements phytosanitaires grâce au ciblage" },
+        "yield": { "value": "+12 %", "label": "de rendement moyen sur les zones suivies" }
       },
-      "resultsNote": "Résultats mesurés sur nos parcelles pilotes."
+      "resultsNote": "Moyennes mesurées sur les exploitations suivies, identiques à celles de la page Impact."
     },
     "why": {
       "eyebrow": "Le contexte",
-      "title": "Pourquoi la durabilité est-elle importante dans l’agriculture ?",
+      "title": "Pourquoi la durabilité est-elle importante dans l’agriculture ?",
       "lead1": "L’agriculture doit aujourd’hui produire davantage tout en faisant face à des ressources naturelles limitées, au changement climatique et à une pression croissante sur les sols et les écosystèmes.",
       "lead2": "Les agriculteurs doivent donc trouver un équilibre entre productivité, rentabilité et préservation des ressources naturelles. RoboCare accompagne cette transition en permettant de mieux comprendre l’état réel des cultures et d’intervenir au bon moment.",
       "cards": {
@@ -1005,8 +1015,8 @@
     },
     "approach": {
       "eyebrow": "Notre approche",
-      "title": "Quelles sont les solutions pour améliorer la durabilité ?",
-      "lead": "Satellite, données, analyse, décision, action, impact : un parcours en cinq étapes qui se répète à chaque campagne.",
+      "title": "Quelles sont les solutions pour améliorer la durabilité ?",
+      "lead": "Observer, comprendre, anticiper, agir, mesurer : un parcours en cinq étapes qui se répète à chaque campagne.",
       "steps": {
         "observe": {
           "title": "Observer",
@@ -1097,7 +1107,7 @@
     "footprint": {
       "eyebrow": "Empreinte",
       "title": "Une agriculture plus efficace peut aussi réduire son empreinte",
-      "lead": "Optimiser les interventions peut contribuer indirectement à réduire :",
+      "lead": "Optimiser les interventions peut contribuer indirectement à réduire :",
       "list": {
         "travel": "les déplacements inutiles",
         "consumption": "certaines consommations de ressources",
@@ -1145,23 +1155,33 @@
       "metrics": {
         "co2": {
           "label": "CO₂ évité",
-          "text": "Estimation des émissions potentiellement évitées grâce à l’optimisation des interventions et des déplacements."
+          "text": "Estimation des émissions potentiellement évitées grâce à l’optimisation des interventions et des déplacements.",
+          "suffix": "",
+          "unit": "tonnes"
         },
         "water": {
           "label": "Eau économisée",
-          "text": "Volume d’eau économisé depuis 2020 grâce à une gestion plus précise de l’irrigation."
+          "text": "Volume d’eau économisé depuis 2020 grâce à une gestion plus précise de l’irrigation.",
+          "suffix": " k",
+          "unit": "m³"
         },
         "surface": {
           "label": "Surface suivie",
-          "text": "Superficie agricole suivie et analysée grâce aux technologies RoboCare."
+          "text": "Superficie agricole suivie et analysée grâce aux technologies RoboCare.",
+          "suffix": " k",
+          "unit": "ha"
         },
         "parcels": {
           "label": "Parcelles surveillées",
-          "text": "Nombre de parcelles bénéficiant d’un suivi régulier."
+          "text": "Nombre de parcelles bénéficiant d’un suivi régulier.",
+          "suffix": "",
+          "unit": ""
         },
         "farmers": {
-          "label": "Agriculteurs accompagnés",
-          "text": "Nombre d’utilisateurs et d’exploitants accompagnés par la plateforme."
+          "label": "Exploitations accompagnées",
+          "text": "Nombre d’exploitations accompagnées par la plateforme.",
+          "suffix": "",
+          "unit": ""
         }
       }
     },
@@ -1169,7 +1189,7 @@
       "eyebrow": "Écosystème",
       "title": "Notre impact sur la nature",
       "emblemTitle": "Écosystème",
-      "emblemSubtitle": "AGRICOLE",
+      "emblemSubtitle": "agricole",
       "cards": {
         "soil": {
           "title": "Sols",
@@ -1246,12 +1266,12 @@
   "technology": {
     "meta": {
       "title": "Technologie",
-      "description": "Satellite, capteurs au sol, drone et intelligence artificielle : chaque brique répond à une échelle d’observation précise, de la région à l’arbre."
+      "description": "Satellite, capteurs au sol, drone et intelligence artificielle : chaque brique répond à une échelle d’observation précise, de la région à l’arbre."
     },
     "hero": {
       "eyebrow": "Technologie",
       "title": "Quatre technologies, une même chaîne de décision",
-      "intro": "Satellite, capteurs au sol, drone et intelligence artificielle : chaque brique répond à une échelle d’observation précise, de la région à l’arbre.",
+      "intro": "Satellite, capteurs au sol, drone et intelligence artificielle : chaque brique répond à une échelle d’observation précise, de la région à l’arbre.",
       "imageAlt": "Drone multispectral RoboCare en vol au-dessus d’une parcelle"
     },
     "metrics": {
@@ -1285,17 +1305,17 @@
       },
       "satellite": {
         "title": "Technologie satellite",
-        "text": "Imagerie multispectrale libre et commerciale, traitée automatiquement à chaque passage.",
+        "text": "Imagerie multispectrale libre (Sentinel-2, Landsat), traitée automatiquement à chaque passage.",
         "note": "",
         "points": [
-          "Sentinel-2 et Landsat, révisite de 5 jours",
+          "Sentinel-2 tous les 5 jours, complété par Landsat",
           "Indices NDVI, NDRE, NDWI et SAVI",
           "Masquage automatique des nuages"
         ]
       },
       "iot": {
         "title": "Technologie IoT",
-        "text": "Des stations autonomes conçues pour le terrain : peu d’énergie, longue portée, faible maintenance.",
+        "text": "Des stations autonomes conçues pour le terrain : peu d’énergie, longue portée, faible maintenance.",
         "note": "",
         "points": [
           "Sondes d’humidité de sol à plusieurs profondeurs",
@@ -1340,7 +1360,7 @@
     "indices": {
       "eyebrow": "Indices de végétation",
       "title": "Quatre indices, quatre questions différentes",
-      "lead": "Un indice n’est pas une note de santé : c’est un rapport entre deux bandes spectrales, sensible à un phénomène précis. Utiliser le bon au bon stade évite la plupart des contresens d’interprétation.",
+      "lead": "Un indice n’est pas une note de santé : c’est un rapport entre deux bandes spectrales, sensible à un phénomène précis. Utiliser le bon au bon stade évite la plupart des contresens d’interprétation.",
       "columns": {
         "index": "Indice",
         "bands": "Bandes",
@@ -1382,7 +1402,7 @@
     "stack": {
       "eyebrow": "Briques techniques",
       "title": "La chaîne technique, brique par brique",
-      "lead": "Ce que recouvrent concrètement les mots « IA », « big data » et « SIG » dans la plateforme RoboCare.",
+      "lead": "Ce que recouvrent concrètement les mots « IA », « big data » et « SIG » dans la plateforme RoboCare.",
       "items": {
         "vision": {
           "tag": "Vision par ordinateur",
@@ -1402,7 +1422,7 @@
         "api": {
           "tag": "API & intégrations",
           "title": "Une API REST documentée",
-          "text": "Parcelles, indices, alertes et rapports sont accessibles par API REST authentifiée, avec pagination et webhooks. Les coopératives l’utilisent pour alimenter leur propre système de gestion ; les constructeurs de matériel, pour récupérer une carte de modulation exploitable par une console d’épandage."
+          "text": "Parcelles, indices, alertes et rapports sont accessibles par API REST authentifiée, avec pagination et webhooks. Les coopératives l’utilisent pour alimenter leur propre système de gestion ; les constructeurs de matériel, pour récupérer une carte de modulation exploitable par une console d’épandage."
         },
         "gis": {
           "tag": "GPS & SIG",
@@ -1422,44 +1442,44 @@
       "intro": "Ce que couvrent réellement le satellite, l’intelligence artificielle et les drones chez RoboCare.",
       "items": {
         "whatIsPrecisionAg": {
-          "question": "Qu’est-ce que l’agriculture de précision ?",
-          "answer": "L’agriculture de précision pilote une parcelle zone par zone plutôt que comme un bloc uniforme — parce que le sol, l’eau et la vigueur ne le sont jamais. Elle combine imagerie satellite et drone, capteurs IoT et analyse par intelligence artificielle pour cartographier précisément où une culture a besoin d’eau, d’azote ou d’attention, et où ce n’est pas le cas. Résultat : une action ciblée plutôt qu’un traitement généralisé, avec des intrants apportés là où ils sont utiles."
+          "question": "Qu’est-ce que l’agriculture de précision ?",
+          "answer": "L’agriculture de précision pilote une parcelle zone par zone plutôt que comme un bloc uniforme — parce que le sol, l’eau et la vigueur ne le sont jamais. Elle combine imagerie satellite et drone, capteurs IoT et analyse par intelligence artificielle pour cartographier précisément où une culture a besoin d’eau, d’azote ou d’attention, et où ce n’est pas le cas. Résultat : une action ciblée plutôt qu’un traitement généralisé, avec des intrants apportés là où ils sont utiles."
         },
         "satelliteImproveFarming": {
-          "question": "Comment le suivi satellite améliore-t-il l’agriculture ?",
-          "answer": "Le suivi satellite offre une vue de la parcelle entière tous les quelques jours, sans avoir à la parcourir. RoboCare traite automatiquement l’imagerie Sentinel-2 et Landsat à chaque passage, masque les nuages et calcule des indices de végétation comme le NDVI et le NDRE pour révéler des changements de vigueur avant qu’ils ne soient visibles à l’œil. Trois à cinq ans d’archives permettent de comparer la campagne en cours aux précédentes dès le premier jour."
+          "question": "Comment le suivi satellite améliore-t-il l’agriculture ?",
+          "answer": "Le suivi satellite offre une vue de la parcelle entière à quelques jours d’intervalle, sans avoir à la parcourir. RoboCare traite automatiquement l’imagerie Sentinel-2 et Landsat à chaque passage, masque les nuages et calcule des indices de végétation comme le NDVI et le NDRE pour révéler des changements de vigueur avant qu’ils ne soient visibles à l’œil. Jusqu’à dix ans d’archives (Sentinel-2, depuis 2015) permettent de comparer la campagne en cours aux précédentes dès le premier jour."
         },
         "detectStressEarly": {
-          "question": "Comment détecter précocement le stress d’une culture ?",
-          "answer": "Les premiers signes de stress hydrique ou nutritionnel apparaissent dans le proche infrarouge avant tout flétrissement ou jaunissement visible. L’indice NDWI de RoboCare signale spécifiquement le stress hydrique, avant toute baisse visible de vigueur, tandis que le NDRE suit la teneur en chlorophylle et le statut azoté dans les couverts denses où le NDVI sature. Combiné aux sondes d’humidité IoT, cela donne une alerte précoce, plusieurs jours à plusieurs semaines avant les symptômes visibles sur le terrain."
+          "question": "Comment détecter précocement le stress d’une culture ?",
+          "answer": "Les premiers signes de stress hydrique ou nutritionnel apparaissent dans le proche infrarouge avant tout flétrissement ou jaunissement visible. L’indice NDWI de RoboCare signale spécifiquement le stress hydrique, avant toute baisse visible de vigueur, tandis que le NDRE suit la teneur en chlorophylle et le statut azoté dans les couverts denses où le NDVI sature. Combinés aux sondes d’humidité, ces indices donnent une alerte précoce, plusieurs jours à plusieurs semaines avant les symptômes visibles sur le terrain."
         },
         "analyzeSatelliteImages": {
-          "question": "Comment RoboCare analyse-t-elle les images satellite ?",
-          "answer": "Chaque passage satellite est traité automatiquement : les pixels couverts par les nuages sont masqués, et l’imagerie restante est convertie en indices de végétation — NDVI, NDRE, NDWI et SAVI — à une résolution de 10 mètres avec Sentinel-2. Chaque indice est conservé dans l’historique de la parcelle, si bien que l’agriculteur voit non seulement l’état du jour mais une courbe sur la saison et par rapport aux années précédentes, avec les zones à surveiller mises en évidence automatiquement."
+          "question": "Comment RoboCare analyse-t-elle les images satellite ?",
+          "answer": "Chaque passage satellite est traité automatiquement : les pixels couverts par les nuages sont masqués, et l’imagerie restante est convertie en indices de végétation — NDVI, NDRE, NDWI et SAVI — à une résolution de 10 mètres avec Sentinel-2. Chaque indice est conservé dans l’historique de la parcelle, si bien que l’agriculteur voit non seulement l’état du jour mais une courbe sur la saison et par rapport aux années précédentes, avec les zones à surveiller mises en évidence automatiquement."
         },
         "ndviNdreExplained": {
-          "question": "Que sont les indices NDVI et NDRE ?",
+          "question": "Que sont les indices NDVI et NDRE ?",
           "answer": "Le NDVI (Normalized Difference Vegetation Index) mesure la densité et la vigueur générale du couvert végétal à partir du proche infrarouge et du rouge — utile pour le suivi de saison et le zonage, mais il sature sur les couverts très denses. Le NDRE (Normalized Difference Red Edge) lit plutôt la teneur en chlorophylle et le statut azoté via la bande red-edge, et reste précis là où le NDVI ne discrimine plus — c’est l’indice que RoboCare utilise pour la modulation azotée sur céréales."
         },
         "aiDecisionMaking": {
-          "question": "Comment l’intelligence artificielle aide-t-elle à la décision agricole ?",
-          "answer": "Les modèles d’intelligence artificielle de RoboCare sont entraînés sur des séries temporelles méditerranéennes, pas importées d’un autre climat, et ré-entraînés chaque saison. Ils assurent trois tâches : la segmentation d’image pour délimiter les zones de stress dans une parcelle, la prévision de rendement par culture, et la classification des maladies à partir de photos de terrain. Plutôt que des valeurs d’indices brutes, l’agriculteur reçoit une recommandation directe — irriguer telle zone, traiter telle autre."
+          "question": "Comment l’intelligence artificielle aide-t-elle à la décision agricole ?",
+          "answer": "Les modèles d’intelligence artificielle de RoboCare sont entraînés sur des séries temporelles méditerranéennes, et non importés d’un autre climat, et ré-entraînés chaque saison. Ils assurent trois tâches : la segmentation d’image pour délimiter les zones de stress dans une parcelle, la prévision de rendement par culture, et la classification des maladies à partir de photos de terrain. Plutôt que des valeurs d’indices brutes, l’agriculteur reçoit une recommandation directe — irriguer telle zone, traiter telle autre."
         },
         "droneInspection": {
-          "question": "RoboCare propose-t-elle un service d’inspection par drone ?",
-          "answer": "Oui. Les drones agricoles de RoboCare embarquent des capteurs multispectraux et thermiques pour une inspection à résolution centimétrique — un niveau de détail que le satellite ne peut pas atteindre. Les missions sont programmées et survolent une parcelle ou une oliveraie, et les résultats sont compilés automatiquement dans un rapport par zone, avec comptage d’arbres individuel quand c’est pertinent. L’inspection par drone complète le suivi satellite plutôt qu’elle ne le remplace : le satellite pour toute la saison, le drone pour un regard plus précis."
+          "question": "RoboCare propose-t-elle un service d’inspection par drone ?",
+          "answer": "Oui. Les drones agricoles de RoboCare embarquent des capteurs multispectraux et thermiques pour une inspection à résolution centimétrique — un niveau de détail que le satellite ne peut pas atteindre. Les drones, programmés à l’avance, survolent une parcelle ou une oliveraie, et les résultats sont compilés automatiquement dans un rapport par zone, avec comptage individuel des arbres quand c’est pertinent. L’inspection par drone complète le suivi satellite plutôt qu’elle ne le remplace : le satellite pour toute la saison, le drone pour un regard plus précis."
         },
         "droneDetectProblems": {
-          "question": "Comment les drones détectent-ils les problèmes sur une culture ?",
+          "question": "Comment les drones détectent-ils les problèmes sur une culture ?",
           "answer": "En volant bien plus près du couvert qu’un satellite, les drones de RoboCare capturent une imagerie multispectrale et thermique à résolution centimétrique qui révèle un arbre ou une plante isolée en stress — pas seulement une zone générale. Les capteurs thermiques détectent des écarts de température du couvert liés au stress hydrique avant tout flétrissement visible, tandis que les bandes multispectrales alimentent les mêmes indices de végétation qu’à l’échelle satellite, avec une résolution assez fine pour isoler un seul arbre touché."
         },
         "droneFertilizationSpraying": {
-          "question": "RoboCare utilise-t-elle des drones pour la fertilisation et la pulvérisation ?",
-          "answer": "Les missions drone de RoboCare cartographient précisément quelles zones d’une parcelle ont besoin d’azote ou d’un traitement, à partir des relevés NDRE et thermiques — cette carte peut ensuite guider une fertilisation et une pulvérisation ciblées, à dose variable, plutôt qu’un passage uniforme sur toute la parcelle. Les intrants ne sont apportés que là où les données montrent un besoin réel, le même principe que la modulation azotée par satellite sur céréales, appliqué à la résolution du drone."
+          "question": "RoboCare utilise-t-elle des drones pour la fertilisation et la pulvérisation ?",
+          "answer": "Oui. Les missions drone de RoboCare cartographient d’abord précisément quelles zones d’une parcelle ont besoin d’azote ou d’un traitement, à partir des relevés NDRE et thermiques — cette carte peut ensuite guider une fertilisation et une pulvérisation ciblées, à dose variable, plutôt qu’un passage uniforme sur toute la parcelle. Les intrants ne sont apportés que là où les données montrent un besoin réel, le même principe que la modulation azotée par satellite sur céréales, appliqué à la résolution du drone."
         },
         "droneAdvantages": {
-          "question": "Quels sont les avantages des traitements agricoles par drone ?",
-          "answer": "Le traitement par drone cible exactement les zones qui en ont besoin, à partir d’une carte réelle plutôt que d’une application uniforme — ce qui réduit le volume de fertilisant ou de produit phytosanitaire utilisé, et son coût, sans sous-traiter les zones qui en ont réellement besoin. Les missions sont programmées et survolées rapidement sur une parcelle ou une oliveraie, plus vite qu’un repérage manuel, et les cartes obtenues restent dans la plateforme RoboCare pour la comparaison de la saison suivante."
+          "question": "Quels sont les avantages des traitements agricoles par drone ?",
+          "answer": "Le traitement par drone cible exactement les zones qui en ont besoin, à partir d’une carte réelle plutôt que d’une application uniforme — ce qui réduit le volume de fertilisant ou de produit phytosanitaire utilisé, et son coût, sans sous-doser les zones qui en ont réellement besoin. Les drones survolent rapidement la parcelle ou l’oliveraie selon une mission programmée, plus vite qu’un repérage manuel, et les cartes obtenues restent dans la plateforme RoboCare pour la comparaison de la saison suivante."
         }
       }
     }
@@ -1467,12 +1487,12 @@
   "about": {
     "meta": {
       "title": "À propos",
-      "description": "Née à Sfax en 2021, RoboCare réunit ingénieurs, data scientists et agronomes autour d’une seule question : que doit faire l’exploitant, cette semaine, sur cette parcelle ?"
+      "description": "Née à Sfax en 2021, RoboCare réunit ingénieurs, data scientists et agronomes autour d’une seule question : que doit faire l’exploitant, cette semaine, sur cette parcelle ?"
     },
     "hero": {
       "eyebrow": "À propos",
       "title": "Née à Sfax, pensée pour la Méditerranée",
-      "intro": "RoboCare réunit ingénieurs, data scientists et agronomes autour d’une seule question : que doit faire l’exploitant, cette semaine, sur cette parcelle ?",
+      "intro": "RoboCare réunit ingénieurs, data scientists et agronomes autour d’une seule question : que doit faire l’exploitant, cette semaine, sur cette parcelle ?",
       "imageAlt": "L’équipe RoboCare sur le terrain",
       "foundedLabel": "Fondée en",
       "hectaresLabel": "Hectares suivis",
@@ -1481,7 +1501,7 @@
     "history": {
       "eyebrow": "Notre histoire",
       "title": "De quatre oliveraies à 100 000 hectares",
-      "subtitle": "Quatre ans de terrain, saison après saison, avec les mêmes exploitations partenaires."
+      "subtitle": "Cinq ans de terrain, saison après saison, avec les mêmes exploitations partenaires."
     },
     "milestones": {
       "y2021": {
@@ -1502,7 +1522,7 @@
       },
       "y2025": {
         "title": "100 000 hectares suivis",
-        "text": "Extension aux agrumes et aux cultures sous serre, ouverture à la région MENA."
+        "text": "Extension aux agrumes et aux cultures sous serre, premiers déploiements en Algérie."
       }
     },
     "mission": {
@@ -1527,7 +1547,7 @@
         },
         "language": {
           "title": "Dans la langue de l’utilisateur",
-          "text": "Français, anglais, arabe : la plateforme et les alertes s’adaptent, pas l’agriculteur."
+          "text": "Français, anglais, arabe : la plateforme et les alertes s’adaptent, pas l’agriculteur."
         },
         "sobriety": {
           "title": "Sobriété des ressources",
@@ -1541,7 +1561,7 @@
         "Toutes les personnes avec qui vous travaillez,",
         "dans la même pièce"
       ],
-      "intro": "Direction, ingénierie et experts agronomes : quatorze personnes entre Sfax et le terrain.",
+      "intro": "Direction, ingénierie et experts agronomes : treize personnes entre Sfax et le terrain.",
       "filters": {
         "all": "Tout",
         "leadership": "Direction",
@@ -1549,9 +1569,10 @@
         "agronomy": "Agronomie"
       },
       "linkedinAriaLabel": "{name} sur LinkedIn",
+      "photoAlt": "{name}, {role}",
       "members": {
         "imen-hbiri": {
-          "name": "Dr. Imen Hbiri",
+          "name": "Dr Imen Hbiri",
           "role": "Cofondatrice & CEO"
         },
         "ameur-hbiri": {
@@ -1564,7 +1585,7 @@
         },
         "ali-chaabouni": {
           "name": "Ali Chaabouni",
-          "role": "Ingénieur développement logiciel"
+          "role": "Ingénieur en développement logiciel"
         },
         "mohamed-habib-loukil": {
           "name": "Mohamed Habib Loukil",
@@ -1608,7 +1629,14 @@
       "eyebrow": "Écosystème",
       "title": "Nos partenaires",
       "subtitle": "Coopératives, opérateurs technologiques et instituts de recherche.",
-      "logoAlt": "Logo partenaire RoboCare",
+      "logos": {
+        "inat": "INAT — Institut national agronomique de Tunisie",
+        "olive-institute": "Institut de l’Olivier",
+        "crns": "CRNS — Centre de recherche en numérique de Sfax",
+        "paris-sud": "Université Paris-Sud",
+        "cesbio": "CESBIO — Centre d’études spatiales de la biosphère",
+        "isa-cm": "ISA Chott-Mariem — Institut supérieur agronomique de Chott-Mariem"
+      },
       "groups": {
         "agriculture": "Partenaires agricoles",
         "technology": "Partenaires technologiques",
@@ -1704,7 +1732,7 @@
         "startup-act": {
           "title": "Startup Act",
           "year": "2022",
-          "text": "République Tunisienne — labellisation startup et structuration de l’équipe."
+          "text": "République tunisienne — labellisation startup."
         }
       }
     },
@@ -1722,7 +1750,7 @@
         "hectares": {
           "kind": "Article",
           "date": "3 févr. 2025",
-          "title": "AgriTech tunisienne : RoboCare passe le cap des 100 000 hectares",
+          "title": "AgriTech tunisienne : RoboCare passe le cap des 100 000 hectares",
           "outlet": "African Manager"
         },
         "tv": {
@@ -1734,13 +1762,13 @@
         "drought": {
           "kind": "Dossier",
           "date": "8 sept. 2024",
-          "title": "Sécheresse : les outils numériques au chevet des exploitations",
+          "title": "Sécheresse : les outils numériques au chevet des exploitations",
           "outlet": "Le Manager"
         },
         "interview": {
           "kind": "Interview",
           "date": "17 juin 2024",
-          "title": "« L’agriculteur ne veut pas de données, il veut une décision »",
+          "title": "« L’agriculteur ne veut pas de données, il veut une décision »",
           "outlet": "Express FM"
         },
         "maghreb": {
@@ -1773,7 +1801,7 @@
         },
         "traceability": {
           "title": "Traçabilité des intrants et certification",
-          "text": "Ce que les acheteurs et les organismes certificateurs demandent, et comment l’exporter depuis la plateforme.",
+          "text": "Ce que les acheteurs et les organismes certificateurs demandent, et comment exporter ces informations depuis la plateforme.",
           "format": "PDF · 18 pages"
         },
         "import-fields": {
@@ -1790,13 +1818,13 @@
     },
     "contactCta": {
       "eyebrow": "Travaillons ensemble",
-      "title": "Une question, un projet, un partenariat ?",
-      "text": "Exploitation, coopérative, institution ou laboratoire : écrivez-nous, nous répondons sous 48 h."
+      "title": "Une question, un projet, un partenariat ?",
+      "text": "Exploitation, coopérative, institution ou laboratoire : écrivez-nous, nous répondons sous 48 h."
     },
     "approach": {
       "eyebrow": "Notre approche",
       "title": "Comment nous travaillons",
-      "lead": "Une méthode stable depuis 2021 : partir d’une question agronomique, la valider au champ, et n’industrialiser que ce qui a tenu deux saisons.",
+      "lead": "Une méthode stable depuis 2021 : partir d’une question agronomique, la valider au champ, et n’industrialiser que ce qui a tenu deux saisons.",
       "items": {
         "approach": {
           "title": "Notre approche",
@@ -1804,7 +1832,7 @@
         },
         "method": {
           "title": "Notre méthodologie",
-          "text": "Quatre temps : cadrage agronomique avec l’exploitant, prototype sur un échantillon de parcelles, confrontation aux relevés de terrain sur une saison complète, puis mise en production avec un seuil calibré. Un modèle qui n’a pas été confronté au champ ne sort pas du laboratoire."
+          "text": "Quatre temps : cadrage agronomique avec l’exploitant, prototype sur un échantillon de parcelles, validation sur les relevés de terrain pendant deux saisons complètes, puis mise en production avec un seuil calibré. Un modèle qui n’a pas été validé au champ ne sort pas du laboratoire."
         },
         "expertise": {
           "title": "Notre expertise",
@@ -1812,7 +1840,7 @@
         },
         "innovation": {
           "title": "Notre innovation",
-          "text": "Notre contribution propre porte moins sur les algorithmes génériques que sur leur calibration locale : seuils de stress adaptés aux sols carbonatés, indices corrigés pour les couverts en rangs, et modèles ré-entraînés chaque saison avec les observations des agronomes partenaires."
+          "text": "Notre contribution propre porte moins sur les algorithmes génériques que sur leur calibrage local : seuils de stress adaptés aux sols carbonatés, indices corrigés pour les couverts en rangs, et modèles ré-entraînés chaque saison avec les observations des agronomes partenaires."
         }
       },
       "whyUs": {
@@ -1842,25 +1870,25 @@
       },
       "commitment": {
         "title": "Notre engagement",
-        "text": "Nous nous engageons sur trois points, et nous acceptons d’être jugés dessus : une réponse à toute demande sous 48 heures ouvrées ; aucune revente ni aucun partage de vos données à un tiers, quelles que soient les circonstances ; et l’honnêteté sur les limites de nos modèles. Quand une prédiction est incertaine, la plateforme l’indique. Une alerte annoncée comme sûre qui se révèle fausse coûte plus cher, en confiance, que dix incertitudes assumées."
+        "text": "Nous nous engageons sur trois points, et nous acceptons d’être jugés dessus : une réponse à toute demande sous 48 heures ouvrées ; aucune revente ni aucun partage de vos données à un tiers, quelles que soient les circonstances ; et l’honnêteté sur les limites de nos modèles. Quand une prédiction est incertaine, la plateforme l’indique. Une alerte annoncée comme sûre qui se révèle fausse coûte plus cher, en confiance, que dix incertitudes assumées."
       }
     }
   },
   "impact": {
     "meta": {
       "title": "Impact",
-      "description": "Des résultats mesurés parcelle par parcelle : oliveraie de Sfax, coopérative céréalière de Béja, verger d’agrumes de Nabeul."
+      "description": "Des résultats mesurés parcelle par parcelle : oliveraie de Sfax, coopérative céréalière de Béja, verger d’agrumes de Nabeul."
     },
     "hero": {
       "eyebrow": "Impact",
       "title": "Des résultats mesurés, parcelle par parcelle",
-      "intro": "Chaque chiffre présenté ici vient d’une exploitation suivie : oliveraie de Sfax, coopérative céréalière de Béja, verger d’agrumes de Nabeul.",
+      "intro": "Chaque chiffre présenté ici vient d’une exploitation suivie : oliveraie de Sfax, coopérative céréalière de Béja, verger d’agrumes de Nabeul.",
       "imageAlt": "Parcelles de blé dur suivies par RoboCare dans la région de Béja"
     },
     "method": {
       "eyebrow": "Méthodologie",
       "title": "Le cycle qui produit ces chiffres",
-      "subtitle": "Quatre étapes, répétées toute la saison : ce qui est mesuré est comparé à ce qui a été recommandé.",
+      "subtitle": "Quatre étapes, répétées toute la saison : ce qui est mesuré est comparé à ce qui a été recommandé.",
       "steps": {
         "collect": {
           "title": "Collecte des données terrain",
@@ -1891,7 +1919,7 @@
     "stats": {
       "hectares": {
         "label": "Hectares suivis",
-        "note": "Tunisie et région MENA"
+        "note": "Tunisie et Algérie"
       },
       "farms": {
         "label": "Exploitations actives",
@@ -1918,7 +1946,7 @@
         "note": "Depuis 2021"
       },
       "uptime": {
-        "label": "Disponibilité plateforme",
+        "label": "Disponibilité de la plateforme",
         "note": "Mesurée sur 12 mois"
       }
     },
@@ -1932,11 +1960,11 @@
           "indicators": [
             {
               "label": "Eau",
-              "value": "−28 %"
+              "value": "−28 %"
             },
             {
               "label": "Rendement",
-              "value": "+12 %"
+              "value": "+12 %"
             },
             {
               "label": "Surface",
@@ -1954,17 +1982,17 @@
             },
             {
               "label": "Eau",
-              "value": "−21 %"
+              "value": "−21 %"
             }
           ]
         },
         "tomates": {
           "name": "Tomates",
-          "description": "Cultures de plein champ et sous abri : pilotage climatique, détection précoce du mildiou et fenêtres de traitement calées sur la météo locale.",
+          "description": "Cultures de plein champ et sous abri : pilotage climatique, détection précoce du mildiou et fenêtres de traitement calées sur la météo locale.",
           "indicators": [
             {
               "label": "Traitements",
-              "value": "−24 %"
+              "value": "−24 %"
             },
             {
               "label": "Alerte",
@@ -1982,7 +2010,7 @@
             },
             {
               "label": "Eau",
-              "value": "−17 %"
+              "value": "−17 %"
             }
           ]
         },
@@ -1996,7 +2024,7 @@
             },
             {
               "label": "Passages",
-              "value": "−18 %"
+              "value": "−18 %"
             }
           ]
         },
@@ -2006,7 +2034,7 @@
           "indicators": [
             {
               "label": "Azote",
-              "value": "−19 %"
+              "value": "−19 %"
             },
             {
               "label": "Surface",
@@ -2032,7 +2060,7 @@
           "text": "Repérer une zone en décrochage tôt, c’est encore pouvoir rattraper le rendement de la saison."
         },
         "sustainable": {
-          "title": "Agriculture durable",
+          "title": "Produire durablement",
           "text": "Moins d’intrants par hectare, une traçabilité exportable pour les certifications et les acheteurs."
         }
       }
@@ -2049,11 +2077,11 @@
         "olive-farm-tunisia": {
           "title": "Oliveraie de 220 ha, Sfax",
           "meta": ["Olivier (Chemlali)", "220 hectares", "Sfax, Tunisie"],
-          "challenge": "Rendements très inégaux d’une parcelle à l’autre sans explication claire, et une facture d’irrigation en hausse de 18 % en deux campagnes.",
+          "challenge": "Rendements très inégaux d’une parcelle à l’autre sans explication claire, et une facture d’irrigation en hausse de 18 % en deux campagnes.",
           "solution": "Cartographie complète de l’exploitation, suivi NDVI hebdomadaire, six stations d’humidité de sol dans les secteurs les plus hétérogènes et un calendrier d’irrigation déficitaire recalculé chaque semaine.",
           "results": [
-            "28 % d’eau d’irrigation économisée sur la campagne",
-            "+12 % de rendement moyen sur les zones suivies",
+            "28 % d’eau d’irrigation économisée sur la campagne",
+            "+12 % de rendement moyen sur les zones suivies",
             "Deux foyers d’œil de paon traités avant propagation"
           ]
         },
@@ -2063,7 +2091,7 @@
           "challenge": "Apports d’azote uniformes sur toutes les parcelles, sans visibilité sur les zones réellement déficitaires ni sur le rendement attendu avant moisson.",
           "solution": "Cartes de modulation azotée générées à partir du NDRE au stade tallage, diffusées aux adhérents par WhatsApp, et estimation de rendement par parcelle un mois avant la moisson.",
           "results": [
-            "19 % d’azote en moins à rendement équivalent",
+            "19 % d’azote en moins à rendement équivalent",
             "Planification de la moisson avancée de trois semaines",
             "38 exploitations sur une même carte partagée"
           ]
@@ -2074,7 +2102,7 @@
           "challenge": "Salinisation progressive de la nappe et jaunissement inexpliqué sur les rangs de bordure, avec une perte de calibre constatée deux campagnes de suite.",
           "solution": "Suivi NDVI et NDRE hebdomadaire croisé avec huit sondes de conductivité, zonage du verger en quatre secteurs d’irrigation et lessivage ciblé sur les seules zones où la salinité dépassait le seuil.",
           "results": [
-            "21 % d’eau d’irrigation économisée sur la campagne",
+            "21 % d’eau d’irrigation économisée sur la campagne",
             "Salinité ramenée sous le seuil sur trois secteurs sur quatre",
             "Calibre moyen des fruits revenu au niveau de 2022"
           ]
@@ -2085,7 +2113,7 @@
       "eyebrow": "Empreinte environnementale",
       "title": "Ce que l’exploitation rend à son milieu",
       "lead": "En Méditerranée, la ressource limitante n’est pas la surface, c’est l’eau. Chaque mètre cube économisé sur une parcelle est un mètre cube laissé à la nappe, et chaque passage de pulvérisateur évité représente du carburant, du temps et une pression chimique en moins.",
-      "lead2": "Les valeurs ci-dessous sont des moyennes relevées sur les exploitations suivies depuis au moins deux campagnes, comparées à leur propre situation de référence avant suivi.",
+      "lead2": "Ces valeurs sont des moyennes relevées sur les exploitations suivies depuis au moins deux campagnes, comparées à leur propre situation de référence avant suivi.",
       "barsLabel": "Réductions moyennes constatées",
       "bars": {
         "water": {
@@ -2124,7 +2152,7 @@
         },
         "certification": {
           "title": "Documenter la durabilité",
-          "text": "Chaque dose recommandée et chaque intervention saisie restent horodatées. Les acheteurs et les organismes certificateurs demandent cette traçabilité : elle s’exporte depuis la plateforme sans ressaisie."
+          "text": "Chaque dose recommandée et chaque intervention saisie restent horodatées. Les acheteurs et les organismes certificateurs demandent cette traçabilité : elle s’exporte depuis la plateforme sans ressaisie."
         }
       }
     }
@@ -2132,12 +2160,12 @@
   "contact": {
     "meta": {
       "title": "Contact",
-      "description": "Décrivez votre exploitation : un agronome RoboCare vous répond sous 48 h, en français, en anglais ou en arabe."
+      "description": "Décrivez votre exploitation : un agronome RoboCare vous répond sous 48 h, en français, en anglais ou en arabe."
     },
     "hero": {
       "eyebrow": "Contact",
       "title": "Parlons de vos parcelles",
-      "intro": "Décrivez votre exploitation : un agronome RoboCare vous répond sous 48 h, en français, en anglais ou en arabe.",
+      "intro": "Décrivez votre exploitation : un agronome RoboCare vous répond sous 48 h, en français, en anglais ou en arabe.",
       "imageAlt": "Verger d’agrumes de la région de Nabeul suivi par RoboCare",
       "badges": [
         "Réponse sous 48 h",
@@ -2203,7 +2231,7 @@
         "lastNameRequired": "Indiquez votre nom.",
         "emailRequired": "Indiquez une adresse e-mail.",
         "emailInvalid": "Cette adresse e-mail ne semble pas valide.",
-        "messageTooShort": "Votre message est un peu court : 20 caractères au minimum.",
+        "messageTooShort": "Votre message est un peu court : 20 caractères au minimum.",
         "consentRequired": "Votre accord est nécessaire pour que nous puissions vous répondre.",
         "summary": "Le formulaire comporte {count} champ(s) à corriger.",
         "sendFailed": "L’envoi a échoué. Veuillez réessayer dans quelques instants."
@@ -2211,16 +2239,16 @@
     },
     "info": {
       "office": "Bureau",
-      "address": "Rue Hedi Nouira, Immeuble Fourat, 3ème étage, N°307, Bab El Jebli, Sfax Médina, Sfax, 3047",
+      "address": "Rue Hedi Nouira, Immeuble Fourat, 3e étage, n° 307, Bab El Jebli, Sfax Médina, Sfax, 3047",
       "phone": "Téléphone",
       "email": "E-mail",
       "hours": "Horaires",
-      "hoursValue": "Lundi – Vendredi : 9h00 – 17h00",
+      "hoursValue": "Lundi – vendredi : 9 h – 17 h",
       "nextStepsTitle": "Ce qui se passe ensuite",
       "nextSteps": [
-        "Un agronome lit votre demande et prépare une première lecture de vos parcelles.",
+        "Un agronome étudie votre demande et prépare une première analyse de vos parcelles.",
         "Nous vous appelons pour caler la démonstration, 30 minutes en visio ou sur place.",
-        "Vous ajoutez une parcelle test : première analyse satellite en 24 h."
+        "Vous ajoutez une parcelle test : première analyse satellite en 24 h."
       ]
     },
     "faq": {
@@ -2229,40 +2257,40 @@
       "intro": "Les réponses aux questions qu’on nous pose le plus souvent au premier contact.",
       "items": {
         "hardware": {
-          "question": "Faut-il acheter du matériel pour démarrer ?",
-          "answer": "Non. Le satellite suffit : vous créez votre compte, vous ajoutez une parcelle et la première analyse arrive en 24 h. Les capteurs IoT et les vols de drone viennent ensuite, seulement si votre exploitation en a besoin."
+          "question": "Faut-il acheter du matériel pour démarrer ?",
+          "answer": "Non. Le satellite suffit : vous créez votre compte, vous ajoutez une parcelle et la première analyse arrive en 24 h. Les capteurs IoT et les vols de drone viennent ensuite, seulement si votre exploitation en a besoin."
         },
         "delay": {
-          "question": "Quel est le délai de réponse ?",
-          "answer": "48 h ouvrées au plus. Pour une demande de support sur un compte existant, passez par la plateforme : la demande est priorisée."
+          "question": "Quel est le délai de réponse ?",
+          "answer": "48 h ouvrées au plus. Pour une demande de support sur un compte existant, passez par la plateforme : la demande est priorisée."
         },
         "languages": {
-          "question": "Dans quelles langues échangeons-nous ?",
+          "question": "Dans quelles langues échangeons-nous ?",
           "answer": "Français, anglais et arabe — à l’écrit comme au téléphone. Les alertes de la plateforme suivent la même règle."
         },
         "coverage": {
-          "question": "Travaillez-vous hors de Tunisie ?",
-          "answer": "La Tunisie reste notre marché principal, où RoboCare est née et où l’équipe est basée. Depuis peu, la plateforme s’étend à l’Algérie pour répondre à la demande de plusieurs exploitations. Le suivi satellite fonctionne dès l’ouverture d’un compte ; les capteurs IoT et les vols de drone dépendent en revanche de la couverture logistique disponible localement."
+          "question": "Travaillez-vous hors de Tunisie ?",
+          "answer": "La Tunisie reste notre marché principal, où RoboCare est née et où l’équipe est basée. Depuis peu, la plateforme s’étend à l’Algérie pour répondre à la demande de plusieurs exploitations. Le suivi satellite fonctionne dès l’ouverture d’un compte ; les capteurs IoT et les vols de drone dépendent en revanche de la couverture logistique disponible localement."
         },
         "pricing": {
-          "question": "Comment est calculé le tarif ?",
-          "answer": "À la surface suivie, avec un palier dégressif au-delà de cent hectares et un tarif spécifique pour les coopératives qui regroupent plusieurs adhérents. Le suivi satellite est inclus ; les capteurs et les vols drone sont facturés séparément, seulement si vous en installez."
+          "question": "Comment est calculé le tarif ?",
+          "answer": "À la surface suivie, avec un palier dégressif au-delà de cent hectares et un tarif spécifique pour les coopératives qui regroupent plusieurs adhérents. Le suivi satellite est inclus ; les capteurs et les vols drone sont facturés séparément, seulement si vous en installez."
         },
         "integration": {
-          "question": "Peut-on connecter RoboCare à nos outils existants ?",
+          "question": "Peut-on connecter RoboCare à nos outils existants ?",
           "answer": "Oui. Une API REST documentée expose parcelles, indices, alertes et rapports, et les cartes de modulation s’exportent dans les formats attendus par la plupart des consoles d’épandage. Décrivez votre système actuel, nous vous dirons ce qui est déjà pris en charge."
         },
         "security": {
-          "question": "Où sont hébergées nos données ?",
+          "question": "Où sont hébergées nos données ?",
           "answer": "Dans des centres de données européens certifiés ISO 27001, avec chiffrement en transit et au repos et sauvegardes quotidiennes. Vos données ne sont ni revendues ni partagées, et l’export complet comme la suppression s’obtiennent sur simple demande."
         },
         "tunisiaBase": {
-          "question": "RoboCare est-elle disponible en Tunisie ?",
+          "question": "RoboCare est-elle disponible en Tunisie ?",
           "answer": "Oui — la Tunisie est le marché d’origine de RoboCare. L’entreprise a été fondée à Sfax en 2021 et la plateforme couvre déjà plus de 100 000 hectares dans tout le pays, sur l’olivier, les céréales, les agrumes et les cultures sous serre. Le support, l’accompagnement au démarrage et l’équipe agronomique sont basés localement, avec une vraie connaissance des conditions tunisiennes."
         },
         "regionalFit": {
-          "question": "Les solutions RoboCare sont-elles adaptées à l’agriculture nord-africaine ?",
-          "answer": "Oui. Les modèles d’intelligence artificielle de RoboCare sont entraînés spécifiquement sur les conditions méditerranéennes et nord-africaines — les mêmes oliveraies en sec, céréales irriguées et vergers d’agrumes que l’on retrouve en Tunisie comme en Algérie — plutôt qu’adaptés de modèles conçus pour l’agriculture européenne ou américaine. Indices de végétation, seuils d’irrigation et alertes maladies sont calibrés sur le climat et les calendriers culturaux locaux, et ré-entraînés chaque saison."
+          "question": "Les solutions RoboCare sont-elles adaptées à l’agriculture nord-africaine ?",
+          "answer": "Oui. Les modèles d’intelligence artificielle de RoboCare sont entraînés spécifiquement sur les conditions méditerranéennes et nord-africaines — les mêmes oliveraies en sec, céréales en sec et vergers d’agrumes que l’on retrouve en Tunisie comme en Algérie — plutôt qu’adaptés de modèles conçus pour l’agriculture européenne ou américaine. Indices de végétation, seuils d’irrigation et alertes maladies sont calibrés sur le climat et les calendriers culturaux locaux, et ré-entraînés chaque saison."
         }
       }
     },
@@ -2283,7 +2311,7 @@
         },
         "demo": {
           "title": "Démonstration sur vos données",
-          "text": "Visio ou visite sur place : nous parcourons la plateforme avec vos parcelles affichées, indices, historique et exemple d’alerte à l’appui.",
+          "text": "Visio ou visite sur place : nous parcourons la plateforme avec vos parcelles affichées, indices, historique et exemple d’alerte à l’appui.",
           "duration": "30 minutes"
         },
         "trial": {
@@ -2297,7 +2325,7 @@
         "items": [
           "Aucun achat de matériel n’est nécessaire pour la démonstration ni pour la parcelle test.",
           "Vos contours et vos historiques restent votre propriété et peuvent être supprimés sur demande.",
-          "Aucune relance commerciale automatisée : si vous ne donnez pas suite, nous n’insistons pas."
+          "Aucune relance commerciale automatisée : si vous ne donnez pas suite, nous n’insistons pas."
         ]
       }
     }

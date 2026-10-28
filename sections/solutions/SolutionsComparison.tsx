@@ -1,7 +1,8 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { useTranslation } from '@/i18n';
+import { localizePath, useTranslation } from '@/i18n';
 import { Section } from '@/components/ui/Section';
 import { Reveal } from '@/components/animations/Reveal';
 import { Stagger, StaggerItem } from '@/components/animations/Stagger';
@@ -33,7 +34,7 @@ function MetricValue({ metric }: { metric: string }) {
 
 /** Comparatif synthétique des quatre solutions, en tableau filaire à quatre colonnes. */
 export function SolutionsComparison() {
-  const { t, d } = useTranslation();
+  const { t, d, locale } = useTranslation();
   const items = d.solutions.items;
   const reduced = usePrefersReducedMotion();
 
@@ -118,7 +119,10 @@ export function SolutionsComparison() {
       </div>
 
       <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-300">
-        {t('solutions.comparison.note')}
+        {t('solutions.comparison.note')}{' '}
+        <Link href={localizePath(locale, '/impact#etudes')} className="underline underline-offset-2 hover:text-leaf-600">
+          {t('solutions.comparison.noteLink')}
+        </Link>
       </p>
     </Section>
   );

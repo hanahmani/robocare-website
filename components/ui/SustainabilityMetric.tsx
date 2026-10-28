@@ -36,7 +36,7 @@ export function SustainabilityMetric({
   className,
 }: Props) {
   const known = value !== undefined;
-  const { ref, display } = useCountUp<HTMLSpanElement>({
+  const { ref, display } = useCountUp<HTMLElement>({
     target: value ?? 0,
     prefix,
     suffix,
@@ -56,11 +56,16 @@ export function SustainabilityMetric({
         <Icon size={19} aria-hidden />
       </span>
 
-      <p
-        dir="ltr"
-        className="mt-[18px] flex items-baseline gap-1.5 whitespace-nowrap font-display text-[34px] font-semibold leading-none text-lime-500 rtl:justify-end"
-      >
-        {known ? <span ref={ref}>{display}</span> : <span aria-hidden="false">--</span>}
+      {/* Seul le nombre est isolé en LTR : l'unité suit le sens de la page, sinon
+          « طن » se retrouverait du mauvais côté du chiffre en arabe. */}
+      <p className="mt-[18px] flex items-baseline gap-1.5 whitespace-nowrap font-display text-[34px] font-semibold leading-none text-lime-500">
+        {known ? (
+          <bdi ref={ref} dir="ltr">
+            {display}
+          </bdi>
+        ) : (
+          <span aria-hidden="false">--</span>
+        )}
         {unit ? <span className="text-[18px] font-semibold text-white/60">{unit}</span> : null}
       </p>
 

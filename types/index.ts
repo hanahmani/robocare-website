@@ -43,6 +43,8 @@ export type StatDatum = {
   suffix?: string;
   /** Applique le séparateur de milliers de la langue active. */
   grouped?: boolean;
+  /** Unité typographiée selon la langue (`common.units.*`) : « 99 % », « 99% », « +1 مليون »… */
+  unit?: 'percent' | 'million';
   featured?: boolean;
   icon?: LucideIcon;
 };
@@ -65,11 +67,8 @@ export type ImpactMetricDatum = {
   icon: LucideIcon;
   value?: number;
   prefix?: string;
-  suffix?: string;
-  /** Séparateur de milliers (« 7 000 »), absent par défaut. */
-  separator?: string;
-  /** Unité affichée en petit à côté de la valeur (« tonnes », « m³», « ha »…). */
-  unit?: string;
+  /** Applique le séparateur de milliers de la langue active (« 7 000 », « 7,000 »). */
+  grouped?: boolean;
 };
 
 /** Carte icône + texte (piliers, modules, bénéfices). */
@@ -104,7 +103,8 @@ export type Step = {
 export type CropResult = {
   slug: 'oliviers' | 'agrumes' | 'tomates' | 'pommes-de-terre' | 'vignes' | 'cereales';
   image: string;
-  solutionSlug: Solution['slug'];
+  /** Absent quand aucune solution ne couvre la culture : la carte n'a alors pas de lien. */
+  solutionSlug?: Solution['slug'];
 };
 
 /** Étude de cas. */

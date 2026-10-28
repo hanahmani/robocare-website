@@ -35,6 +35,7 @@ function MemberCard({
   role: string;
   linkedinAriaLabel: string;
 }) {
+  const { t } = useTranslation();
   const [errored, setErrored] = useState(false);
   const showPhoto = Boolean(member.photo) && !errored;
 
@@ -46,7 +47,7 @@ function MemberCard({
           // eslint-disable-next-line @next/next/no-img-element -- repli sur initiales géré via onError, pas d'optimisation nécessaire
           <img
             src={member.photo}
-            alt={`${name}, ${role}`}
+            alt={t('about.team.photoAlt', { name, role })}
             width={172}
             height={172}
             loading="lazy"

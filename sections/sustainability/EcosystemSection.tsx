@@ -86,7 +86,7 @@ export function EcosystemSection() {
                 <p className="text-[14px] font-semibold text-[#16201B]">
                   {t('sustainability.ecosystem.emblemTitle')}
                 </p>
-                <p className="font-mono text-[8.5px] tracking-[0.14em] text-[#3E6B4C]">
+                <p className="font-mono text-[8.5px] uppercase tracking-[0.14em] text-[#3E6B4C]">
                   {t('sustainability.ecosystem.emblemSubtitle')}
                 </p>
               </div>

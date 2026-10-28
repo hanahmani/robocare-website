@@ -22,8 +22,8 @@ export const HOME_STATS = [
   { id: 'hectares', value: 100000, suffix: '+', grouped: true, featured: true, icon: Map },
   { id: 'partners', value: 15, suffix: '+', icon: Handshake },
   { id: 'alerts', value: 100000, suffix: '+', grouped: true, icon: BellRing },
-  { id: 'images', value: 1, suffix: 'M+', icon: Satellite },
-  { id: 'uptime', value: 99, suffix: '%', icon: Activity },
+  { id: 'images', value: 1, unit: 'million', icon: Satellite },
+  { id: 'uptime', value: 99, unit: 'percent', icon: Activity },
 ] as const satisfies readonly StatDatum[];
 
 /** Piliers de la section « Qui nous sommes » — textes dans `home.about.pillars.*`. */
@@ -43,9 +43,6 @@ export const HERO_MOISTURE_BARS = [
   { height: 21, color: '#D8232A' },
   { height: 33, color: 'rgba(158,216,75,.35)' },
 ] as const;
-
-/** Valeur affichée sur la carte NDVI du hero (chiffre, non traduit). */
-export const HERO_NDVI_VALUE = '0,74';
 
 /** Bénéfices « Pourquoi RoboCare » — textes dans `home.why.items.*`. */
 export const HOME_BENEFITS = [

@@ -2,12 +2,15 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import type { ReactNode } from 'react';
 import { Arrow } from '@/components/ui/Arrow';
 import { MetricCell } from '@/sections/impact/MetricCell';
+import { cn } from '@/lib/utils';
 import { padCropIndicators, type CropIndicator } from '@/lib/data/impact';
 
 type Props = {
-  href: string;
+  /** Absent quand aucune solution dédiée ne couvre la culture : la carte n'est alors pas cliquable. */
+  href?: string;
   image: string;
   title: string;
   description: string;
@@ -15,15 +18,17 @@ type Props = {
   seeSolutionLabel: string;
 };
 
-/** Carte culture de la section « Détail par culture » — toute la carte est cliquable. */
+const CARD_CLASS =
+  'group flex h-full flex-col overflow-hidden rounded-card border border-forest-950/[0.08] bg-white shadow-soft';
+const LINK_CLASS =
+  'transition-surface duration-slow ease-premium hover:-translate-y-1.5 hover:border-leaf-600/30 hover:shadow-hover focus-visible:ring-2 focus-visible:ring-leaf-600/40 focus-visible:ring-offset-2 motion-reduce:hover:translate-y-0';
+
+/** Carte culture de la section « Détail par culture » — toute la carte est cliquable quand une solution existe. */
 export function CultureCard({ href, image, title, description, indicators, seeSolutionLabel }: Props) {
   const slots = padCropIndicators(indicators);
 
-  return (
-    <Link
-      href={href}
-      className="group flex h-full flex-col overflow-hidden rounded-card border border-forest-950/[0.08] bg-white shadow-soft transition-surface duration-slow ease-premium hover:-translate-y-1.5 hover:border-leaf-600/30 hover:shadow-hover focus-visible:ring-2 focus-visible:ring-leaf-600/40 focus-visible:ring-offset-2 motion-reduce:hover:translate-y-0"
-    >
+  const body: ReactNode = (
+    <>
       <div className="relative h-[180px] shrink-0 overflow-hidden bg-forest-900 sm:h-[200px]">
         <Image
           src={image}
@@ -45,14 +50,24 @@ export function CultureCard({ href, image, title, description, indicators, seeSo
           ))}
         </div>
 
-        <span className="mt-5 inline-flex items-center gap-2 text-[14.5px] font-semibold text-leaf-600">
-          {seeSolutionLabel}
-          <Arrow
-            size={15}
-            className="transition-transform duration-base ease-premium group-hover:translate-x-1 rtl:group-hover:-translate-x-1"
-          />
-        </span>
+        {href ? (
+          <span className="mt-5 inline-flex items-center gap-2 text-[14.5px] font-semibold text-leaf-600">
+            {seeSolutionLabel}
+            <Arrow
+              size={15}
+              className="transition-transform duration-base ease-premium group-hover:translate-x-1 rtl:group-hover:-translate-x-1"
+            />
+          </span>
+        ) : null}
       </div>
+    </>
+  );
+
+  if (!href) return <article className={CARD_CLASS}>{body}</article>;
+
+  return (
+    <Link href={href} className={cn(CARD_CLASS, LINK_CLASS)}>
+      {body}
     </Link>
   );
 }

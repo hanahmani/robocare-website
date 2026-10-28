@@ -29,21 +29,25 @@ export const IMPACT_METHOD = [
 export const IMPACT_STATS = [
   { id: 'hectares', value: 100000, suffix: '+', grouped: true, featured: true, icon: Map },
   { id: 'farms', value: 300, suffix: '+', icon: Users },
-  { id: 'water', value: 28, prefix: '−', suffix: ' %', icon: Droplets },
-  { id: 'yield', value: 12, prefix: '+', suffix: ' %', icon: TrendingUp },
-  { id: 'nitrogen', value: 19, prefix: '−', suffix: ' %', icon: FlaskConical },
+  { id: 'water', value: 28, prefix: '−', unit: 'percent', icon: Droplets },
+  { id: 'yield', value: 12, prefix: '+', unit: 'percent', icon: TrendingUp },
+  { id: 'nitrogen', value: 19, prefix: '−', unit: 'percent', icon: FlaskConical },
   { id: 'lead', value: 14, icon: Clock },
-  { id: 'images', value: 1, suffix: ' M+', icon: Satellite },
-  { id: 'uptime', value: 99, suffix: ' %', icon: Activity },
+  { id: 'images', value: 1, unit: 'million', icon: Satellite },
+  { id: 'uptime', value: 99, unit: 'percent', icon: Activity },
 ] as const satisfies readonly StatDatum[];
 
-/** Résultats par culture — textes dans `impact.crops.items.<slug>`. */
+/**
+ * Résultats par culture — textes dans `impact.crops.items.<slug>`. Pommes de
+ * terre et vignes n'ont pas de solution dédiée : sans `solutionSlug`, leur
+ * carte ne renvoie vers aucune page plutôt que vers une solution hors sujet.
+ */
 export const IMPACT_CROPS = [
   { slug: 'oliviers', image: '/hero/a.webp', solutionSlug: 'olive-care' },
   { slug: 'agrumes', image: '/hero/b.webp', solutionSlug: 'citrus-care' },
   { slug: 'tomates', image: '/hero/c.webp', solutionSlug: 'greenhouse-care' },
-  { slug: 'pommes-de-terre', image: '/hero/d.webp', solutionSlug: 'greenhouse-care' },
-  { slug: 'vignes', image: '/hero/e.webp', solutionSlug: 'olive-care' },
+  { slug: 'pommes-de-terre', image: '/hero/d.webp', solutionSlug: undefined },
+  { slug: 'vignes', image: '/hero/e.webp', solutionSlug: undefined },
   { slug: 'cereales', image: '/hero/f.webp', solutionSlug: 'cereal-care' },
 ] as const satisfies readonly CropResult[];
 

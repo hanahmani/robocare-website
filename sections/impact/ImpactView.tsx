@@ -107,7 +107,11 @@ export function ImpactView() {
             return (
               <StaggerItem key={crop.slug} className="h-full">
                 <CultureCard
-                  href={localizePath(locale, `/solutions#${crop.solutionSlug}`)}
+                  href={
+                    crop.solutionSlug
+                      ? localizePath(locale, `/solutions#${crop.solutionSlug}`)
+                      : undefined
+                  }
                   image={crop.image}
                   title={copy.name}
                   description={copy.description}

@@ -26,15 +26,15 @@ export function ImpactDashboard() {
       </Reveal>
 
       <Stagger className="relative mt-section-gap grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-        {IMPACT_METRICS.map(({ id, icon, value, prefix, suffix, separator, unit }) => (
+        {IMPACT_METRICS.map(({ id, icon, value, prefix, grouped }) => (
           <StaggerItem key={id} className="h-full">
             <SustainabilityMetric
               icon={icon}
               value={value}
               prefix={prefix}
-              suffix={suffix}
-              separator={separator}
-              unit={unit}
+              suffix={metrics[id].suffix}
+              separator={grouped ? t('common.thousandsSeparator') : undefined}
+              unit={metrics[id].unit}
               label={metrics[id].label}
               text={metrics[id].text}
               className="h-full"

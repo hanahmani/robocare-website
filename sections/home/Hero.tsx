@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { motion, type Variants } from 'framer-motion';
 import { BellRing, Check } from 'lucide-react';
 import { useTranslation } from '@/i18n';
-import { HERO_MOISTURE_BARS, HERO_NDVI_VALUE } from '@/lib/data/home';
+import { HERO_MOISTURE_BARS } from '@/lib/data/home';
 import { Button } from '@/components/ui/Button';
 import { RequestDemoButton } from '@/components/ui/RequestDemoButton';
 import { Arrow } from '@/components/ui/Arrow';
@@ -147,7 +147,7 @@ export function Hero() {
                   dir="ltr"
                   className="mt-2.5 font-display text-[34px] font-semibold tracking-display text-white rtl:text-right"
                 >
-                  {HERO_NDVI_VALUE}
+                  {cards.ndvi.value}
                 </div>
                 <div className="mt-3.5 h-1.5 rounded-full bg-index-scale" />
               </div>

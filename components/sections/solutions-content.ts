@@ -1,10 +1,14 @@
 export type SolutionId = 'olive' | 'cereal' | 'citrus' | 'greenhouse';
 
+import { localizePath } from '@/i18n/config';
+
 export type SolutionResult = {
   /** Signé — négatif pour une réduction (eau, azote, traitements…). */
   value: number;
   unit: string;
   baseline: string;
+  /** Renvoi vers les études de cas de la page Impact, à la suite de `baseline`. */
+  baselineLink: { label: string; href: string };
 };
 
 export type SolutionTabContent = {
@@ -19,7 +23,8 @@ export type SolutionTabContent = {
 };
 
 /** Référence partagée par les quatre résultats — pas de baseline chiffrée par culture dans les données actuelles. */
-const BASELINE_NOTE = 'Indicateurs relevés sur les exploitations partenaires — détail dans les études de cas.';
+const BASELINE_NOTE = 'Indicateurs relevés sur les exploitations partenaires —';
+const BASELINE_LINK = { label: 'détail dans les études de cas', href: localizePath('fr', '/impact#etudes') };
 
 /**
  * Sépare un `metric` traduit (« −28 % d'eau », « −28% water », « −28 % من الماء »)
@@ -39,9 +44,9 @@ export const DEFAULT_SOLUTIONS: SolutionTabContent[] = [
   {
     id: 'olive',
     name: 'Olive Care',
-    crop: 'Oliveraies en sec ou en irrigué : suivi du stress hydrique et de l’alternance.',
-    lede: 'L’olivier tolère la sécheresse mais paie l’année suivante. Olive Care suit la vigueur de chaque arbre par imagerie satellite et drone, repère les zones en déficit hydrique avant la nouaison et sécurise le calendrier d’irrigation déficitaire.',
-    result: { value: -28, unit: 'd’eau', baseline: BASELINE_NOTE },
+    crop: 'Oliveraies en sec ou en irrigué : suivi du stress hydrique et de l’alternance.',
+    lede: 'L’olivier tolère la sécheresse mais la paie l’année suivante. Olive Care suit la vigueur de chaque arbre par imagerie satellite et drone, repère les zones en déficit hydrique avant la nouaison et sécurise le calendrier d’irrigation déficitaire.',
+    result: { value: -28, unit: 'd’eau', baseline: BASELINE_NOTE, baselineLink: BASELINE_LINK },
     tracks: [
       'Indice de vigueur arbre par arbre et détection des manquants',
       'Suivi du stress hydrique avant floraison et nouaison',
@@ -54,24 +59,24 @@ export const DEFAULT_SOLUTIONS: SolutionTabContent[] = [
   {
     id: 'cereal',
     name: 'Cereal Care',
-    crop: 'Blé dur et orge : pilotage de l’azote et prévision de rendement.',
+    crop: 'Blé dur et orge : pilotage de l’azote et prévision de rendement.',
     lede: 'Sur céréales, tout se joue entre le tallage et l’épiaison. Cereal Care transforme l’indice NDRE en carte de modulation azotée, suit la levée, et donne une estimation de rendement par zone plusieurs semaines avant la moisson.',
-    result: { value: -19, unit: 'd’azote', baseline: BASELINE_NOTE },
+    result: { value: -19, unit: 'd’azote', baseline: BASELINE_NOTE, baselineLink: BASELINE_LINK },
     tracks: [
       'Carte de modulation azotée à partir du NDRE',
       'Contrôle de levée et de densité après semis',
       'Détection des zones de verse et de stress hydrique',
       'Estimation de rendement par zone homogène',
     ],
-    outcome: 'Azote apporté là où il est utile · Resemis décidé à temps · Logistique de moisson anticipée',
+    outcome: 'Azote apporté là où il est utile · Ressemis décidé à temps · Logistique de moisson anticipée',
     image: { src: '/hero/2.webp', alt: 'Parcelle de céréales suivie par NDRE' },
   },
   {
     id: 'citrus',
     name: 'Citrus Care',
-    crop: 'Agrumes : salinité, irrigation goutte-à-goutte et calibre des fruits.',
+    crop: 'Agrumes : salinité, irrigation goutte-à-goutte et calibre des fruits.',
     lede: 'Les agrumes réagissent vite à un excès de sel et à une irrigation mal répartie. Citrus Care croise capteurs de sol, conductivité et imagerie pour ajuster les tours d’eau, secteur par secteur, jusqu’au calibre visé à la récolte.',
-    result: { value: -21, unit: 'd’eau', baseline: BASELINE_NOTE },
+    result: { value: -21, unit: 'd’eau', baseline: BASELINE_NOTE, baselineLink: BASELINE_LINK },
     tracks: [
       'Suivi de la salinité et de la conductivité du sol',
       'Contrôle d’homogénéité du goutte-à-goutte',
@@ -84,9 +89,9 @@ export const DEFAULT_SOLUTIONS: SolutionTabContent[] = [
   {
     id: 'greenhouse',
     name: 'Greenhouse Care',
-    crop: 'Serres : climat, fertirrigation et pression des ravageurs en continu.',
+    crop: 'Serres : climat, fertirrigation et pression des ravageurs en continu.',
     lede: 'Sous abri, une dérive de température ou d’humidité coûte une semaine de production. Greenhouse Care agrège les capteurs de chaque chapelle, surveille le VPD et déclenche l’alerte avant que la culture ne décroche.',
-    result: { value: -24, unit: 'de traitements', baseline: BASELINE_NOTE },
+    result: { value: -24, unit: 'de traitements', baseline: BASELINE_NOTE, baselineLink: BASELINE_LINK },
     tracks: [
       'Température, humidité et VPD par chapelle',
       'Suivi de la fertirrigation et de la conductivité',

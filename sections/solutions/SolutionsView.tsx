@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useTranslation } from '@/i18n';
+import { localizePath, useTranslation } from '@/i18n';
 import { PageHero } from '@/components/layout/PageHero';
 import { Section } from '@/components/ui/Section';
 import { Card, IconChip } from '@/components/ui/Card';
@@ -26,8 +26,12 @@ import { cn, pad2 } from '@/lib/utils';
 
 /** Page « Solutions par culture ». */
 export function SolutionsView() {
-  const { t, d } = useTranslation();
+  const { t, d, locale } = useTranslation();
   const items = d.solutions.items;
+  const caseStudiesLink = {
+    label: t('solutions.comparison.noteLink'),
+    href: localizePath(locale, '/impact#etudes'),
+  };
   const modules = d.platform.modules;
   const steps = d.platform.steps;
 
@@ -45,7 +49,7 @@ export function SolutionsView() {
       name: copy.brand,
       crop: copy.short,
       lede: copy.description,
-      result: { value, unit, baseline: t('solutions.comparison.note') },
+      result: { value, unit, baseline: t('solutions.comparison.note'), baselineLink: caseStudiesLink },
       tracks: copy.points,
       outcome: copy.outcomes.join(' · '),
       image: { src: solution.image, alt: copy.imageAlt },

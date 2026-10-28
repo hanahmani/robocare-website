@@ -1,7 +1,7 @@
 /** Un des trois métiers du diagramme d'intersection. */
 export type ZoneId = 'agro' | 'data' | 'tech';
 
-/** `core` = le recouvrement des trois métiers (état par défaut). */
+/** `core` = l'intersection des trois métiers (état par défaut). */
 export type StateId = ZoneId | 'core';
 
 export type ZonePoint = {
@@ -39,19 +39,19 @@ export type DifferenceContent = {
 
 /** Valeurs FR par défaut — permettent de tester le composant seul. */
 export const DEFAULT_DIFFERENCE_CONTENT: DifferenceContent = {
-  corePillLabel: 'Le recouvrement',
+  corePillLabel: 'L’intersection',
   coreDiskLabel: 'RoboCare',
   labels: {
     agro: { label: 'Agronomie', sublabel: 'Expertise terrain' },
-    data: { label: 'Data science', sublabel: 'Data science' },
+    data: { label: 'Data science', sublabel: 'Modélisation' },
     tech: { label: 'Technologie', sublabel: 'Ingénierie produit' },
   },
   states: {
     core: {
-      eyebrow: 'Le recouvrement',
+      eyebrow: 'L’intersection',
       title: 'Trois métiers, une seule décision',
       paragraph:
-        "Notre force vient de l'intégration de l'agronomie, de la data science et de technologies de pointe : chaque paire de métiers produit quelque chose qu'aucun des deux ne produit seul.",
+        'Notre force vient de l’intégration de l’agronomie, de la data science et de technologies de pointe : chaque paire de métiers produit quelque chose qu’aucun des deux ne produit seul.',
       points: [
         {
           title: 'Agronomie × Data science',
@@ -63,27 +63,27 @@ export const DEFAULT_DIFFERENCE_CONTENT: DifferenceContent = {
         },
         {
           title: 'Agronomie × Technologie',
-          text: 'Une consigne lisible par le chef de culture comme par l\'ouvrier.',
+          text: 'Une consigne lisible par le chef de culture comme par l’ouvrier.',
         },
       ],
     },
     agro: {
       eyebrow: 'Agronomie',
-      title: "Savoir ce qu'un chiffre veut dire sur une parcelle",
+      title: 'Savoir ce qu’un chiffre veut dire sur une parcelle',
       paragraph:
-        "L'expertise de terrain qui donne un sens agronomique à chaque mesure, avant toute décision.",
+        'L’expertise de terrain qui donne un sens agronomique à chaque mesure, avant toute décision.',
       points: [
         {
           title: 'Itinéraires locaux',
           text: 'Olivier conduit en sec, céréales pluviales, maraîchage sous abri.',
         },
         {
-          title: "Seuils d'intervention",
+          title: 'Seuils d’intervention',
           text: 'À partir de quel écart une action se justifie économiquement.',
         },
         {
           title: 'Lecture du symptôme',
-          text: "Distinguer un stress hydrique d'une carence.",
+          text: 'Distinguer un stress hydrique d’une carence.',
         },
       ],
     },
@@ -99,10 +99,10 @@ export const DEFAULT_DIFFERENCE_CONTENT: DifferenceContent = {
         },
         {
           title: 'Séries locales',
-          text: "Entraînement sur l'historique tunisien, ré-entraînement chaque saison.",
+          text: 'Entraînement sur l’historique tunisien, ré-entraînement chaque saison.',
         },
         {
-          title: "Détection d'écart",
+          title: 'Détection d’écart',
           text: 'Alerte au-delà du bruit mesuré, pas sur un seuil fixe.',
         },
       ],
@@ -111,7 +111,7 @@ export const DEFAULT_DIFFERENCE_CONTENT: DifferenceContent = {
       eyebrow: 'Technologie',
       title: 'Mesurer en continu et faire arriver la consigne',
       paragraph:
-        "L'ingénierie qui relie la mesure de terrain à la personne qui doit agir, sans perdre de temps.",
+        'L’ingénierie qui relie la mesure de terrain à la personne qui doit agir, sans perdre de temps.',
       points: [
         {
           title: 'Trois sources',
@@ -129,9 +129,9 @@ export const DEFAULT_DIFFERENCE_CONTENT: DifferenceContent = {
     },
   },
   results: [
-    { label: 'Rendement', text: 'Maximisent la productivité des cultures' },
-    { label: 'Durabilité', text: 'Renforcent la durabilité grâce à l’agriculture de précision' },
-    { label: 'Coûts', text: 'Réduisent les risques et les coûts opérationnels' },
+    { label: 'Rendement', text: 'Maximiser la productivité des cultures' },
+    { label: 'Durabilité', text: 'Réduire l’impact environnemental grâce à l’agriculture de précision' },
+    { label: 'Coûts', text: 'Réduire les risques et les coûts opérationnels' },
     { label: 'Traçabilité', text: 'Un historique daté et exportable, à chaque étape.' },
   ],
 };

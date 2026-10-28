@@ -118,13 +118,20 @@ function StatCard({
   const light = tone === 'light';
   const { t } = useTranslation();
   const separator = stat.grouped ? t('common.thousandsSeparator') : '';
+  // « 99 % », « 99% », « +1 مليون » : l'unité et sa typographie suivent la langue.
+  const unitPrefix = stat.unit ? t(`common.units.${stat.unit}.prefix`) : '';
+  const unitSuffix = stat.unit ? t(`common.units.${stat.unit}.suffix`) : '';
+  const suffix = `${stat.suffix ?? ''}${unitSuffix}`;
 
   const { ref: countRef, display } = useCountUp<HTMLDivElement>({
     target: stat.value,
-    prefix: stat.prefix,
-    suffix: stat.suffix,
+    prefix: `${stat.prefix ?? ''}${unitPrefix}`,
+    suffix,
     separator,
   });
+  // Un suffixe en toutes lettres (« مليون ») suit le sens de la page ; un
+  // chiffre seul reste isolé en LTR pour garder « −28 % » d'un seul tenant.
+  const numberDir = /\p{Script=Arabic}/u.test(suffix) ? undefined : 'ltr';
 
   const cardRef = useRef<HTMLDivElement>(null);
   const reduced = usePrefersReducedMotion();
@@ -216,7 +223,7 @@ function StatCard({
 
           <div
             ref={countRef}
-            dir="ltr"
+            dir={numberDir}
             className={cn(
               'mt-4 whitespace-nowrap font-display font-semibold leading-none tracking-display tabular-nums rtl:text-right',
               stat.featured

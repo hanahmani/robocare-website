@@ -122,9 +122,9 @@ export function FootprintSection() {
               viewBox="0 0 440 440"
               className="h-full w-full overflow-visible"
               role="img"
-              aria-label={`${t('sustainability.footprint.cycleTitle')} ${t('sustainability.footprint.cycleSubtitle')}: ${FOOTPRINT_CYCLE.map(
+              aria-label={`${t('sustainability.footprint.cycleTitle')} ${t('sustainability.footprint.cycleSubtitle')}${t('common.colon')} ${FOOTPRINT_CYCLE.map(
                 ({ id }) => cycle[id],
-              ).join(', ')}`}
+              ).join(t('common.listSeparator'))}`}
             >
               <motion.circle
                 cx={CENTER}
@@ -176,6 +176,8 @@ export function FootprintSection() {
               >
                 {t('sustainability.footprint.cycleTitle')}
               </motion.text>
+              {/* Espace entre les deux lignes : sans lui, le texte extrait de la page
+                  (moteurs, lecteurs) donne « Cycled’optimisation ». */}{' '}
               <motion.text
                 x={CENTER}
                 y={CENTER + 24}

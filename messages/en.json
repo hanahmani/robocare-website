@@ -18,7 +18,13 @@
     "country": "Tunisia",
     "logoAlt": "RoboCare",
     "thousandsSeparator": ",",
-    "countryExpansion": "Algeria"
+    "countryExpansion": "Algeria",
+    "colon": ":",
+    "listSeparator": ", ",
+    "units": {
+      "percent": { "prefix": "", "suffix": "%" },
+      "million": { "prefix": "", "suffix": "M+" }
+    }
   },
   "a11y": {
     "skipToContent": "Skip to content",
@@ -91,17 +97,19 @@
   "home": {
     "meta": {
       "title": "RoboCare — Satellite-driven precision agriculture",
-      "description": "Satellite imagery, multispectral drones and artificial intelligence: RoboCare turns every field into precise agronomic decisions."
+      "description": "Satellite imagery, multispectral drones and artificial intelligence: RoboCare turns every field into precise agronomic decisions.",
+      "ogImageAlt": "RoboCare takes care of your land: field monitoring by satellite, drone and sensors."
     },
     "hero": {
-      "badge": "Agriculture 4.0 · Tunisia & MENA",
+      "badge": "Agriculture 4.0 · Tunisia & Algeria",
       "titleLead": "We",
-      "titleAccent": "Tech-Care Of Your Land.",
-      "subtitle": "RoboCare is an intelligent farm monitoring platform that combines satellites, drones, IoT and agronomic expertise to optimize crop needs, detect stress early, and enable smarter, more sustainable farming.",
+      "titleAccent": "take care of your land.",
+      "subtitle": "RoboCare is an intelligent farm monitoring platform that combines satellites, drones, IoT and agronomic expertise to meet crop needs precisely, detect stress early, and enable smarter, more sustainable farming.",
       "note": "No hardware required. Add a field and get your first analysis within 24 hours.",
       "cards": {
         "ndvi": {
           "label": "Average NDVI",
+          "value": "0.74",
           "delta": "+6%"
         },
         "moisture": {
@@ -117,7 +125,7 @@
     "stats": {
       "eyebrow": "By the numbers",
       "title": "RoboCare, at scale",
-      "users": "Active users",
+      "users": "Active farms",
       "hectares": "Hectares monitored",
       "partners": "Partners",
       "alerts": "Smart alerts",
@@ -125,10 +133,10 @@
       "uptime": "Platform uptime"
     },
     "different": {
-      "title": "Why RoboCare Is Different",
+      "title": "Why RoboCare is different",
       "lead": "At RoboCare, our strength comes from the integration of agronomy, data science, and cutting-edge technology.",
       "body": "With years of hands-on field experience and R&D, we've positioned ourselves as a leading digital transformation partner in agriculture, tailored specifically for the MENA region.",
-      "servicesLabel": "Our Managed Services deliver an end-to-end suite of intelligent tools that:",
+      "servicesLabel": "Our managed services deliver an end-to-end suite of intelligent tools that:",
       "items": {
         "productivity": "Maximize crop productivity",
         "sustainability": "Enhance sustainability through precision agriculture",
@@ -169,7 +177,7 @@
           "title": "Three disciplines, one decision",
           "paragraph": "Our strength comes from the integration of agronomy, data science, and cutting-edge technology: each pair of disciplines produces something neither produces alone.",
           "points": [
-            { "title": "Agronomy × Data science", "text": "Thresholds calibrated on Tunisian series, instead of imported thresholds." },
+            { "title": "Agronomy × Data science", "text": "Thresholds calibrated on Tunisian data, instead of imported thresholds." },
             { "title": "Data science × Technology", "text": "An automatic alert within 24 hours of the satellite pass." },
             { "title": "Agronomy × Technology", "text": "An instruction both the crop manager and the field worker can read." }
           ]
@@ -179,7 +187,7 @@
           "title": "Knowing what a number actually means on a field",
           "paragraph": "Field expertise that gives agronomic meaning to every measurement, before any decision.",
           "points": [
-            { "title": "Local practices", "text": "Rainfed or irrigated olive groves, rainfed cereals, sheltered market gardening." },
+            { "title": "Local practices", "text": "Rain-fed or irrigated olive groves, rain-fed cereals, greenhouse market gardening." },
             { "title": "Action thresholds", "text": "The deviation beyond which an action is economically justified." },
             { "title": "Reading the symptom", "text": "Telling water stress apart from a nutrient deficiency." }
           ]
@@ -220,7 +228,7 @@
       "pillars": {
         "satellite": {
           "title": "Satellite every 5 days",
-          "text": "Sentinel-2 and Landsat, with NDVI, NDRE, NDWI and SAVI indices per zone."
+          "text": "Sentinel-2, supplemented by Landsat, with NDVI, NDRE, NDWI and SAVI indices per zone."
         },
         "sensors": {
           "title": "Ground sensors",
@@ -253,7 +261,7 @@
           },
           "guidance": {
             "value": "24 h",
-            "caption": "Alert lead time"
+            "caption": "Alert turnaround"
           }
         },
         "channels": [
@@ -331,7 +339,7 @@
               "text": "Olive, cereals, date palm and more"
             },
             "organizations": {
-              "title": "Multi-level organisations",
+              "title": "Multi-level organizations",
               "text": "Groups, collectors and growers"
             },
             "reports": {
@@ -352,6 +360,8 @@
           "irrigation": { "label": "Irrigation 7 d", "value": "210 m³" }
         },
         "legend": "NDVI",
+        "legendMin": "0.1",
+        "legendMax": "0.9",
         "watchTitle": "Watch list",
         "watch": [
           { "field": "B3 · Olive", "value": "Soil 14%" },
@@ -390,7 +400,7 @@
       "items": {
         "leadTime": {
           "title": "A real head start on the symptom",
-          "text": "Water deficit changes canopy reflectance long before leaves change colour. Our models catch that shift as soon as it rises above the field’s own noise, leaving you time to act while the loss is still reversible."
+          "text": "Water deficit changes canopy reflectance long before leaves change color. Our models catch that shift as soon as it rises above the field’s own noise, leaving you time to act while the loss is still reversible."
         },
         "noHardware": {
           "title": "No investment to get started",
@@ -398,7 +408,7 @@
         },
         "mediterranean": {
           "title": "Calibrated for the Mediterranean",
-          "text": "A model trained on Northern European cereals picks the wrong thresholds below 300 mm of annual rainfall. Ours learn on Tunisian series: carbonate soils, rain-fed olive groves, saline groundwater, sirocco events."
+          "text": "A model trained on Northern European cereals picks the wrong thresholds below 300 mm of annual rainfall. Ours learn from Tunisian data: carbonate soils, rain-fed olive groves, saline groundwater, sirocco events."
         },
         "decision": {
           "title": "An instruction, not one more dashboard",
@@ -420,7 +430,7 @@
       "note": "Feedback collected from partner farms monitored for at least two seasons.",
       "items": {
         "olive": {
-          "quote": "The first year, I checked every alert on foot. The two zones flagged in April were exactly the ones that collapsed in June on neighbouring unmonitored plots. Now I irrigate by reading the map.",
+          "quote": "The first year, I checked every alert on foot. The two zones flagged in April matched exactly the stress that appeared in June on neighboring unmonitored plots. Now I irrigate by reading the map.",
           "role": "Farm manager",
           "context": "220 ha olive grove · Sfax"
         },
@@ -448,19 +458,19 @@
       "items": {
         "start": {
           "question": "How long before my first analysis?",
-          "answer": "Twenty-four hours after you draw a field outline. History usually goes back three to five years of satellite archives, so you can compare the current season with previous ones from day one."
+          "answer": "Twenty-four hours after you draw a field outline. History covers up to ten years of satellite archives (Sentinel-2, since 2015), so you can compare the current season with previous ones from day one."
         },
         "accuracy": {
           "question": "How accurate is a satellite analysis?",
-          "answer": "Sentinel-2 delivers a 10-metre pixel, meaning one measurement point every 100 m². That is enough to zone a field and locate a hotspot, not to diagnose a single tree — that is what the drone is for."
+          "answer": "Sentinel-2 delivers a 10-meter pixel, meaning one measurement point every 100 m². That is enough to zone a field and locate a hotspot, not to diagnose a single tree — that is what the drone is for."
         },
         "clouds": {
           "question": "What happens when it is cloudy?",
-          "answer": "Covered pixels are masked automatically and excluded from the calculation. Cloud cover is displayed for each pass; in the Mediterranean, over 80 % of dry-season passes are usable."
+          "answer": "Cloud-covered pixels are masked automatically and excluded from the calculation. Cloud cover is displayed for each pass; in the Mediterranean, over 80% of dry-season passes are usable."
         },
         "size": {
           "question": "Is there a minimum area?",
-          "answer": "No, monitoring works from one hectare. Below that the pixel count becomes too low for reliable zoning, but the vigour curve remains usable."
+          "answer": "Yes: one hectare for reliable zoning. Below that, the pixel count becomes too low to split the field into zones, but the vigor curve remains usable."
         },
         "data": {
           "question": "Who owns my data?",
@@ -532,7 +542,8 @@
       "eyebrow": "At a glance",
       "title": "What each solution measures first",
       "lead": "Four crops, four measurement priorities. The figure at the top of each column shows the change measured by the corresponding solution.",
-      "note": "Indicators recorded on partner farms — full detail in the case studies"
+      "note": "Indicators recorded on partner farms —",
+      "noteLink": "full detail in the case studies"
     },
     "cta": {
       "eyebrow": "Let's talk about your fields",
@@ -543,11 +554,11 @@
       "olive-care": {
         "brand": "Olive Care",
         "name": "Olive groves",
-        "short": "Rainfed or irrigated olive groves: water stress and alternate bearing under control.",
-        "description": "Olive trees tolerate drought but pay for it the following year. Olive Care tracks the vigour of every tree through satellite and drone imagery, flags water-deficit zones before fruit set, and secures the deficit irrigation schedule.",
+        "short": "Rain-fed or irrigated olive groves: water stress and alternate bearing under control.",
+        "description": "Olive trees tolerate drought but pay for it the following year. Olive Care tracks the vigor of every tree through satellite and drone imagery, flags water-deficit zones before fruit set, and secures the deficit irrigation schedule.",
         "imageAlt": "Olive grove monitored by satellite imagery",
         "points": [
-          "Tree-by-tree vigour index and detection of missing trees",
+          "Tree-by-tree vigor index and detection of missing trees",
           "Water stress monitoring ahead of flowering and fruit set",
           "Early detection of peacock spot disease",
           "Harvest forecasting by grove zone"
@@ -588,11 +599,11 @@
           "Soil salinity and conductivity monitoring",
           "Drip irrigation uniformity checks",
           "Stress alerts ahead of physiological fruit drop",
-          "Vigour tracking by irrigation sector"
+          "Vigor tracking by irrigation sector"
         ],
         "outcomes": [
           "More consistent fruit size",
-          "Fewer fruits lost",
+          "Less fruit lost",
           "Irrigation network under control"
         ],
         "metric": "−21% water"
@@ -624,8 +635,8 @@
       "items": {
         "precision": {
           "title": "Precision agriculture",
-          "text": "Precision agriculture starts from a simple observation: a field is never uniform. Soil depth changes, available water capacity varies by tens of millimetres from one end to the other, and a single rate applied everywhere is necessarily excessive somewhere and insufficient elsewhere.",
-          "text2": "Managing with precision means splitting the field into coherent zones and treating each according to its real need. Remote sensing makes that possible without probing the soil every twenty metres: the canopy’s spectral response already integrates the combined effect of soil, water and nutrition.",
+          "text": "Precision agriculture starts from a simple observation: a field is never uniform. Soil depth changes, available water capacity varies by tens of millimeters from one end to the other, and a single rate applied everywhere is necessarily excessive somewhere and insufficient elsewhere.",
+          "text2": "Managing with precision means splitting the field into coherent zones and treating each according to its real need. Remote sensing makes that possible without probing the soil every twenty meters: the canopy’s spectral response already integrates the combined effect of soil, water and nutrition.",
           "points": [
             "Within-field zoning derived from spectral response",
             "Variable rates instead of uniform ones",
@@ -634,7 +645,7 @@
         },
         "satellite": {
           "title": "Satellite imagery and remote sensing",
-          "text": "The Copernicus programme’s Sentinel-2 satellites pass over Tunisia every five days and measure the light reflected by the canopy across thirteen spectral bands, from blue to shortwave infrared. A healthy plant absorbs red for photosynthesis and reflects near infrared heavily; a stressed plant does the opposite, progressively.",
+          "text": "The Copernicus program’s Sentinel-2 satellites pass over Tunisia every five days and measure the light reflected by the canopy across thirteen spectral bands, from blue to shortwave infrared. A healthy plant absorbs red for photosynthesis and reflects near infrared heavily; a stressed plant does the opposite, progressively.",
           "text2": "That imbalance becomes measurable long before it turns into visible yellowing. This is the whole value of remote sensing: it gives access to a physiological signal, not merely a photograph of the field.",
           "points": [
             "Five-day revisit, archives available since 2015",
@@ -644,20 +655,20 @@
         },
         "iot": {
           "title": "Ground IoT sensors",
-          "text": "Satellites observe the canopy; they cannot see what happens forty centimetres down. IoT stations fill that blind spot: staged moisture probes, soil temperature, electrical conductivity and, depending on the site, a rain gauge and anemometer, all sampled every fifteen minutes.",
-          "text2": "Transmitted over LoRaWAN — several kilometres of range at a power draw that allows years of autonomy on battery and solar panel — these readings calibrate the satellite model’s thresholds against the farm’s actual soil conditions.",
+          "text": "Satellites observe the canopy; they cannot see what happens forty centimeters down. IoT stations fill that blind spot: staged moisture probes, soil temperature, electrical conductivity and, depending on the site, a rain gauge and anemometer, all sampled every fifteen minutes.",
+          "text2": "Transmitted over LoRaWAN — several kilometers of range at a power draw that allows years of autonomy on battery and solar panel — these readings calibrate the satellite model’s thresholds against the farm’s actual soil conditions.",
           "points": [
             "Moisture measured at several root depths",
             "LoRaWAN or 4G depending on site coverage",
-            "Solar powered, annual maintenance"
+            "Solar-powered, annual maintenance"
           ]
         },
         "drone": {
           "title": "Multispectral drones",
-          "text": "When the question drops to the scale of a tree or a row, ten-metre resolution is no longer enough. The drone carries a multispectral and a thermal camera and flies a few dozen metres up: each pixel then covers two to five centimetres of ground.",
-          "text2": "At that resolution you count trees one by one, spot a blocked emitter by its thermal signature and map a disease outbreak to the metre. Flights are planned in advance and the report is generated automatically after processing.",
+          "text": "When the question drops to the scale of a tree or a row, ten-meter resolution is no longer enough. The drone carries a multispectral and a thermal camera and flies a few dozen meters up: each pixel then covers two to five centimeters of ground.",
+          "text2": "At that resolution you count trees one by one, spot a blocked emitter by its thermal signature and map a disease outbreak to the meter. Flights are planned in advance and the report is generated automatically after processing.",
           "points": [
-            "Centimetre resolution, tree-by-tree health",
+            "Centimeter-level resolution, tree-by-tree health",
             "Thermal imaging to check irrigation uniformity",
             "Planned missions, automatic orthomosaic and report"
           ]
@@ -686,16 +697,16 @@
     },
     "faq": {
       "eyebrow": "Frequently asked questions",
-      "title": "Arboriculture and large-scale crops",
+      "title": "Tree crops and field crops",
       "intro": "What RoboCare changes in practice, orchard by orchard and field by field.",
       "items": {
         "monitorOliveOrchards": {
-          "question": "Can RoboCare monitor olive orchards?",
+          "question": "Can RoboCare monitor olive groves?",
           "answer": "Yes — olive monitoring is one of RoboCare’s core solutions, Olive Care. It tracks tree-by-tree vigor using satellite and drone imagery, flags missing or declining trees, monitors water stress ahead of flowering and fruit set, and screens for early signs of peacock spot disease. Farms using it have reduced irrigation water use by around 28% while managing the tree’s natural alternate-bearing cycle more predictably."
         },
         "oliveProductionImprove": {
           "question": "How can precision agriculture improve olive production?",
-          "answer": "Olive trees tolerate drought but pay for it the following year through reduced yield — the alternate-bearing effect. By tracking vigor and water stress tree-by-tree before flowering, RoboCare lets growers time deficit irrigation precisely, keeping trees under just enough stress to manage vegetative growth without triggering a yield crash the next season. Early peacock spot detection also means treatment goes only where disease pressure is confirmed."
+          "answer": "Olive trees tolerate drought but pay for it the following year through reduced yield, which amplifies alternate bearing. By tracking vigor and water stress tree by tree before flowering, RoboCare lets growers time deficit irrigation precisely, keeping trees under just enough stress to manage vegetative growth without triggering a yield crash the next season. Early peacock spot detection also means treatment goes only where disease pressure is confirmed."
         },
         "fruitTreeStress": {
           "question": "Can RoboCare detect stress in fruit trees?",
@@ -703,11 +714,11 @@
         },
         "suitableLargeFarms": {
           "question": "Is RoboCare suitable for large farms?",
-          "answer": "Yes — RoboCare already monitors over 100,000 hectares, and pricing scales with a degressive tier beyond 100 hectares plus a specific rate for cooperatives grouping several members. Cereal Care, for example, turns NDRE readings into nitrogen modulation maps across large blocks, tracks emergence and lodging, and estimates yield by zone weeks before harvest — built for scale, not just single small plots."
+          "answer": "Yes — RoboCare already monitors over 100,000 hectares, and pricing includes volume discounts above 100 hectares plus a specific rate for cooperatives grouping several members. Cereal Care, for example, turns NDRE readings into variable-rate nitrogen maps across large blocks, tracks emergence and lodging, and estimates yield by zone weeks before harvest — built for scale, not just single small plots."
         },
         "irrigationFertilizationLargeFarms": {
           "question": "How can large-scale farms optimize irrigation and fertilization with RoboCare?",
-          "answer": "Across a large farm, RoboCare’s platform zones every field automatically from satellite indices, so irrigation and nitrogen decisions are made per homogeneous zone instead of per whole field. NDWI flags where water stress starts first, NDRE drives variable-rate nitrogen maps, and the same maps export directly to the formats most spreading consoles already accept."
+          "answer": "Across a large farm, RoboCare’s platform zones every field automatically from satellite indices, so irrigation and nitrogen decisions are made per homogeneous zone instead of per whole field. NDWI flags where water stress starts first, NDRE drives variable-rate nitrogen maps, and the same maps export directly to the formats most spreader controllers already accept."
         },
         "multiplePlotsMonitoring": {
           "question": "Can RoboCare monitor multiple agricultural plots?",
@@ -801,13 +812,13 @@
       },
       "decisions": {
         "title": "Receive your decisions",
-        "text": "Alerts and recommendations by email, SMS or WhatsApp, in French or Arabic."
+        "text": "Alerts and recommendations by email, SMS or WhatsApp, in French, English or Arabic."
       }
     },
     "capabilities": {
       "eyebrow": "Going further",
       "title": "What you actually do inside the platform",
-      "lead": "Beyond the six modules, four uses shape the daily routine of monitored farms.",
+      "lead": "Beyond these modules, four uses shape the daily routine of monitored farms.",
       "items": {
         "mapping": {
           "title": "Field mapping and management",
@@ -858,11 +869,11 @@
         },
         "processing": {
           "title": "Processing",
-          "text": "Atmospheric correction, masking of clouds and their shadows, clipping per field, index computation and inference model execution across parallelised jobs."
+          "text": "Atmospheric correction, masking of clouds and their shadows, clipping per field, index computation and inference model execution across parallelized jobs."
         },
         "storage": {
           "title": "Storage",
-          "text": "Rasters kept in a cloud-optimised format so only the requested window is read, geometries and time series in a spatial database, cold archives for multi-year history."
+          "text": "Rasters kept in a cloud-optimized format so only the requested window is read, geometries and time series in a spatial database, cold archives for multi-year history."
         },
         "api": {
           "title": "API layer",
@@ -876,24 +887,24 @@
     },
     "security": {
       "eyebrow": "Trust",
-      "title": "Cloud, security and synchronisation",
+      "title": "Cloud, security and synchronization",
       "lead": "Your field boundaries and yield history are sensitive data. Here is how they are handled.",
       "items": {
         "hosting": {
           "title": "Cloud hosting",
-          "text": "Infrastructure hosted in ISO 27001 certified European data centres, with daily encrypted backups and periodically tested restoration."
+          "text": "Infrastructure hosted in ISO 27001-certified European data centers, with daily encrypted backups and periodically tested restoration."
         },
         "encryption": {
           "title": "Encryption",
-          "text": "Traffic encrypted end to end with TLS 1.3, data encrypted at rest, token-based authentication with expiry and two-factor authentication available on administrator accounts."
+          "text": "Traffic encrypted with TLS 1.3, data encrypted at rest, token-based authentication with expiry and two-factor authentication available on administrator accounts."
         },
         "ownership": {
           "title": "Data ownership",
           "text": "Your data stays yours. It is never sold or shared with third parties, and both a full export and permanent deletion are available on request."
         },
         "availability": {
-          "title": "Availability and synchronisation",
-          "text": "99 % availability measured over twelve months. Data already loaded stays readable offline, and synchronisation resumes automatically once the network is back."
+          "title": "Availability and synchronization",
+          "text": "99% availability measured over twelve months. Data already loaded stays readable offline, and synchronization resumes automatically once the network is back."
         }
       }
     }
@@ -901,7 +912,7 @@
   "sustainability": {
     "meta": {
       "title": "Sustainability",
-      "description": "Discover how RoboCare uses satellite imagery, drones, IoT and artificial intelligence to support a more precise, more resilient and more sustainable agriculture."
+      "description": "Discover how RoboCare uses satellite imagery, drones, IoT and artificial intelligence to support more precise, resilient and sustainable farming."
     },
     "hero": {
       "eyebrow": "Sustainability",
@@ -961,8 +972,7 @@
         "text": "Every season, the farm gets a detailed report: water saved, inputs avoided, pumping energy, a complete history of interventions. Enough to answer a buyer, a lender or an export audit.",
         "bullets": {
           "report": "Detailed season report, field by field",
-          "traceability": "Complete, exportable history of interventions",
-          "compliance": "Enough to answer a buyer, a lender or an audit"
+          "traceability": "Complete, exportable history of interventions"
         },
         "imageAlt": "Wheat field ready for harvest, monitored by RoboCare sensors",
         "chip": {
@@ -973,17 +983,17 @@
         "cta": "Request a demo"
       },
       "results": {
-        "water": { "value": "−30%", "label": "water used on monitored fields" },
-        "inputs": { "value": "−25%", "label": "crop protection products through targeting" },
-        "yield": { "value": "+15%", "label": "average yield observed after one season" }
+        "water": { "value": "−28%", "label": "irrigation water on monitored farms" },
+        "inputs": { "value": "−24%", "label": "crop protection treatments through targeting" },
+        "yield": { "value": "+12%", "label": "average yield on monitored zones" }
       },
-      "resultsNote": "Results measured on our pilot plots."
+      "resultsNote": "Averages measured on monitored farms, the same as on the Impact page."
     },
     "why": {
       "eyebrow": "The context",
       "title": "Why does sustainability matter in agriculture?",
       "lead1": "Agriculture today must produce more while facing limited natural resources, climate change and growing pressure on soils and ecosystems.",
-      "lead2": "Farmers therefore need to strike a balance between productivity, profitability and the preservation of natural resources. RoboCare supports this transition by helping to better understand the real state of crops and intervene at the right time.",
+      "lead2": "Farmers therefore need to strike a balance between productivity, profitability and the preservation of natural resources. RoboCare supports this transition by helping farmers better understand the real state of crops and intervene at the right time.",
       "cards": {
         "water": {
           "title": "Preserve water",
@@ -1006,7 +1016,7 @@
     "approach": {
       "eyebrow": "Our approach",
       "title": "What solutions can improve sustainability?",
-      "lead": "Satellite, data, analysis, decision, action, impact: a five-step journey that repeats every growing season.",
+      "lead": "Observe, understand, anticipate, act, measure: a five-step journey that repeats every growing season.",
       "steps": {
         "observe": {
           "title": "Observe",
@@ -1018,7 +1028,7 @@
         },
         "anticipate": {
           "title": "Anticipate",
-          "text": "Farmers can detect more quickly the situations that require an intervention."
+          "text": "Farmers can spot situations that need action more quickly."
         },
         "act": {
           "title": "Act with precision",
@@ -1032,7 +1042,7 @@
     },
     "technology": {
       "eyebrow": "The technologies",
-      "title": "Technology at the service of a more responsible agriculture",
+      "title": "Technology serving more responsible farming",
       "items": {
         "satellite": {
           "title": "Satellite",
@@ -1056,7 +1066,7 @@
       "eyebrow": "Water",
       "title": "Managing water better, a priority for agriculture",
       "lead1": "Water is one of the most precious resources for agriculture. Too much irrigation can waste resources, while too little can cause water stress and reduce yields.",
-      "lead2": "RoboCare helps to better understand crop needs by combining data from the field, satellites and observation technologies.",
+      "lead2": "RoboCare helps farmers better understand crop needs by combining data from the field, satellites and observation technologies.",
       "steps": {
         "available": "Available water",
         "need": "Actual plant needs",
@@ -1078,7 +1088,7 @@
     "biodiversity": {
       "eyebrow": "Biodiversity",
       "title": "Agriculture that respects ecosystems",
-      "lead": "Sustainability is not only about yields. It also concerns the protection of ecosystems, biodiversity and natural resources. RoboCare contributes to more precise agriculture by helping to better identify areas that need particular attention and by supporting a more measured use of resources.",
+      "lead": "Sustainability is not only about yields. It also concerns the protection of ecosystems, biodiversity and natural resources. RoboCare contributes to more precise agriculture by helping farmers better identify areas that need particular attention and by supporting a more measured use of resources.",
       "cards": {
         "biodiversity": {
           "title": "Biodiversity",
@@ -1100,10 +1110,10 @@
       "lead": "Optimizing interventions can indirectly help reduce:",
       "list": {
         "travel": "unnecessary travel",
-        "consumption": "certain resource consumption",
-        "interventions": "certain repetitive interventions",
+        "consumption": "some resource use",
+        "interventions": "some repetitive interventions",
         "inputs": "excessive use of inputs",
-        "energy": "the energy consumption associated with certain operations"
+        "energy": "the energy used by some operations"
       },
       "cycle": {
         "observe": "Observe",
@@ -1126,14 +1136,14 @@
         },
         "agrifood": {
           "title": "Agri-food companies",
-          "text": "Improve visibility over agricultural production."
+          "text": "Improve visibility into agricultural production."
         },
         "advisors": {
           "title": "Agricultural advisors",
           "text": "Have additional information to support farmers."
         },
         "territories": {
-          "title": "Territories & environment",
+          "title": "Local areas & environment",
           "text": "Contribute to a better understanding of agricultural resources."
         }
       }
@@ -1145,23 +1155,33 @@
       "metrics": {
         "co2": {
           "label": "CO₂ avoided",
-          "text": "Estimate of emissions potentially avoided through the optimization of interventions and travel."
+          "text": "Estimate of emissions potentially avoided through the optimization of interventions and travel.",
+          "suffix": "",
+          "unit": "t"
         },
         "water": {
           "label": "Water saved",
-          "text": "Volume of water saved since 2020 through more precise irrigation management."
+          "text": "Volume of water saved since 2020 through more precise irrigation management.",
+          "suffix": "k",
+          "unit": "m³"
         },
         "surface": {
           "label": "Area monitored",
-          "text": "Agricultural area monitored and analyzed through RoboCare's technologies."
+          "text": "Agricultural area monitored and analyzed through RoboCare's technologies.",
+          "suffix": "k",
+          "unit": "ha"
         },
         "parcels": {
           "label": "Fields monitored",
-          "text": "Number of fields benefiting from regular monitoring."
+          "text": "Number of fields benefiting from regular monitoring.",
+          "suffix": "",
+          "unit": ""
         },
         "farmers": {
-          "label": "Farmers supported",
-          "text": "Number of users and farmers supported by the platform."
+          "label": "Farms supported",
+          "text": "Number of farms supported by the platform.",
+          "suffix": "",
+          "unit": ""
         }
       }
     },
@@ -1169,7 +1189,7 @@
       "eyebrow": "Ecosystem",
       "title": "Our impact on nature",
       "emblemTitle": "Agricultural",
-      "emblemSubtitle": "ECOSYSTEM",
+      "emblemSubtitle": "ecosystem",
       "cards": {
         "soil": {
           "title": "Soils",
@@ -1210,7 +1230,7 @@
     "resilience": {
       "eyebrow": "Resilience",
       "title": "Preparing the agriculture of tomorrow",
-      "lead": "Faced with climate change, the scarcity of resources and evolving food needs, agriculture must become more resilient. RoboCare contributes to this transformation by giving farmers better visibility over their crops and their environment.",
+      "lead": "Faced with climate change, the scarcity of resources and evolving food needs, agriculture must become more resilient. RoboCare contributes to this transformation by giving farmers better visibility into their crops and their environment.",
       "cards": {
         "anticipate": {
           "title": "Anticipate",
@@ -1233,7 +1253,7 @@
       "eyebrow": "Our vision",
       "title": "Produce better. Preserve more. Build sustainably.",
       "lead1": "We believe the future of agriculture relies on a better understanding of crops, a smarter use of resources and close collaboration between the farmer and technology.",
-      "lead2": "RoboCare wants to help build a more precise, more sustainable and more resilient agriculture.",
+      "lead2": "RoboCare wants to help build more precise, sustainable and resilient farming.",
       "imageAlt": "Farm at sunset"
     },
     "cta": {
@@ -1246,12 +1266,12 @@
   "technology": {
     "meta": {
       "title": "Technology",
-      "description": "Satellite, ground sensors, drone and artificial intelligence: each building block answers a precise observation scale, from region to tree."
+      "description": "Satellite, ground sensors, drone and artificial intelligence: each building block covers a specific observation scale, from region to tree."
     },
     "hero": {
       "eyebrow": "Technology",
       "title": "Four technologies, one decision chain",
-      "intro": "Satellite, ground sensors, drone and artificial intelligence: each building block answers a precise observation scale, from region to tree.",
+      "intro": "Satellite, ground sensors, drone and artificial intelligence: each building block covers a specific observation scale, from region to tree.",
       "imageAlt": "RoboCare multispectral drone flying over a field"
     },
     "metrics": {
@@ -1265,7 +1285,7 @@
       },
       "drone": {
         "label": "Drone resolution",
-        "value": "Centimetric"
+        "value": "Centimeter-level"
       },
       "sensors": {
         "label": "Data science",
@@ -1285,10 +1305,10 @@
       },
       "satellite": {
         "title": "Satellite technology",
-        "text": "Open and commercial multispectral imagery, processed automatically at every pass.",
+        "text": "Open multispectral imagery (Sentinel-2, Landsat), processed automatically at every pass.",
         "note": "",
         "points": [
-          "Sentinel-2 and Landsat, 5-day revisit",
+          "Sentinel-2 every 5 days, supplemented by Landsat",
           "NDVI, NDRE, NDWI and SAVI indices",
           "Automatic cloud masking"
         ]
@@ -1300,7 +1320,7 @@
         "points": [
           "Soil moisture probes at several depths",
           "LoRaWAN and 4G transmission depending on coverage",
-          "Solar powered, long-duration autonomy"
+          "Solar-powered, long-duration autonomy"
         ]
       },
       "drone": {
@@ -1309,7 +1329,7 @@
         "note": "",
         "points": [
           "Multispectral and thermal sensors",
-          "Centimetric resolution, tree counting",
+          "Centimeter-level resolution, tree counting",
           "Scheduled missions and automatic reporting"
         ]
       }
@@ -1352,7 +1372,7 @@
           "name": "NDVI",
           "full": "Normalized Difference Vegetation Index",
           "bands": "Near infrared / Red",
-          "measures": "Overall canopy density and vigour.",
+          "measures": "Overall canopy density and vigor.",
           "useFor": "Season tracking, broad zoning, spotting a drop. Saturates when the canopy is very dense."
         },
         "ndre": {
@@ -1367,13 +1387,13 @@
           "full": "Normalized Difference Water Index",
           "bands": "Near infrared / Shortwave infrared",
           "measures": "Water content of leaves and canopy.",
-          "useFor": "Early water stress detection, before vigour visibly drops."
+          "useFor": "Early water stress detection, before vigor visibly drops."
         },
         "savi": {
           "name": "SAVI",
           "full": "Soil Adjusted Vegetation Index",
           "bands": "Near infrared / Red, soil corrected",
-          "measures": "Vigour corrected for bare-soil influence.",
+          "measures": "Vigor corrected for bare-soil influence.",
           "useFor": "Row-planted perennials and early growth stages, when soil fills much of the pixel."
         }
       },
@@ -1397,12 +1417,12 @@
         "bigdata": {
           "tag": "Big data",
           "title": "Processing a million images",
-          "text": "A Sentinel-2 scene weighs several hundred megabytes and covers 110 km across. Processing is split into parallel tasks, rasters are stored in a cloud-optimised format so only the useful window is read, and indices are pre-computed so opening a field stays instant."
+          "text": "A Sentinel-2 scene weighs several hundred megabytes and covers 110 km across. Processing is split into parallel tasks, rasters are stored in a cloud-optimized format so only the useful window is read, and indices are pre-computed so opening a field stays instant."
         },
         "api": {
           "tag": "API & integrations",
           "title": "A documented REST API",
-          "text": "Fields, indices, alerts and reports are available through an authenticated REST API with pagination and webhooks. Cooperatives use it to feed their own management systems; equipment makers, to pull a variable-rate map their spreader console can read."
+          "text": "Fields, indices, alerts and reports are available through an authenticated REST API with pagination and webhooks. Cooperatives use it to feed their own management systems; equipment makers, to pull a variable-rate map their spreader controller can read."
         },
         "gis": {
           "tag": "GPS & GIS",
@@ -1412,7 +1432,7 @@
         "protocols": {
           "tag": "Protocols",
           "title": "Field communication",
-          "text": "LoRaWAN for remote sensors — kilometres of range at minimal power draw — 4G where coverage allows and throughput is needed, MQTT to push frames to the ingestion gateway, and local storage on the station whenever the network drops."
+          "text": "LoRaWAN for remote sensors — kilometers of range at minimal power draw — 4G where coverage allows and throughput is needed, MQTT to push frames to the ingestion gateway, and local storage on the station whenever the network drops."
         }
       }
     },
@@ -1423,15 +1443,15 @@
       "items": {
         "whatIsPrecisionAg": {
           "question": "What is precision agriculture?",
-          "answer": "Precision agriculture manages a field zone by zone instead of treating it as one uniform block — because soil, water, and vigor rarely are. It combines satellite and drone imagery, IoT soil sensors, and AI analysis to map exactly where a crop needs water, nitrogen, or attention, and where it doesn’t. The result is targeted action instead of blanket treatment: inputs go where they’re useful, not everywhere at once."
+          "answer": "Precision agriculture manages a field zone by zone instead of treating it as one uniform block — because soil, water and vigor are never uniform. It combines satellite and drone imagery, IoT soil sensors, and AI analysis to map exactly where a crop needs water, nitrogen, or attention, and where it doesn’t. The result is targeted action instead of blanket treatment: inputs go where they’re useful, not everywhere at once."
         },
         "satelliteImproveFarming": {
           "question": "How does satellite monitoring improve farming?",
-          "answer": "Satellite monitoring gives farmers a view of the entire field every few days, without walking it. RoboCare processes Sentinel-2 and Landsat imagery automatically at each pass, masking clouds and calculating vegetation indices like NDVI and NDRE to reveal vigor changes before they’re visible to the eye. Three to five years of archived imagery let farmers compare the current season against past ones from day one."
+          "answer": "Satellite monitoring gives farmers a view of the entire field every few days, without walking it. RoboCare processes Sentinel-2 and Landsat imagery automatically at each pass, masking clouds and calculating vegetation indices like NDVI and NDRE to reveal vigor changes before they’re visible to the eye. Up to ten years of archived imagery (Sentinel-2, since 2015) let farmers compare the current season against past ones from day one."
         },
         "detectStressEarly": {
           "question": "How can farmers detect crop stress early?",
-          "answer": "The earliest signs of water or nutrient stress show up in the near-infrared spectrum before leaves visibly wilt or yellow. RoboCare’s NDWI index flags water stress specifically, ahead of a visible drop in vigor, while NDRE tracks chlorophyll and nitrogen status in dense canopies where NDVI saturates. Combined with IoT soil moisture probes, this gives an early warning days to weeks before symptoms are visible on the ground."
+          "answer": "The earliest signs of water or nutrient stress show up in the near-infrared spectrum before leaves visibly wilt or yellow. RoboCare’s NDWI index flags water stress specifically, ahead of a visible drop in vigor, while NDRE tracks chlorophyll and nitrogen status in dense canopies where NDVI saturates. Combined with soil moisture probes, these indices give an early warning days to weeks before symptoms are visible on the ground."
         },
         "analyzeSatelliteImages": {
           "question": "How does RoboCare analyze satellite images?",
@@ -1439,7 +1459,7 @@
         },
         "ndviNdreExplained": {
           "question": "What are NDVI and NDRE indices?",
-          "answer": "NDVI (Normalized Difference Vegetation Index) measures overall vegetation density and vigor from near-infrared and red light — useful for season-long tracking and zoning, though it saturates in very dense canopies. NDRE (Normalized Difference Red Edge) reads chlorophyll and nitrogen status instead, using the red-edge band, and stays accurate exactly where NDVI stops discriminating — making it the index RoboCare uses for nitrogen modulation on cereals."
+          "answer": "NDVI (Normalized Difference Vegetation Index) measures overall vegetation density and vigor from near-infrared and red light — useful for season-long tracking and zoning, though it saturates in very dense canopies. NDRE (Normalized Difference Red Edge) reads chlorophyll and nitrogen status instead, using the red-edge band, and stays accurate exactly where NDVI stops discriminating — making it the index RoboCare uses for variable-rate nitrogen on cereals."
         },
         "aiDecisionMaking": {
           "question": "How does AI help agricultural decision-making?",
@@ -1447,7 +1467,7 @@
         },
         "droneInspection": {
           "question": "Does RoboCare provide drone inspection services?",
-          "answer": "Yes. RoboCare’s agricultural drones carry multispectral and thermal sensors for centimeter-resolution inspection — the level of detail satellite imagery can’t reach. Missions are programmed and flown over a field or orchard, and results are compiled automatically into a report per zone, including individual tree counts where relevant. Drone inspection complements satellite monitoring rather than replacing it: satellite for the whole season, drone when a closer look is needed."
+          "answer": "Yes. RoboCare’s agricultural drones carry multispectral and thermal sensors for centimeter-resolution inspection — the level of detail satellite imagery can’t reach. Drones, programmed in advance, fly over a field or grove, and results are compiled automatically into a report per zone, including individual tree counts where relevant. Drone inspection complements satellite monitoring rather than replacing it: satellite for the whole season, drone when a closer look is needed."
         },
         "droneDetectProblems": {
           "question": "How can drones detect crop problems?",
@@ -1455,11 +1475,11 @@
         },
         "droneFertilizationSpraying": {
           "question": "Does RoboCare use drones for fertilization and spraying?",
-          "answer": "RoboCare’s drone missions map exactly which zones of a field need nitrogen or treatment, based on NDRE and thermal readings — and that map can guide targeted, variable-rate fertilization and spraying instead of a uniform pass over the whole field. Inputs go only where the data shows they’re needed, which is the same principle behind RoboCare’s satellite-based nitrogen modulation on cereals, applied at drone resolution."
+          "answer": "Yes. RoboCare’s drone missions first map exactly which zones of a field need nitrogen or treatment, based on NDRE and thermal readings — and that map can guide targeted, variable-rate fertilization and spraying instead of a uniform pass over the whole field. Inputs go only where the data shows they’re needed, which is the same principle behind RoboCare’s satellite-based variable-rate nitrogen on cereals, applied at drone resolution."
         },
         "droneAdvantages": {
           "question": "What are the advantages of drone-based agricultural treatments?",
-          "answer": "Drone-based treatment targets exactly the zones that need it, based on a real map rather than a uniform application — reducing the volume of fertilizer or crop-protection product used, and its cost, without under-treating the areas that actually need it. Missions are programmed and flown quickly over a field or orchard, faster than manual scouting, and the resulting maps stay in RoboCare’s platform for the next season’s comparison."
+          "answer": "Drone-based treatment targets exactly the zones that need it, based on a real map rather than a uniform application — reducing the volume of fertilizer or crop-protection product used, and its cost, without under-dosing the areas that actually need it. Drones fly quickly over the field or grove on a programmed mission, faster than manual scouting, and the resulting maps stay in RoboCare’s platform for the next season’s comparison."
         }
       }
     }
@@ -1481,7 +1501,7 @@
     "history": {
       "eyebrow": "Our story",
       "title": "From four olive groves to 100,000 hectares",
-      "subtitle": "Four years in the field, season after season, with the same partner farms."
+      "subtitle": "Five years in the field, season after season, with the same partner farms."
     },
     "milestones": {
       "y2021": {
@@ -1502,7 +1522,7 @@
       },
       "y2025": {
         "title": "100,000 hectares monitored",
-        "text": "Extension to citrus and greenhouse crops, and expansion into the MENA region."
+        "text": "Extension to citrus and greenhouse crops, and first deployments in Algeria."
       }
     },
     "mission": {
@@ -1511,7 +1531,7 @@
       "missionLabel": "Mission",
       "missionText": "Put satellite imagery, sensors and artificial intelligence within reach of a ten-hectare grower and a thousand-hectare estate alike, in their own language and on their own phone.",
       "visionLabel": "Vision",
-      "visionText": "A Mediterranean agriculture that produces more with less water, because every decision rests on data rather than on habit."
+      "visionText": "Mediterranean farming that produces more with less water, because every decision rests on data rather than on habit."
     },
     "values": {
       "eyebrow": "What guides us",
@@ -1530,7 +1550,7 @@
           "text": "French, English, Arabic: the platform and the alerts adapt — not the farmer."
         },
         "sobriety": {
-          "title": "Resource sobriety",
+          "title": "Resource efficiency",
           "text": "Saving water and inputs is not a marketing option, it is the product."
         }
       }
@@ -1541,7 +1561,7 @@
         "Everyone you work with,",
         "in the same room"
       ],
-      "intro": "Leadership, engineering and agronomy experts: fourteen people between Sfax and the field.",
+      "intro": "Leadership, engineering and agronomy experts: thirteen people between Sfax and the field.",
       "filters": {
         "all": "All",
         "leadership": "Leadership",
@@ -1549,6 +1569,7 @@
         "agronomy": "Agronomy"
       },
       "linkedinAriaLabel": "{name} on LinkedIn",
+      "photoAlt": "{name}, {role}",
       "members": {
         "imen-hbiri": {
           "name": "Dr. Imen Hbiri",
@@ -1592,7 +1613,7 @@
         },
         "marwa-kadri": {
           "name": "Marwa Kadri",
-          "role": "Agronomic Engineer"
+          "role": "Agricultural Engineer"
         },
         "nour-el-houda-boughattas": {
           "name": "Nour El Houda Boughattas",
@@ -1600,7 +1621,7 @@
         },
         "mariem-yousfi": {
           "name": "Mariem Yousfi",
-          "role": "Agronomic Engineer"
+          "role": "Agricultural Engineer"
         }
       }
     },
@@ -1608,7 +1629,14 @@
       "eyebrow": "Ecosystem",
       "title": "Our partners",
       "subtitle": "Cooperatives, technology operators and research institutes.",
-      "logoAlt": "RoboCare partner logo",
+      "logos": {
+        "inat": "INAT — National Agronomic Institute of Tunisia",
+        "olive-institute": "Olive Tree Institute",
+        "crns": "CRNS — Digital Research Center of Sfax",
+        "paris-sud": "Paris-Sud University",
+        "cesbio": "CESBIO — Center for the Study of the Biosphere from Space",
+        "isa-cm": "ISA Chott-Mariem — Higher Agronomic Institute of Chott-Mariem"
+      },
       "groups": {
         "agriculture": "Agricultural partners",
         "technology": "Technology partners",
@@ -1616,19 +1644,19 @@
       },
       "items": {
         "olive-coop": {
-          "name": "Olive Growers Cooperative",
+          "name": "Olive growers’ cooperative",
           "note": "Sfax"
         },
         "cereal-group": {
-          "name": "Cereal Growers Group",
+          "name": "Cereal growers’ group",
           "note": "Béja"
         },
         "farm-estates": {
-          "name": "Agricultural Estates",
+          "name": "Agricultural estates",
           "note": "Kairouan"
         },
         "citrus-union": {
-          "name": "Citrus Growers Union",
+          "name": "Citrus growers’ union",
           "note": "Nabeul"
         },
         "cloud": {
@@ -1668,8 +1696,8 @@
     "awards": {
       "eyebrow": "Recognition",
       "title": "Awards & distinctions",
-      "subtitle": "Awards and support programmes that backed our move to scale.",
-      "programsLabel": "Support programmes",
+      "subtitle": "Awards and support programs that backed our move to scale.",
+      "programsLabel": "Support programs",
       "items": {
         "national-innovation": {
           "title": "National Agricultural Innovation Award",
@@ -1694,17 +1722,17 @@
         "accelerator": {
           "title": "AgriTech Accelerator",
           "year": "2024",
-          "text": "Smart Capital — a 6-month programme focused on regional scale-up."
+          "text": "Smart Capital — a 6-month program focused on regional scale-up."
         },
         "green": {
-          "title": "Green Innovation Programme",
+          "title": "Green Innovation Program",
           "year": "2023",
           "text": "GIZ — support for deploying IoT stations in semi-arid areas."
         },
         "startup-act": {
           "title": "Startup Act",
           "year": "2022",
-          "text": "Republic of Tunisia — startup label and team structuring."
+          "text": "Republic of Tunisia — startup label."
         }
       }
     },
@@ -1734,7 +1762,7 @@
         "drought": {
           "kind": "Feature",
           "date": "8 Sep 2024",
-          "title": "Drought: digital tools at the bedside of farms",
+          "title": "Drought: digital tools come to farmers' aid",
           "outlet": "Le Manager"
         },
         "interview": {
@@ -1758,7 +1786,7 @@
       "items": {
         "deficit-irrigation": {
           "title": "A guide to deficit irrigation in olive groves",
-          "text": "When to cut back without penalising fruit set, and how to read soil moisture thresholds.",
+          "text": "When to cut back without penalizing fruit set, and how to read soil moisture thresholds.",
           "format": "PDF · 24 pages"
         },
         "read-ndvi": {
@@ -1783,7 +1811,7 @@
         },
         "report-template": {
           "title": "Field report template",
-          "text": "The weekly report monitored farms receive, with annotated commentary.",
+          "text": "The weekly report monitored farms receive, with annotations.",
           "format": "PDF · 1.4 MB"
         }
       }
@@ -1796,7 +1824,7 @@
     "approach": {
       "eyebrow": "Our approach",
       "title": "How we work",
-      "lead": "A method unchanged since 2021: start from an agronomic question, validate it in the field, and only industrialise what has held up for two seasons.",
+      "lead": "A method unchanged since 2021: start from an agronomic question, validate it in the field, and only roll out what has held up for two seasons.",
       "items": {
         "approach": {
           "title": "Our approach",
@@ -1804,7 +1832,7 @@
         },
         "method": {
           "title": "Our methodology",
-          "text": "Four stages: agronomic framing with the farmer, a prototype on a sample of fields, confrontation with ground readings over a full season, then production release with a calibrated threshold. A model that has not faced the field does not leave the lab."
+          "text": "Four stages: agronomic framing with the farmer, a prototype on a sample of fields, validation against field readings over two full seasons, then production release with a calibrated threshold. A model that has not been validated in the field does not leave the lab."
         },
         "expertise": {
           "title": "Our expertise",
@@ -1824,7 +1852,7 @@
           },
           "agronomy": {
             "title": "Agronomy decides",
-            "text": "Every threshold in the platform was discussed with an agronomist before being coded, and corrected after field confrontation."
+            "text": "Every threshold in the platform was discussed with an agronomist before being coded, and corrected after validation in the field."
           },
           "languages": {
             "title": "In your language",
@@ -1832,7 +1860,7 @@
           },
           "noLockIn": {
             "title": "No hardware lock-in",
-            "text": "Satellite is enough to start. You only buy sensors if your fields draw a demonstrated benefit from them."
+            "text": "Satellite is enough to start. You only buy sensors if they bring your fields a proven benefit."
           },
           "measurable": {
             "title": "Verifiable results",
@@ -1891,7 +1919,7 @@
     "stats": {
       "hectares": {
         "label": "Hectares monitored",
-        "note": "Tunisia and the MENA region"
+        "note": "Tunisia and Algeria"
       },
       "farms": {
         "label": "Active farms",
@@ -1928,7 +1956,7 @@
       "items": {
         "oliviers": {
           "name": "Olive trees",
-          "description": "Tree-by-tree vigour, water stress spotted before fruit set, and alternate bearing softened by managed deficit irrigation.",
+          "description": "Tree-by-tree vigor, water stress spotted before fruit set, and alternate bearing softened by managed deficit irrigation.",
           "indicators": [
             {
               "label": "Water",
@@ -1960,7 +1988,7 @@
         },
         "tomates": {
           "name": "Tomatoes",
-          "description": "Open-field and protected crops: climate management, early blight detection and treatment windows aligned with local weather.",
+          "description": "Open-field and protected crops: climate management, early detection of late blight and treatment windows aligned with local weather.",
           "indicators": [
             {
               "label": "Treatments",
@@ -1988,7 +2016,7 @@
         },
         "vignes": {
           "name": "Vineyards",
-          "description": "Row-level vigour, water constraint managed ahead of harvest, and block zoning to pick each sector at ripeness.",
+          "description": "Row-level vigor, water constraint managed ahead of harvest, and block zoning to pick each sector at ripeness.",
           "indicators": [
             {
               "label": "Zoning",
@@ -2020,19 +2048,19 @@
       "title": "What the farm gains",
       "items": {
         "data": {
-          "title": "Decide on data",
+          "title": "Decide based on data",
           "text": "Every recommendation rests on a dated, located measurement, available in the field history."
         },
         "resources": {
           "title": "Save resources",
-          "text": "Water, fertiliser and fuel applied where the field needs them, and only there."
+          "text": "Water, fertilizer and fuel applied where the field needs them, and only there."
         },
         "productivity": {
           "title": "Increase productivity",
           "text": "Spotting an underperforming zone early still leaves time to recover the season's yield."
         },
         "sustainable": {
-          "title": "Sustainable farming",
+          "title": "Farm sustainably",
           "text": "Fewer inputs per hectare and exportable traceability for certifications and buyers."
         }
       }
@@ -2060,7 +2088,7 @@
         "cereal-cooperative-beja": {
           "title": "Cereal cooperative, Béja",
           "meta": ["Durum wheat", "1,400 hectares", "38 members", "Béja, Tunisia"],
-          "challenge": "Uniform nitrogen applications across all fields, with no visibility on which zones were genuinely deficient or on the yield expected before harvest.",
+          "challenge": "Uniform nitrogen applications across all fields, with no visibility into which zones were genuinely deficient or on the yield expected before harvest.",
           "solution": "Variable-rate nitrogen maps generated from NDRE at tillering, distributed to members over WhatsApp, and per-field yield estimates a month before harvest.",
           "results": [
             "19% less nitrogen at equivalent yield",
@@ -2071,7 +2099,7 @@
         "citrus-orchard-nabeul": {
           "title": "85 ha citrus orchard, Nabeul",
           "meta": ["Citrus (Maltaise)", "85 hectares", "Nabeul, Tunisia"],
-          "challenge": "Progressive salinisation of the water table and unexplained yellowing on border rows, with fruit size losses recorded two seasons running.",
+          "challenge": "Progressive salinization of the water table and unexplained yellowing on border rows, with fruit size losses recorded two seasons running.",
           "solution": "Weekly NDVI and NDRE monitoring cross-referenced with eight conductivity probes, orchard zoning into four irrigation sectors, and targeted leaching only where salinity exceeded the threshold.",
           "results": [
             "21% of irrigation water saved over the season",
@@ -2084,8 +2112,8 @@
     "environment": {
       "eyebrow": "Environmental footprint",
       "title": "What the farm gives back to its environment",
-      "lead": "In the Mediterranean, the limiting resource is not land, it is water. Every cubic metre saved on a field is a cubic metre left in the aquifer, and every sprayer pass avoided is fuel, time and chemical pressure removed.",
-      "lead2": "The figures below are averages recorded on farms monitored for at least two seasons, compared with their own baseline before monitoring.",
+      "lead": "In the Mediterranean, the limiting resource is not land, it is water. Every cubic meter saved on a field is a cubic meter left in the aquifer, and every sprayer pass avoided is fuel, time and chemical pressure removed.",
+      "lead2": "These figures are averages recorded on farms monitored for at least two seasons, compared with their own baseline before monitoring.",
       "barsLabel": "Average reductions recorded",
       "bars": {
         "water": {
@@ -2102,7 +2130,7 @@
         },
         "fuel": {
           "label": "Fuel and machinery passes",
-          "note": "Grouped and localised interventions"
+          "note": "Grouped and localized interventions"
         },
         "emissions": {
           "label": "Input-related emissions",
@@ -2112,11 +2140,11 @@
       "cards": {
         "aquifers": {
           "title": "Protecting aquifers",
-          "text": "Tunisia’s coastal aquifers turn saline when abstraction outpaces recharge. Reducing pumped volumes without losing yield is the only sustainable path, and it is measurable meter in hand."
+          "text": "Tunisia’s coastal aquifers turn saline when abstraction outpaces recharge. Reducing pumped volumes without losing yield is the only sustainable path, and the water meter proves it."
         },
         "soil": {
           "title": "Sparing the soil",
-          "text": "Fewer machinery passes means less compaction, and therefore better infiltration the following winter. Adjusted fertilisation also limits the excess nitrate that leaches below the root zone."
+          "text": "Fewer machinery passes mean less compaction, and therefore better infiltration the following winter. Adjusted fertilization also limits the excess nitrate that leaches below the root zone."
         },
         "climate": {
           "title": "Adapting to the climate",
@@ -2147,7 +2175,7 @@
     },
     "form": {
       "title": "Write to us",
-      "intro": "Fields marked with an asterisk are what we need to give you a useful answer.",
+      "intro": "Fields marked with an asterisk are required so we can give you a useful answer.",
       "fields": {
         "firstName": {
           "label": "First name *",
@@ -2158,8 +2186,8 @@
           "placeholder": "e.g. Trabelsi"
         },
         "org": {
-          "label": "Farm / organisation",
-          "placeholder": "e.g. Sfax Olive Growers Cooperative"
+          "label": "Farm / organization",
+          "placeholder": "e.g. Sfax olive growers’ cooperative"
         },
         "email": {
           "label": "Email *",
@@ -2178,7 +2206,7 @@
           "placeholder": "e.g. 45"
         },
         "subject": {
-          "label": "What is your enquiry about?"
+          "label": "What is your inquiry about?"
         },
         "message": {
           "label": "Your message",
@@ -2192,7 +2220,7 @@
         "support": "Support"
       },
       "consent": "I agree that RoboCare may use this information to reply to me. No data is shared with third parties.",
-      "submit": "Send my enquiry",
+      "submit": "Send my inquiry",
       "submitting": "Sending…",
       "statusIdle": "Reply within 48 working hours",
       "statusSent": "Message sent — reply within 48 h",
@@ -2218,13 +2246,13 @@
       "hoursValue": "Monday – Friday: 9:00 AM – 5:00 PM",
       "nextStepsTitle": "What happens next",
       "nextSteps": [
-        "An agronomist reads your enquiry and prepares a first read of your fields.",
+        "An agronomist reviews your inquiry and prepares an initial review of your fields.",
         "We call you to schedule the demo — 30 minutes, online or on site.",
         "You add a test field: first satellite analysis within 24 hours."
       ]
     },
     "faq": {
-      "eyebrow": "Frequently asked",
+      "eyebrow": "Frequently asked questions",
       "title": "Before you write to us",
       "intro": "Answers to the questions we are asked most often on first contact.",
       "items": {
@@ -2234,7 +2262,7 @@
         },
         "delay": {
           "question": "How quickly do you reply?",
-          "answer": "48 working hours at most. For support on an existing account, go through the platform: those requests are prioritised."
+          "answer": "48 working hours at most. For support on an existing account, go through the platform: those requests are prioritized."
         },
         "languages": {
           "question": "Which languages can we work in?",
@@ -2246,23 +2274,23 @@
         },
         "pricing": {
           "question": "How is pricing calculated?",
-          "answer": "By monitored area, with a decreasing tier above one hundred hectares and specific pricing for cooperatives grouping several members. Satellite monitoring is included; sensors and drone flights are billed separately, only if you install them."
+          "answer": "By monitored area, with volume discounts above 100 hectares and specific pricing for cooperatives grouping several members. Satellite monitoring is included; sensors and drone flights are billed separately, only if you install them."
         },
         "integration": {
           "question": "Can RoboCare connect to our existing tools?",
-          "answer": "Yes. A documented REST API exposes fields, indices, alerts and reports, and variable-rate maps export in the formats most spreader consoles expect. Describe your current system and we will tell you what is already supported."
+          "answer": "Yes. A documented REST API exposes fields, indices, alerts and reports, and variable-rate maps export in the formats most spreader controllers expect. Describe your current system and we will tell you what is already supported."
         },
         "security": {
           "question": "Where is our data hosted?",
-          "answer": "In ISO 27001 certified European data centres, with encryption in transit and at rest and daily backups. Your data is never sold or shared, and a full export or deletion is available on request."
+          "answer": "In ISO 27001-certified European data centers, with encryption in transit and at rest and daily backups. Your data is never sold or shared, and a full export or deletion is available on request."
         },
         "tunisiaBase": {
           "question": "Is RoboCare available in Tunisia?",
-          "answer": "Yes — Tunisia is RoboCare’s home market. The company was founded in Sfax in 2021 and the platform already covers over 100,000 hectares nationwide, across olive groves, cereal farms, citrus orchards, and greenhouses. Support, onboarding, and the agronomist team are all based locally, so questions get answered by people familiar with Tunisian growing conditions, not a remote call center."
+          "answer": "Yes — Tunisia is RoboCare’s home market. The company was founded in Sfax in 2021 and the platform already covers over 100,000 hectares nationwide, across olive groves, cereal farms, citrus orchards, and greenhouses. Support, onboarding, and the agronomy team are all based locally, so questions get answered by people familiar with Tunisian growing conditions, not a remote call center."
         },
         "regionalFit": {
           "question": "Are RoboCare’s solutions adapted to North African agriculture?",
-          "answer": "Yes. RoboCare’s AI models are trained specifically on Mediterranean and North African growing conditions — the same dry-farming olive groves, irrigated cereals, and citrus orchards found across Tunisia and Algeria — rather than adapted from models built for European or American agriculture. Vegetation indices, irrigation thresholds, and disease alerts are calibrated to local climate and crop calendars, and retrained every season."
+          "answer": "Yes. RoboCare’s AI models are trained specifically on Mediterranean and North African growing conditions — the same rain-fed olive groves, rain-fed cereals, and citrus orchards found across Tunisia and Algeria — rather than adapted from models built for European or American agriculture. Vegetation indices, irrigation thresholds, and disease alerts are calibrated to local climate and crop calendars, and retrained every season."
         }
       }
     },

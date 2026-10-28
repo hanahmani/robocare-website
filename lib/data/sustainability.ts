@@ -48,7 +48,7 @@ export const SUSTAINABILITY_STEPS = [
 export const SUSTAINABILITY_STEP_BULLETS = {
   measure: ['satellite', 'sensors', 'fieldLog'],
   decide: ['irrigationPlan', 'earlyAlert', 'targeted'],
-  prove: ['report', 'traceability', 'compliance'],
+  prove: ['report', 'traceability'],
 } as const satisfies Record<SustainabilityStep['id'], readonly string[]>;
 
 /** Bandeau de résultats chiffrés qui clôt la méthode — textes dans `sustainability.steps.results.<id>`. */
@@ -139,21 +139,22 @@ export const VALUE_CHAIN_CARDS = [
 ] as const satisfies readonly FeatureItem[];
 
 /**
- * Indicateurs d'impact — libellés dans `sustainability.dashboard.metrics.<id>`.
- * Une valeur `undefined` fait afficher `--` sans animation par
- * `SustainabilityMetric`. Le CO₂ est une estimation prudente limitée à
- * l'énergie de pompage évitée (847 000 m³ × ~0,5 kWh/m³ × ~0,46 kg CO₂/kWh
- * ≈ 195 t). Les grands nombres passent par un
- * suffixe compact (`M`, `K`) pour tenir dans une tuile sur cinq colonnes.
- * `value`/`prefix`/`suffix`/`unit` sont explicités partout (même absents)
- * pour rester accessibles uniformément lors du `.map()`.
+ * Indicateurs d'impact — libellés, suffixe compact et unité dans
+ * `sustainability.dashboard.metrics.<id>` : l'unité change d'écriture selon
+ * la langue (« tonnes », « t », « طن »). Une valeur `undefined` fait afficher
+ * `--` sans animation par `SustainabilityMetric`. Le CO₂ est une estimation
+ * prudente limitée à l'énergie de pompage évitée (847 000 m³ × ~0,5 kWh/m³
+ * × ~0,46 kg CO₂/kWh ≈ 195 t). Les grands nombres passent par un suffixe
+ * compact (« k », « ألف ») pour tenir dans une tuile sur cinq colonnes.
+ * `value`/`prefix`/`grouped` sont explicités partout (même absents) pour
+ * rester accessibles uniformément lors du `.map()`.
  */
 export const IMPACT_METRICS = [
-  { id: 'co2', icon: Cloud, value: 200, prefix: '+', suffix: undefined, separator: undefined, unit: 'tonnes' },
-  { id: 'water', icon: Droplet, value: 847, prefix: undefined, suffix: '\u202fk', separator: undefined, unit: 'm³' },
-  { id: 'surface', icon: Map, value: 100, prefix: '+', suffix: 'K', separator: undefined, unit: 'ha' },
-  { id: 'parcels', icon: Grid3x3, value: 7000, prefix: '+', suffix: undefined, separator: '\u202f', unit: undefined },
-  { id: 'farmers', icon: Users, value: 300, prefix: '+', suffix: undefined, separator: undefined, unit: undefined },
+  { id: 'co2', icon: Cloud, value: 200, prefix: '+', grouped: undefined },
+  { id: 'water', icon: Droplet, value: 847, prefix: undefined, grouped: undefined },
+  { id: 'surface', icon: Map, value: 100, prefix: '+', grouped: undefined },
+  { id: 'parcels', icon: Grid3x3, value: 7000, prefix: '+', grouped: true },
+  { id: 'farmers', icon: Users, value: 300, prefix: '+', grouped: undefined },
 ] as const satisfies readonly ImpactMetricDatum[];
 
 /** Carte de l'écosystème agricole (§11) — la dernière est mise en avant sur fond sombre. */

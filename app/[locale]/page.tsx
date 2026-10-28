@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     path: '/',
     locale: raw,
     ogImage: 'og-default',
-    ogImageAlt: d.home.hero.titleLead,
+    ogImageAlt: d.home.meta.ogImageAlt,
     // Le titre d'accueil contient déjà « RoboCare » : on neutralise le gabarit.
     absoluteTitle: true,
   });

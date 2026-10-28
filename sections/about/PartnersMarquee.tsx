@@ -5,19 +5,23 @@ import { useTranslation } from '@/i18n';
 import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 
-/** Logos partenaires (public/partenaires) — dupliqués pour la boucle infinie. */
+/**
+ * Logos partenaires (public/partenaires) — nom de chaque partenaire, servant
+ * de texte alternatif, dans `about.partners.logos.<id>`.
+ */
 const PARTNER_LOGOS = [
-  '/partenaires/Capture_d_ecran_2024-05-06_205223-removebg-preview-4.webp',
-  '/partenaires/Capture_d_ecran_2024-05-06_223422-removebg-preview-1-400x225.webp',
-  '/partenaires/Capture_d_ecran_2024-05-06_225116-removebg-preview-400x225.webp',
-  '/partenaires/LogoUPSUD-removebg-preview-1-400x225.webp',
-  '/partenaires/logo_cesbio-removebg-preview-400x225.webp',
-  '/partenaires/unnamed-removebg-preview-400x225.webp',
-];
+  { id: 'inat', src: '/partenaires/Capture_d_ecran_2024-05-06_205223-removebg-preview-4.webp' },
+  { id: 'olive-institute', src: '/partenaires/Capture_d_ecran_2024-05-06_223422-removebg-preview-1-400x225.webp' },
+  { id: 'crns', src: '/partenaires/Capture_d_ecran_2024-05-06_225116-removebg-preview-400x225.webp' },
+  { id: 'paris-sud', src: '/partenaires/LogoUPSUD-removebg-preview-1-400x225.webp' },
+  { id: 'cesbio', src: '/partenaires/logo_cesbio-removebg-preview-400x225.webp' },
+  { id: 'isa-cm', src: '/partenaires/unnamed-removebg-preview-400x225.webp' },
+] as const;
 
 /** Section « Nos partenaires » : carousel de logos en défilement infini. */
 export function PartnersMarquee() {
-  const { t } = useTranslation();
+  const { t, d } = useTranslation();
+  // La seconde copie ne sert qu'à boucler l'animation : masquée aux lecteurs d'écran.
   const track = [...PARTNER_LOGOS, ...PARTNER_LOGOS];
 
   return (
@@ -38,14 +42,15 @@ export function PartnersMarquee() {
         }}
       >
         <div className="flex w-max animate-marquee gap-4 group-hover:[animation-play-state:paused] sm:gap-5 lg:gap-6">
-          {track.map((src, index) => (
+          {track.map(({ id, src }, index) => (
             <div
-              key={`${src}-${index}`}
+              key={`${id}-${index}`}
+              aria-hidden={index >= PARTNER_LOGOS.length || undefined}
               className="flex h-[92px] w-[168px] shrink-0 items-center justify-center rounded-chip border border-forest-950/[0.08] bg-white p-5 shadow-soft transition-surface duration-base ease-premium hover:-translate-y-1.5 motion-reduce:hover:translate-y-0 hover:scale-[1.05] hover:shadow-leaf sm:h-[104px] sm:w-[192px] lg:h-[116px] lg:w-[216px] lg:p-6"
             >
               <Image
                 src={src}
-                alt={t('about.partners.logoAlt')}
+                alt={index < PARTNER_LOGOS.length ? d.about.partners.logos[id] : ''}
                 width={180}
                 height={90}
                 className="h-full w-full object-contain"

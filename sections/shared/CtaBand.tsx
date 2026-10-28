@@ -63,7 +63,9 @@ export function CtaBand({ eyebrow, title, text, actions, showContacts = false }:
         {showContacts ? (
           <div className="mt-7 flex flex-wrap gap-5 font-mono text-[11.5px] uppercase tracking-[0.1em] text-white/55">
             <span>
-              {t('common.city')}, {t('common.country')}
+              {t('common.city')}
+              {t('common.listSeparator')}
+              {t('common.country')}
             </span>
             {SITE.phones.map((phone) => (
               <span key={phone.href} dir="ltr">

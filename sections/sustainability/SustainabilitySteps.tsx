@@ -33,7 +33,7 @@ function pickBullets(bullets: Record<string, string>, ids: readonly string[]): s
 /**
  * « Comment nous rendons l'agriculture plus durable » : la méthode en trois
  * temps (mesurer, décider, prouver), une photo par étape, puis un bandeau de
- * résultats indicatifs. Ouvre le parcours durabilité, juste après le hero.
+ * résultats — les mêmes que sur la page Impact. Ouvre le parcours durabilité, juste après le hero.
  */
 export function SustainabilitySteps() {
   const { t, d } = useTranslation();

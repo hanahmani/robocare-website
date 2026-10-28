@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   useCallback,
   useEffect,
@@ -164,7 +165,8 @@ export function SolutionsTabs({ solutions = DEFAULT_SOLUTIONS }: SolutionsTabsPr
                     bout de la ligne (« من الماء % 28− »). */}
                 <bdi dir="ltr">
                   {result.sign}
-                  {result.abs} %
+                  {result.abs}
+                  {t('common.units.percent.suffix')}
                 </bdi>{' '}
                 {solution.result.unit}
               </span>
@@ -191,13 +193,17 @@ export function SolutionsTabs({ solutions = DEFAULT_SOLUTIONS }: SolutionsTabsPr
   );
 }
 
-/** Compteur 0 → cible, rejoué à chaque activation d'onglet (`requestAnimationFrame`, jamais `setInterval`). */
+/**
+ * Compteur 0 → cible, rejoué à chaque activation d'onglet (`requestAnimationFrame`,
+ * jamais `setInterval`). L'état initial est la valeur finale : c'est elle que
+ * contient le HTML rendu côté serveur (moteurs de recherche, visiteurs sans
+ * JavaScript) ; seule l'animation, côté client, repart de zéro.
+ */
 function useCountUp(target: number, active: boolean, reduced: boolean): number {
-  const [value, setValue] = useState(reduced ? target : 0);
+  const [value, setValue] = useState(target);
 
   useEffect(() => {
-    if (!active) return;
-    if (reduced) {
+    if (!active || reduced) {
       setValue(target);
       return;
     }
@@ -269,11 +275,17 @@ function SolutionPanel({
               style={{ color: accent }}
             >
               {sign}
-              {Math.abs(displayed)} %
+              {Math.abs(displayed)}
+              {t('common.units.percent.suffix')}
             </span>
             <span className="text-[16px] font-medium text-ink-900">{solution.result.unit}</span>
           </p>
-          <p className="mt-1.5 text-[12.5px] text-ink-300">{solution.result.baseline}</p>
+          <p className="mt-1.5 text-[12.5px] text-ink-300">
+            {solution.result.baseline}{' '}
+            <Link href={solution.result.baselineLink.href} className="underline underline-offset-2 hover:text-leaf-600">
+              {solution.result.baselineLink.label}
+            </Link>
+          </p>
         </div>
 
         <p className="mt-6 max-w-[54ch] text-[15px] leading-[1.7] text-[#6B7280]">{solution.lede}</p>
@@ -291,7 +303,10 @@ function SolutionPanel({
         </div>
 
         <p className="mt-6 text-[14px] leading-[1.6] text-[#6B7280]">
-          <span className="font-semibold text-ink-900">{t('solutions.labels.whatChanges')}: </span>
+          <span className="font-semibold text-ink-900">
+            {t('solutions.labels.whatChanges')}
+            {t('common.colon')}{' '}
+          </span>
           {solution.outcome}
         </p>
       </div>

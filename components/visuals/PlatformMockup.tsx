@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslation } from '@/i18n';
+import { SITE } from '@/lib/data/site';
 
 /**
  * Teintes des parcelles, de l'indice le plus faible au plus dense. La maquette
@@ -78,7 +79,7 @@ export function PlatformMockup() {
             <span className="block h-1.5 w-1.5 rounded-full bg-sage-300" />
           </div>
           <div className="mx-auto max-w-[180px] flex-1 truncate rounded-full bg-sage-50 px-2.5 py-[3px] text-center text-[9px] text-ink-300">
-            app.robocare.tn
+            {SITE.appHost}
           </div>
           <div className="w-7" />
         </div>
@@ -148,8 +149,8 @@ export function PlatformMockup() {
                   {mock.legend}
                   <div className="my-[3px] h-1 w-[68px] rounded-sm bg-index-scale" />
                   <div dir="ltr" className="flex justify-between">
-                    <span>0,1</span>
-                    <span>0,9</span>
+                    <span>{mock.legendMin}</span>
+                    <span>{mock.legendMax}</span>
                   </div>
                 </div>
               </div>
@@ -191,7 +192,7 @@ export function PlatformMockup() {
         <div className="flex flex-col overflow-hidden rounded-[18px] bg-white">
           <div className={`flex items-center justify-center gap-1.5 border-b px-2 pb-[7px] pt-1.5 ${RULE}`}>
             <span className="block h-[5px] w-[18px] rounded-full bg-sage-300" />
-            <span className="text-[6.5px] text-ink-300">app.robocare.tn</span>
+            <span className="text-[6.5px] text-ink-300">{SITE.appHost}</span>
           </div>
 
           <div className="flex flex-col gap-[7px] px-2.5 pb-2.5 pt-[9px]">

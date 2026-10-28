@@ -9,8 +9,8 @@ export function MetricCell({ indicator }: Props) {
   if (!indicator) {
     return (
       <div aria-hidden className="invisible flex flex-col gap-1">
-        <span className="font-display text-[22px] leading-none lg:text-[24px]">0</span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.14em]">—</span>
+        <span className="font-display text-[22px] leading-none lg:text-[24px]">&nbsp;</span>
+        <span className="font-mono text-[10px] uppercase tracking-[0.14em]">&nbsp;</span>
       </div>
     );
   }
